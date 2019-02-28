@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1zT-W2-2id">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="fGL-do-TIy">
+            <objects>
+                <viewController storyboardIdentifier="MenuVC" id="8xO-07-Wuq" customClass="ViewController" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Waw-YS-hE0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZZL-6E-ZuY">
+                                <rect key="frame" x="16" y="61" width="343" height="707"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2cv-eU-Yel">
+                                    <size key="itemSize" width="301.5" height="225"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DishCell" id="Z3D-jP-aM8" customClass="DishCollectionViewCell" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="20.666666666666668" y="0.0" width="301.5" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="301.5" height="225"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-zN-7th" userLabel="Dish Image">
+                                                    <rect key="frame" x="-5" y="0.0" width="312" height="225"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3oR-bc-56W" userLabel="Red Activity Indicator">
+                                                    <rect key="frame" x="132.33333333333334" y="94" width="37" height="37"/>
+                                                    <color key="color" red="1" green="0.10980392156862745" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUJ-dt-VM6" userLabel="Short Dish Info" customClass="DishCollectionViewCell" customModule="NaRogax" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="125" width="301.66666666666669" height="100"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish short info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWs-d6-ewj" userLabel="Short Dish Info">
+                                                            <rect key="frame" x="16" y="28" width="142.66666666666666" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="1" alpha="0.5989862921779141" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-Re-kxn" userLabel="Dish Price">
+                                                            <rect key="frame" x="16" y="57.666666666666664" width="138.66666666666666" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRa-6t-FyS" userLabel="Name Dish Label">
+                                                            <rect key="frame" x="16" y="4" width="267.66666666666669" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-P7-nUB" userLabel="Button Dish Detail" customClass="BorderedButton" customModule="NaRogax" customModuleProvider="target">
+                                                            <rect key="frame" x="159.66666666666666" y="41" width="125.99999999999997" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="126" id="2wS-cN-DIy"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Подробнее">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="dishDetailButton:" destination="Z3D-jP-aM8" eventType="touchUpInside" id="U5Q-vL-irk"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="0.70118320079418439" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="hRa-6t-FyS" firstAttribute="top" secondItem="MUJ-dt-VM6" secondAttribute="top" constant="4" id="1g3-Ks-JSO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bcg-Re-kxn" secondAttribute="bottom" constant="22" id="8MF-Ul-3A5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jWs-d6-ewj" secondAttribute="trailing" constant="143" id="CMr-NS-Ygg"/>
+                                                        <constraint firstItem="tuU-P7-nUB" firstAttribute="top" secondItem="MUJ-dt-VM6" secondAttribute="top" constant="41" id="CVV-cl-HRg"/>
+                                                        <constraint firstItem="jWs-d6-ewj" firstAttribute="leading" secondItem="MUJ-dt-VM6" secondAttribute="leading" constant="16" id="L0T-p5-QqM"/>
+                                                        <constraint firstItem="hRa-6t-FyS" firstAttribute="leading" secondItem="MUJ-dt-VM6" secondAttribute="leading" constant="16" id="Nxk-Xw-NQF"/>
+                                                        <constraint firstItem="jWs-d6-ewj" firstAttribute="top" secondItem="hRa-6t-FyS" secondAttribute="bottom" constant="4" id="WDn-1p-rn8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="tuU-P7-nUB" secondAttribute="bottom" constant="17" id="bP3-zQ-6F9"/>
+                                                        <constraint firstItem="bcg-Re-kxn" firstAttribute="leading" secondItem="MUJ-dt-VM6" secondAttribute="leading" constant="16" id="gSN-dC-eJE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tuU-P7-nUB" secondAttribute="trailing" constant="16" id="oFR-M0-Th1"/>
+                                                        <constraint firstItem="tuU-P7-nUB" firstAttribute="leading" secondItem="bcg-Re-kxn" secondAttribute="trailing" constant="5" id="pxE-yg-AGv"/>
+                                                        <constraint firstAttribute="height" constant="100" id="rGe-g0-Tkz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hRa-6t-FyS" secondAttribute="trailing" constant="18" id="zOZ-Og-fSx"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="j2t-zN-7th" secondAttribute="trailing" constant="-5.5" id="B3P-UM-sA4"/>
+                                            <constraint firstItem="3oR-bc-56W" firstAttribute="centerY" secondItem="Z3D-jP-aM8" secondAttribute="centerY" id="Bvi-dy-fZA"/>
+                                            <constraint firstAttribute="trailing" secondItem="MUJ-dt-VM6" secondAttribute="trailing" id="N9a-jL-STo"/>
+                                            <constraint firstAttribute="bottom" secondItem="j2t-zN-7th" secondAttribute="bottom" id="OUi-Cs-xqF"/>
+                                            <constraint firstItem="j2t-zN-7th" firstAttribute="top" secondItem="Z3D-jP-aM8" secondAttribute="top" id="boI-sS-0oA"/>
+                                            <constraint firstAttribute="bottom" secondItem="MUJ-dt-VM6" secondAttribute="bottom" id="bq5-FL-dTN"/>
+                                            <constraint firstItem="3oR-bc-56W" firstAttribute="centerX" secondItem="Z3D-jP-aM8" secondAttribute="centerX" id="ldp-OY-jkq"/>
+                                            <constraint firstItem="MUJ-dt-VM6" firstAttribute="leading" secondItem="Z3D-jP-aM8" secondAttribute="leading" id="lu4-eV-SAc"/>
+                                            <constraint firstItem="j2t-zN-7th" firstAttribute="leading" secondItem="Z3D-jP-aM8" secondAttribute="leading" constant="-5" id="y6e-vw-Mg1"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dishImage" destination="j2t-zN-7th" id="gfU-ui-VZC"/>
+                                            <outlet property="dishNameLabel" destination="hRa-6t-FyS" id="Kxh-Xa-iZj"/>
+                                            <outlet property="dishPrice" destination="bcg-Re-kxn" id="o9V-QJ-ffU"/>
+                                            <outlet property="shortDishDescription" destination="jWs-d6-ewj" id="T5D-7U-YPU"/>
+                                            <outlet property="spinner" destination="3oR-bc-56W" id="JNj-Zr-QPM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8xO-07-Wuq" id="uE5-tT-8ep"/>
+                                    <outlet property="delegate" destination="8xO-07-Wuq" id="dzF-ct-cNG"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZZL-6E-ZuY" firstAttribute="leading" secondItem="UHJ-jW-8Ib" secondAttribute="leading" constant="16" id="6WH-gr-P4r"/>
+                            <constraint firstItem="UHJ-jW-8Ib" firstAttribute="bottom" secondItem="ZZL-6E-ZuY" secondAttribute="bottom" constant="10" id="KxH-h4-exY"/>
+                            <constraint firstItem="ZZL-6E-ZuY" firstAttribute="top" secondItem="UHJ-jW-8Ib" secondAttribute="top" constant="17" id="Mpb-e3-kuL"/>
+                            <constraint firstItem="UHJ-jW-8Ib" firstAttribute="trailing" secondItem="ZZL-6E-ZuY" secondAttribute="trailing" constant="16" id="b5s-An-BVg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UHJ-jW-8Ib"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zJM-s7-Fvq"/>
+                    <connections>
+                        <outlet property="dishCollectionView" destination="ZZL-6E-ZuY" id="HqB-Nu-xS8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjy-CA-Xad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562.5" y="-399.29577464788736"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4no-jA-Wnu">
+            <objects>
+                <navigationController id="1zT-W2-2id" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="hHg-ce-AIq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="xKx-Nc-tgv">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dXI-yF-zkf" kind="relationship" relationship="rootViewController" id="1Li-Av-9gk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kT5-vo-wWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1551" y="-398"/>
+        </scene>
+        <!--Меню-->
+        <scene sceneID="NuC-6x-jTL">
+            <objects>
+                <viewController storyboardIdentifier="TabsViewController" id="dXI-yF-zkf" customClass="TabsVC" customModule="NaRogax" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uWa-Sm-H6m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEh-WQ-JHf" customClass="MenuTabsView" customModule="NaRogax" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="EJm-nq-sMm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FEh-WQ-JHf" firstAttribute="trailing" secondItem="6Rs-dB-4YU" secondAttribute="trailing" id="aEx-VW-YV8"/>
+                            <constraint firstItem="FEh-WQ-JHf" firstAttribute="top" secondItem="6Rs-dB-4YU" secondAttribute="top" id="aQk-4J-SQ2"/>
+                            <constraint firstItem="FEh-WQ-JHf" firstAttribute="leading" secondItem="6Rs-dB-4YU" secondAttribute="leading" id="mWx-mO-5re"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Rs-dB-4YU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Меню" id="LOF-Km-RI7"/>
+                    <connections>
+                        <outlet property="menuBarView" destination="FEh-WQ-JHf" id="RD9-eO-eoX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="801-x6-IGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-855" y="-398"/>
+        </scene>
+        <!--Page ControllerVC-->
+        <scene sceneID="Cj3-g7-bKk">
+            <objects>
+                <pageViewController storyboardIdentifier="PageControllerVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Izf-eE-RzL" customClass="PageControllerVC" customModule="NaRogax" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tbx-cS-ELN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-138" y="-398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="no_image" width="1500" height="988"/>
+    </resources>
+</document>
