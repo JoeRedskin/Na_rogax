@@ -15,14 +15,14 @@ class TabsVC: UIViewController {
     var tabs: [String] = []
     var pageController: UIPageViewController!
     
-    var newTabs: [Categotries] = []
+    var newTabs: [DishesList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataLoader = DataLoader()
-        dataLoader.getDishCategories{items in self.newTabs.append(contentsOf: items)
+        dataLoader.getDishes(){items in self.newTabs.append(contentsOf: items)
             for tab in self.newTabs[0].categories{
-                self.tabs += [tab.name]
+                self.tabs += [tab.cat_name]
             }
                 self.menuBarView.dataArray = self.tabs
                 self.menuBarView.isSizeToFitCellsNeeded = true

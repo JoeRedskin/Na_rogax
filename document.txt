@@ -3,7 +3,7 @@
 {
 "category_id": 1,
 "category_name": "Салаты",
-"dishes": [
+"category_dishes": [
 {
 "item_id": 12,
 "class_name": "Салаты",

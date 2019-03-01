@@ -39,12 +39,12 @@ struct DishesList: Decodable{
 struct Categories: Decodable {
     var cat_id: Int
     var cat_name: String
-    var dishes: [DishDescription]
+    var cat_dishes: [DishDescription]
     
     enum CodingKeys: String, CodingKey{
-        case cat_id = "categories_id"
-        case cat_name = "categories_name"
-        case dishes
+        case cat_id = "category_id"
+        case cat_name = "category_name"
+        case cat_dishes = "category_dishes"
     }
 }
 
