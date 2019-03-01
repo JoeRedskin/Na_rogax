@@ -27,24 +27,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             return 0
         }
         else{
-            return dishes[0].categories[0].dishes.count
+            return dishes[0].categories[pageIndex].cat_dishes.count
         }
     }
 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DishCell", for: indexPath) as! DishCollectionViewCell
-//        print("****************")
-//        print(indexPath.row)
-//        print("****************")        
-            cell.displayDish(dish: dishes[0].categories[pageIndex].dishes[indexPath.row])
+        print("****************")
+        print(indexPath.row)
+        print("****************")
+            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-        vc.dishFull = dishes[0].categories[0].dishes
+        vc.dishFull = dishes[0].categories[pageIndex].cat_dishes
         vc.indexOfDish = indexPath.row
 
         navigationController?.pushViewController(vc, animated: true)
