@@ -61,7 +61,6 @@ class TabsVC: UIViewController {
         
         menuVC.pageIndex = index
         currentIndex = index
-        menuVC.pageName = tabs[index]
         return menuVC
     }
 }

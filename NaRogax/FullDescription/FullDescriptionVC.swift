@@ -71,10 +71,6 @@ class FullDescriptionVC: UIViewController {
         
         fetchImage(url_img: menu.photo)
         
-//        if let img = try? Data(contentsOf: URL(string: menu.photo)!){
-//            imageField.image = UIImage(data: img)
-//        }
-        
     }
     
     func fetchImage(url_img: String) {

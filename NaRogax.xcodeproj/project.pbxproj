@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
+		CE8958AF22292741003CE9D1 /* ToppingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958AE22292741003CE9D1 /* ToppingCollectionViewCell.swift */; };
+		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
+		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
 		CE901948221D904100BA1B47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901947221D904100BA1B47 /* ViewController.swift */; };
 		CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE90194C221D904200BA1B47 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
+		CE8958AE22292741003CE9D1 /* ToppingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
+		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE901945221D904100BA1B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE901947221D904100BA1B47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -89,7 +95,10 @@
 				CED522842228365A0069DBDA /* document.txt */,
 				CEAEE92522200BF7000AF395 /* DisherList.swift */,
 				CE96F24A221EDAEB002EAD2D /* DishCollectionViewCell.swift */,
+				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
 				CEF692E422274AC9000F3307 /* Main.storyboard */,
+				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
+				CE8958AE22292741003CE9D1 /* ToppingCollectionViewCell.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
 				CE901951221D904200BA1B47 /* Info.plist */,
@@ -204,9 +213,12 @@
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
+				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
+				CE8958AF22292741003CE9D1 /* ToppingCollectionViewCell.swift in Sources */,
 				CEF5B8F82224B19800DE4E06 /* FullDescription.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
+				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
 			);

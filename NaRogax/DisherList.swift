@@ -8,24 +8,24 @@
 import Foundation
 import UIKit
 
-struct Categotries: Decodable{
- let categories: [DishCategory]
- 
- enum CodingKeys: String, CodingKey {
-    case categories
- }
-}
-
-struct DishCategory: Codable {
-    
-     enum CodingKeys: String, CodingKey{
-         case classId = "class_id"
-         case name = "name"
-     }
-     var classId: Int = 0
-     var name: String = ""
-    
-}
+//struct Categotries: Decodable{
+// let categories: [DishCategory]
+//
+// enum CodingKeys: String, CodingKey {
+//    case categories
+// }
+//}
+//
+//struct DishCategory: Codable {
+//
+//     enum CodingKeys: String, CodingKey{
+//         case classId = "class_id"
+//         case name = "name"
+//     }
+//     var classId: Int = 0
+//     var name: String = ""
+//
+//}
 
 struct DishesList: Decodable{
     
