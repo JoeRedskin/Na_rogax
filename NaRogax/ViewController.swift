@@ -8,12 +8,9 @@
 
 import UIKit
 
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var DishTableView: UITableView!
-    
-    //@IBOutlet weak var dishCollectionView: UICollectionView!
     
     var pageIndex: Int = 0
     var dishes: [DishesList] = []
@@ -24,17 +21,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if dishes.count == 0{
-            print(dishes.count)
+            //print(dishes.count)
             return 0
         }
         else{
-            print(dishes[0].categories[pageIndex].cat_dishes.count)
+            //print(dishes[0].categories[pageIndex].cat_dishes.count)
             return dishes[0].categories[pageIndex].cat_dishes.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if pageIndex == 5 || pageIndex == 4{
+        if dishes[0].categories[pageIndex].cat_name == "Топинги" || dishes[0].categories[pageIndex].cat_name == "Напитки"{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ToppingCell", for: indexPath)
                 as! ToppingTableViewCell
             cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
@@ -51,12 +48,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-        vc.dishFull = dishes[0].categories[pageIndex].cat_dishes
-        vc.indexOfDish = indexPath.row
         
-        navigationController?.pushViewController(vc, animated: true)
+        if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
+            let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+            vc.dishFull = dishes
+            vc.indexOfDish = indexPath.row
+            vc.indexOfCategory = indexPath.row
+        
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     override func viewDidLoad() {

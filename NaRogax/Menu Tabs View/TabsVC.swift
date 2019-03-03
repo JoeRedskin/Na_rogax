@@ -40,9 +40,9 @@ class TabsVC: UIViewController {
         }
     }
     
-    func getTabName(i: Int) -> String {
-        return tabs[i]
-    }
+//    func getTabName(i: Int) -> String {
+//        return tabs[i]
+//    }
     
     func presentPageVCOnView() {
         

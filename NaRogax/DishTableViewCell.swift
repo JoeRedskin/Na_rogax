@@ -16,6 +16,8 @@ class DishTableViewCell: UITableViewCell {
     @IBOutlet weak var dishShortInfo: UILabel!
     @IBOutlet weak var dishPrice: UILabel!
     
+    @IBOutlet weak var dishGradient: UIView!
+    @IBOutlet weak var dishButton: BorderedLabel!
     
     func displayDish(dish: DishDescription){
         
@@ -32,7 +34,7 @@ class DishTableViewCell: UITableViewCell {
         }
         
         if dish.price == nil{
-            dishPrice.text = "--- р"
+            dishPrice.text = "⏤ р"
         } else {
             dishPrice.text = String(dish.price!) + " р"
         }

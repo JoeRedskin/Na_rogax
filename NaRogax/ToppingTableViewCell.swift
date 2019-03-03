@@ -24,14 +24,14 @@ class ToppingTableViewCell: UITableViewCell {
             topName.text = dish.name
         }
         
-        if dish.weight == nil{
+        if dish.weight == ""{
             topWeight.isHidden = true
         } else {
-            topWeight.text = String(dish.weight!) + " г"
+            topWeight.text = dish.weight + " г"
         }
         
         if dish.price == nil{
-            topPrice.text = "--- р"
+            topPrice.text = "⏤ р"
         } else {
             topPrice.text = String(dish.price!) + " р"
         }
