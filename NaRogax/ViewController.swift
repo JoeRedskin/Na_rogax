@@ -62,12 +62,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataLoader = DataLoader()
-        dataLoader.getDishes{ items in self.dishes.append(contentsOf: items)
-            self.DishTableView.reloadData()
-            
+        if (!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let dataLoader = DataLoader()
+            dataLoader.getDishes{ items in self.dishes.append(contentsOf: items)
+                self.DishTableView.reloadData()
+            }
         }
     }
-
 }
-

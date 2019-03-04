@@ -183,11 +183,6 @@
                                                     <constraint firstItem="23u-R9-fL6" firstAttribute="leading" secondItem="tiA-E5-oeM" secondAttribute="leading" constant="8" id="zBb-H2-EOd"/>
                                                     <constraint firstItem="7dK-0q-ea4" firstAttribute="top" secondItem="Te9-j7-uF1" secondAttribute="bottom" constant="7" id="zu9-cs-S2p"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layout.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="recImage" destination="JaR-Ux-s7t" id="vnz-aQ-Ouc"/>
                                                     <outlet property="recName" destination="Te9-j7-uF1" id="xhJ-Nn-QM7"/>

@@ -24,6 +24,7 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         GetValuesInView(menu: dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish])
+        recStringToMassive()
         RecomendedCollectionView.reloadData()
     }
 
@@ -38,6 +39,7 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     var dishFull: [DishesList] = []
     var indexOfDish = 0
     var indexOfCategory = 0
+    var recDish: [String] = []
     
     func GetValuesInView(menu: DishDescription){
         
@@ -84,16 +86,55 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
         }
     }
     
+    func recStringToMassive(){
+        if let recDishString = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
+            print(recDishString)
+            var str = ""
+            for index in recDishString.indices{
+                if (recDishString[index] >= "0" && recDishString[index] <= "9") {
+                    str += String(recDishString[index])
+                    if index.encodedOffset == recDishString.count-1{
+                       // print(str)
+                        recDish.append(str)
+                        //print(recDish)
+                        str = ""
+                        break;
+                    }
+                } else {
+                    //print(str)
+                    recDish.append(str)
+                    //
+                    str = ""
+                }
+            }
+        }
+    }
+    
+    func findRecDish(topping: Int) -> DishDescription{
+        //print(topping)
+        var rightDish = DishDescription()
+        for category in dishFull[0].categories{
+            //print(category.cat_name)
+            if category.cat_name == "Топинги" || category.cat_name == "Напитки"{
+                for dish in category.cat_dishes{
+                    if dish.itemId == topping{
+                        rightDish = dish
+                    }
+                }
+            }
+        }
+        return rightDish
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! FullDescCViCell
-        if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith != nil{
-            //TODO: сделать поиск рекомендованных блюд и вывод инфы
-        }
-        
+        //print(recDish)
+
+        cell.displayDish(dish: findRecDish(topping: Int(recDish[indexPath.row])!))
         return cell
     }
     
