@@ -40,9 +40,9 @@ class TabsVC: UIViewController {
         }
     }
     
-    func getTabName(i: Int) -> String {
-        return tabs[i]
-    }
+//    func getTabName(i: Int) -> String {
+//        return tabs[i]
+//    }
     
     func presentPageVCOnView() {
         
@@ -61,7 +61,6 @@ class TabsVC: UIViewController {
         
         menuVC.pageIndex = index
         currentIndex = index
-        menuVC.pageName = tabs[index]
         return menuVC
     }
 }

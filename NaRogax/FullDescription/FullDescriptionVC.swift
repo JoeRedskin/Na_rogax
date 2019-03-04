@@ -6,30 +6,26 @@
 //  Copyright © 2019 Zappa. All rights reserved.
 //
 
-//TODO:
-//2 Алерт проверки данных
-//3 общий спиннер
-//4 спиннер на картинку
-//8 после скролла должна оставаться позиция в main screen
-//9 скрытие навбара при скролле вниз/ появление при скролле вверх
-//10 соединить с рабочим main screen
-
-
 import UIKit
 
-class FullDescriptionVC: UIViewController {
+class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBOutlet weak var RecomendedCollectionView: UICollectionView!
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.hidesBarsOnSwipe = false
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        navigationController?.hidesBarsOnSwipe = false
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GetValuesInView(menu: dishFull[indexOfDish])
+        GetValuesInView(menu: dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish])
+        recStringToMassive()
+        RecomendedCollectionView.reloadData()
     }
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -40,8 +36,10 @@ class FullDescriptionVC: UIViewController {
     @IBOutlet weak var weightField: UILabel!
     @IBOutlet weak var priceField: UILabel!
     
-    var dishFull: [DishDescription] = []
+    var dishFull: [DishesList] = []
     var indexOfDish = 0
+    var indexOfCategory = 0
+    var recDish: [String] = []
     
     func GetValuesInView(menu: DishDescription){
         
@@ -57,23 +55,19 @@ class FullDescriptionVC: UIViewController {
             desc_longField.text = menu.longDescription
         }
         
-        if menu.weight == nil{
+        if menu.weight == ""{
              weightField.isHidden = true
         } else {
-            weightField.text = String(menu.weight!)+" г"
+            weightField.text = menu.weight + " г"
         }
         
         if menu.price == nil{
-            priceField.text = "--- р"
+            priceField.text = "⏤ р"
         } else {
             priceField.text = String(menu.price!)+" р"
         }
         
         fetchImage(url_img: menu.photo)
-        
-//        if let img = try? Data(contentsOf: URL(string: menu.photo)!){
-//            imageField.image = UIImage(data: img)
-//        }
         
     }
     
@@ -92,23 +86,57 @@ class FullDescriptionVC: UIViewController {
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if dishes[0].menu.count != nil{
-//            return dishes[0].menu.count
-//        } else {
-//            return 0
-//        }
-//    }
-//    @IBOutlet weak var collectionView: UICollectionView!
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rec_dish", for: indexPath)
-//        if let contenCell = cell as? FullDescCViCell{
-//            if dishes[0].menu[indexPath.row].name != ""{
-//                contenCell.rec_name.text = dishes[0].menu[indexPath.row].name
-//            }
-//        }
-//        return cell
-//    }
+    func recStringToMassive(){
+        if let recDishString = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
+            print(recDishString)
+            var str = ""
+            for index in recDishString.indices{
+                if (recDishString[index] >= "0" && recDishString[index] <= "9") {
+                    str += String(recDishString[index])
+                    if index.encodedOffset == recDishString.count-1{
+                       // print(str)
+                        recDish.append(str)
+                        //print(recDish)
+                        str = ""
+                        break;
+                    }
+                } else {
+                    //print(str)
+                    recDish.append(str)
+                    //
+                    str = ""
+                }
+            }
+        }
+    }
+    
+    func findRecDish(topping: Int) -> DishDescription{
+        //print(topping)
+        var rightDish = DishDescription()
+        for category in dishFull[0].categories{
+            //print(category.cat_name)
+            if category.cat_name == "Топинги" || category.cat_name == "Напитки"{
+                for dish in category.cat_dishes{
+                    if dish.itemId == topping{
+                        rightDish = dish
+                    }
+                }
+            }
+        }
+        return rightDish
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! FullDescCViCell
+        //print(recDish)
+
+        cell.displayDish(dish: findRecDish(topping: Int(recDish[indexPath.row])!))
+        return cell
+    }
+    
 }
 

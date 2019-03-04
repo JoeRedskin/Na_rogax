@@ -8,25 +8,6 @@
 import Foundation
 import UIKit
 
-struct Categotries: Decodable{
- let categories: [DishCategory]
- 
- enum CodingKeys: String, CodingKey {
-    case categories
- }
-}
-
-struct DishCategory: Codable {
-    
-     enum CodingKeys: String, CodingKey{
-         case classId = "class_id"
-         case name = "name"
-     }
-     var classId: Int = 0
-     var name: String = ""
-    
-}
-
 struct DishesList: Decodable{
     
     let categories: [Categories]
@@ -69,8 +50,8 @@ struct DishDescription: Decodable {
     var photo: String = ""
     var shortDescription: String = ""
     var longDescription: String = ""
-    var weight: Int? = 0
-    var recommendedWith: String? = ""
+    var weight: String = ""
+    var recommendedWith: String?
     
 }
 

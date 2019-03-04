@@ -27,7 +27,7 @@ class MenuTabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let cv = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layOut)
         cv.showsHorizontalScrollIndicator = false
         layOut.scrollDirection = .horizontal
-        cv.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        cv.backgroundColor = #colorLiteral(red: 0.08744505793, green: 0.07686629146, blue: 0.08214401454, alpha: 1)
         cv.delegate = self
         cv.dataSource = self
         return cv

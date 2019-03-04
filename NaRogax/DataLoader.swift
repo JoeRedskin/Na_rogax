@@ -11,35 +11,35 @@ import Foundation
 class DataLoader{
     
 
-     func getDishCategories(completion: @escaping ([Categotries]) -> ()) {
-        var categories = [Categotries]()
-         guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/get_classes") else {return}
-         let task = URLSession.shared.dataTask(with: dishCategoryURL){ (data, response, error) -> Void in
-             guard let dataResponse = data,
-                error == nil else{
-                    print(error?.localizedDescription ?? "Response Error")
-                    return}
-             do{
-                 let categoriesResponse = try JSONDecoder().decode(Categotries.self, from: dataResponse)
-                 categories.append(categoriesResponse)
-                 print (categoriesResponse)
-             } catch let parsingError {
-                print("Error:", parsingError)
-             }
-            OperationQueue.main.addOperation {
-                completion(categories)
-            }
-         }
-         task.resume()
-     }
+//     func getDishCategories(completion: @escaping ([Categotries]) -> ()) {
+//        var categories = [Categotries]()
+//         guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/get_classes") else {return}
+//         let task = URLSession.shared.dataTask(with: dishCategoryURL){ (data, response, error) -> Void in
+//             guard let dataResponse = data,
+//                error == nil else{
+//                    print(error?.localizedDescription ?? "Response Error")
+//                    return}
+//             do{
+//                 let categoriesResponse = try JSONDecoder().decode(Categotries.self, from: dataResponse)
+//                 categories.append(categoriesResponse)
+//                 print (categoriesResponse)
+//             } catch let parsingError {
+//                print("Error:", parsingError)
+//             }
+//            OperationQueue.main.addOperation {
+//                completion(categories)
+//            }
+//         }
+//         task.resume()
+//     }
     
     func getDishes(completion: @escaping ([DishesList]) -> ()){
         
         var dishes = [DishesList]()
         //TO DO: edit link. Put pageIdvalue  instead of categoryId.
         
-        let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")
-        let task = URLSession.shared.dataTask(with: dishCategoryURL!){  (data, response, error) -> Void in
+        guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/get_menu_by_classes") else {return}
+        let task = URLSession.shared.dataTask(with: dishCategoryURL){  (data, response, error) -> Void in
             guard let dataResponse = data,
                 error == nil else{
                     print(error?.localizedDescription ?? "Response Error")
@@ -48,7 +48,7 @@ class DataLoader{
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(DishesList.self, from: dataResponse)
                 dishes.append(model)
-                print(model)
+                //print(model)
             } catch let parsingError {
                 print("Error", parsingError)
             }
