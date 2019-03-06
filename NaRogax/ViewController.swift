@@ -49,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
             
             
+            
             return cell
         }
     }
