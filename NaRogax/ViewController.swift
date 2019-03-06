@@ -48,7 +48,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        /*
+         If no internet connection when select dish from table view, show alert
+         */
         if (!Reachability.isConnectedToNetwork()){
             let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
@@ -70,6 +72,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+         If no internet connection when view did load, show alert and reload view
+         */
         if (!Reachability.isConnectedToNetwork()){
             let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
@@ -80,6 +85,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let dataLoader = DataLoader()
             dataLoader.getDishes{ items in self.dishes.append(contentsOf: items)
                 self.DishTableView.reloadData()
+
+                /*
+                 If no dishes from server show alert and reload view
+                 */
+                if (self.dishes.count) < 1 {
+                    let alert = UIAlertController(title: "", message: "К сожалению мы не смогли загрузить блюда, попробуйте позже", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
+                        self.reloadViewFromNib()
+                    }))
+                    DispatchQueue.main.async(execute: {
+                        self.present(alert, animated: true, completion: nil)
+                    })
+                }
             }
         }
     }
