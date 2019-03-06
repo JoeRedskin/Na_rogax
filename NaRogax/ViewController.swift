@@ -72,6 +72,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        /* Disable streching on table view */
+        DishTableView.bounces = false
+        DishTableView.alwaysBounceVertical = false
         /*
          If no internet connection when view did load, show alert and reload view
          */
