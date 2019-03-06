@@ -30,13 +30,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="waj-pJ-bPa" userLabel="Dish Image">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="225.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="225"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="waj-pJ-bPa" secondAttribute="height" multiplier="49:32" constant="-1.53125" id="zwO-wN-E6A"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bw-X8-6XJ" userLabel="Short Dish Info">
-                                                    <rect key="frame" x="0.0" y="125.5" width="343" height="100"/>
+                                                    <rect key="frame" x="0.0" y="125" width="343" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish short info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVM-dY-tBP" userLabel="Short Dish Info">
                                                             <rect key="frame" x="16" y="28" width="89" height="16"/>
@@ -81,7 +81,7 @@
                                                     </constraints>
                                                 </view>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oll-99-gty" userLabel="Red Activity Indicator">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="225.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="225"/>
                                                     <color key="color" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -101,7 +101,7 @@
                                                 <constraint firstItem="oll-99-gty" firstAttribute="top" secondItem="S6H-yP-DmC" secondAttribute="top" id="q2g-Cg-Zdh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.086274509803921567" green="0.078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="dishGradient" destination="5bw-X8-6XJ" id="p2T-kj-evq"/>
                                             <outlet property="dishImage" destination="waj-pJ-bPa" id="M7g-W2-0BW"/>
@@ -135,7 +135,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg2-DI-2TN">
-                                                    <rect key="frame" x="132" y="23" width="142" height="21.5"/>
+                                                    <rect key="frame" x="132" y="23" width="142" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="142" id="ahY-MI-r1o"/>
                                                     </constraints>
@@ -150,7 +150,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnS-ob-byl">
-                                                    <rect key="frame" x="132" y="53.5" width="38" height="18"/>
+                                                    <rect key="frame" x="132" y="53" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -197,7 +197,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.087445057928562164" green="0.076866291463375092" blue="0.082144014537334442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ekF-ZQ-lwh" firstAttribute="leading" secondItem="Uvw-4i-U8J" secondAttribute="leading" constant="16" id="1TG-VL-leR"/>
