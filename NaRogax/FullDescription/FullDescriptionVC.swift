@@ -12,8 +12,6 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     
     @IBOutlet weak var RecomendedCollectionView: UICollectionView!
     
-    
-    
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //
@@ -88,7 +86,7 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     
     func recStringToMassive(){
         if let recDishString = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
-            print(recDishString)
+            //print(recDishString)
             var str = ""
             for index in recDishString.indices{
                 if (recDishString[index] >= "0" && recDishString[index] <= "9") {
@@ -133,7 +131,9 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! FullDescCViCell
         //print(recDish)
-
+        cell.layer.cornerRadius = 10
+        cell.clipsToBounds = true
+        
         cell.displayDish(dish: findRecDish(topping: Int(recDish[indexPath.row])!))
         return cell
     }

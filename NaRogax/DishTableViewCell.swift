@@ -19,6 +19,8 @@ class DishTableViewCell: UITableViewCell {
     @IBOutlet weak var dishGradient: UIView!
     @IBOutlet weak var dishButton: BorderedLabel!
     
+    
+    
     func displayDish(dish: DishDescription){
         
         if dish.name == ""{
