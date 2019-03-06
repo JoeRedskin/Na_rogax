@@ -49,14 +49,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
-            let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-            vc.dishFull = dishes
-            vc.indexOfDish = indexPath.row
-            vc.indexOfCategory = indexPath.row
+        if (!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true, completion: nil)
+            })
+        } else {
+            if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
+                let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.row
+                vc.indexOfCategory = indexPath.row
         
-            navigationController?.pushViewController(vc, animated: true)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 
@@ -64,7 +72,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         if (!Reachability.isConnectedToNetwork()){
             let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
+                self.reloadViewFromNib()
+            }))
             self.present(alert, animated: true, completion: nil)
         } else {
             let dataLoader = DataLoader()
@@ -72,5 +82,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.DishTableView.reloadData()
             }
         }
+    }
+    
+    /*
+     Reload view. If user tap ok button on alert with bad internet connection.
+     */
+    func reloadViewFromNib() {
+        self.viewDidLoad()
     }
 }

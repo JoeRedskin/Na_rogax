@@ -53,10 +53,7 @@ class TabsVC: UIViewController {
      Reload view. If user tap ok button on alert with bad internet connection.
      */
     func reloadViewFromNib() {
-        let parent = view.superview
-        view.removeFromSuperview()
-        view = nil
-        parent?.addSubview(view)
+        self.viewDidLoad()
     }
     
 //    func getTabName(i: Int) -> String {
