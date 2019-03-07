@@ -154,13 +154,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="50 р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23u-R9-fL6">
-                                                            <rect key="frame" x="8" y="150.5" width="35" height="21"/>
+                                                            <rect key="frame" x="8" y="156.5" width="35" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вкусно" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-an-ZaW" customClass="BorderedLabel" customModule="NaRogax" customModuleProvider="target">
-                                                            <rect key="frame" x="45" y="147.5" width="98" height="27"/>
+                                                            <rect key="frame" x="45" y="154" width="98" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -171,7 +171,7 @@
                                                     <constraint firstItem="2qh-an-ZaW" firstAttribute="centerY" secondItem="23u-R9-fL6" secondAttribute="centerY" id="8yF-v2-DKN"/>
                                                     <constraint firstItem="Te9-j7-uF1" firstAttribute="top" secondItem="JaR-Ux-s7t" secondAttribute="bottom" constant="6" id="DW2-h0-UJI"/>
                                                     <constraint firstItem="Te9-j7-uF1" firstAttribute="leading" secondItem="tiA-E5-oeM" secondAttribute="leading" constant="8" id="Gx6-mW-5CG"/>
-                                                    <constraint firstItem="2qh-an-ZaW" firstAttribute="top" secondItem="7dK-0q-ea4" secondAttribute="bottom" constant="7" id="KO3-UT-hgX"/>
+                                                    <constraint firstItem="2qh-an-ZaW" firstAttribute="bottom" secondItem="dA0-YR-HO6" secondAttribute="bottom" constant="-16" id="KO3-UT-hgX"/>
                                                     <constraint firstItem="JaR-Ux-s7t" firstAttribute="top" secondItem="tiA-E5-oeM" secondAttribute="top" id="PIB-g5-a2w"/>
                                                     <constraint firstItem="JaR-Ux-s7t" firstAttribute="leading" secondItem="tiA-E5-oeM" secondAttribute="leading" id="U7e-IO-6eb"/>
                                                     <constraint firstItem="dA0-YR-HO6" firstAttribute="top" secondItem="JaR-Ux-s7t" secondAttribute="bottom" id="Vvc-wu-9Fh"/>
@@ -181,7 +181,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="7dK-0q-ea4" secondAttribute="trailing" constant="8" id="fJw-7D-hGc"/>
                                                     <constraint firstAttribute="trailing" secondItem="2qh-an-ZaW" secondAttribute="trailing" constant="9" id="i1I-iw-luc"/>
                                                     <constraint firstItem="7dK-0q-ea4" firstAttribute="leading" secondItem="tiA-E5-oeM" secondAttribute="leading" constant="8" id="jtQ-eT-G4k"/>
-                                                    <constraint firstItem="23u-R9-fL6" firstAttribute="top" secondItem="7dK-0q-ea4" secondAttribute="bottom" constant="10" id="t9n-uA-StA"/>
+                                                    <constraint firstItem="23u-R9-fL6" firstAttribute="bottom" secondItem="dA0-YR-HO6" secondAttribute="bottom" constant="-18.5" id="t9n-uA-StA"/>
                                                     <constraint firstItem="2qh-an-ZaW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="23u-R9-fL6" secondAttribute="trailing" constant="2" id="v2H-7E-0dF"/>
                                                     <constraint firstItem="dA0-YR-HO6" firstAttribute="leading" secondItem="tiA-E5-oeM" secondAttribute="leading" id="xFP-KC-BIS"/>
                                                     <constraint firstAttribute="trailing" secondItem="dA0-YR-HO6" secondAttribute="trailing" id="xLN-zU-orw"/>
