@@ -75,7 +75,7 @@ extension KingfisherWrapper where Base: ImageView {
     @discardableResult
     public func setImage(
         with source: Source?,
-        placeholder: Placeholder? = nil,
+        placeholder: Placeholder? = UIImage(named: "no_image"),
         options: KingfisherOptionsInfo? = nil,
         progressBlock: DownloadProgressBlock? = nil,
         completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) -> DownloadTask?
@@ -178,7 +178,7 @@ extension KingfisherWrapper where Base: ImageView {
     @discardableResult
     public func setImage(
         with resource: Resource?,
-        placeholder: Placeholder? = nil,
+        placeholder: Placeholder? = UIImage(named: "no_image"),
         options: KingfisherOptionsInfo? = nil,
         progressBlock: DownloadProgressBlock? = nil,
         completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) -> DownloadTask?

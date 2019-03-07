@@ -55,6 +55,7 @@ class DishTableViewCell: UITableViewCell {
             dishSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 DispatchQueue.main.async {
+//                    dishImage.kf.placeholder = Placeholder.add(to: UIImage(named: "no_image"))
                     self?.dishImage.kf.setImage(with: url)
                     self?.dishSpinner.stopAnimating()
                 }
