@@ -19,11 +19,18 @@ class TabsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataLoader = DataLoader()
-        dataLoader.getDishes(){items in self.newTabs.append(contentsOf: items)
-            for tab in self.newTabs[0].categories{
-                self.tabs += [tab.cat_name]
-            }
+        if (!Reachability.isConnectedToNetwork()) {
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
+                self.reloadViewFromNib()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let dataLoader = DataLoader()
+            dataLoader.getDishes(){items in self.newTabs.append(contentsOf: items)
+                for tab in self.newTabs[0].categories{
+                    self.tabs += [tab.cat_name]
+                }
                 self.menuBarView.dataArray = self.tabs
                 self.menuBarView.isSizeToFitCellsNeeded = true
                 
@@ -37,7 +44,16 @@ class TabsVC: UIViewController {
                 self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
                 self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
                 
+            }
         }
+        
+    }
+    
+    /*
+     Reload view. If user tap ok button on alert with bad internet connection.
+     */
+    func reloadViewFromNib() {
+        self.viewDidLoad()
     }
     
 //    func getTabName(i: Int) -> String {
