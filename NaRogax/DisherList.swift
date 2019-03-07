@@ -52,6 +52,6 @@ struct DishDescription: Decodable {
     var longDescription: String = ""
     var weight: String = ""
     var recommendedWith: String?
-    
+
 }
 

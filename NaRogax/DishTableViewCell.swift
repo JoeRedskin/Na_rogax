@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DishTableViewCell: UITableViewCell {
 
@@ -26,6 +27,7 @@ class DishTableViewCell: UITableViewCell {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
     }
+
     
     func displayDish(dish: DishDescription){
         if dish.name == ""{
@@ -58,16 +60,12 @@ class DishTableViewCell: UITableViewCell {
         if let url = URL(string: url_img){
             dishSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
-                    if let imageData = urlContents {
-                        self?.dishImage.image = UIImage(data: imageData)
-                        self?.dishSpinner.stopAnimating()
-                    }
+//                    dishImage.kf.placeholder = Placeholder.add(to: UIImage(named: "no_image"))
+                    self?.dishImage.kf.setImage(with: url)
+                    self?.dishSpinner.stopAnimating()
                 }
             }
         }
     }
-    
-    
 }
