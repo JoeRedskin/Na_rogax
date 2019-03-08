@@ -32,15 +32,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if dishes[0].categories[pageIndex].cat_name == "Топинги" || dishes[0].categories[pageIndex].cat_name == "Напитки"{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ToppingCell", for: indexPath)
-                as! ToppingTableViewCell
-            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
-            
-            return cell
-            
-        } else {
-            
+//        if dishes[0].categories[pageIndex].cat_name == "Топинги" || dishes[0].categories[pageIndex].cat_name == "Напитки"{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ToppingCell", for: indexPath)
+//                as! ToppingTableViewCell
+//            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
+//
+//            return cell
+//
+//        } else {
+        
             let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
             //        print("****************")
             //        print(indexPath.row)
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             return cell
-        }
+        
     }
     
     
@@ -66,13 +66,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.present(alert, animated: true, completion: nil)
             })
         } else {
-            if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
-                let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-                vc.dishFull = dishes
-                vc.indexOfDish = indexPath.row
-                vc.indexOfCategory = indexPath.row
-        
         if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
             let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
@@ -81,7 +74,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vc.indexOfCategory = pageIndex
         
             navigationController?.pushViewController(vc, animated: true)
-            }
         }
     }
 }
@@ -120,6 +112,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    
     
     /*
      Reload view. If user tap ok button on alert with bad internet connection.
