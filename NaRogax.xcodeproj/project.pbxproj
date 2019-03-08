@@ -22,6 +22,8 @@
 		CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96F25E221F3544002EAD2D /* TabsVC.swift */; };
 		CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* DisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
+		CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010D2232C90300361332 /* DrinkPriceCell.swift */; };
+		CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */; };
 		CED522852228365A0069DBDA /* document.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED522842228365A0069DBDA /* document.txt */; };
 		CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */; };
 		CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */; };
@@ -52,6 +54,8 @@
 		CE96F25E221F3544002EAD2D /* TabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsVC.swift; sourceTree = "<group>"; };
 		CEAEE92522200BF7000AF395 /* DisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		CEB4010D2232C90300361332 /* DrinkPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPriceCell.swift; sourceTree = "<group>"; };
+		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.txt; sourceTree = SOURCE_ROOT; };
 		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
 		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */,
 				CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */,
 				CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */,
+				CEB4010D2232C90300361332 /* DrinkPriceCell.swift */,
+				CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */,
 			);
 			path = FullDrinksDescription;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
+				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
@@ -303,6 +310,7 @@
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
+				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
 				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,

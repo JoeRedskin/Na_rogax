@@ -58,11 +58,11 @@
                                         <rect key="frame" x="169" y="125" width="37" height="38"/>
                                         <color key="color" red="1" green="0.14901960780000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-8n-jsX">
-                                        <rect key="frame" x="30" y="314" width="315" height="245"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-8n-jsX">
+                                        <rect key="frame" x="30" y="314" width="315" height="270"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="245" id="4As-rT-4pD"/>
+                                            <constraint firstAttribute="height" constant="270" id="4As-rT-4pD"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkCell" id="HjJ-rT-YOi" customClass="DrinkDescCell" customModule="NaRogax" customModuleProvider="target">
@@ -139,16 +139,57 @@
                                                     <outlet property="stepperCountLabel" destination="5lq-fe-mgq" id="Ajf-fz-Agd"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DPriceCell" id="gAG-Sd-Wnv" customClass="DrinkPriceCell" customModule="NaRogax" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="72" width="315" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gAG-Sd-Wnv" id="Zc9-Lb-Opx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lc-35-j9c">
+                                                            <rect key="frame" x="0.0" y="9" width="64" height="26.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="priceLabel" destination="4lc-35-j9c" id="UaT-Vx-kNw"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DButtonCell" id="lCM-5B-AoX" customClass="DrinkButtonCell" customModule="NaRogax" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="116" width="315" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lCM-5B-AoX" id="f9L-x0-Rja">
+                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL9-Sx-O5j">
+                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="42"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <state key="normal" title="ДОБАВИТЬ В КОРЗИНУ">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="FL9-Sx-O5j" secondAttribute="bottom" constant="2" id="Kak-Eu-fyS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FL9-Sx-O5j" secondAttribute="trailing" id="cM7-5B-Ffe"/>
+                                                        <constraint firstItem="FL9-Sx-O5j" firstAttribute="leading" secondItem="f9L-x0-Rja" secondAttribute="leading" id="tYE-nV-Zat"/>
+                                                        <constraint firstItem="FL9-Sx-O5j" firstAttribute="top" secondItem="f9L-x0-Rja" secondAttribute="top" id="ufl-F5-8bA"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="addToCartBtn" destination="FL9-Sx-O5j" id="JIs-ab-vcZ"/>
+                                                </connections>
+                                            </tableViewCell>
                                         </prototypes>
                                         <sections/>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqB-Lc-dt9">
-                                        <rect key="frame" x="30" y="578" width="64" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vKT-4r-aCt" firstAttribute="centerX" secondItem="hJw-5z-DIf" secondAttribute="centerX" id="012-kC-2lF"/>
@@ -169,7 +210,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.086274509803921567" green="0.078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.082352941176470587" alpha="0.96152463573619629" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hJw-5z-DIf" firstAttribute="leading" secondItem="MOS-SD-y7g" secondAttribute="leading" id="FG9-kF-g6X"/>
                             <constraint firstItem="hJw-5z-DIf" firstAttribute="bottom" secondItem="MOS-SD-y7g" secondAttribute="bottom" constant="132" id="FoU-5n-bAD"/>
