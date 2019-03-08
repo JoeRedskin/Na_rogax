@@ -38,13 +38,15 @@ class DataLoader{
         var dishes = [DishesList]()
         //TO DO: edit link. Put pageIdvalue  instead of categoryId.
         
-        guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/get_menu_by_classes") else {return}
+        let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")!
+        //guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/menu_by_classes") else {return}
         let task = URLSession.shared.dataTask(with: dishCategoryURL){  (data, response, error) -> Void in
             guard let dataResponse = data,
                 error == nil else{
                     print(error?.localizedDescription ?? "Response Error")
                     return}
             do{
+                //print(data)
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(DishesList.self, from: dataResponse)
                 dishes.append(model)

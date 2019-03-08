@@ -23,6 +23,9 @@
 		CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* DisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
 		CED522852228365A0069DBDA /* document.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED522842228365A0069DBDA /* document.txt */; };
+		CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */; };
+		CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */; };
+		CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */; };
 		CEE215F8222D1147000899EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE215F7222D1147000899EF /* Reachability.swift */; };
 		CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */; };
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
@@ -50,6 +53,9 @@
 		CEAEE92522200BF7000AF395 /* DisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.txt; sourceTree = SOURCE_ROOT; };
+		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
+		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
+		CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescCell.swift; sourceTree = "<group>"; };
 		CEE215F7222D1147000899EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedLabel.swift; sourceTree = "<group>"; };
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
@@ -84,7 +90,6 @@
 				DC4E8E9A19A710987DB9142E /* Pods-NaRogax.debug.xcconfig */,
 				4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,6 +114,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CED7C0762231A322009FF75A /* FullDrinksDescription */,
 				CEE215F7222D1147000899EF /* Reachability.swift */,
 				CEF5B8F22224A31000DE4E06 /* FullDescription */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
@@ -138,6 +144,16 @@
 				CE96F25E221F3544002EAD2D /* TabsVC.swift */,
 			);
 			path = "Menu Tabs View";
+			sourceTree = "<group>";
+		};
+		CED7C0762231A322009FF75A /* FullDrinksDescription */ = {
+			isa = PBXGroup;
+			children = (
+				CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */,
+				CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */,
+				CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */,
+			);
+			path = FullDrinksDescription;
 			sourceTree = "<group>";
 		};
 		CEF5B8F22224A31000DE4E06 /* FullDescription */ = {
@@ -214,6 +230,7 @@
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
+				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +296,7 @@
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
+				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
 				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
@@ -287,6 +305,7 @@
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
+				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
