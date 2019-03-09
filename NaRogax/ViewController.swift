@@ -15,11 +15,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var pageIndex: Int = 0
     var dishes: [DishesList] = []
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    let cellSpacingHeight: CGFloat = 20
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if dishes.count == 0{
             //print(dishes.count)
             return 0
@@ -29,7 +27,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return dishes[0].categories[pageIndex].cat_dishes.count
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.clear
+        return footerView
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        if dishes[0].categories[pageIndex].cat_name == "Топинги" || dishes[0].categories[pageIndex].cat_name == "Напитки"{
@@ -46,8 +57,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //        print(indexPath.row)
             //        print("****************")
             //        cell.dishImage.image = UIImage(named: "no_image")
-            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
-            
+            //cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
+            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.section])
             
             
             return cell
@@ -80,6 +91,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DishTableView.delegate = self
+        DishTableView.dataSource = self
         /* Disable streching on table view */
         DishTableView.bounces = false
         DishTableView.alwaysBounceVertical = false

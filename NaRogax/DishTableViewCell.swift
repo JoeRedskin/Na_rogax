@@ -20,15 +20,6 @@ class DishTableViewCell: UITableViewCell {
     @IBOutlet weak var dishGradient: UIView!
     @IBOutlet weak var dishButton: BorderedLabel!
     
-    /*
-     Spacing between cells in tableView
-     */
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0))
-    }
-
-    
     func displayDish(dish: DishDescription){
         if dish.name == ""{
             dishName.text = "Без наименования"
