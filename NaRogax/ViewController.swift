@@ -67,8 +67,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             })
         } else {
             if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
-                let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+                //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
+                //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+                let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFull = dishes
                 vc.indexOfDish = indexPath.row
                 vc.indexOfCategory = pageIndex
