@@ -105,7 +105,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     
     func recStringToMassive(){
         if let recDishString = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
-            print(recDishString)
+            //print(recDishString)
             var str = ""
             for index in recDishString.indices{
                 if (recDishString[index] >= "0" && recDishString[index] <= "9") {
@@ -113,7 +113,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
                     if index.encodedOffset == recDishString.count-1{
                         //print(str)
                         recDish.append(str)
-                        print(recDish)
+                        //print(recDish)
                         str = ""
                         break;
                     }
