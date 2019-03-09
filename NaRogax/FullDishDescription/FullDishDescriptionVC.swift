@@ -183,9 +183,10 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBAction func incCount(_ sender: UIButton) {
         if AddCount < 15 {
             AddCount += 1
-        } else {
-            PlusStepper.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        }
+            if AddCount == 15 {
+                PlusStepper.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            }
+        } 
     }
 }
 
