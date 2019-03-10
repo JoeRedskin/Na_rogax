@@ -77,17 +77,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.present(alert, animated: true, completion: nil)
             })
         } else {
-        if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
-            let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-            vc.dishFull = dishes
-            vc.indexOfDish = indexPath.row
-            vc.indexOfCategory = pageIndex
+            if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
+                //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
+                //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+                let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.row
+                vc.indexOfCategory = pageIndex
         
-            navigationController?.pushViewController(vc, animated: true)
+            /*if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
+                let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.row
+                vc.indexOfCategory = pageIndex
+        
+                navigationController?.pushViewController(vc, animated: true)
+            }*/
+                navigationController?.pushViewController(vc, animated: true)
+            } else if dishes[0].categories[pageIndex].cat_name == "Напитки" {
+                let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
+                
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.row
+                vc.indexOfCategory = pageIndex
+                
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
-}
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,7 +12,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/e56f473023.jpg",
 "desc_short": "Теплый салат с брискетом ",
 "desc_long": "Состав (брискет, лук, помидоры, морковь, огурец)",
-"weight": 250,
+"weight": "250",
 "recommended": "17;18;19"
 },
 {
@@ -23,7 +23,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/a4aa616024.jpg",
 "desc_short": "Вегетарианский салат",
 "desc_long": "Состав (кукуруза, фасоль, салат, морковь, огурцы, помидоры, лук)",
-"weight": 250,
+"weight": "250",
 "recommended": "17;18;19"
 },
 {
@@ -34,7 +34,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/4c0d8ee027.jpg",
 "desc_short": "Салат с индейкой",
 "desc_long": "Состав (индейка, салат, лук, огурцы, помидоры)",
-"weight": 250,
+"weight": "250",
 "recommended": "17;18;19"
 }
 ]
@@ -51,7 +51,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/15b6ee2008.jpg",
 "desc_short": "Суп с томатами",
 "desc_long": "Состав (томаты, вода, соль, сахар, морковь, мясо)",
-"weight": 500,
+"weight": "500",
 "recommended": "17;18;19"
 },
 {
@@ -62,7 +62,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/504a517002.jpg",
 "desc_short": "Суп картофельный",
 "desc_long": "Состав: суп, картофель, лук, чеснок, вода",
-"weight": 250,
+"weight": "250",
 "recommended": "17;18;19"
 },
 {
@@ -73,7 +73,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/a103086006.jpg",
 "desc_short": "Суп рыбный",
 "desc_long": "Состав: кукуруза, рыба, мясо, картофель, вода",
-"weight": 350,
+"weight": "350",
 "recommended": "17;18;19"
 }
 ]
@@ -90,7 +90,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/81fb892050.jpg",
 "desc_short": "Комбо набор на двоих",
 "desc_long": "Состав: колбасы BBQ, брискет, соусы, салат, хлеб",
-"weight": 350,
+"weight": "350",
 "recommended": "17;18;19"
 },
 {
@@ -101,7 +101,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/794c8bf039.jpg",
 "desc_short": "Комбо набор на четверых",
 "desc_long": "Состав: брискет, лук, колбасы BBQ, капуста, хлеб, салат",
-"weight": 580,
+"weight": "580",
 "recommended": "17;18;19"
 }
 ]
@@ -118,7 +118,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/3e24898080.jpg",
 "desc_short": "Ребрышки с медовым топингом",
 "desc_long": "Ребрышки с медовым топингом",
-"weight": 300,
+"weight": "300",
 "recommended": "17;18;19"
 },
 {
@@ -129,7 +129,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/d2967ea070.jpg",
 "desc_short": "Колбасы BBQ",
 "desc_long": "BBQ колбасы",
-"weight": 300,
+"weight": "300",
 "recommended": "17;18;19"
 },
 {
@@ -140,7 +140,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/b02b7f8067.jpg",
 "desc_short": "Брискет",
 "desc_long": "Очень вкусный брискет приготовленный по технологии \"low & slow\"",
-"weight": 350,
+"weight": "350",
 "recommended": "17;18;19"
 }
 ]
@@ -157,7 +157,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/2da6795snizhenie-davlenija.jpg",
 "desc_short": "Соки",
 "desc_long": "Сок апельсиновый, Сок томатный, Сок яблочный, Сок вишневый",
-"weight": 300,
+"weight": "300",
 "recommended": null
 },
 {
@@ -168,7 +168,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/498565dim-main.jpg",
 "desc_short": "Чай",
 "desc_long": "Чай черный, чай зеленый, чай белый, чай черный с шиповником и яблоком",
-"weight": 150,
+"weight": "150",
 "recommended": null
 }
 ]
@@ -185,7 +185,7 @@
 "photo": "https://na-rogah-api.herokuapp.com/photos/6bf59ad058.jpg",
 "desc_short": "Соусы к мясу",
 "desc_long": "Соус томатный\r\nСоус сырный\r\nСоус острый\r\nСоус чесночный",
-"weight": 30,
+"weight": "30",
 "recommended": null
 }
 ]
