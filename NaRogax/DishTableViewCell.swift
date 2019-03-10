@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DishTableViewCell: UITableViewCell {
 
@@ -20,7 +21,6 @@ class DishTableViewCell: UITableViewCell {
     @IBOutlet weak var dishButton: BorderedLabel!
     
     func displayDish(dish: DishDescription){
-        
         if dish.name == ""{
             dishName.text = "Без наименования"
         } else {
@@ -51,16 +51,12 @@ class DishTableViewCell: UITableViewCell {
         if let url = URL(string: url_img){
             dishSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
-                    if let imageData = urlContents {
-                        self?.dishImage.image = UIImage(data: imageData)
-                        self?.dishSpinner.stopAnimating()
-                    }
+//                    dishImage.kf.placeholder = Placeholder.add(to: UIImage(named: "no_image"))
+                    self?.dishImage.kf.setImage(with: url)
+                    self?.dishSpinner.stopAnimating()
                 }
             }
         }
     }
-    
-    
 }
