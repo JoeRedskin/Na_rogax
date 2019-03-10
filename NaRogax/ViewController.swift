@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var pageIndex: Int = 0
     var dishes: [DishesList] = []
     
-    let cellSpacingHeight: CGFloat = 20
+    let cellSpacingHeight: CGFloat = 8
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if dishes.count == 0{
@@ -43,24 +43,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if dishes[0].categories[pageIndex].cat_name == "Топинги" || dishes[0].categories[pageIndex].cat_name == "Напитки"{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ToppingCell", for: indexPath)
-//                as! ToppingTableViewCell
-//            cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
-//
-//            return cell
-//
-//        } else {
-        
             let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
             //        print("****************")
             //        print(indexPath.row)
             //        print("****************")
-            //        cell.dishImage.image = UIImage(named: "no_image")
-            //cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.row])
             cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.section])
-            
-            
+
             return cell
         
     }
@@ -83,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFull = dishes
-                vc.indexOfDish = indexPath.row
+                vc.indexOfDish = indexPath.section
                 vc.indexOfCategory = pageIndex
         
             /*if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
@@ -101,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
                 
                 vc.dishFull = dishes
-                vc.indexOfDish = indexPath.row
+                vc.indexOfDish = indexPath.section
                 vc.indexOfCategory = pageIndex
                 
                 navigationController?.pushViewController(vc, animated: true)
@@ -111,11 +99,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DishTableView.delegate = self
-        DishTableView.dataSource = self
+        //DishTableView.delegate = self
+        //DishTableView.dataSource = self
         /* Disable streching on table view */
-        DishTableView.bounces = false
-        DishTableView.alwaysBounceVertical = false
+        //DishTableView.bounces = false
+       // DishTableView.alwaysBounceVertical = false
         /*
          If no internet connection when view did load, show alert and reload view
          */
