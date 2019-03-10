@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="vg8-bH-vUK" secondAttribute="bottom" id="0LN-76-wDd"/>
                                             <constraint firstAttribute="trailing" secondItem="vg8-bH-vUK" secondAttribute="trailing" constant="30" id="7tc-FB-h8Z"/>
@@ -233,6 +233,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="no_image" width="1500" height="988"/>
+        <image name="no_image" width="199.44000244140625" height="158.63999938964844"/>
     </resources>
 </document>

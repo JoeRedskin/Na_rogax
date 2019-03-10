@@ -23,6 +23,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var MinusStepper: UIButton!
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var PlusStepper: UIButton!
+    @IBOutlet weak var RecommendLabel: UILabel!
     
     
     var dishFull: [DishesList] = []
@@ -46,7 +47,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         AddToCartBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
         RecomendedCollectionView.delegate = self
         RecomendedCollectionView.dataSource = self
-        recStringToMassive()
+        //recStringToMassive()
         RecomendedCollectionView.reloadData()
         
         PlusStepper.layer.cornerRadius = 2
@@ -83,6 +84,13 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
          } else {
             PriceLabel.text = String(menu.price!)+" р"
          }
+        
+        if menu.recommendedWith == nil {
+            RecomendedCollectionView.isHidden = true
+            RecommendLabel.isHidden = true
+        } else {
+            recStringToMassive()
+        }
         
         fetchImage(url_img: menu.photo)
         
@@ -148,6 +156,10 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith == nil {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
         //print(recDish)
         cell.layer.cornerRadius = 10

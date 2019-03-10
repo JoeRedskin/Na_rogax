@@ -65,7 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.present(alert, animated: true, completion: nil)
             })
         } else {
-            if dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки"{
+            if (dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) {
+                print("Rec: \(dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith)")
                 //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
                 //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)

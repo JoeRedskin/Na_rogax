@@ -37,9 +37,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         print(indexPath.row)
         switch indexPath.row {
             case drinksArr.count:
-                print("k1")
                 let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DPriceCell", for: indexPath) as! DrinkPriceCell
-                print("k2")
                 if let Price = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].price {
                     cell.displayPrice(price: String(Price) + " р")
                 } else {
@@ -91,10 +89,21 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         DrinksTableView.dataSource = self
         ImageBGView.layer.cornerRadius = CGFloat(16)
         ImageBGView.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.9793184433)
-        //DrinksTableView.reloadData()
+
+        if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Сок"){
+            drinksArr = ["Апельсин", "Томат", "Яблоко"]
+        } else if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Кофе") {
+            drinksArr = ["Американо", "Капучино", "Эспрессо"]
+        } else if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Чай") {
+            drinksArr = ["Черный", "Зеленый", "Бергамот"]
+        } else if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Лимонад") {
+            drinksArr = ["7 UP", "Миринда", "Пепси"]
+        }
     }
     
     func GetValuesInView(menu: DishDescription){
+        
+        print(menu)
         
         if menu.name == ""{
             nameField.text = "Без наимменования"

@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="m8F-aw-AMe" secondAttribute="trailing" constant="30" id="6Np-Or-3ix"/>
                                             <constraint firstAttribute="bottom" secondItem="m8F-aw-AMe" secondAttribute="bottom" id="84f-FX-RET"/>
@@ -100,6 +100,9 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-b8-AH4">
                                         <rect key="frame" x="24" y="463.5" width="351" height="270.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="270.5" id="tzF-ly-3ZK"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gLY-PT-2JI">
                                             <size key="itemSize" width="152" height="194"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -358,6 +361,7 @@
                         <outlet property="PlusStepper" destination="wiH-iy-cBm" id="Wgf-A1-or8"/>
                         <outlet property="PriceLabel" destination="Hh1-al-jqx" id="r31-to-xo1"/>
                         <outlet property="RecomendedCollectionView" destination="hQe-b8-AH4" id="O7z-YB-Cml"/>
+                        <outlet property="RecommendLabel" destination="2Dp-7V-K5j" id="0Wa-PG-dI8"/>
                         <outlet property="WeightLabel" destination="I8f-Cb-eLM" id="KPk-V3-Ocw"/>
                         <outlet property="spinner" destination="DxA-EK-8CV" id="dXT-tg-WWc"/>
                     </connections>
