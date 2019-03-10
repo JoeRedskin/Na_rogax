@@ -48,8 +48,8 @@ struct DishDescription: Decodable {
     var name: String = ""
     var price: Int? = 0
     var photo: String = ""
-    var shortDescription: String = ""
-    var longDescription: String = ""
+    var shortDescription: String? = ""
+    var longDescription: String? = ""
     var weight: String = ""
     var recommendedWith: String?
 
