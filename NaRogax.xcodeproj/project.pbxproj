@@ -28,6 +28,8 @@
 		CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* DisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
 		CEAFA3E62236CB54001CF1EA /* NoFreeTablesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */; };
+		CEAFA3E92236D651001CF1EA /* ReserveScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */; };
+		CEAFA3EB2236D762001CF1EA /* ReserveScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */; };
 		CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010D2232C90300361332 /* DrinkPriceCell.swift */; };
 		CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */; };
 		CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB401122233117500361332 /* FullDishDescription.storyboard */; };
@@ -69,6 +71,8 @@
 		CEAEE92522200BF7000AF395 /* DisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFreeTablesVC.swift; sourceTree = "<group>"; };
+		CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveScreen.storyboard; sourceTree = "<group>"; };
+		CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveScreenVC.swift; sourceTree = "<group>"; };
 		CEB4010D2232C90300361332 /* DrinkPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPriceCell.swift; sourceTree = "<group>"; };
 		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CEAFA3E72236D5B9001CF1EA /* ReserveScreen */,
 				CE4DD20722363113007FACC5 /* SelectTable */,
 				CEB4011122330ECF00361332 /* FullDishDescription */,
 				CED7C0762231A322009FF75A /* FullDrinksDescription */,
@@ -181,6 +186,15 @@
 				CE96F25E221F3544002EAD2D /* TabsVC.swift */,
 			);
 			path = "Menu Tabs View";
+			sourceTree = "<group>";
+		};
+		CEAFA3E72236D5B9001CF1EA /* ReserveScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */,
+				CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */,
+			);
+			path = ReserveScreen;
 			sourceTree = "<group>";
 		};
 		CEB4011122330ECF00361332 /* FullDishDescription */ = {
@@ -277,6 +291,7 @@
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
+				CEAFA3E92236D651001CF1EA /* ReserveScreen.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CE4DD2092236314D007FACC5 /* SelectTableScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
@@ -348,6 +363,7 @@
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
+				CEAFA3EB2236D762001CF1EA /* ReserveScreenVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
