@@ -34,9 +34,9 @@ class DishTableViewCell: UITableViewCell {
         }
         
         if dish.price == nil{
-            dishPrice.text = "⏤ р"
+            dishPrice.text = "⏤ ₽"
         } else {
-            dishPrice.text = String(dish.price!) + " р"
+            dishPrice.text = String(dish.price!) + " ₽"
         }
         
         if dish.photo == ""{

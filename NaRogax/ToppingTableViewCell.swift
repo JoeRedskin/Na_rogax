@@ -31,9 +31,9 @@
 //        }
 //
 //        if dish.price == nil{
-//            topPrice.text = "⏤ р"
+//            topPrice.text = "⏤ ₽"
 //        } else {
-//            topPrice.text = String(dish.price!) + " р"
+//            topPrice.text = String(dish.price!) + " ₽"
 //        }
 //
 //        if dish.photo == ""{

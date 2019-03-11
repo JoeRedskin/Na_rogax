@@ -15,7 +15,7 @@ class DrinkPriceCell: UITableViewCell {
     func displayPrice(price: String){
         
         if price == "" {
-            priceLabel.text = "--"
+            priceLabel.text = "⏤ ₽"
         } else {
             priceLabel.text = price
         }

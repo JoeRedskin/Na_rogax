@@ -39,9 +39,9 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
             case drinksArr.count:
                 let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DPriceCell", for: indexPath) as! DrinkPriceCell
                 if let Price = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].price {
-                    cell.displayPrice(price: String(Price) + " р")
+                    cell.displayPrice(price: String(Price) + " ₽")
                 } else {
-                    cell.displayPrice(price: "")
+                    cell.displayPrice(price: "⏤ ₽")
                 }
                 return cell
             case drinksArr.count + 1:
