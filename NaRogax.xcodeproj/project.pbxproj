@@ -27,6 +27,7 @@
 		CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D671E22339A39004E5E1D /* RecDishCVC.swift */; };
 		CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* DisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
+		CEAFA3E62236CB54001CF1EA /* NoFreeTablesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */; };
 		CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010D2232C90300361332 /* DrinkPriceCell.swift */; };
 		CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */; };
 		CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB401122233117500361332 /* FullDishDescription.storyboard */; };
@@ -67,6 +68,7 @@
 		CE9D671E22339A39004E5E1D /* RecDishCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecDishCVC.swift; sourceTree = "<group>"; };
 		CEAEE92522200BF7000AF395 /* DisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFreeTablesVC.swift; sourceTree = "<group>"; };
 		CEB4010D2232C90300361332 /* DrinkPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPriceCell.swift; sourceTree = "<group>"; };
 		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				CE4DD20A2236356A007FACC5 /* SelectTableVC.swift */,
 				CE4DD20C223636D8007FACC5 /* TableCell.swift */,
 				CE4DD20E223637CE007FACC5 /* TableStruct.swift */,
+				CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */,
 			);
 			path = SelectTable;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CE4DD20D223636D8007FACC5 /* TableCell.swift in Sources */,
+				CEAFA3E62236CB54001CF1EA /* NoFreeTablesVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,

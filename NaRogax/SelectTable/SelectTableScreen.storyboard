@@ -109,5 +109,37 @@
             </objects>
             <point key="canvasLocation" x="-175.19999999999999" y="165.96701649175412"/>
         </scene>
+        <!--No Free TablesVC-->
+        <scene sceneID="Mqx-Sg-jz1">
+            <objects>
+                <viewController storyboardIdentifier="NoFreeTables" id="Sn7-Rq-xsf" customClass="NoFreeTablesVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vNB-mr-w3d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-bj-1G8">
+                                <rect key="frame" x="29" y="296" width="328" height="95.5"/>
+                                <string key="text">На указанный вами период нет
+свободных столов. Измените параметры
+или свяжитесь с администратором
+ресторана по номеру : +7 (8142) 63-23-89</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="SaY-Dq-6aN" firstAttribute="trailing" secondItem="LmV-bj-1G8" secondAttribute="trailing" constant="18" id="RVI-eH-K8D"/>
+                            <constraint firstItem="LmV-bj-1G8" firstAttribute="leading" secondItem="SaY-Dq-6aN" secondAttribute="leading" constant="29" id="SCR-7I-MeY"/>
+                            <constraint firstItem="LmV-bj-1G8" firstAttribute="centerY" secondItem="SaY-Dq-6aN" secondAttribute="centerY" id="mH1-e5-PvV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SaY-Dq-6aN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vI0-i2-ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="96.7016491754123"/>
+        </scene>
     </scenes>
 </document>
