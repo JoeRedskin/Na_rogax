@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F1c-nT-bfY">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reservation ConfirmedVC-->
+        <scene sceneID="PaY-PK-E8B">
+            <objects>
+                <viewController id="F1c-nT-bfY" customClass="ReservationConfirmedVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0HL-nK-0Ah">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-Zj-kI4">
+                                <rect key="frame" x="162" y="803" width="90" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Продолжить">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npe-YH-rkV">
+                                <rect key="frame" x="38" y="723" width="339" height="45"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Приложение работает в тестовом режиме, приносим свои извинения за причиненное неудобство.">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0r-Vj-tcb">
+                                <rect key="frame" x="16" y="161" width="382" height="127"/>
+                                <attributedString key="attributedText"/>
+                                <color key="highlightedColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-nc-Z2O">
+                                <rect key="frame" x="38" y="589" width="339" height="37.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Отмена бронирования возможно только по звонку в ресторан.">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="22" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="257-Hx-vG0">
+                                <rect key="frame" x="20" y="454" width="374" height="91"/>
+                                <attributedString key="attributedText"/>
+                                <color key="highlightedColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="257-Hx-vG0" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="BPA-md-I1i"/>
+                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="E6u-gp-UIw"/>
+                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" secondItem="npe-YH-rkV" secondAttribute="bottom" constant="23" id="KKt-XD-cQ9"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="257-Hx-vG0" secondAttribute="trailing" constant="16" id="T7s-X4-7SI"/>
+                            <constraint firstItem="IS2-nc-Z2O" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="20" id="TW4-4P-tS0"/>
+                            <constraint firstItem="npe-YH-rkV" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="b53-vU-DyW"/>
+                            <constraint firstItem="e0r-Vj-tcb" firstAttribute="top" relation="lessThanOrEqual" secondItem="7iR-ip-hlB" secondAttribute="top" constant="117" id="gs3-RS-NMA"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="9ch-Zj-kI4" secondAttribute="trailing" constant="16" id="hbT-Dn-9gl"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="e0r-Vj-tcb" secondAttribute="trailing" constant="16" id="iTp-2c-mn0"/>
+                            <constraint firstItem="257-Hx-vG0" firstAttribute="top" secondItem="e0r-Vj-tcb" secondAttribute="bottom" constant="40" id="igz-tl-zgG"/>
+                            <constraint firstItem="npe-YH-rkV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IS2-nc-Z2O" secondAttribute="bottom" constant="64" id="kwU-ac-djZ"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="IS2-nc-Z2O" secondAttribute="trailing" constant="20" id="oDM-2m-sAC"/>
+                            <constraint firstItem="e0r-Vj-tcb" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="rGN-7j-p9Q"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="bottom" secondItem="9ch-Zj-kI4" secondAttribute="bottom" constant="20" id="sLY-bD-SHI"/>
+                            <constraint firstItem="IS2-nc-Z2O" firstAttribute="top" secondItem="257-Hx-vG0" secondAttribute="bottom" constant="20" id="w1Y-02-zng"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="npe-YH-rkV" secondAttribute="trailing" constant="16" id="z5m-AP-J3Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7iR-ip-hlB"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="9ch-Zj-kI4" id="lho-kr-bsz"/>
+                        <outletCollection property="textView" destination="e0r-Vj-tcb" collectionClass="NSMutableArray" id="9Ue-5u-gT0"/>
+                        <outletCollection property="textView" destination="257-Hx-vG0" collectionClass="NSMutableArray" id="Tbh-Zp-IWd"/>
+                        <outletCollection property="textView" destination="IS2-nc-Z2O" collectionClass="NSMutableArray" id="s1O-VI-Ty0"/>
+                        <outletCollection property="textView" destination="npe-YH-rkV" collectionClass="NSMutableArray" id="jOM-Xh-6n4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THa-jC-OM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.768115942028992" y="-36.830357142857139"/>
+        </scene>
+    </scenes>
+</document>
