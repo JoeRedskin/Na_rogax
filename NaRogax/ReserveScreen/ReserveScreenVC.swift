@@ -9,22 +9,42 @@
 import UIKit
 
 class ReserveScreenVC: UIViewController {
-
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var NameField: UITextField!
+    
+    @IBOutlet weak var PhoneLabel: UILabel!
+    @IBOutlet weak var PhoneField: UITextField!
+    @IBOutlet weak var PhoneImage: UIImageView!
+    @IBOutlet weak var PhoneErrorLabel: UILabel!
+    
+    @IBOutlet weak var EmailLabel: UILabel!
+    @IBOutlet weak var EmailField: UITextField!
+    @IBOutlet weak var EmailImage: UIImageView!
+    @IBOutlet weak var EmailErrorLabel: UILabel!
+    
+    @IBOutlet weak var TableInfoLabel: UILabel!
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var TimeLabel: UILabel!
+    
+    @IBOutlet weak var ReserveBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        ReserveBtn.layer.cornerRadius = 20
+        setStyleForTextField(field: NameField)
+        setStyleForTextField(field: PhoneField)
+        setStyleForTextField(field: EmailField)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setStyleForTextField(field: UITextField!){
+        field.layer.masksToBounds = false
+        field.layer.shadowRadius = 0.0
+        field.layer.shadowOpacity = 1.0
+        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        field.layer.borderWidth = 0.0
     }
-    */
 
 }
