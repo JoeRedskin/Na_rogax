@@ -18,11 +18,7 @@ class ReservationConfirmedVC: UIViewController {
     @IBOutlet weak var button: UIButton!
     
     var name: String = ""
-    var phone: String = "" {
-        didSet{
-            setText()
-        }
-    }
+    var phone: String = ""
     
     //@IBOutlet weak var discription: UILabel!
     //@IBOutlet weak var phoneNaRogax: UILabel!
@@ -37,8 +33,9 @@ class ReservationConfirmedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         textView[1].text = textPhoneNaRogax
         setAttTextView()
-        name = "Екатерина"
-        phone = "+7 999 123-45-67"
+        //name = "Екатерина"
+        //phone = "+7 999 123-45-67"
+        setText()
     }
     
     //прошлось делать так ибо, через storyboard размер и цвет не выставлялся

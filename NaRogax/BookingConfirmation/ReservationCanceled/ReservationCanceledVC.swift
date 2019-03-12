@@ -24,7 +24,7 @@ class ReservationCanceledVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setAttText()
-        name = "Екатерина"
+        //name = "Екатерина"
         textViews[0].text = name +  text
     }
     

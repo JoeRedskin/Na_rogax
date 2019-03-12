@@ -13,7 +13,7 @@
         <!--Reservation CanceledVC-->
         <scene sceneID="egq-GP-vo6">
             <objects>
-                <viewController id="iF2-Qz-1lL" customClass="ReservationCanceledVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReservationCanceled" id="iF2-Qz-1lL" customClass="ReservationCanceledVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SOh-km-Vd3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

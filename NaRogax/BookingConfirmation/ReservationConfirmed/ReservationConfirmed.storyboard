@@ -13,7 +13,7 @@
         <!--Reservation ConfirmedVC-->
         <scene sceneID="PaY-PK-E8B">
             <objects>
-                <viewController id="F1c-nT-bfY" customClass="ReservationConfirmedVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReservationConfirmed" id="F1c-nT-bfY" customClass="ReservationConfirmedVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0HL-nK-0Ah">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
