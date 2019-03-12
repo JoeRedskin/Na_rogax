@@ -10,53 +10,138 @@ import UIKit
 
 class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var NoEmptyTablesLabel: UILabel!
     
+    var date = "2019-03-12"
+    var time_from = "10:00:00"
+    var time_to = "12:00:00"
+    var table_id = 0
     
-    /*struct Table {
-        var table_id = 0
-        var title = ""
-        var desc = ""
-    }*/
+    var SelectedTable = Table()
+    var table_info = ""
     
-    var Tables: [Table] = []
-    
-    func createTable(id: Int, title: String, desc: String) {
-        var table = Table()
-        table.table_id = id
-        table.desc = desc
-        table.title = title
-        
-        Tables.append(table)
-    }
+    var Tables: [TablesList] = []
+    var datasize = 0
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Tables.count
+        return datasize
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
-        cell.displayTable(table: Tables[indexPath.row])
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
+        cell.displayTable(table: Tables[0].data[indexPath.row], index: indexPath.row)
+        return cell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Выберите стол"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         TableView.delegate = self
         TableView.dataSource = self
-        createTable(id: 0, title: "4 места", desc: "СТУЛЬЯ")
-        createTable(id: 0, title: "4 места", desc: "ДИВАНЫ")
-        createTable(id: 0, title: "4 места, у окна", desc: "СТУЛЬЯ")
-        createTable(id: 0, title: "6 мест, у окна", desc: "ДИВАНЫ")
-        createTable(id: 0, title: "8 мест, у окна", desc: "ДИВАНЫ")
-
-        // Do any additional setup after loading the view.
-        TableView.reloadData()
+        
+        var date = ReserveDate()
+        date.date = self.date
+        date.time_from = self.time_from
+        date.time_to = self.time_to
+        
+        if (!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let dataLoader = DataLoader()
+            dataLoader.getEmptyTables(date: date){ items in self.Tables.append(contentsOf: items)
+                self.datasize = self.Tables[0].data.count
+                if self.datasize == 0 {
+                    self.TableView.isHidden = true
+                    self.NoEmptyTablesLabel.isHidden = false
+                }
+                self.TableView.reloadData()
+            }
+        }
+        
+        
     }
     
-
+    
+    @IBAction func selectTable(_ sender: UIButton) {
+        if (!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let ind = sender.tag
+            self.table_id = Tables[0].data[ind].table_id
+            self.SelectedTable = Tables[0].data[ind]
+            table_info = String(SelectedTable.chair_count)
+            if SelectedTable.chair_count == 4 {
+                table_info += " места"
+            } else {
+                table_info += " мест"
+            }
+            if let pos = SelectedTable.position {
+                if pos != "" {
+                    table_info += ", \(pos)"
+                }
+            }
+            table_info += ", \(SelectedTable.chair_type)"
+            
+            let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
+            
+            vc.table_id = table_id
+            vc.date = date
+            vc.time_from = time_from
+            vc.time_to = time_to
+            vc.table_info = self.table_info
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ru_RU")
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            dateFormatter.dateFormat = "HH:mm:ss"
+            let start_time = dateFormatter.date(from: time_from)
+            let end_time = dateFormatter.date(from: time_to)
+            dateFormatter.dateFormat = "HH:mm"
+            let s_time = dateFormatter.string(from: start_time!)
+            let e_time = dateFormatter.string(from: end_time!)
+            vc.table_time = s_time + " - " + e_time
+            
+            let today = Date()
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let today_str = dateFormatter.string(from: today)
+            dateFormatter.dateFormat = "d MMMM"
+            if today_str == date {
+                vc.table_date = "Сегодня, \(dateFormatter.string(from: today))"
+            } else {
+                vc.table_time = dateFormatter.string(from: today)
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        
+        /*else {
+            let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
+            
+            vc.table_id =
+            vc.indexOfDish = indexPath.section
+            vc.indexOfCategory = pageIndex
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }*/
+        print("Переход")
+    }
+    
 }

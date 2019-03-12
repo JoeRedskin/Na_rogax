@@ -67,14 +67,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             if (dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) {
 
-                /* TO DO: Return this storyboard */ //let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
-                /* TO DO: Instead of this */ let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
-                /* TO DO: Return this view controller *///let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
-                /* TO DO: Instead of this */ let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
-                /*TO DO: Put data to view controller*/
-                //vc.dishFull = dishes
-                //vc.indexOfDish = indexPath.section
-                //vc.indexOfCategory = pageIndex
+                let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.section
+                vc.indexOfCategory = pageIndex
         
                 navigationController?.pushViewController(vc, animated: true)
             } else if dishes[0].categories[pageIndex].cat_name == "Напитки" {

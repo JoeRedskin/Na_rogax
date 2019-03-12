@@ -54,6 +54,9 @@
                                                     <state key="normal" title="ВЫБРАТЬ">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="selectTable:" destination="iUo-NX-3ye" eventType="touchUpInside" id="kra-zP-9tz"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-s8-ZxC">
                                                     <rect key="frame" x="0.0" y="70" width="358" height="1"/>
@@ -90,10 +93,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-U3-o5t">
+                                <rect key="frame" x="29" y="296" width="328" height="95.5"/>
+                                <string key="text">На указанный вами период нет
+свободных столов. Измените параметры
+или свяжитесь с администратором
+ресторана по номеру : +7 (8142) 63-23-89</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Zaq-U3-o5t" firstAttribute="centerY" secondItem="mxB-0T-BwL" secondAttribute="centerY" constant="-76.25" id="1se-mr-dd0"/>
+                            <constraint firstItem="Zaq-U3-o5t" firstAttribute="leading" secondItem="mxB-0T-BwL" secondAttribute="leading" constant="29" id="D9c-03-mJQ"/>
                             <constraint firstItem="BbG-V5-1NI" firstAttribute="leading" secondItem="mxB-0T-BwL" secondAttribute="leading" constant="16" id="IcG-sQ-K38"/>
+                            <constraint firstItem="mxB-0T-BwL" firstAttribute="trailing" secondItem="Zaq-U3-o5t" secondAttribute="trailing" constant="18" id="LN5-QQ-8M8"/>
                             <constraint firstItem="mxB-0T-BwL" firstAttribute="bottom" secondItem="BbG-V5-1NI" secondAttribute="bottom" id="Wfh-uG-n3V"/>
                             <constraint firstItem="mxB-0T-BwL" firstAttribute="trailing" secondItem="BbG-V5-1NI" secondAttribute="trailing" id="ngy-sT-me4"/>
                             <constraint firstItem="BbG-V5-1NI" firstAttribute="top" secondItem="mxB-0T-BwL" secondAttribute="top" id="rxh-q0-0ua"/>
@@ -102,6 +118,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
+                        <outlet property="NoEmptyTablesLabel" destination="Zaq-U3-o5t" id="ZlE-rv-uKH"/>
                         <outlet property="TableView" destination="BbG-V5-1NI" id="dwe-Cg-eNn"/>
                     </connections>
                 </viewController>

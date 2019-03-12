@@ -28,20 +28,39 @@ class ReserveScreenVC: UIViewController {
     
     @IBOutlet weak var ReserveBtn: UIButton!
     
+    var table_id = 0
+    var time_from = ""
+    var time_to = ""
+    var date = ""
+    
+    var table_info = ""
+    var table_time = ""
+    var table_date = ""
+    
+    var response: [ReserveResponseData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Бронирование"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         ReserveBtn.layer.cornerRadius = 20
         setStyleForTextField(field: NameField, placeholder: "Имя")
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         
+        TableInfoLabel.text = table_info
+        DateLabel.text = table_date
+        TimeLabel.text = table_time
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         NameField.autocapitalizationType = .words
     }
+    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -58,6 +77,23 @@ class ReserveScreenVC: UIViewController {
         field.layer.borderWidth = 0.0
     }
     
+    func incorrectData(field: UITextField, label: UILabel, image: UIImageView) {
+        field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        label.isHidden = false
+        image.isHidden = false
+        
+        ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+    }
+    
+    func correctData(field: UITextField, label: UILabel, image: UIImageView) {
+        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        label.isHidden = true
+        image.isHidden = true
+    }
     
     @IBAction func changeNameFieldText(_ sender: UITextField) {
         if let name = NameField.text {
@@ -77,27 +113,32 @@ class ReserveScreenVC: UIViewController {
                     phone = phoneNumberLimit(num: phone, maxlen: 11)
                     PhoneField.text = phone
                     if !validatePhone(number: phone) {
-                        PhoneImage.isHidden = false
-                        PhoneErrorLabel.isHidden = false
+                        incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
                     } else {
-                        PhoneImage.isHidden = true
-                        PhoneErrorLabel.isHidden = true
+                        correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        if let email = EmailField.text, let name = NameField.text {
+                            if validateEmail(email: email) && name != ""{
+                                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                            }
+                        }
                     }
                 } else  {
                     phone = phoneNumberLimit(num: phone, maxlen: 10)
                     PhoneField.text = phone
                     if !validatePhone(number: phone) {
-                        PhoneImage.isHidden = false
-                        PhoneErrorLabel.isHidden = false
+                        incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
                     } else {
-                        PhoneImage.isHidden = true
-                        PhoneErrorLabel.isHidden = true
+                        correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        if let email = EmailField.text, let name = NameField.text{
+                            if validateEmail(email: email) && name != ""{
+                                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                            }
+                        }
                     }
                 }
             } else {
-                PhoneImage.isHidden = true
-                PhoneErrorLabel.isHidden = true
-                PhoneLabel.isHidden = true
+                correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
             }
         }
     }
@@ -107,14 +148,18 @@ class ReserveScreenVC: UIViewController {
             if email != "" {
                 EmailLabel.isHidden = false
                 if !validateEmail(email: email) {
-                    EmailErrorLabel.isHidden = false
-                    EmailImage.isHidden = false
+                    incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
                 } else {
-                    EmailErrorLabel.isHidden = true
-                    EmailImage.isHidden = true
+                    correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    if let phone = PhoneField.text, let name = NameField.text {
+                        if validatePhone(number: phone) && name != ""{
+                            ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                        }
+                    }
                 }
             } else {
-                EmailLabel.isHidden = true
+                correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
             }
         }
     }
@@ -151,6 +196,38 @@ class ReserveScreenVC: UIViewController {
             return true
         } else {
             return false
+        }
+    }
+    @IBAction func onReserveBtnTap(_ sender: UIButton) {
+        if (!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
+                if validateEmail(email: email) && validatePhone(number: phone) {
+                    var data = ReserveTableData()
+                    data.date = self.date
+                    data.email = email
+                    data.name = name
+                    data.phone = phone
+                    data.table_id = table_id
+                    data.time_from = time_from
+                    data.time_to = time_to
+                    
+                    let dataLoader = DataLoader()
+                    dataLoader.reserveTable(data: data){ items in self.response.append(contentsOf: items)
+                        print(self.response[0])
+                        if self.response[0].code == 451 {
+                            let alert = UIAlertController(title: "", message: "К сожаленю данный стол уже забронирован", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        } else if self.response[0].code == 200 {
+                            /* TO DO: Переход на экран успешного бронирования */
+                        }
+                    }
+                }
+            }
         }
     }
 }
