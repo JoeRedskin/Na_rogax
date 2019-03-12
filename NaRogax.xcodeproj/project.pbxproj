@@ -11,6 +11,9 @@
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE55A380223678CF003DC073 /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE55A37F223678CF003DC073 /* ReservationConfirmed.storyboard */; };
 		CE55A38422367922003DC073 /* ReservationConfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55A38322367922003DC073 /* ReservationConfirmedVC.swift */; };
+		CE564BD422379E370035BAC9 /* ReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BD322379E370035BAC9 /* ReservePlace.swift */; };
+		CE564BD722379F580035BAC9 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BD622379F580035BAC9 /* test.storyboard */; };
+		CE564BD922379F6E0035BAC9 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BD822379F6E0035BAC9 /* testVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -49,6 +52,9 @@
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE55A37F223678CF003DC073 /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
 		CE55A38322367922003DC073 /* ReservationConfirmedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmedVC.swift; sourceTree = "<group>"; };
+		CE564BD322379E370035BAC9 /* ReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservePlace.swift; sourceTree = "<group>"; };
+		CE564BD622379F580035BAC9 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		CE564BD822379F6E0035BAC9 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +122,10 @@
 		CE55A37E223676B0003DC073 /* BookingConfirmation */ = {
 			isa = PBXGroup;
 			children = (
+				CE564BD522379F4D0035BAC9 /* test */,
 				CE55A382223678F6003DC073 /* ReservationCanceled */,
 				CE55A381223678E7003DC073 /* ReservationConfirmed */,
+				CE564BD322379E370035BAC9 /* ReservePlace.swift */,
 			);
 			path = BookingConfirmation;
 			sourceTree = "<group>";
@@ -138,6 +146,15 @@
 				CEF0264F2236AE6A00302583 /* ReservationCanceledVC.swift */,
 			);
 			path = ReservationCanceled;
+			sourceTree = "<group>";
+		};
+		CE564BD522379F4D0035BAC9 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				CE564BD622379F580035BAC9 /* test.storyboard */,
+				CE564BD822379F6E0035BAC9 /* testVC.swift */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 		CE901939221D904100BA1B47 = {
@@ -296,6 +313,7 @@
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
 				CEF0264E2236ADB700302583 /* ReservationCanceled.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
+				CE564BD722379F580035BAC9 /* test.storyboard in Resources */,
 				CE55A380223678CF003DC073 /* ReservationConfirmed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,8 +377,10 @@
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
+				CE564BD422379E370035BAC9 /* ReservePlace.swift in Sources */,
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
+				CE564BD922379F6E0035BAC9 /* testVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
