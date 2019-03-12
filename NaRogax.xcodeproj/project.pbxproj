@@ -11,6 +11,8 @@
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
+		CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */; };
+		CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
+		CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTab.storyboard; sourceTree = "<group>"; };
+		CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +122,15 @@
 			path = ContactBar;
 			sourceTree = "<group>";
 		};
+		CE564BDF2237C4D50035BAC9 /* NavigationTab */ = {
+			isa = PBXGroup;
+			children = (
+				CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */,
+				CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */,
+			);
+			path = NavigationTab;
+			sourceTree = "<group>";
+		};
 		CE901939221D904100BA1B47 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CE564BDF2237C4D50035BAC9 /* NavigationTab */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
 				CEB4011122330ECF00361332 /* FullDishDescription */,
 				CEF5B8F22224A31000DE4E06 /* FullDescription */,
@@ -267,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
+				CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
@@ -339,6 +354,7 @@
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
+				CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
