@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "календарь белый.png",
+      "filename" : "календарь белый-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "календарь 40.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "календарь белый.png",
       "scale" : "3x"
     }
   ],
