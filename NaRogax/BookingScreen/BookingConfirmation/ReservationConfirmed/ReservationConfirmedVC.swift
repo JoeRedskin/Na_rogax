@@ -22,7 +22,7 @@ class ReservationConfirmedVC: UIViewController {
     
     @IBAction func continueToMenu(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MenuVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabsViewController")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     //@IBOutlet weak var discription: UILabel!
