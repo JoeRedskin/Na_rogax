@@ -9,12 +9,6 @@
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
-		CE4DD2092236314D007FACC5 /* SelectTableScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4DD2082236314D007FACC5 /* SelectTableScreen.storyboard */; };
-		CE4DD20B2236356A007FACC5 /* SelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DD20A2236356A007FACC5 /* SelectTableVC.swift */; };
-		CE4DD20D223636D8007FACC5 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DD20C223636D8007FACC5 /* TableCell.swift */; };
-		CE4DD20F223637CE007FACC5 /* TablesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DD20E223637CE007FACC5 /* TablesList.swift */; };
-		CE8056F922382DC600B92539 /* TablePostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8056F822382DC600B92539 /* TablePostData.swift */; };
-		CE8056FB2238622100B92539 /* ReserveResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8056FA2238622100B92539 /* ReserveResponseData.swift */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
 		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
@@ -33,9 +27,6 @@
 		CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D671E22339A39004E5E1D /* RecDishCVC.swift */; };
 		CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* DisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
-		CEAFA3E62236CB54001CF1EA /* NoFreeTablesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */; };
-		CEAFA3E92236D651001CF1EA /* ReserveScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */; };
-		CEAFA3EB2236D762001CF1EA /* ReserveScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */; };
 		CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010D2232C90300361332 /* DrinkPriceCell.swift */; };
 		CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */; };
 		CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB401122233117500361332 /* FullDishDescription.storyboard */; };
@@ -63,12 +54,6 @@
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
-		CE4DD2082236314D007FACC5 /* SelectTableScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectTableScreen.storyboard; sourceTree = "<group>"; };
-		CE4DD20A2236356A007FACC5 /* SelectTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableVC.swift; sourceTree = "<group>"; };
-		CE4DD20C223636D8007FACC5 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		CE4DD20E223637CE007FACC5 /* TablesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesList.swift; sourceTree = "<group>"; };
-		CE8056F822382DC600B92539 /* TablePostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePostData.swift; sourceTree = "<group>"; };
-		CE8056FA2238622100B92539 /* ReserveResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveResponseData.swift; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
 		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
@@ -89,9 +74,6 @@
 		CE9D671E22339A39004E5E1D /* RecDishCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecDishCVC.swift; sourceTree = "<group>"; };
 		CEAEE92522200BF7000AF395 /* DisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFreeTablesVC.swift; sourceTree = "<group>"; };
-		CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveScreen.storyboard; sourceTree = "<group>"; };
-		CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveScreenVC.swift; sourceTree = "<group>"; };
 		CEB4010D2232C90300361332 /* DrinkPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPriceCell.swift; sourceTree = "<group>"; };
 		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
@@ -145,17 +127,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CE4DD20722363113007FACC5 /* SelectTable */ = {
-			isa = PBXGroup;
-			children = (
-				CE4DD2082236314D007FACC5 /* SelectTableScreen.storyboard */,
-				CE4DD20A2236356A007FACC5 /* SelectTableVC.swift */,
-				CE4DD20C223636D8007FACC5 /* TableCell.swift */,
-				CE4DD20E223637CE007FACC5 /* TablesList.swift */,
-				CEAFA3E52236CB54001CF1EA /* NoFreeTablesVC.swift */,
-				CE8056F822382DC600B92539 /* TablePostData.swift */,
-			);
-			path = SelectTable;
 		CE564BDA2237ADF20035BAC9 /* ContactBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,12 +166,6 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
-				CEAFA3E72236D5B9001CF1EA /* ReserveScreen */,
-				CE4DD20722363113007FACC5 /* SelectTable */,
-				CEB4011122330ECF00361332 /* FullDishDescription */,
-				CED7C0762231A322009FF75A /* FullDrinksDescription */,
-				CEE215F7222D1147000899EF /* Reachability.swift */,
-				CEF5B8F22224A31000DE4E06 /* FullDescription */,
 				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
@@ -225,16 +190,6 @@
 				CE96F25E221F3544002EAD2D /* TabsVC.swift */,
 			);
 			path = "Menu Tabs View";
-			sourceTree = "<group>";
-		};
-		CEAFA3E72236D5B9001CF1EA /* ReserveScreen */ = {
-			isa = PBXGroup;
-			children = (
-				CEAFA3E82236D651001CF1EA /* ReserveScreen.storyboard */,
-				CEAFA3EA2236D762001CF1EA /* ReserveScreenVC.swift */,
-				CE8056FA2238622100B92539 /* ReserveResponseData.swift */,
-			);
-			path = ReserveScreen;
 			sourceTree = "<group>";
 		};
 		CEB4011122330ECF00361332 /* FullDishDescription */ = {
@@ -405,10 +360,8 @@
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
 				CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
-				CEAFA3E92236D651001CF1EA /* ReserveScreen.storyboard in Resources */,
 				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
-				CE4DD2092236314D007FACC5 /* SelectTableScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
@@ -475,7 +428,6 @@
 			files = (
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
-				CE4DD20B2236356A007FACC5 /* SelectTableVC.swift in Sources */,
 				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
@@ -483,11 +435,6 @@
 				CEF7C38A2238E01500FBAA8B /* testVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
-				CEAFA3EB2236D762001CF1EA /* ReserveScreenVC.swift in Sources */,
-				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
-				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
-				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
-				CE4DD20F223637CE007FACC5 /* TablesList.swift in Sources */,
 				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
@@ -499,12 +446,8 @@
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
 				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
-				CE8056FB2238622100B92539 /* ReserveResponseData.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
-				CE4DD20D223636D8007FACC5 /* TableCell.swift in Sources */,
-				CEAFA3E62236CB54001CF1EA /* NoFreeTablesVC.swift in Sources */,
-				CE8056F922382DC600B92539 /* TablePostData.swift in Sources */,
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
