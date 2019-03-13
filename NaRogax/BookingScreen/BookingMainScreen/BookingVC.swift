@@ -53,23 +53,40 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             var newDate = date
             var newTimeTo = timeTo
             var newTimeFrom = timeFrom
+            var newDateTo = date
+            
+            var allH = 0
+            var allM = 0
             
             var someDate = Date()
             let dateFormatter = DateFormatter()
+            let calendar = Calendar.current
             
             dateFormatter.dateFormat = "HH:mm"
             someDate = dateFormatter.date(from: newTimeFrom)!
             dateFormatter.dateFormat = "HH:mm:ss"
             newTimeFrom = dateFormatter.string(from: someDate)
             
+            dateFormatter.dateFormat = "HHH:mm:ss"
+            someDate = dateFormatter.date(from: newTimeFrom)!
+            dateFormatter.dateFormat = "H"
+            var timeToH = dateFormatter.string(from: someDate)
+            dateFormatter.dateFormat = "mm"
+            var timeToM = dateFormatter.string(from: someDate)
+            
+            allH += Int(timeToH)!
+            allM += Int(timeToM)!
+            
             dateFormatter.dateFormat = "H:mm"
             someDate = dateFormatter.date(from: newTimeTo)!
             dateFormatter.dateFormat = "H"
-            let timeToH = dateFormatter.string(from: someDate)
+            timeToH = dateFormatter.string(from: someDate)
             dateFormatter.dateFormat = "mm"
-            let timeToM = dateFormatter.string(from: someDate)
+            timeToM = dateFormatter.string(from: someDate)
             
-            let calendar = Calendar.current
+            allH += Int(timeToH)!
+            allM += Int(timeToM)!
+            
             dateFormatter.dateFormat = "HH:mm:ss"
             someDate = dateFormatter.date(from: newTimeFrom)!
             someDate = calendar.date(byAdding: .hour, value: Int(timeToH)!, to: someDate)!
@@ -88,17 +105,28 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             someDate = calendar.date(byAdding: .day, value: Int(dateDay)! - 1, to: someDate)!
             dateFormatter.dateFormat = "YYYY-MM-dd"
             newDate = dateFormatter.string(for: someDate)!
-        
+            
+            someDate = calendar.date(byAdding: .hour, value: allH, to: someDate)!
+            someDate = calendar.date(byAdding: .minute, value: allM, to: someDate)!
+            newDateTo = dateFormatter.string(for: someDate)!
+            
+            print(newDate)
+            print(newDateTo)
+            print(newTimeTo)
+            print(newTimeFrom)
+            
             let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
             
             vc.date = newDate
             vc.time_to = newTimeTo
             vc.time_from = newTimeFrom
+            vc.date_to = newDateTo
             
             newDate = date
             newTimeTo = timeTo
             newTimeFrom = timeFrom
+            newDateTo = date
             
             navigationController?.pushViewController(vc, animated: true)
             
