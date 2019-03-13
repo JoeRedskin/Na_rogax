@@ -23,7 +23,6 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet weak var DateCollectionView: UICollectionView!
     @IBOutlet weak var TimeDurationCollectionView: UICollectionView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
     @IBOutlet weak var changeTimeSting: UIButton!
     
     @IBAction func changeTime(_ sender: UIButton) {
@@ -82,10 +81,9 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             let format = DateFormatter()
             format.dateFormat = "dd\nEE"
             format.locale = Locale(identifier: "ru_RU")
-            let ndate = Date()
+            let ndate = Calendar.current.date(byAdding: .day, value: indexPath.last ?? 0, to: Date())!
             let date = format.string(from: ndate)
             cell.date.text = date
-            //cell.reloadData()
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DurationCell", for: indexPath) as! TimeDurationCVC
@@ -101,7 +99,10 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         super.viewDidLoad()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        
+        changeTimeSting.layer.borderWidth = 3.0
+        changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
+        changeTimeSting.layer.cornerRadius = 5    /// радиус закругления закругление
+
         let min = dateFormatter.date(from: "9:00")      //createing min time
         let max = dateFormatter.date(from: "21:00") //creating max time
         datePicker.minimumDate = min  //setting min time to picker
