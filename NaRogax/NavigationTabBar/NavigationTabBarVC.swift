@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationTabVC: UITabBarController {
+class NavigationTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,8 +11,8 @@
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
-		CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */; };
-		CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */; };
+		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
+		CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -40,6 +40,13 @@
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
 		CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */; };
 		CEF692E622274ACA000F3307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF692E422274AC9000F3307 /* Main.storyboard */; };
+		CEF7C38A2238E01500FBAA8B /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3812238E01500FBAA8B /* testVC.swift */; };
+		CEF7C38B2238E01500FBAA8B /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3822238E01500FBAA8B /* test.storyboard */; };
+		CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */; };
+		CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */; };
+		CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */; };
+		CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */; };
+		CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3892238E01500FBAA8B /* ReservePlace.swift */; };
 		CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF87B1A2232492400E2AB28 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +56,8 @@
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
-		CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTab.storyboard; sourceTree = "<group>"; };
-		CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabVC.swift; sourceTree = "<group>"; };
+		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
+		CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +78,7 @@
 		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
 		CEB401142233128800361332 /* FullDishDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishDescriptionVC.swift; sourceTree = "<group>"; };
-		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.txt; sourceTree = SOURCE_ROOT; };
+		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document.txt; path = NaRogax/SupportFiles/document.txt; sourceTree = SOURCE_ROOT; };
 		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
 		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
 		CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescCell.swift; sourceTree = "<group>"; };
@@ -80,6 +87,13 @@
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
 		CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescCViCell.swift; sourceTree = "<group>"; };
 		CEF692E522274AC9000F3307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEF7C3812238E01500FBAA8B /* testVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
+		CEF7C3822238E01500FBAA8B /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationCanceled.storyboard; sourceTree = "<group>"; };
+		CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCanceledVC.swift; sourceTree = "<group>"; };
+		CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
+		CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationConfirmedVC.swift; sourceTree = "<group>"; };
+		CEF7C3892238E01500FBAA8B /* ReservePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservePlace.swift; sourceTree = "<group>"; };
 		CEF87B1A2232492400E2AB28 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC4E8E9A19A710987DB9142E /* Pods-NaRogax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.debug.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,13 +136,13 @@
 			path = ContactBar;
 			sourceTree = "<group>";
 		};
-		CE564BDF2237C4D50035BAC9 /* NavigationTab */ = {
+		CE564BDF2237C4D50035BAC9 /* NavigationTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */,
-				CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */,
+				CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */,
+				CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */,
 			);
-			path = NavigationTab;
+			path = NavigationTabBar;
 			sourceTree = "<group>";
 		};
 		CE901939221D904100BA1B47 = {
@@ -152,26 +166,16 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
-				CE564BDF2237C4D50035BAC9 /* NavigationTab */,
+				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
+				CEF7C3912238E65700FBAA8B /* MenuScreen */,
+				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
-				CEB4011122330ECF00361332 /* FullDishDescription */,
-				CEF5B8F22224A31000DE4E06 /* FullDescription */,
-				CED7C0762231A322009FF75A /* FullDrinksDescription */,
-				CEE215F7222D1147000899EF /* Reachability.swift */,
+				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
-				CE901947221D904100BA1B47 /* ViewController.swift */,
 				CEAEE927222042EE000AF395 /* DataLoader.swift */,
-				CED522842228365A0069DBDA /* document.txt */,
-				CEAEE92522200BF7000AF395 /* DisherList.swift */,
-				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
-				CEF692E422274AC9000F3307 /* Main.storyboard */,
-				CEF87B1A2232492400E2AB28 /* GradientView.swift */,
-				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
 				CE901951221D904200BA1B47 /* Info.plist */,
-				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
-				CE96F260221F3552002EAD2D /* Menu Tabs View */,
 			);
 			path = NaRogax;
 			sourceTree = "<group>";
@@ -218,6 +222,79 @@
 				CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */,
 			);
 			path = FullDescription;
+			sourceTree = "<group>";
+		};
+		CEF7C37F2238E01500FBAA8B /* BookingConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3802238E01500FBAA8B /* test */,
+				CEF7C3832238E01500FBAA8B /* ReservationCanceled */,
+				CEF7C3862238E01500FBAA8B /* ReservationConfirmed */,
+				CEF7C3892238E01500FBAA8B /* ReservePlace.swift */,
+			);
+			path = BookingConfirmation;
+			sourceTree = "<group>";
+		};
+		CEF7C3802238E01500FBAA8B /* test */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3812238E01500FBAA8B /* testVC.swift */,
+				CEF7C3822238E01500FBAA8B /* test.storyboard */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		CEF7C3832238E01500FBAA8B /* ReservationCanceled */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */,
+				CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */,
+			);
+			path = ReservationCanceled;
+			sourceTree = "<group>";
+		};
+		CEF7C3862238E01500FBAA8B /* ReservationConfirmed */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */,
+				CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */,
+			);
+			path = ReservationConfirmed;
+			sourceTree = "<group>";
+		};
+		CEF7C3912238E65700FBAA8B /* MenuScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3922238E70800FBAA8B /* MainMenu */,
+				CE96F260221F3552002EAD2D /* Menu Tabs View */,
+				CEB4011122330ECF00361332 /* FullDishDescription */,
+				CEF5B8F22224A31000DE4E06 /* FullDescription */,
+				CED7C0762231A322009FF75A /* FullDrinksDescription */,
+			);
+			path = MenuScreen;
+			sourceTree = "<group>";
+		};
+		CEF7C3922238E70800FBAA8B /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CEF692E422274AC9000F3307 /* Main.storyboard */,
+				CE901947221D904100BA1B47 /* ViewController.swift */,
+				CEAEE92522200BF7000AF395 /* DisherList.swift */,
+				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
+				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		CEF7C3932238E98D00FBAA8B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CEF87B1A2232492400E2AB28 /* GradientView.swift */,
+				CEE215F7222D1147000899EF /* Reachability.swift */,
+				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
+				CED522842228365A0069DBDA /* document.txt */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,13 +358,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
-				CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */,
+				CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
+				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
+				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
 				CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
+				CEF7C38B2238E01500FBAA8B /* test.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,12 +432,15 @@
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
+				CEF7C38A2238E01500FBAA8B /* testVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
-				CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */,
+				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
+				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
+				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
@@ -365,6 +448,7 @@
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
+				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,

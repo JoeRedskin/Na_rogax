@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation TabVC-->
+        <!--Navigation Tab BarVC-->
         <scene sceneID="0rg-WB-8kz">
             <objects>
-                <tabBarController id="DkL-BN-LHh" customClass="NavigationTabVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="DkL-BN-LHh" customClass="NavigationTabBarVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="LjZ-4d-tsi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
