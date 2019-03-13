@@ -30,6 +30,7 @@ class ReserveScreenVC: UIViewController {
     
     var table_id = 0
     var time_from = ""
+    var date_to = ""
     var time_to = ""
     var date = ""
     
@@ -250,6 +251,7 @@ class ReserveScreenVC: UIViewController {
                     data.phone = phone
                     data.table_id = table_id
                     data.time_from = time_from
+                    data.date_to = date_to
                     data.time_to = time_to
                     
                     let dataLoader = DataLoader()

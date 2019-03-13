@@ -11,6 +11,7 @@ import Foundation
 struct ReserveDate: Encodable {
     var date = ""
     var time_from = ""
+    var date_to = ""
     var time_to = ""
 }
 
@@ -20,6 +21,7 @@ struct ReserveTableData: Encodable {
     var phone = ""
     var date = ""
     var time_from = ""
+    var date_to = ""
     var time_to = ""
     var table_id = 0
 }

@@ -14,6 +14,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var date = "2019-02-13"
     var time_from = "10:00:00"
+    var date_to = "2019-02-13"
     var time_to = "12:00:00"
     var table_id = 0
     
@@ -51,6 +52,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         var date = ReserveDate()
         date.date = self.date
         date.time_from = self.time_from
+        date.date_to = self.date_to
         date.time_to = self.time_to
         
         if (!Reachability.isConnectedToNetwork()){
@@ -101,6 +103,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc.table_id = table_id
             vc.date = date
             vc.time_from = time_from
+            vc.date_to = date_to
             vc.time_to = time_to
             vc.table_info = self.table_info
             
