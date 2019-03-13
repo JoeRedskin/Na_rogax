@@ -11,8 +11,8 @@
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
-		CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */; };
-		CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */; };
+		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
+		CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -56,8 +56,8 @@
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
-		CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTab.storyboard; sourceTree = "<group>"; };
-		CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabVC.swift; sourceTree = "<group>"; };
+		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
+		CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +78,7 @@
 		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
 		CEB401142233128800361332 /* FullDishDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishDescriptionVC.swift; sourceTree = "<group>"; };
-		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.txt; sourceTree = SOURCE_ROOT; };
+		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document.txt; path = NaRogax/SupportFiles/document.txt; sourceTree = SOURCE_ROOT; };
 		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
 		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
 		CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescCell.swift; sourceTree = "<group>"; };
@@ -136,13 +136,13 @@
 			path = ContactBar;
 			sourceTree = "<group>";
 		};
-		CE564BDF2237C4D50035BAC9 /* NavigationTab */ = {
+		CE564BDF2237C4D50035BAC9 /* NavigationTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */,
-				CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */,
+				CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */,
+				CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */,
 			);
-			path = NavigationTab;
+			path = NavigationTabBar;
 			sourceTree = "<group>";
 		};
 		CE901939221D904100BA1B47 = {
@@ -166,27 +166,16 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
-				CE564BDF2237C4D50035BAC9 /* NavigationTab */,
+				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
+				CEF7C3912238E65700FBAA8B /* MenuScreen */,
+				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
-				CEB4011122330ECF00361332 /* FullDishDescription */,
-				CEF5B8F22224A31000DE4E06 /* FullDescription */,
 				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,
-				CED7C0762231A322009FF75A /* FullDrinksDescription */,
-				CEE215F7222D1147000899EF /* Reachability.swift */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
-				CE901947221D904100BA1B47 /* ViewController.swift */,
 				CEAEE927222042EE000AF395 /* DataLoader.swift */,
-				CED522842228365A0069DBDA /* document.txt */,
-				CEAEE92522200BF7000AF395 /* DisherList.swift */,
-				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
-				CEF692E422274AC9000F3307 /* Main.storyboard */,
-				CEF87B1A2232492400E2AB28 /* GradientView.swift */,
-				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
 				CE901951221D904200BA1B47 /* Info.plist */,
-				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
-				CE96F260221F3552002EAD2D /* Menu Tabs View */,
 			);
 			path = NaRogax;
 			sourceTree = "<group>";
@@ -273,6 +262,41 @@
 			path = ReservationConfirmed;
 			sourceTree = "<group>";
 		};
+		CEF7C3912238E65700FBAA8B /* MenuScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C3922238E70800FBAA8B /* MainMenu */,
+				CE96F260221F3552002EAD2D /* Menu Tabs View */,
+				CEB4011122330ECF00361332 /* FullDishDescription */,
+				CEF5B8F22224A31000DE4E06 /* FullDescription */,
+				CED7C0762231A322009FF75A /* FullDrinksDescription */,
+			);
+			path = MenuScreen;
+			sourceTree = "<group>";
+		};
+		CEF7C3922238E70800FBAA8B /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CEF692E422274AC9000F3307 /* Main.storyboard */,
+				CE901947221D904100BA1B47 /* ViewController.swift */,
+				CEAEE92522200BF7000AF395 /* DisherList.swift */,
+				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
+				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		CEF7C3932238E98D00FBAA8B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CEF87B1A2232492400E2AB28 /* GradientView.swift */,
+				CEE215F7222D1147000899EF /* Reachability.swift */,
+				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
+				CED522842228365A0069DBDA /* document.txt */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,7 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
-				CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */,
+				CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
@@ -411,7 +435,7 @@
 				CEF7C38A2238E01500FBAA8B /* testVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
-				CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */,
+				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
