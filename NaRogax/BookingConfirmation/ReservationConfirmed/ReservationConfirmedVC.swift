@@ -12,7 +12,7 @@ class ReservationConfirmedVC: UIViewController {
 
     private let firstTextDiscr = ", заявка на бронирование принята рестораном.\nПо указанному номеру ("
     private let lastTextDiscr = ") с Вами свяжется администратор и уточнит детали. "
-    private let textPhoneNaRogax = "Если в течении 1 часа, Вам не перезвонят, свяжитесь с нами по номеру \n +7 (8142) 63-23-89"
+    private let textPhoneNaRogax = "Если в течении 1 часа Вам не перезвонят, свяжитесь с нами по номеру \n +7 (8142) 63-23-89"
     
     @IBOutlet var textView: [UILabel]!
     @IBOutlet weak var button: UIButton!
@@ -20,6 +20,11 @@ class ReservationConfirmedVC: UIViewController {
     var name: String = ""
     var phone: String = ""
     
+    @IBAction func continueToMenu(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MenuVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     //@IBOutlet weak var discription: UILabel!
     //@IBOutlet weak var phoneNaRogax: UILabel!
     

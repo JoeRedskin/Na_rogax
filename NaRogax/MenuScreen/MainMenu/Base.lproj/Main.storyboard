@@ -132,6 +132,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4no-jA-Wnu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kT5-vo-wWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Main" id="1zT-W2-2id" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="hHg-ce-AIq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="xKx-Nc-tgv">
@@ -144,7 +145,6 @@
                         <segue destination="dXI-yF-zkf" kind="relationship" relationship="rootViewController" id="1Li-Av-9gk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kT5-vo-wWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1551" y="-398"/>
         </scene>

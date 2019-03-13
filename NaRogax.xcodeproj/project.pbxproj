@@ -47,6 +47,15 @@
 		CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */; };
 		CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */; };
 		CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3892238E01500FBAA8B /* ReservePlace.swift */; };
+		CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C39522391E6500FBAA8B /* ReserveScreen.storyboard */; };
+		CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39622391E6500FBAA8B /* ReserveScreenVC.swift */; };
+		CEF7C39A22391E6500FBAA8B /* ReserveResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39722391E6500FBAA8B /* ReserveResponseData.swift */; };
+		CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */; };
+		CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */; };
+		CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39E22391E6D00FBAA8B /* TableCell.swift */; };
+		CEF7C3A522391E6D00FBAA8B /* TablePostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39F22391E6D00FBAA8B /* TablePostData.swift */; };
+		CEF7C3A622391E6D00FBAA8B /* TablesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3A022391E6D00FBAA8B /* TablesList.swift */; };
+		CEF7C3A722391E6D00FBAA8B /* SelectTableScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */; };
 		CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF87B1A2232492400E2AB28 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +103,15 @@
 		CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
 		CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationConfirmedVC.swift; sourceTree = "<group>"; };
 		CEF7C3892238E01500FBAA8B /* ReservePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservePlace.swift; sourceTree = "<group>"; };
+		CEF7C39522391E6500FBAA8B /* ReserveScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReserveScreen.storyboard; sourceTree = "<group>"; };
+		CEF7C39622391E6500FBAA8B /* ReserveScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveScreenVC.swift; sourceTree = "<group>"; };
+		CEF7C39722391E6500FBAA8B /* ReserveResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveResponseData.swift; sourceTree = "<group>"; };
+		CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableVC.swift; sourceTree = "<group>"; };
+		CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFreeTablesVC.swift; sourceTree = "<group>"; };
+		CEF7C39E22391E6D00FBAA8B /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		CEF7C39F22391E6D00FBAA8B /* TablePostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePostData.swift; sourceTree = "<group>"; };
+		CEF7C3A022391E6D00FBAA8B /* TablesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablesList.swift; sourceTree = "<group>"; };
+		CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectTableScreen.storyboard; sourceTree = "<group>"; };
 		CEF87B1A2232492400E2AB28 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC4E8E9A19A710987DB9142E /* Pods-NaRogax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.debug.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +189,9 @@
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
 				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,
+				CEF7C39422391E6500FBAA8B /* ReserveScreen */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
+				CEF7C39B22391E6D00FBAA8B /* SelectTable */,
 				CEAEE927222042EE000AF395 /* DataLoader.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
@@ -297,6 +317,29 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		CEF7C39422391E6500FBAA8B /* ReserveScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C39522391E6500FBAA8B /* ReserveScreen.storyboard */,
+				CEF7C39622391E6500FBAA8B /* ReserveScreenVC.swift */,
+				CEF7C39722391E6500FBAA8B /* ReserveResponseData.swift */,
+			);
+			path = ReserveScreen;
+			sourceTree = "<group>";
+		};
+		CEF7C39B22391E6D00FBAA8B /* SelectTable */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */,
+				CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */,
+				CEF7C39E22391E6D00FBAA8B /* TableCell.swift */,
+				CEF7C39F22391E6D00FBAA8B /* TablePostData.swift */,
+				CEF7C3A022391E6D00FBAA8B /* TablesList.swift */,
+				CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */,
+			);
+			path = SelectTable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -365,10 +408,12 @@
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
+				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
 				CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
 				CEF7C38B2238E01500FBAA8B /* test.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
+				CEF7C3A722391E6D00FBAA8B /* SelectTableScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
+				CEF7C3A622391E6D00FBAA8B /* TablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
+				CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */,
 				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
@@ -441,6 +488,9 @@
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
+				CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */,
+				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
+				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
@@ -450,10 +500,12 @@
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
+				CEF7C3A522391E6D00FBAA8B /* TablePostData.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* DisherList.swift in Sources */,
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
 				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
+				CEF7C39A22391E6500FBAA8B /* ReserveResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
