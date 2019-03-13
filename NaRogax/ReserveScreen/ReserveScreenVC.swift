@@ -39,6 +39,10 @@ class ReserveScreenVC: UIViewController {
     
     var response: [ReserveResponseData] = []
     
+    var isCorrectName = false
+    var isCorrectPhone = false
+    var isCorrectEmail = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +63,20 @@ class ReserveScreenVC: UIViewController {
         view.addGestureRecognizer(tap)
         
         NameField.autocapitalizationType = .words
+        
+        let name = UserDefaults.standard.string(forKey: "Name") ?? ""
+        let phone = UserDefaults.standard.string(forKey: "Phone") ?? ""
+        let email = UserDefaults.standard.string(forKey: "Email") ?? ""
+        
+        if email + name + phone != "" {
+            isCorrectName = true
+            NameField.text = name
+            isCorrectEmail = true
+            EmailField.text = email
+            isCorrectPhone = true
+            PhoneField.text = phone
+            ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        }
     }
     
     
@@ -99,8 +117,10 @@ class ReserveScreenVC: UIViewController {
         if let name = NameField.text {
             if name != "" {
                 NameLabel.isHidden = false
+                isCorrectName = true
             } else {
                 NameLabel.isHidden = true
+                isCorrectName = false
             }
         }
     }
@@ -114,8 +134,10 @@ class ReserveScreenVC: UIViewController {
                     PhoneField.text = phone
                     if !validatePhone(number: phone) {
                         incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        isCorrectPhone = false
                     } else {
                         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        isCorrectPhone = true
                         if let email = EmailField.text, let name = NameField.text {
                             if validateEmail(email: email) && name != ""{
                                 ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -127,8 +149,10 @@ class ReserveScreenVC: UIViewController {
                     PhoneField.text = phone
                     if !validatePhone(number: phone) {
                         incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        isCorrectPhone = false
                     } else {
                         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                        isCorrectPhone = true
                         if let email = EmailField.text, let name = NameField.text{
                             if validateEmail(email: email) && name != ""{
                                 ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -139,6 +163,7 @@ class ReserveScreenVC: UIViewController {
             } else {
                 correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
                 ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                isCorrectPhone = false
             }
         }
     }
@@ -149,8 +174,10 @@ class ReserveScreenVC: UIViewController {
                 EmailLabel.isHidden = false
                 if !validateEmail(email: email) {
                     incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    isCorrectEmail = false
                 } else {
                     correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    isCorrectEmail = true
                     if let phone = PhoneField.text, let name = NameField.text {
                         if validatePhone(number: phone) && name != ""{
                             ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -160,6 +187,7 @@ class ReserveScreenVC: UIViewController {
             } else {
                 correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
                 ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                isCorrectEmail = false
             }
         }
     }
@@ -205,7 +233,13 @@ class ReserveScreenVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
-                if validateEmail(email: email) && validatePhone(number: phone) {
+                if isCorrectPhone && isCorrectEmail && isCorrectName {
+                    UserDefaults.standard.set(name, forKey: "Name")
+                    print(UserDefaults.standard.string(forKey: "Name") ?? "")
+                    UserDefaults.standard.set(phone, forKey: "Phone")
+                    print(UserDefaults.standard.string(forKey: "Phone") ?? "")
+                    UserDefaults.standard.set(email, forKey: "Email")
+                    print(UserDefaults.standard.string(forKey: "Email") ?? "")
                     var data = ReserveTableData()
                     data.date = self.date
                     data.email = email
