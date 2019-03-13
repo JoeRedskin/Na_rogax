@@ -18,6 +18,8 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
+    private var first: Bool = true
+    
     @IBOutlet weak var DateCollectionView: UICollectionView!
     @IBOutlet weak var TimeDurationCollectionView: UICollectionView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -37,8 +39,8 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBAction func changeTable(_ sender: UIButton) {
     }
     
-    var previewIndex: IndexPath?
-    var duration = ["2", "2,5", "3", "3,5", "4"]
+    var previewIndex = [IndexPath(), IndexPath()]
+    var duration = ["2", "2.5", "3", "3.5", "4"]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == DateCollectionView{
@@ -48,38 +50,42 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        previewIndex = indexPath
-
-        
-        
-        if collectionView == DateCollectionView{
-            
-            collectionView.cellForItem(at: indexPath)?.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-            collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 2
-            collectionView.cellForItem(at: indexPath)?.layer.cornerRadius = 4
-            
-            //collectionView.reloadData()
-        } else {
-            //collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+       if collectionView == DateCollectionView{
+            let cell = collectionView.cellForItem(at: indexPath) as! DateCVC
+            cell.reloadData()
+            if (!previewIndex[0].isEmpty){
+                let previewCell = collectionView.cellForItem(at: previewIndex[0]) as? DateCVC
+                if (previewCell != nil){
+                    previewCell!.reloadData()
+                }
+            }
+            previewIndex[0] = indexPath
+        }else{
+            let cell = collectionView.cellForItem(at: indexPath) as! TimeDurationCVC
+            cell.reloadData()
+            if (!previewIndex[1].isEmpty){
+                let previewCell = collectionView.cellForItem(at: previewIndex[1]) as? TimeDurationCVC
+                if (previewCell != nil){
+                    previewCell!.reloadData()
+                }
+            }
+            previewIndex[1] = indexPath
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
+
         if collectionView == DateCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCVC
-            
             let format = DateFormatter()
             format.dateFormat = "dd\nEE"
             format.locale = Locale(identifier: "ru_RU")
             let ndate = Date()
             let date = format.string(from: ndate)
-            
             cell.date.text = date
+            //cell.reloadData()
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DurationCell", for: indexPath) as! TimeDurationCVC

@@ -9,7 +9,11 @@
 import UIKit
 
 class DateCVC: UICollectionViewCell {
-    
-    var dateStr: String?
-    @IBOutlet weak var date: UILabel!
+    private var check = false
+    @IBOutlet weak var date: LabelCell!
+
+    func reloadData(){
+        date.reloadColor(check: check)
+        check = !check
+    }
 }

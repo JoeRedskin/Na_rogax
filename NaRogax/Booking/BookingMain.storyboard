@@ -144,7 +144,7 @@
                                             <constraint firstItem="v5L-HC-BeQ" firstAttribute="leading" secondItem="lrz-Su-Flc" secondAttribute="leading" id="eFP-99-f2e"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="timeDuration" destination="v5L-HC-BeQ" id="ji2-3W-fcg"/>
+                                            <outlet property="timeDuration" destination="v5L-HC-BeQ" id="U62-h4-9Nk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

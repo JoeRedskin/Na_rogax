@@ -9,8 +9,11 @@
 import UIKit
 
 class TimeDurationCVC: UICollectionViewCell {
+    private var check = false
+    @IBOutlet weak var timeDuration: LabelCell!
     
-    @IBOutlet weak var timeDuration: UILabel!
-    
-    
+    func reloadData(){
+        timeDuration.reloadColor(check: check)
+        check = !check
+    }
 }
