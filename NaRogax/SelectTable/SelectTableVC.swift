@@ -12,7 +12,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var NoEmptyTablesLabel: UILabel!
     
-    var date = "2019-03-12"
+    var date = "2019-03-13"
     var time_from = "10:00:00"
     var time_to = "12:00:00"
     var table_id = 0
@@ -119,29 +119,17 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let today_str = dateFormatter.string(from: today)
+            let resDate = dateFormatter.date(from: date)
             dateFormatter.dateFormat = "d MMMM"
             if today_str == date {
                 vc.table_date = "Сегодня, \(dateFormatter.string(from: today))"
             } else {
-                vc.table_time = dateFormatter.string(from: today)
+                vc.table_date = dateFormatter.string(from: resDate!)
             }
             
             navigationController?.pushViewController(vc, animated: true)
         }
         
-        
-        
-        /*else {
-            let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
-            
-            vc.table_id =
-            vc.indexOfDish = indexPath.section
-            vc.indexOfCategory = pageIndex
-            
-            navigationController?.pushViewController(vc, animated: true)
-        }*/
-        print("Переход")
     }
     
 }
