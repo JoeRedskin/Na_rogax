@@ -12,7 +12,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var NoEmptyTablesLabel: UILabel!
     
-    var date = "2019-03-13"
+    var date = "2019-02-13"
     var time_from = "10:00:00"
     var time_to = "12:00:00"
     var table_id = 0
