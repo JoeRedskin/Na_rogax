@@ -184,18 +184,16 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
-				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
-				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
+				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
-				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,
-				CEF7C39422391E6500FBAA8B /* ReserveScreen */,
+				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
-				CEF7C39B22391E6D00FBAA8B /* SelectTable */,
 				CEAEE927222042EE000AF395 /* DataLoader.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
 				CE901951221D904200BA1B47 /* Info.plist */,
+				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 			);
 			path = NaRogax;
 			sourceTree = "<group>";
@@ -338,6 +336,16 @@
 				CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */,
 			);
 			path = SelectTable;
+			sourceTree = "<group>";
+		};
+		CEF7C3A82239291E00FBAA8B /* BookingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7C39422391E6500FBAA8B /* ReserveScreen */,
+				CEF7C39B22391E6D00FBAA8B /* SelectTable */,
+				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,
+			);
+			path = BookingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
