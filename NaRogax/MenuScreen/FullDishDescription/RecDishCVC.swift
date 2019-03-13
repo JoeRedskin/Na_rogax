@@ -40,10 +40,10 @@ class RecDishCVC: UICollectionViewCell {
         }
         
         if dish.price == nil{
-            PriceLabel.text = "⏤ р"
+            PriceLabel.text = "⏤ ₽"
             print(dish.price!)
         } else {
-            PriceLabel.text = String(dish.price!) + " р"
+            PriceLabel.text = String(dish.price!) + " ₽"
         }
         
         if dish.photo == ""{

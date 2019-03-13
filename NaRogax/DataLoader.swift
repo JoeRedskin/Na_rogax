@@ -32,6 +32,56 @@ class DataLoader{
 //         }
 //         task.resume()
 //     }
+    func postReservePlace(post: PostReservePlace, completion:((_ result: ResponseReservePlace, _ error: Error?) -> Void)?) {
+        var responseReservePlace = ResponseReservePlace(code: -1, desc: "")
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "na-rogah-api.herokuapp.com"
+        urlComponents.path = "/api/v1/reserve_place"
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        
+        // Specify this request as being a POST method
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        
+        // Now let's encode out Post struct into JSON data...
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(post)
+            // ... and set our request's HTTP body
+            request.httpBody = jsonData
+            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
+        } catch {
+            completion?(responseReservePlace, error)
+        }
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            //Если прилетела ошибка то выкидываем ее выше и выходим
+            guard responseError == nil else {
+                completion?(responseReservePlace, responseError!)
+                return
+            }
+            //декодируем данные из json в структуру
+            do{
+                let decoder = JSONDecoder()
+                responseReservePlace = try decoder.decode(ResponseReservePlace.self, from: responseData!)
+                completion?(responseReservePlace, nil)
+            } catch let parsingError {
+                completion?(responseReservePlace, parsingError)
+            }
+        }
+        task.resume()
+    }
+    
     
     func getDishes(completion: @escaping ([DishesList]) -> ()){
         

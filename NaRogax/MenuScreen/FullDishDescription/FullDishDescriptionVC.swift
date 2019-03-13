@@ -80,9 +80,9 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         }
          
          if menu.price == nil{
-            PriceLabel.text = "⏤ р"
+            PriceLabel.text = "⏤ ₽"
          } else {
-            PriceLabel.text = String(menu.price!)+" р"
+            PriceLabel.text = String(menu.price!)+" ₽"
          }
         
         if menu.recommendedWith == nil {
