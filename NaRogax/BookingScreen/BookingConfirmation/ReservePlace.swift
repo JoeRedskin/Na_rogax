@@ -13,6 +13,7 @@ struct PostReservePlace: Codable {
     var name: String
     var phone: String
     var date: String
+    var date_to: String
     var time_from: String
     var time_to: String
     var table_id: Int

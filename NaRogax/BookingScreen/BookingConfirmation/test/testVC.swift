@@ -20,7 +20,7 @@ class testVC: UIViewController {
     
 
     @IBAction func toutch(_ sender: UIButton) {
-        let myPost = PostReservePlace(email: "zlobrynya@gmail.com", name: "Nikita", phone: "89210100389", date: "2019-03-10", time_from: "12:30:00", time_to: "13:00:00", table_id: 1)
+        let myPost = PostReservePlace(email: "zlobrynya@gmail.com", name: "Nikita", phone: "89210100389", date: "2019-03-10",date_to: "2019-03-20", time_from: "12:30:00", time_to: "13:00:00", table_id: 1)
         dataLoader.postReservePlace(post: myPost) { result, error in
             print(result)
             
