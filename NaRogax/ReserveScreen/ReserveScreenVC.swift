@@ -76,6 +76,9 @@ class ReserveScreenVC: UIViewController {
             isCorrectPhone = true
             PhoneField.text = phone
             ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            NameLabel.isHidden = false
+            PhoneLabel.isHidden = false
+            EmailLabel.isHidden = false
         }
     }
     
