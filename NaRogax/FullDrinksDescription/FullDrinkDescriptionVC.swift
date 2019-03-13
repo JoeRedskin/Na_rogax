@@ -103,7 +103,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     
     func GetValuesInView(menu: DishDescription){
         
-        print(menu)
+        //print(menu)
         
         if menu.name == ""{
             nameField.text = "Без наимменования"
