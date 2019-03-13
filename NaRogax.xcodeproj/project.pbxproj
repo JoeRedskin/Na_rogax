@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
+		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
+		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
+		CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */; };
+		CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -43,6 +47,10 @@
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
+		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
+		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
+		CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTab.storyboard; sourceTree = "<group>"; };
+		CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +113,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE564BDA2237ADF20035BAC9 /* ContactBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */,
+				CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */,
+			);
+			path = ContactBar;
+			sourceTree = "<group>";
+		};
+		CE564BDF2237C4D50035BAC9 /* NavigationTab */ = {
+			isa = PBXGroup;
+			children = (
+				CE564BE02237C5D10035BAC9 /* NavigationTab.storyboard */,
+				CE564BE22237C6880035BAC9 /* NavigationTabVC.swift */,
+			);
+			path = NavigationTab;
+			sourceTree = "<group>";
+		};
 		CE901939221D904100BA1B47 = {
 			isa = PBXGroup;
 			children = (
@@ -126,10 +152,12 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CE564BDF2237C4D50035BAC9 /* NavigationTab */,
+				CE564BDA2237ADF20035BAC9 /* ContactBar */,
 				CEB4011122330ECF00361332 /* FullDishDescription */,
+				CEF5B8F22224A31000DE4E06 /* FullDescription */,
 				CED7C0762231A322009FF75A /* FullDrinksDescription */,
 				CEE215F7222D1147000899EF /* Reachability.swift */,
-				CEF5B8F22224A31000DE4E06 /* FullDescription */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
 				CE901947221D904100BA1B47 /* ViewController.swift */,
 				CEAEE927222042EE000AF395 /* DataLoader.swift */,
@@ -253,10 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
+				CE564BE12237C5D10035BAC9 /* NavigationTab.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
+				CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
 			);
@@ -318,16 +348,15 @@
 			files = (
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
+				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
-
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
+				CE564BE32237C6880035BAC9 /* NavigationTabVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
-
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
-
 				CE901948221D904100BA1B47 /* ViewController.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
