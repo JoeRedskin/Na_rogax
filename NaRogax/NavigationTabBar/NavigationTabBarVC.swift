@@ -23,7 +23,7 @@ class NavigationTabBarVC: UITabBarController {
     
     private func settingTabBar(){
         let firstViewController = UIStoryboard(name: "Main", bundle: nil)
-        let vc = firstViewController.instantiateViewController(withIdentifier: "Main")
+        let vc = firstViewController.instantiateViewController(withIdentifier: "TabsViewController")
         vc.tabBarItem =  UITabBarItem(title: "меню", image: UIImage(named: "ic_menu"), tag: 0)
 
         let thirdViewController = UIStoryboard(name: "SelectTableScreen", bundle: nil)
