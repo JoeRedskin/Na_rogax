@@ -29,7 +29,7 @@
         <!--Бронирование-->
         <scene sceneID="Zcw-q5-sKv">
             <objects>
-                <viewController id="DGe-oM-haH" customClass="BookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingVC" id="DGe-oM-haH" customClass="BookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="03U-jY-a7z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeTime:" destination="DGe-oM-haH" eventType="touchUpInside" id="4cb-pM-RiJ"/>
+                                    <action selector="changeTime:" destination="DGe-oM-haH" eventType="touchUpInside" id="7WM-v8-8MK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите продолжительность:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="103-rR-66w">
@@ -212,7 +212,8 @@
                     <connections>
                         <outlet property="DateCollectionView" destination="vPH-hf-0cU" id="0mz-wy-umf"/>
                         <outlet property="TimeDurationCollectionView" destination="YTD-Wt-zTS" id="x5o-Ju-JRp"/>
-                        <outlet property="changeTimeSting" destination="1kk-HZ-dyy" id="kap-EF-JWB"/>
+                        <outlet property="changeTableField" destination="WzX-dl-isj" id="Bra-Kp-2TS"/>
+                        <outlet property="changeTimeSting" destination="1kk-HZ-dyy" id="quR-wQ-GGH"/>
                         <outlet property="datePicker" destination="u6F-pr-mSg" id="f6m-pS-dPN"/>
                     </connections>
                 </viewController>

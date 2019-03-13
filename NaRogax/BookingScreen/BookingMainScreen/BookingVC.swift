@@ -15,10 +15,20 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm"
             changeTimeSting.setTitle(dateFormatter.string(for: datePicker.date), for: .normal)
+            timeFrom = dateFormatter.string(for: datePicker.date)!
+            
         }
     }
     
     private var first: Bool = true
+    
+    var date = ""
+    var timeFrom = ""
+    var timeTo = ""
+    
+    var previewIndex = [IndexPath(), IndexPath()]
+    var duration = ["2", "2.5", "3", "3.5", "4"]
+    var durationTime = ["2:00", "2:30", "3:00", "3:30", "4:00"]
     
     @IBOutlet weak var DateCollectionView: UICollectionView!
     @IBOutlet weak var TimeDurationCollectionView: UICollectionView!
@@ -26,20 +36,74 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet weak var changeTimeSting: UIButton!
     
     @IBAction func changeTime(_ sender: UIButton) {
-        datePicker.isHidden = picker
-        if !picker {
-            picker = true
+        if !picker{
+            datePicker.isHidden = false
         } else {
-            picker = false
+            datePicker.isHidden = true
         }
+        picker = !picker
         
-       
-    }
-    @IBAction func changeTable(_ sender: UIButton) {
     }
     
-    var previewIndex = [IndexPath(), IndexPath()]
-    var duration = ["2", "2.5", "3", "3.5", "4"]
+    @IBOutlet weak var changeTableField: UIButton!
+    
+    @IBAction func changeTable(_ sender: UIButton) {
+        if date != "" && timeTo != "" && timeFrom != "" {
+            
+            var newDate = date
+            var newTimeTo = timeTo
+            var newTimeFrom = timeFrom
+            
+            var someDate = Date()
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "HH:mm"
+            someDate = dateFormatter.date(from: newTimeFrom)!
+            dateFormatter.dateFormat = "HH:mm:ss"
+            newTimeFrom = dateFormatter.string(from: someDate)
+            
+            dateFormatter.dateFormat = "H:mm"
+            someDate = dateFormatter.date(from: newTimeTo)!
+            dateFormatter.dateFormat = "H"
+            let timeToH = dateFormatter.string(from: someDate)
+            dateFormatter.dateFormat = "mm"
+            let timeToM = dateFormatter.string(from: someDate)
+            
+            let calendar = Calendar.current
+            dateFormatter.dateFormat = "HH:mm:ss"
+            someDate = dateFormatter.date(from: newTimeFrom)!
+            someDate = calendar.date(byAdding: .hour, value: Int(timeToH)!, to: someDate)!
+            someDate = calendar.date(byAdding: .minute, value: Int(timeToM)!, to: someDate)!
+            
+            dateFormatter.dateFormat = "HH:mm:ss"
+            newTimeTo = dateFormatter.string(from: someDate)
+            
+            dateFormatter.dateFormat = "dd\nEE"
+            dateFormatter.locale = Locale(identifier: "ru_RU")
+            someDate = dateFormatter.date(from: newDate)!
+            dateFormatter.dateFormat = "dd"
+            let dateDay = dateFormatter.string(from: someDate)
+            
+            someDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Date()))!
+            someDate = calendar.date(byAdding: .day, value: Int(dateDay)! - 1, to: someDate)!
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            newDate = dateFormatter.string(for: someDate)!
+        
+            let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
+            
+            vc.date = newDate
+            vc.time_to = newTimeTo
+            vc.time_from = newTimeFrom
+            
+            newDate = date
+            newTimeTo = timeTo
+            newTimeFrom = timeFrom
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == DateCollectionView{
@@ -51,9 +115,10 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       if collectionView == DateCollectionView{
+        if collectionView == DateCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! DateCVC
             cell.reloadData()
+            date = cell.date.text!
             if (!previewIndex[0].isEmpty){
                 let previewCell = collectionView.cellForItem(at: previewIndex[0]) as? DateCVC
                 if (previewCell != nil){
@@ -61,9 +126,10 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 }
             }
             previewIndex[0] = indexPath
-        }else{
+        } else {
             let cell = collectionView.cellForItem(at: indexPath) as! TimeDurationCVC
             cell.reloadData()
+            timeTo = durationTime[indexPath.row]
             if (!previewIndex[1].isEmpty){
                 let previewCell = collectionView.cellForItem(at: previewIndex[1]) as? TimeDurationCVC
                 if (previewCell != nil){
@@ -92,26 +158,20 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         }
     }
     
- 
-  
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
         changeTimeSting.layer.borderWidth = 3.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
-        changeTimeSting.layer.cornerRadius = 5    /// радиус закругления закругление
+        changeTimeSting.layer.cornerRadius = 5
 
         let min = dateFormatter.date(from: "9:00")      //createing min time
         let max = dateFormatter.date(from: "21:00") //creating max time
         datePicker.minimumDate = min  //setting min time to picker
         datePicker.maximumDate = max  //setting max time to picker
         datePicker.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        // Do any additional setup after loading the view.
+        
     }
     
-
-
-
 }

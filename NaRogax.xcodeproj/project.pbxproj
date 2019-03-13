@@ -242,7 +242,7 @@
 			path = FullDrinksDescription;
 			sourceTree = "<group>";
 		};
-		CEF02056223778340083D0A1 /* Booking */ = {
+		CEF02056223778340083D0A1 /* BookingMainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				CEF02057223778650083D0A1 /* BookingMain.storyboard */,
@@ -251,7 +251,7 @@
 				CEF0205D22377DF90083D0A1 /* TimeDurationCVC.swift */,
 				CEF31C632237A5C900DE67FE /* LabelCell.swift */,
 			);
-			path = Booking;
+			path = BookingMainScreen;
 			sourceTree = "<group>";
 		};
 		CEF5B8F22224A31000DE4E06 /* FullDescription */ = {
@@ -363,7 +363,7 @@
 		CEF7C3A82239291E00FBAA8B /* BookingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CEF02056223778340083D0A1 /* Booking */,
+				CEF02056223778340083D0A1 /* BookingMainScreen */,
 				CEF7C39422391E6500FBAA8B /* ReserveScreen */,
 				CEF7C39B22391E6D00FBAA8B /* SelectTable */,
 				CEF7C37F2238E01500FBAA8B /* BookingConfirmation */,

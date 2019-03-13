@@ -26,15 +26,14 @@ class NavigationTabBarVC: UITabBarController {
         let vc = firstViewController.instantiateViewController(withIdentifier: "TabsViewController")
         vc.tabBarItem =  UITabBarItem(title: "меню", image: UIImage(named: "ic_menu"), tag: 0)
 
-        let thirdViewController = UIStoryboard(name: "SelectTableScreen", bundle: nil)
-        let thirdVC = thirdViewController.instantiateViewController(withIdentifier: "Test")
+        let thirdViewController = UIStoryboard(name: "BookingMain", bundle: nil)
+        let thirdVC = thirdViewController.instantiateViewController(withIdentifier: "BookingVC")
         thirdVC.tabBarItem = UITabBarItem(title: "бронь", image: UIImage(named: "ic_calendar"), tag: 1)
         
         let secondViewController = UIStoryboard(name: "ContactBar", bundle: nil)
         let secVC = secondViewController.instantiateViewController(withIdentifier: "ContactBar") as! ContactBarVC
-        let secTBI = UITabBarItem(title: "контакты", image: UIImage(named: "ic_contacts"), tag: 2)
+        secVC.tabBarItem = UITabBarItem(title: "контакты", image: UIImage(named: "ic_contacts"), tag: 2)
         
-        secVC.tabBarItem = secTBI
         
         let tabBarList = [vc, thirdVC, secVC]
         viewControllers = tabBarList
