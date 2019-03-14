@@ -19,39 +19,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch " translatesAutoresizingMaskIntoConstraints="NO" id="iN1-Lf-irY">
-                                <rect key="frame" x="16" y="70" width="343" height="104"/>
+                                <rect key="frame" x="16" y="70" width="343" height="174"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QC-QV-Uje">
-                                <rect key="frame" x="16" y="194" width="343" height="21"/>
+                                <rect key="frame" x="16" y="264" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Первомайский пр-т, 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8h-Ol-6gH">
-                                <rect key="frame" x="16" y="227" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Первомайский пр-т, 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8h-Ol-6gH">
+                                <rect key="frame" x="16" y="297" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контакты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-zu-PcE">
-                                <rect key="frame" x="16" y="298" width="343" height="21"/>
+                                <rect key="frame" x="16" y="367.5" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="тел: +7 (8142) 63-23-89" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-0t-25t">
-                                <rect key="frame" x="16" y="335" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="тел: +7 (8142) 63-23-89" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-0t-25t">
+                                <rect key="frame" x="16" y="404.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VK: https://vk.com/narogah_ptz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-2P-nhM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VK: https://vk.com/narogah_ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-2P-nhM">
                                 <rect key="frame" x="0.0" y="478" width="242" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instagram: narogah.ptz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKb-ET-lsB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instagram: narogah.ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKb-ET-lsB">
                                 <rect key="frame" x="16" y="424" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -71,7 +71,7 @@
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="4QC-QV-Uje" secondAttribute="trailing" constant="16" id="TYr-uU-Mbf"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="Vn7-0t-25t" secondAttribute="trailing" constant="16" id="Ufe-UB-Sf7"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="Ami-zu-PcE" secondAttribute="trailing" constant="16" id="V0j-wR-2JG"/>
-                            <constraint firstItem="ZHf-50-aix" firstAttribute="bottom" secondItem="iN1-Lf-irY" secondAttribute="bottom" constant="493" id="WIY-sF-H25"/>
+                            <constraint firstItem="ZHf-50-aix" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iN1-Lf-irY" secondAttribute="bottom" constant="423" id="WIY-sF-H25"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="iN1-Lf-irY" secondAttribute="trailing" constant="16" id="WjE-cI-KwR"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="3JA-2P-nhM" secondAttribute="trailing" constant="16" id="c0o-pE-3xd"/>
                             <constraint firstItem="Ami-zu-PcE" firstAttribute="top" secondItem="h8h-Ol-6gH" secondAttribute="bottom" constant="50" id="c32-q4-Qsl"/>
