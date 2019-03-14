@@ -8,6 +8,36 @@
 
 import UIKit
 
+private var __maxLengths = [UITextField: Int]()
+extension UITextField {
+    @IBInspectable var maxLength: Int {
+        get {
+            guard let l = __maxLengths[self] else {
+                return 150 // (global default-limit. or just, Int.max)
+            }
+            return l
+        }
+        set {
+            __maxLengths[self] = newValue
+            addTarget(self, action: #selector(fix), for: .editingChanged)
+        }
+    }
+    @objc func fix(textField: UITextField) {
+        let t = textField.text
+        textField.text = t?.safelyLimitedTo(length: maxLength)
+    }
+}
+
+extension String
+{
+    func safelyLimitedTo(length n: Int)->String {
+        if (self.count <= n) {
+            return self
+        }
+        return String( Array(self).prefix(upTo: n) )
+    }
+}
+
 class ReserveScreenVC: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var NameField: UITextField!
@@ -44,11 +74,45 @@ class ReserveScreenVC: UIViewController {
     var isCorrectPhone = false
     var isCorrectEmail = false
     
+    var isEmptyName = true {
+        didSet {
+            if !isEmptyName && !isEmptyPhone && !isEmptyEmail {
+                ReserveBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ReserveBtn.isEnabled = true
+            } else {
+                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                ReserveBtn.isEnabled = false
+            }
+        }
+    }
+    var isEmptyPhone = true {
+        didSet {
+            if !isEmptyName && !isEmptyPhone && !isEmptyEmail {
+                ReserveBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ReserveBtn.isEnabled = true
+            } else {
+                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                ReserveBtn.isEnabled = false
+            }
+        }
+    }
+    var isEmptyEmail = true {
+        didSet {
+            if !isEmptyName && !isEmptyPhone && !isEmptyEmail {
+                ReserveBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ReserveBtn.isEnabled = true
+            } else {
+                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                ReserveBtn.isEnabled = false
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let backButton = UIBarButtonItem()
-        backButton.title = "Бронирование"
+        backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         ReserveBtn.layer.cornerRadius = 20
@@ -64,6 +128,10 @@ class ReserveScreenVC: UIViewController {
         view.addGestureRecognizer(tap)
         
         NameField.autocapitalizationType = .words
+        NameField.maxLength = 30
+        
+        PhoneField.maxLength = 11
+        EmailField.maxLength = 25
         
         let name = UserDefaults.standard.string(forKey: "Name") ?? ""
         let phone = UserDefaults.standard.string(forKey: "Phone") ?? ""
@@ -71,12 +139,16 @@ class ReserveScreenVC: UIViewController {
         
         if email + name + phone != "" {
             isCorrectName = true
+            isEmptyName = false
             NameField.text = name
             isCorrectEmail = true
+            isEmptyEmail = false
             EmailField.text = email
             isCorrectPhone = true
+            isEmptyPhone = false
             PhoneField.text = phone
             ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            ReserveBtn.isEnabled = true
             NameLabel.isHidden = false
             PhoneLabel.isHidden = false
             EmailLabel.isHidden = false
@@ -105,8 +177,6 @@ class ReserveScreenVC: UIViewController {
         
         label.isHidden = false
         image.isHidden = false
-        
-        ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
     }
     
     func correctData(field: UITextField, label: UILabel, image: UIImageView) {
@@ -120,93 +190,89 @@ class ReserveScreenVC: UIViewController {
     @IBAction func changeNameFieldText(_ sender: UITextField) {
         if let name = NameField.text {
             if name != "" {
+                isEmptyName = false
                 NameLabel.isHidden = false
-                isCorrectName = true
+                if validateName(name: name) {
+                    isCorrectName = true
+                } else {
+                    isCorrectName = false
+                }
             } else {
+                isEmptyName = true
                 NameLabel.isHidden = true
                 isCorrectName = false
             }
+        } else {
+            isEmptyName = true
+            NameLabel.isHidden = true
+            isCorrectName = false
         }
     }
     
     @IBAction func changePhoneFieldText(_ sender: UITextField) {
-        if var phone = PhoneField.text {
+        if let phone = PhoneField.text {
             if phone != "" {
+                isEmptyPhone = false
                 PhoneLabel.isHidden = false
                 if phone.prefix(1) == "+" {
-                    phone = phoneNumberLimit(num: phone, maxlen: 11)
-                    PhoneField.text = phone
-                    if !validatePhone(number: phone) {
-                        incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
-                        isCorrectPhone = false
-                    } else {
-                        correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
-                        isCorrectPhone = true
-                        if let email = EmailField.text, let name = NameField.text {
-                            if validateEmail(email: email) && name != ""{
-                                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                            }
-                        }
-                    }
-                } else  {
-                    phone = phoneNumberLimit(num: phone, maxlen: 10)
-                    PhoneField.text = phone
-                    if !validatePhone(number: phone) {
-                        incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
-                        isCorrectPhone = false
-                    } else {
-                        correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
-                        isCorrectPhone = true
-                        if let email = EmailField.text, let name = NameField.text{
-                            if validateEmail(email: email) && name != ""{
-                                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                            }
-                        }
-                    }
+                    PhoneField.maxLength = 12
+                } else {
+                    PhoneField.maxLength = 11
+                }
+                if validatePhone(number: phone) {
+                    isCorrectPhone = true
+                } else {
+                    isCorrectPhone = false
                 }
             } else {
-                correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
-                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                isEmptyPhone = true
+                PhoneLabel.isHidden = true
+                PhoneField.maxLength = 11
                 isCorrectPhone = false
             }
+        } else {
+            isEmptyPhone = true
+            PhoneLabel.isHidden = true
+            PhoneField.maxLength = 11
+            isCorrectPhone = false
         }
     }
     
     @IBAction func changeEmailFieldText(_ sender: UITextField) {
         if let email = EmailField.text {
             if email != "" {
+                isEmptyEmail = false
                 EmailLabel.isHidden = false
-                if !validateEmail(email: email) {
-                    incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
-                    isCorrectEmail = false
-                } else {
-                    correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                if validateEmail(email: email) {
                     isCorrectEmail = true
-                    if let phone = PhoneField.text, let name = NameField.text {
-                        if validatePhone(number: phone) && name != ""{
-                            ReserveBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                        }
-                    }
+                } else {
+                    isCorrectEmail = false
                 }
             } else {
-                correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
-                ReserveBtn.layer.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                isEmptyEmail = true
+                EmailLabel.isHidden = true
                 isCorrectEmail = false
             }
+        } else {
+            isEmptyEmail = true
+            EmailLabel.isHidden = true
+            isCorrectEmail = false
         }
     }
     
-    func phoneNumberLimit(num: String, maxlen: Int) -> String {
-        if num.count > maxlen {
-            
-            let start = num.startIndex
-            let ind = num.index(start, offsetBy: maxlen)
-            let tail = num.index(after: ind)
-            let str = num[start..<tail]
-            
-            return String(str)
+    func validateName(name: String) -> Bool {
+        if name.count > 1 {
+            let range = NSRange(location: 0, length: name.count)
+            let reg = "[A-Za-zА-Яа-я]{2,25}"
+            let regex = try! NSRegularExpression(pattern: reg)
+            if regex.firstMatch(in: name, options: [], range: range) != nil{
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
         }
-        return num
     }
     
     func validatePhone(number: String) -> Bool {
@@ -222,7 +288,8 @@ class ReserveScreenVC: UIViewController {
     
     func validateEmail(email: String) -> Bool {
         let range = NSRange(location: 0, length: email.count)
-        let reg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        //let reg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,18}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,10}"
         let regex = try! NSRegularExpression(pattern: reg)
         if regex.firstMatch(in: email, options: [], range: range) != nil{
             return true
@@ -238,12 +305,13 @@ class ReserveScreenVC: UIViewController {
         } else {
             if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
                 if isCorrectPhone && isCorrectEmail && isCorrectName {
+                    correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                    correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    
                     UserDefaults.standard.set(name, forKey: "Name")
-                    print(UserDefaults.standard.string(forKey: "Name") ?? "")
                     UserDefaults.standard.set(phone, forKey: "Phone")
-                    print(UserDefaults.standard.string(forKey: "Phone") ?? "")
                     UserDefaults.standard.set(email, forKey: "Email")
-                    print(UserDefaults.standard.string(forKey: "Email") ?? "")
+
                     var data = ReserveTableData()
                     data.date = self.date
                     data.email = email
@@ -273,6 +341,14 @@ class ReserveScreenVC: UIViewController {
                             self.navigationController?.pushViewController(vc, animated: true)
 
                         }
+                    }
+                } else {
+                    if !isCorrectPhone {
+                        incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                    }
+                    
+                    if !isCorrectEmail {
+                        incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
                     }
                 }
             }

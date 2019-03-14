@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="-1188" y="166"/>
         </scene>
-        <!--Select TableVC-->
+        <!--Выберите стол-->
         <scene sceneID="BX5-hH-WNo">
             <objects>
                 <viewController storyboardIdentifier="SelectTableVC" id="iUo-NX-3ye" customClass="SelectTableVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Zaq-U3-o5t" firstAttribute="centerY" secondItem="mxB-0T-BwL" secondAttribute="centerY" constant="-76.25" id="1se-mr-dd0"/>
                             <constraint firstItem="Zaq-U3-o5t" firstAttribute="leading" secondItem="mxB-0T-BwL" secondAttribute="leading" constant="29" id="D9c-03-mJQ"/>
@@ -159,7 +159,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mxB-0T-BwL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qHK-N1-IB5"/>
+                    <navigationItem key="navigationItem" title="Выберите стол" id="qHK-N1-IB5"/>
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
                         <outlet property="NoEmptyTablesLabel" destination="Zaq-U3-o5t" id="ZlE-rv-uKH"/>
@@ -173,7 +173,6 @@
         <!--No Free TablesVC-->
         <scene sceneID="Mqx-Sg-jz1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vI0-i2-ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NoFreeTables" id="Sn7-Rq-xsf" customClass="NoFreeTablesVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vNB-mr-w3d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -190,7 +189,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SaY-Dq-6aN" firstAttribute="trailing" secondItem="LmV-bj-1G8" secondAttribute="trailing" constant="18" id="RVI-eH-K8D"/>
                             <constraint firstItem="LmV-bj-1G8" firstAttribute="leading" secondItem="SaY-Dq-6aN" secondAttribute="leading" constant="29" id="SCR-7I-MeY"/>
@@ -199,6 +198,7 @@
                         <viewLayoutGuide key="safeArea" id="SaY-Dq-6aN"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vI0-i2-ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="556" y="96.7016491754123"/>
         </scene>
