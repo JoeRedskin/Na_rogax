@@ -25,13 +25,6 @@ class ReservationConfirmedVC: UIViewController{
         let vc = storyboard.instantiateViewController(withIdentifier: "TabsViewController")*/
         self.navigationController?.popToRootViewController(animated: true)
     }
-    //@IBOutlet weak var discription: UILabel!
-    //@IBOutlet weak var phoneNaRogax: UILabel!
-    
-    @IBAction func someUnwindFunc(_ sender: UIStoryboardSegue) { //Название по Вашему вкусу
-        print("unwinded")
-        performSegue(withIdentifier: "NavigationTabBar", sender: sender)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,7 +14,8 @@ class TabsVC: UIViewController {
     var currentIndex: Int = 0
     var tabs: [String] = []
     var pageController: UIPageViewController!
-    
+    private var finished = false
+
     var newTabs: [DishesList] = []
     
     override func viewDidLoad() {
@@ -76,7 +77,8 @@ class TabsVC: UIViewController {
         let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
         
         menuVC.pageIndex = index
-        currentIndex = index
+        ///currentIndex = index
+        print("viewController: ", index)
         return menuVC
     }
 }
@@ -88,7 +90,8 @@ class TabsVC: UIViewController {
 extension TabsVC: MenuBarDelegate {
     
     func menuBarDidSelectItemAt(menu: MenuTabsView, index: Int) {
-        
+        print(index)
+        print(currentIndex)
         // If selected Index is other than Selected one, by comparing with current index, page controller goes either forward or backward.
         if index != currentIndex {
             if index > currentIndex {
@@ -97,37 +100,39 @@ extension TabsVC: MenuBarDelegate {
                 self.pageController.setViewControllers([viewController(At: index)!], direction: .reverse, animated: true, completion: nil)
             }
             menuBarView.collView.scrollToItem(at: IndexPath.init(item: index, section: 0), at: .centeredHorizontally, animated: true)
-            
         }
+        currentIndex = index
     }
 }
 
 extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
         var index = (viewController as! ViewController).pageIndex
-        
         if (index == 0) || (index == NSNotFound) {return nil}
         index -= 1
         return self.viewController(At: index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         var index = (viewController as! ViewController).pageIndex
-        
+        print("pageViewController", index)
         if (index == tabs.count) || (index == NSNotFound) {return nil}
-        index += 1
+        //if (finished){
+            index += 1
+            //finished = false
+        //}
         return self.viewController(At: index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
+        print("finished completed", finished, completed)
         if finished {
             if completed {
+                //self.finished = true
                 let cvc = pageViewController.viewControllers!.first as! ViewController
                 let newIndex = cvc.pageIndex
+                currentIndex = newIndex
                 menuBarView.collView.selectItem(at: IndexPath.init(item: newIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
                 menuBarView.collView.scrollToItem(at: IndexPath.init(item: newIndex, section: 0), at: .centeredHorizontally, animated: true)
             }

@@ -15,10 +15,11 @@ class ReservationCanceledVC: UIViewController {
     var name: String = ""
     
     @IBOutlet var textViews: [UILabel]!
+    @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        button.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
     
@@ -26,6 +27,10 @@ class ReservationCanceledVC: UIViewController {
         setAttText()
         //name = "Екатерина"
         textViews[0].text = name +  text
+    }
+    
+    @IBAction func touchButton(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func setAttText(){

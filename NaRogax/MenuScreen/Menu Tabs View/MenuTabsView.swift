@@ -61,7 +61,6 @@ class MenuTabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     
     private func customIntializer () {
-        
         collView.register(BasicCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collView)
         addConstraintsWithFormatString(formate: "V:|[v0]|", views: collView)
@@ -111,9 +110,10 @@ class MenuTabsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print(indexPath)
         menuDidSelected?(collectionView,indexPath)
         let index = Int(indexPath.item)
+        print(index)
         menuDelegate?.menuBarDidSelectItemAt(menu: self, index: index)
     }
     
