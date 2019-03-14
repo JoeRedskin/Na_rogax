@@ -13,7 +13,6 @@ struct DishesList: Decodable{
     let categories: [Categories]
     enum CodingKeys: String, CodingKey {
         case categories
-        
     }
 }
 
