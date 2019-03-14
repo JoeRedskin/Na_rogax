@@ -43,7 +43,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         let backButton = UIBarButtonItem()
-        backButton.title = "Выберите стол"
+        backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         TableView.delegate = self
