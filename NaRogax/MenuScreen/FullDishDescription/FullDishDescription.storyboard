@@ -358,6 +358,7 @@
                         <outlet property="PlusStepper" destination="wiH-iy-cBm" id="Wgf-A1-or8"/>
                         <outlet property="PriceLabel" destination="Hh1-al-jqx" id="r31-to-xo1"/>
                         <outlet property="RecomendedCollectionView" destination="hQe-b8-AH4" id="O7z-YB-Cml"/>
+                        <outlet property="RecommendLabel" destination="2Dp-7V-K5j" id="xNv-ld-Jfy"/>
                         <outlet property="WeightLabel" destination="I8f-Cb-eLM" id="KPk-V3-Ocw"/>
                         <outlet property="spinner" destination="DxA-EK-8CV" id="dXT-tg-WWc"/>
                     </connections>

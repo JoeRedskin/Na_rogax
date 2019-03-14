@@ -102,11 +102,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //DishTableView.delegate = self
         //DishTableView.dataSource = self
         /* Disable streching on table view */
-        //DishTableView.bounces = false
+        DishTableView.bounces = false
         // DishTableView.alwaysBounceVertical = false
         /*
          If no internet connection when view did load, show alert and reload view
          */
+        
         if (!Reachability.isConnectedToNetwork()){
             let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
