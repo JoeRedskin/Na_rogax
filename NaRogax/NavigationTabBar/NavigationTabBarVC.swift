@@ -34,7 +34,6 @@ class NavigationTabBarVC: UITabBarController {
         let secVC = secondViewController.instantiateViewController(withIdentifier: "ContactBar") as! ContactBarVC
         secVC.tabBarItem = UITabBarItem(title: "контакты", image: UIImage(named: "ic_contacts"), tag: 2)
         
-        
         let tabBarList = [vc, thirdVC, secVC]
         viewControllers = tabBarList
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReservationConfirmedVC: UIViewController {
+class ReservationConfirmedVC: UIViewController{
 
     private let firstTextDiscr = ", заявка на бронирование принята рестораном.\nПо указанному номеру ("
     private let lastTextDiscr = ") с Вами свяжется администратор и уточнит детали. "
@@ -21,29 +21,29 @@ class ReservationConfirmedVC: UIViewController {
     var phone: String = ""
     
     @IBAction func continueToMenu(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabsViewController")
-        self.navigationController?.pushViewController(vc, animated: true)
+       /* let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabsViewController")*/
+        self.navigationController?.popToRootViewController(animated: true)
     }
     //@IBOutlet weak var discription: UILabel!
     //@IBOutlet weak var phoneNaRogax: UILabel!
     
+    @IBAction func someUnwindFunc(_ sender: UIStoryboardSegue) { //Название по Вашему вкусу
+        print("unwinded")
+        performSegue(withIdentifier: "NavigationTabBar", sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         button.layer.cornerRadius = 20
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         textView[1].text = textPhoneNaRogax
         setAttTextView()
-        //name = "Екатерина"
-        //phone = "+7 999 123-45-67"
         setText()
     }
     
-    //прошлось делать так ибо, через storyboard размер и цвет не выставлялся
     func setAttTextView(){
         for i in 0..<textView.count{
             textView[i].textAlignment = .center
