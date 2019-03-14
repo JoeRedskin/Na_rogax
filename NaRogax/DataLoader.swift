@@ -174,6 +174,48 @@ class DataLoader{
         task.resume()
     }
     
+    
+    
+    func getTimetable(completion: @escaping ([Timetable]) -> ()){
+        
+        var timetable = [Timetable]()
+        //TO DO: edit link. Put pageIdvalue  instead of categoryId.
+        
+        //let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")!
+        guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/timetable") else {return}
+        
+        let task = URLSession.shared.dataTask(with: dishCategoryURL){  (data, response, error) -> Void in
+            guard let dataResponse = data,
+                error == nil else{
+                    print(error?.localizedDescription ?? "Response Error")
+                    return}
+            do{
+
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(Timetable.self, from: dataResponse)
+                timetable.append(model)
+
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+            OperationQueue.main.addOperation {
+                completion(timetable)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

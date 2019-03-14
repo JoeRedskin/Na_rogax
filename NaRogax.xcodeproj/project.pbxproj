@@ -45,6 +45,7 @@
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
 		CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */; };
 		CEF692E622274ACA000F3307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF692E422274AC9000F3307 /* Main.storyboard */; };
+		CEF76040223A2DBF00C4DBC1 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */; };
 		CEF7C38A2238E01500FBAA8B /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3812238E01500FBAA8B /* testVC.swift */; };
 		CEF7C38B2238E01500FBAA8B /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3822238E01500FBAA8B /* test.storyboard */; };
 		CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */; };
@@ -106,6 +107,7 @@
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
 		CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescCViCell.swift; sourceTree = "<group>"; };
 		CEF692E522274AC9000F3307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CEF7C3812238E01500FBAA8B /* testVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		CEF7C3822238E01500FBAA8B /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationCanceled.storyboard; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				CEF0205B22377D840083D0A1 /* DateCVC.swift */,
 				CEF0205D22377DF90083D0A1 /* TimeDurationCVC.swift */,
 				CEF31C632237A5C900DE67FE /* LabelCell.swift */,
+				CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */,
 			);
 			path = BookingMainScreen;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
+				CEF76040223A2DBF00C4DBC1 /* Timetable.swift in Sources */,
 				CEF7C3A622391E6D00FBAA8B /* TablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */,

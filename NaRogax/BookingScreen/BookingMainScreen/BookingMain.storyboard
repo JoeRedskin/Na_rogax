@@ -85,13 +85,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите время:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBc-wG-qLA">
-                                <rect key="frame" x="16" y="149" width="198" height="29"/>
+                                <rect key="frame" x="16" y="145" width="198" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-HZ-dyy">
-                                <rect key="frame" x="16" y="194" width="288" height="36"/>
+                                <rect key="frame" x="16" y="190" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" red="0.067427752889999998" green="0.046330120410000002" blue="0.071643933650000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Нажмите">
@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите продолжительность:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="103-rR-66w">
-                                <rect key="frame" x="16" y="258" width="266" height="58"/>
+                                <rect key="frame" x="16" y="251" width="266" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="FAB-nj-vY8"/>
                                 </constraints>
@@ -111,7 +111,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTD-Wt-zTS">
-                                <rect key="frame" x="16" y="332" width="288" height="56"/>
+                                <rect key="frame" x="16" y="325" width="288" height="56"/>
                                 <color key="backgroundColor" red="0.1628461480140686" green="0.16775813698768616" blue="0.17718857526779175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="ubT-vf-bbu"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-dl-isj">
-                                <rect key="frame" x="16" y="436" width="288" height="36"/>
+                                <rect key="frame" x="16" y="444" width="288" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="ВЫБРАТЬ СТОЛ">
@@ -183,7 +183,7 @@
                         <constraints>
                             <constraint firstItem="vPH-hf-0cU" firstAttribute="top" secondItem="2zR-9e-rw4" secondAttribute="bottom" constant="15" id="1Vs-8k-uY5"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="WzX-dl-isj" secondAttribute="trailing" constant="16" id="2KM-Sa-dcs"/>
-                            <constraint firstItem="NBc-wG-qLA" firstAttribute="top" secondItem="vPH-hf-0cU" secondAttribute="bottom" constant="29" id="5Op-y8-RaG"/>
+                            <constraint firstItem="NBc-wG-qLA" firstAttribute="top" secondItem="vPH-hf-0cU" secondAttribute="bottom" constant="25" id="5Op-y8-RaG"/>
                             <constraint firstItem="u6F-pr-mSg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="03U-jY-a7z" secondAttribute="top" constant="405" id="8FR-XR-yYr"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="1kk-HZ-dyy" secondAttribute="trailing" constant="16" id="8XZ-JL-dU1"/>
                             <constraint firstItem="103-rR-66w" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="B44-M4-UIR"/>
@@ -197,13 +197,13 @@
                             <constraint firstItem="vPH-hf-0cU" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="UK5-Qp-35g"/>
                             <constraint firstItem="YTD-Wt-zTS" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="WUS-Kf-YnM"/>
                             <constraint firstItem="u6F-pr-mSg" firstAttribute="bottom" secondItem="Nmn-bN-6MI" secondAttribute="bottom" id="Xla-mz-SsU"/>
-                            <constraint firstItem="103-rR-66w" firstAttribute="top" secondItem="1kk-HZ-dyy" secondAttribute="bottom" constant="28" id="YgU-FV-hos"/>
+                            <constraint firstItem="103-rR-66w" firstAttribute="top" secondItem="1kk-HZ-dyy" secondAttribute="bottom" constant="25" id="YgU-FV-hos"/>
                             <constraint firstItem="u6F-pr-mSg" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" id="anL-au-dFj"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YTD-Wt-zTS" secondAttribute="bottom" id="dAq-Kv-uKl"/>
                             <constraint firstItem="NBc-wG-qLA" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="fTc-TQ-N1H"/>
                             <constraint firstItem="1kk-HZ-dyy" firstAttribute="top" secondItem="NBc-wG-qLA" secondAttribute="bottom" constant="16" id="tau-dJ-R7f"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="vPH-hf-0cU" secondAttribute="trailing" constant="16" id="uo1-QF-Mqy"/>
-                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="bottom" secondItem="WzX-dl-isj" secondAttribute="bottom" constant="32" id="z5E-7p-Zky"/>
+                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="bottom" secondItem="WzX-dl-isj" secondAttribute="bottom" constant="24" id="z5E-7p-Zky"/>
                             <constraint firstItem="WzX-dl-isj" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="zNI-rv-FSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nmn-bN-6MI"/>
