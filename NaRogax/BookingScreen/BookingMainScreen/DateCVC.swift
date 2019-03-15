@@ -9,11 +9,21 @@
 import UIKit
 
 class DateCVC: UICollectionViewCell {
-    private var check = false
+    var check = false
     @IBOutlet weak var date: LabelCell!
 
-    func reloadData(){
-        date.reloadColor(check: check)
+    func reloadSelected(){
+        reloadColor(check: check)
         check = !check
+    }
+    
+    func reloadColor(check: Bool){
+        if (check){
+            date.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
+            date.layer.borderWidth = 1
+        }else{
+            date.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+            date.layer.borderWidth = 3
+        }
     }
 }

@@ -13,45 +13,15 @@
         <!--Navigation Controller-->
         <scene sceneID="PLr-IQ-HPn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DO4-ZP-co8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="ACl-pz-aT7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uXF-DQ-h28">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="fBU-EA-IMY" kind="relationship" relationship="rootViewController" id="Ncl-MB-5Ls"/>
-                    </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DO4-ZP-co8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2066" y="132"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6OY-j4-e6y">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KN9-9m-WYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Test" id="fBU-EA-IMY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mc1-BW-6l8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-gd-7g2">
-                                <rect key="frame" x="141" y="239" width="89" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="iUo-NX-3ye" kind="push" id="eBk-HX-LtV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Jbz-bW-hA5"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eKc-CA-ebn"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="-1188" y="166"/>
         </scene>
         <!--Выберите стол-->
         <scene sceneID="BX5-hH-WNo">
@@ -62,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BbG-V5-1NI">
-                                <rect key="frame" x="16" y="64" width="359" height="756"/>
+                                <rect key="frame" x="16" y="20" width="359" height="800"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -137,7 +107,7 @@
                                 </prototypes>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-U3-o5t">
-                                <rect key="frame" x="29" y="318" width="328" height="95.5"/>
+                                <rect key="frame" x="29" y="296" width="328" height="95.5"/>
                                 <string key="text">На указанный вами период нет
 свободных столов. Измените параметры
 или свяжитесь с администратором

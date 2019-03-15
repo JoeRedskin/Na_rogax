@@ -69,13 +69,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите время:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBc-wG-qLA">
-                                <rect key="frame" x="16" y="145" width="198" height="29"/>
+                                <rect key="frame" x="16" y="165" width="198" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-HZ-dyy">
-                                <rect key="frame" x="16" y="190" width="288" height="36"/>
+                                <rect key="frame" x="16" y="210" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" red="0.067427752889999998" green="0.046330120410000002" blue="0.071643933650000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Нажмите">
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите продолжительность:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="103-rR-66w">
-                                <rect key="frame" x="16" y="251" width="266" height="58"/>
+                                <rect key="frame" x="16" y="271" width="266" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="FAB-nj-vY8"/>
                                 </constraints>
@@ -95,7 +95,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTD-Wt-zTS">
-                                <rect key="frame" x="16" y="325" width="288" height="56"/>
+                                <rect key="frame" x="16" y="345" width="288" height="56"/>
                                 <color key="backgroundColor" red="0.1628461480140686" green="0.16775813698768616" blue="0.17718857526779175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="ubT-vf-bbu"/>
@@ -139,7 +139,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-dl-isj">
-                                <rect key="frame" x="16" y="444" width="288" height="36"/>
+                                <rect key="frame" x="16" y="508" width="288" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="ВЫБРАТЬ СТОЛ">

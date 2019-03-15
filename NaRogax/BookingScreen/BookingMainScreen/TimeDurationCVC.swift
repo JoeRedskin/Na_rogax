@@ -12,8 +12,18 @@ class TimeDurationCVC: UICollectionViewCell {
     private var check = false
     @IBOutlet weak var timeDuration: LabelCell!
     
-    func reloadData(){
-        timeDuration.reloadColor(check: check)
+    func reloadSelected(){
+        reloadColor(check: check)
         check = !check
+    }
+    
+    func reloadColor(check: Bool){
+        if (check){
+            timeDuration.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
+            timeDuration.layer.borderWidth = 1
+        }else{
+            timeDuration.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+            timeDuration.layer.borderWidth = 3
+        }
     }
 }

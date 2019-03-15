@@ -140,10 +140,12 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == DateCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! DateCVC
-            cell.reloadData()
+            cell.reloadSelected()
             date = cell.date.text!
-    
+            
+            //Сброс таимпикера
             changeTimeSting.setTitle("Нажмите", for: .normal)
+            timeFrom = ""
             
             let format = DateFormatter()
             let calendar = Calendar.current
@@ -161,17 +163,15 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             format.dateFormat = "EE"
             let currentDay = format.string(from: someDate!)
-            print(currentDay)
+           // print(currentDay)
             
             if timeTable.count != 0{
                 for week_day in timeTable[0].data {
                     if currentDay == week_day.week_day{
                         format.dateFormat = "HH:mm:ss"
-    
                         var min = format.date(from: week_day.time_from)
                         var max = format.date(from: week_day.time_to)
     
-                        
                         let TimeToday = calendar.dateComponents([.year, .month, .day], from: Date())
                         let TimeFrom =  calendar.dateComponents([.hour, .minute, .second], from: min!)
                         let TimeTo = calendar.dateComponents([.hour, .minute, .second], from: max!)
@@ -190,11 +190,11 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                         datePicker.maximumDate = max
                         datePicker.reloadInputViews()
                         
-                        let checkMin = format.string(from: datePicker.minimumDate!)
-                        let checkMax = format.string(from: datePicker.maximumDate!)
-
-                        print(checkMin)
-                        print(checkMax)
+//                        let checkMin = format.string(from: datePicker.minimumDate!)
+//                        let checkMax = format.string(from: datePicker.maximumDate!)
+//
+//                        print(checkMin)
+//                        print(checkMax)
                     }
                 }
             }
@@ -202,18 +202,19 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             if (!previewIndex[0].isEmpty){
                 let previewCell = collectionView.cellForItem(at: previewIndex[0]) as? DateCVC
                 if (previewCell != nil){
-                    previewCell!.reloadData()
+                    previewCell!.reloadSelected()
                 }
             }
+            
             previewIndex[0] = indexPath
         } else {
             let cell = collectionView.cellForItem(at: indexPath) as! TimeDurationCVC
-            cell.reloadData()
+            cell.reloadSelected()
             timeTo = durationTime[indexPath.row]
             if (!previewIndex[1].isEmpty){
                 let previewCell = collectionView.cellForItem(at: previewIndex[1]) as? TimeDurationCVC
                 if (previewCell != nil){
-                    previewCell!.reloadData()
+                    previewCell!.reloadSelected()
                 }
             }
             previewIndex[1] = indexPath
@@ -230,6 +231,7 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             let ndate = Calendar.current.date(byAdding: .day, value: indexPath.last ?? 0, to: Date())!
             let date = format.string(from: ndate)
             cell.date.text = date
+            cell.date.initial()
             
             return cell
         } else {
