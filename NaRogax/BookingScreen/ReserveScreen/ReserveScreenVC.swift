@@ -304,6 +304,13 @@ class ReserveScreenVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
+                if isCorrectPhone {
+                    correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+                }
+                
+                if isCorrectEmail {
+                    correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                }
                 if isCorrectPhone && isCorrectEmail && isCorrectName {
                     correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
                     correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
