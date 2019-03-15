@@ -8,22 +8,27 @@
 
 import UIKit
 
-class DateCVC: UICollectionViewCell {
+class DateCVC {
     var check = false
-    @IBOutlet weak var date: LabelCell!
-
-    func reloadSelected(){
-        reloadColor(check: check)
+    var text: String = ""
+    
+    init(numberDay item: Int) {
+        setData(item: item)
+    }
+    
+    init(text: String) {
+        self.text = text
+    }
+    
+    func reload(){
         check = !check
     }
     
-    func reloadColor(check: Bool){
-        if (check){
-            date.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
-            date.layer.borderWidth = 1
-        }else{
-            date.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-            date.layer.borderWidth = 3
-        }
+    private func setData(item: Int){
+        let format = DateFormatter()
+        format.dateFormat = "dd\nEE"
+        format.locale = Locale(identifier: "ru_RU")
+        var date = Calendar.current.date(byAdding: .day, value: item, to: Date())!
+        text = format.string(from: date)
     }
 }

@@ -31,14 +31,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateCell" id="JNB-9M-CC4" customClass="DateCVC" customModule="NaRogax" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateCell" id="JNB-9M-CC4" customClass="Cell" customModule="NaRogax" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igD-74-id9" customClass="LabelCell" customModule="NaRogax" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igD-74-id9">
                                                     <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.69702597779999997" colorSpace="calibratedRGB"/>
@@ -53,7 +53,7 @@
                                             <constraint firstItem="igD-74-id9" firstAttribute="leading" secondItem="JNB-9M-CC4" secondAttribute="leading" id="tIo-yP-ohx"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="date" destination="igD-74-id9" id="WeT-CY-hBk"/>
+                                            <outlet property="lable" destination="igD-74-id9" id="CNz-rV-Scv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -107,14 +107,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DurationCell" id="lrz-Su-Flc" customClass="TimeDurationCVC" customModule="NaRogax" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DurationCell" id="lrz-Su-Flc" customClass="Cell" customModule="NaRogax" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-HC-BeQ" customClass="LabelCell" customModule="NaRogax" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-HC-BeQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.69702597779999997" colorSpace="calibratedRGB"/>
@@ -129,7 +129,7 @@
                                             <constraint firstItem="v5L-HC-BeQ" firstAttribute="leading" secondItem="lrz-Su-Flc" secondAttribute="leading" id="eFP-99-f2e"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="timeDuration" destination="v5L-HC-BeQ" id="U62-h4-9Nk"/>
+                                            <outlet property="lable" destination="v5L-HC-BeQ" id="hDI-8a-ROn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
