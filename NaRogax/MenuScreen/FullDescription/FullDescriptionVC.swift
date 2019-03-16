@@ -25,6 +25,11 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
         recStringToMassive()
         RecomendedCollectionView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var centerView: UIView!

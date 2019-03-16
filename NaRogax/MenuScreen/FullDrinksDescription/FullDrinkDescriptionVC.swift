@@ -84,7 +84,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         GetValuesInView(menu: dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish])
-        drinksArr = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].longDescription!.components(separatedBy: ", ")
+        //drinksArr = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].longDescription!.components(separatedBy: ", ")
         DrinksTableView.delegate = self
         DrinksTableView.dataSource = self
         ImageBGView.layer.cornerRadius = CGFloat(16)
@@ -99,6 +99,10 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         } else if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Лимонад") {
             drinksArr = ["7 UP", "Миринда", "Пепси"]
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func GetValuesInView(menu: DishDescription){

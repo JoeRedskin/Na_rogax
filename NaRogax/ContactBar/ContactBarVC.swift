@@ -33,6 +33,11 @@ class ContactBarVC: UIViewController {
         textViews[2].addGestureRecognizer(tapInst)
          
          */
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @objc func tapInstagram(sender:UITapGestureRecognizer) {

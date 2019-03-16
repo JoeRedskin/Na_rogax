@@ -59,6 +59,11 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         MinusStepper.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     func GetValuesInView(menu: DishDescription){
         
         if menu.name == ""{

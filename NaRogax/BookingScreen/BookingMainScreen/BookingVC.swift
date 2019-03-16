@@ -30,11 +30,12 @@ class BookingVC: UIViewController{
         changeTimeSting.layer.cornerRadius = 5
         reloadColorButton(target: false)
         setFirstData()
+        self.setNeedsStatusBarAppearanceUpdate()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
-    
     private func reloadColorButton(target: Bool){
         if (target){
             changeTableField.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)

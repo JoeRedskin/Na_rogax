@@ -21,6 +21,11 @@ class ReservationCanceledVC: UIViewController {
         super.viewDidLoad()
         button.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {

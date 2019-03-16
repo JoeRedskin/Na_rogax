@@ -33,6 +33,11 @@ class ReservationConfirmedVC: UIViewController{
         super.viewDidLoad()
         button.layer.cornerRadius = 20
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {

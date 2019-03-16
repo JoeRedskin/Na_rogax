@@ -47,7 +47,11 @@ class TabsVC: UIViewController {
                 
             }
         }
-        
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     /*
