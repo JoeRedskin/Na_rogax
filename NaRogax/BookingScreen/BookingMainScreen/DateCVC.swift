@@ -11,7 +11,8 @@ import UIKit
 class DateCVC {
     var check = false
     var text: String = ""
-    var date: String = ""
+    private var date: String = ""
+    private var today: Bool = false
     
     init(numberDay item: Int) {
         setData(item: item)
@@ -19,6 +20,14 @@ class DateCVC {
     
     init(text: String) {
         self.text = text
+    }
+    
+    func itIsToday() {
+        self.today = true
+    }
+    
+    func checkToday() -> Bool {
+        return today
     }
     
     func reload(){
@@ -45,21 +54,8 @@ class DateCVC {
         print("setDateLoc", date)
     }
     
-    //для сервера
-    //возращает дату в ячейке и расчитывает дату до какого бронируют
-    func getDate(timeTo time: String) -> (date: String, dateTo: String){
-        var dateTo = ""
-        switch time.split(separator: ":")[0] {
-        case "01", "00":
-            let splitDate = date.split(separator: "-")
-            var day: Int = Int(splitDate[2]) ?? 0
-            day += 1
-            dateTo = splitDate[0] + "-" + splitDate[1] + "-" + String(day)
-            break
-        default:
-            dateTo = date
-            break
-        }
-        return (date, dateTo)
+    //возращает дату в ячейке
+    func getDate() -> String{
+        return date
     }
 }

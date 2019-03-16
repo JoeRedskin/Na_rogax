@@ -77,7 +77,7 @@
                         <constraints>
                             <constraint firstItem="257-Hx-vG0" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="BPA-md-I1i"/>
                             <constraint firstItem="9ch-Zj-kI4" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="E6u-gp-UIw"/>
-                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="npe-YH-rkV" secondAttribute="bottom" constant="23" id="KKt-XD-cQ9"/>
+                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="npe-YH-rkV" secondAttribute="bottom" constant="20" id="KKt-XD-cQ9"/>
                             <constraint firstItem="lUI-DH-uFN" firstAttribute="top" secondItem="IS2-nc-Z2O" secondAttribute="bottom" constant="20" id="LB8-EF-pC7"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="257-Hx-vG0" secondAttribute="trailing" constant="16" id="T7s-X4-7SI"/>
                             <constraint firstItem="IS2-nc-Z2O" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="20" id="TW4-4P-tS0"/>
@@ -85,7 +85,6 @@
                             <constraint firstItem="npe-YH-rkV" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="b53-vU-DyW"/>
                             <constraint firstItem="e0r-Vj-tcb" firstAttribute="top" relation="lessThanOrEqual" secondItem="7iR-ip-hlB" secondAttribute="top" multiplier="4:3" constant="250" id="gs3-RS-NMA"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="9ch-Zj-kI4" secondAttribute="trailing" constant="16" id="hbT-Dn-9gl"/>
-                            <constraint firstItem="npe-YH-rkV" firstAttribute="top" secondItem="lUI-DH-uFN" secondAttribute="bottom" constant="24" id="hdo-bC-r8y"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="e0r-Vj-tcb" secondAttribute="trailing" constant="16" id="iTp-2c-mn0"/>
                             <constraint firstItem="257-Hx-vG0" firstAttribute="top" secondItem="e0r-Vj-tcb" secondAttribute="bottom" constant="20" id="igz-tl-zgG"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="IS2-nc-Z2O" secondAttribute="trailing" constant="20" id="oDM-2m-sAC"/>

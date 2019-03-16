@@ -47,9 +47,20 @@ class BookingVC: UIViewController{
     }
     
     private func setFirstData(){
-        for item in 0..<7{
+        var countDay = 7
+        
+        for item in 0..<countDay{
             let day = DateCVC(numberDay: item)
-            arrayDay.append(day)
+            if (item == 0){
+                if !hoursWork.isBookingCloseToday(day: day.getDate()){
+                    day.itIsToday()
+                    arrayDay.append(day)
+                }else{
+                    countDay += 1
+                }
+            }else{
+                arrayDay.append(day)
+            }
         }
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
         // доступное для брони
@@ -106,17 +117,15 @@ class BookingVC: UIViewController{
     
     
     @IBAction func changeTable(_ sender: UIButton) {
-        let time = hoursWork.getSelectTimeToServer()
+        let time = hoursWork.getDataToServer(day: arrayDay[previewIndex[0].item].getDate())
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
             reloadColorButton(target: false)
             return
         }
-        let date = arrayDay[previewIndex[0].item].getDate(timeTo: time.timeTo)
-        
         let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
-        vc.date = date.date
-        vc.date_to = date.dateTo
+        vc.date = time.dateFrom
+        vc.date_to = time.dateTo
         vc.time_to = time.timeTo
         vc.time_from = time.timeFrom
         navigationController?.pushViewController(vc, animated: true)
@@ -145,7 +154,7 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 }
                 //установка первоночальных значений для выбора времени
                 hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
-                                    today: indexPath.item == 0)
+                                    today: arrayDay[indexPath.item].checkToday())
                 hoursWork.selectIndex(index: 0)
             }
             reloadColorButton(target: false)
@@ -168,7 +177,7 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == DateCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! Cell
-            //print(indexPath.item, arrayDay.count)
+            print(indexPath.item, arrayDay.count)
             if (arrayDay.count > 0){
                 cell.setDate(dateCVC: arrayDay[indexPath.item])
                 calcAndSetTime()
