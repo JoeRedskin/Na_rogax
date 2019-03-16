@@ -29,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="hCJ-Re-iu6" userLabel="Dish Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="hCJ-Re-iu6" userLabel="Dish Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="252" height="158"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hCJ-Re-iu6" secondAttribute="height" multiplier="359:225" id="9nr-qL-J3B"/>
