@@ -19,7 +19,7 @@ class HoursWork{
     private var durationTime: [String] = []
     private let START_DURATION: Double = 2
     private let STOP_DURATION: Double = 4
-    
+
     //перерасчет времени
     func changeDay(day: String) {
         switch day {

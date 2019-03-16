@@ -28,7 +28,7 @@ class DateCVC {
         let format = DateFormatter()
         format.dateFormat = "dd\nEE"
         format.locale = Locale(identifier: "ru_RU")
-        var date = Calendar.current.date(byAdding: .day, value: item, to: Date())!
+        let date = Calendar.current.date(byAdding: .day, value: item, to: Date())!
         text = format.string(from: date)
     }
 }
