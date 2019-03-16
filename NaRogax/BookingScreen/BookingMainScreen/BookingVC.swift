@@ -96,9 +96,9 @@ class BookingVC: UIViewController{
             self.calcAndSetTime()
         }))
         editRadiusAlert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: { (UIAlertAction) in
-            if (self.arrayHour.count > 0){
+            /*if (self.arrayHour.count > 0){
                 self.changeTimeSting.titleLabel?.text = self.hoursWork.getSelectTime()
-            }
+            }*/
         }))
         editRadiusAlert.view.addConstraint(NSLayoutConstraint(item: editRadiusAlert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.5))
         self.present(editRadiusAlert, animated: true, completion: nil)
