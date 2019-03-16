@@ -14,12 +14,12 @@ class NavigationTabBarVC: UITabBarController {
         super.viewDidLoad()
         UITabBar.appearance().barTintColor = UIColor(red: CGFloat(55/255.0), green: CGFloat(55/255.0), blue: CGFloat(55/255.0), alpha: CGFloat(1.0) )
         UITabBar.appearance().tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: CGFloat(1.0) )
-        //UIColor( red: CGFloat(0/255.0), green: CGFloat(110/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0) )
-        //.barTintColor = UIColor.black
         settingTabBar()
-        // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     private func settingTabBar(){
         let firstViewController = UIStoryboard(name: "Main", bundle: nil)

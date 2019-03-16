@@ -68,6 +68,9 @@ class BookingVC: UIViewController{
             let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчаса")
             arrayHour.append(hour)
         }
+        previewIndex[1] = IndexPath()
+        hoursWork.setIndexDuration(index: 0)
+        reloadColorButton(target: false)
         TimeDurationCollectionView.reloadData()
     }
     
@@ -103,6 +106,10 @@ class BookingVC: UIViewController{
     
     @IBAction func changeTable(_ sender: UIButton) {
         let time = hoursWork.getSelectTimeToServer()
+        if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
+            reloadColorButton(target: false)
+            return
+        }
         let date = arrayDay[previewIndex[0].item].getDate(timeTo: time.timeTo)
         
         let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)

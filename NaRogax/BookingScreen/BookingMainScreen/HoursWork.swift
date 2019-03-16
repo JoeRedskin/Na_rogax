@@ -152,24 +152,27 @@ class HoursWork{
     //возвращает: timeFrom - со сколько, timeTo - до скольки
     func getSelectTimeToServer() -> (timeFrom: String, timeTo: String) {
         var timeTo = ""
-        let time = culcTimeTo(interval: arrayDurationTime[indexSelectDuration])
-        switch time.timeH {
-        case 24:
-            timeTo = "00:"
-            break
-        case 25:
-            timeTo = "01:"
-            break
-        default:
-            timeTo = "\(time.timeH):"
+        if (indexSelectDuration < arrayDurationTime.count){
+            let time = culcTimeTo(interval: arrayDurationTime[indexSelectDuration])
+            switch time.timeH {
+            case 24:
+                timeTo = "00:"
+                break
+            case 25:
+                timeTo = "01:"
+                break
+            default:
+                timeTo = "\(time.timeH):"
+            }
+            //дописываем минуты
+            if (time.timeM == 0){
+                timeTo += "00:00"
+            }else{
+                timeTo += "30:00"
+            }
+            return (arrayTime[indexSelectTime]+":00", timeTo)
         }
-        //дописываем минуты
-        if (time.timeM == 0){
-            timeTo += "00:00"
-        }else{
-            timeTo += "30:00"
-        }
-        return (arrayTime[indexSelectTime]+":00", timeTo)
+        return ("", "")
     }
  
     func getSelectTime() -> String {

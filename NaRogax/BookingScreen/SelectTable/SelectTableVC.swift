@@ -44,6 +44,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         TableView.delegate = self
