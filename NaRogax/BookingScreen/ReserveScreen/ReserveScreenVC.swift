@@ -41,6 +41,8 @@ extension String
 class ReserveScreenVC: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var NameField: UITextField!
+    @IBOutlet weak var NameImage: UIImageView!
+    @IBOutlet weak var NameErrorLabel: UILabel!
     
     @IBOutlet weak var PhoneLabel: UILabel!
     @IBOutlet weak var PhoneField: UITextField!
@@ -313,9 +315,15 @@ class ReserveScreenVC: UIViewController {
                     correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
                 }
                 
+                if isCorrectName {
+                    correctData(field: NameField, label: NameErrorLabel, image: NameImage)
+                }
+                
                 if isCorrectPhone && isCorrectEmail && isCorrectName {
                     correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
                     correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    
+                    correctData(field: NameField, label: NameErrorLabel, image: NameImage)
                     
                     UserDefaults.standard.set(name, forKey: "Name")
                     UserDefaults.standard.set(phone, forKey: "Phone")
@@ -358,6 +366,10 @@ class ReserveScreenVC: UIViewController {
                     
                     if !isCorrectEmail {
                         incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+                    }
+                    
+                    if !isCorrectName {
+                        incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
                     }
                 }
             }
