@@ -142,7 +142,8 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         if collectionView == DateCollectionView{
             if (arrayDay.count > 0){
                 //print(arrayDay[indexPath.item].text.split(separator: "\n")[1])
-                hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]))
+                hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
+                                    today: indexPath.item == 0)
                 arrayDay[indexPath.item].reload()
                 if (!previewIndex[0].isEmpty){
                     arrayDay[previewIndex[0].item].reload()

@@ -21,7 +21,7 @@ class HoursWork{
     private let STOP_DURATION: Double = 4
 
     //перерасчет времени
-    func changeDay(day: String) {
+    func changeDay(day: String, today: Bool) {
         switch day {
         case "вс":
             startTimeD = 13
@@ -39,6 +39,12 @@ class HoursWork{
             startTimeD = 12
             endTimeD = 21
             break
+        }
+        if (today){
+            let date = Date()
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: date)
+            print(hour)
         }
         calcTime()
     }
