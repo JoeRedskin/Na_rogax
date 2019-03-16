@@ -263,7 +263,7 @@ class ReserveScreenVC: UIViewController {
     func validateName(name: String) -> Bool {
         if name.count > 1 {
             let range = NSRange(location: 0, length: name.count)
-            let reg = "[A-Za-zА-Яа-я]{2,25}"
+            let reg = "^[a-zA-Zа-яА-ЯёЁ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
             let regex = try! NSRegularExpression(pattern: reg)
             if regex.firstMatch(in: name, options: [], range: range) != nil{
                 return true
