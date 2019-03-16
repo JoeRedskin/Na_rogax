@@ -49,14 +49,14 @@ class ContactBarVC: UIViewController {
     private func setStyleTitle(){
         for i in 0..<titleView.count{
             titleView[i].textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            titleView[i].font = UIFont.systemFont(ofSize: 26)
+            titleView[i].font = UIFont.systemFont(ofSize: 24)
         }
     }
     
     private func setStyleText(){
         for i in 0..<textViews.count{
             textViews[i].textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
-            textViews[i].font = UIFont.systemFont(ofSize: 22)
+            textViews[i].font = UIFont.systemFont(ofSize: 20)
         }
     }
 }

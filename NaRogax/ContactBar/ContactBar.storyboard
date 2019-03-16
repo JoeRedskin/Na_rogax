@@ -18,41 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch " translatesAutoresizingMaskIntoConstraints="NO" id="iN1-Lf-irY">
-                                <rect key="frame" x="16" y="70" width="343" height="174"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Contacts_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iN1-Lf-irY">
+                                <rect key="frame" x="109" y="34" width="157" height="166"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QC-QV-Uje">
-                                <rect key="frame" x="16" y="264" width="343" height="21"/>
+                                <rect key="frame" x="16" y="240" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Первомайский пр-т, 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8h-Ol-6gH">
-                                <rect key="frame" x="16" y="297" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="273" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контакты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-zu-PcE">
-                                <rect key="frame" x="16" y="367.5" width="343" height="21"/>
+                                <rect key="frame" x="16" y="313.5" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="тел: +7 (8142) 63-23-89" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-0t-25t">
-                                <rect key="frame" x="16" y="404.5" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="350.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VK: https://vk.com/narogah_ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-2P-nhM">
-                                <rect key="frame" x="0.0" y="478" width="242" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VK: https://vk.com/narogah_ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-2P-nhM">
+                                <rect key="frame" x="16" y="408.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instagram: narogah.ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKb-ET-lsB">
-                                <rect key="frame" x="16" y="424" width="178" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram: narogah.ptz" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKb-ET-lsB">
+                                <rect key="frame" x="16" y="378" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,20 +63,19 @@
                             <constraint firstItem="h8h-Ol-6gH" firstAttribute="top" secondItem="4QC-QV-Uje" secondAttribute="bottom" constant="12" id="0O1-OC-OZz"/>
                             <constraint firstItem="h8h-Ol-6gH" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="25j-jd-Zi6"/>
                             <constraint firstItem="zKb-ET-lsB" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="66k-tJ-ZhR"/>
-                            <constraint firstItem="4QC-QV-Uje" firstAttribute="top" secondItem="iN1-Lf-irY" secondAttribute="bottom" constant="20" id="CL3-mU-V4J"/>
-                            <constraint firstItem="iN1-Lf-irY" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="CUh-yz-UvW"/>
-                            <constraint firstItem="zKb-ET-lsB" firstAttribute="top" secondItem="Vn7-0t-25t" secondAttribute="bottom" constant="10" id="Gdw-vD-aaf"/>
+                            <constraint firstItem="4QC-QV-Uje" firstAttribute="top" secondItem="iN1-Lf-irY" secondAttribute="bottom" constant="40" id="CL3-mU-V4J"/>
+                            <constraint firstItem="iN1-Lf-irY" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="109" id="CUh-yz-UvW"/>
+                            <constraint firstItem="zKb-ET-lsB" firstAttribute="top" secondItem="Vn7-0t-25t" secondAttribute="bottom" constant="7" id="Gdw-vD-aaf"/>
                             <constraint firstItem="Vn7-0t-25t" firstAttribute="top" secondItem="Ami-zu-PcE" secondAttribute="bottom" constant="16" id="Hb0-Yw-dKT"/>
                             <constraint firstItem="4QC-QV-Uje" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="IT3-Ba-fu2"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="4QC-QV-Uje" secondAttribute="trailing" constant="16" id="TYr-uU-Mbf"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="Vn7-0t-25t" secondAttribute="trailing" constant="16" id="Ufe-UB-Sf7"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="Ami-zu-PcE" secondAttribute="trailing" constant="16" id="V0j-wR-2JG"/>
-                            <constraint firstItem="ZHf-50-aix" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iN1-Lf-irY" secondAttribute="bottom" constant="423" id="WIY-sF-H25"/>
-                            <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="iN1-Lf-irY" secondAttribute="trailing" constant="16" id="WjE-cI-KwR"/>
+                            <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="iN1-Lf-irY" secondAttribute="trailing" constant="109" id="WjE-cI-KwR"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="3JA-2P-nhM" secondAttribute="trailing" constant="16" id="c0o-pE-3xd"/>
-                            <constraint firstItem="Ami-zu-PcE" firstAttribute="top" secondItem="h8h-Ol-6gH" secondAttribute="bottom" constant="50" id="c32-q4-Qsl"/>
+                            <constraint firstItem="Ami-zu-PcE" firstAttribute="top" secondItem="h8h-Ol-6gH" secondAttribute="bottom" constant="20" id="c32-q4-Qsl"/>
                             <constraint firstItem="Ami-zu-PcE" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="frc-wP-gQy"/>
-                            <constraint firstItem="iN1-Lf-irY" firstAttribute="top" secondItem="ZHf-50-aix" secondAttribute="top" constant="50" id="hk1-1T-SHN"/>
+                            <constraint firstItem="iN1-Lf-irY" firstAttribute="top" secondItem="ZHf-50-aix" secondAttribute="top" constant="14" id="hk1-1T-SHN"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="zKb-ET-lsB" secondAttribute="trailing" constant="16" id="iHT-N3-pvV"/>
                             <constraint firstItem="Vn7-0t-25t" firstAttribute="leading" secondItem="ZHf-50-aix" secondAttribute="leading" constant="16" id="kyG-0H-Gvc"/>
                             <constraint firstItem="ZHf-50-aix" firstAttribute="trailing" secondItem="h8h-Ol-6gH" secondAttribute="trailing" constant="16" id="sM8-63-3FW"/>
@@ -100,6 +99,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch " width="612.47998046875" height="891.84002685546875"/>
+        <image name="Contacts_logo" width="157" height="166"/>
     </resources>
 </document>
