@@ -131,7 +131,7 @@ class ReserveScreenVC: UIViewController {
         NameField.maxLength = 30
         
         PhoneField.maxLength = 11
-        EmailField.maxLength = 25
+        EmailField.maxLength = 40
         
         let name = UserDefaults.standard.string(forKey: "Name") ?? ""
         let phone = UserDefaults.standard.string(forKey: "Phone") ?? ""
