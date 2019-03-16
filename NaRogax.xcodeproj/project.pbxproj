@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
+		CE481FF6223D06740032AB78 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* Timetable.swift */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
 		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
@@ -40,13 +41,11 @@
 		CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF02057223778650083D0A1 /* BookingMain.storyboard */; };
 		CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205922377D700083D0A1 /* BookingVC.swift */; };
 		CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205B22377D840083D0A1 /* DateCVC.swift */; };
-		CEF0205E22377DF90083D0A1 /* TimeDurationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205D22377DF90083D0A1 /* TimeDurationCVC.swift */; };
 		CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3668722394FC2003F17D8 /* ViewControll.swift */; };
 		CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */; };
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
 		CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */; };
 		CEF692E622274ACA000F3307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF692E422274AC9000F3307 /* Main.storyboard */; };
-		CEF76040223A2DBF00C4DBC1 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */; };
 		CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */; };
 		CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */; };
 		CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */; };
@@ -68,6 +67,7 @@
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
+		CE481FF5223D06740032AB78 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
 		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
@@ -101,13 +101,11 @@
 		CEF02057223778650083D0A1 /* BookingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookingMain.storyboard; sourceTree = "<group>"; };
 		CEF0205922377D700083D0A1 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		CEF0205B22377D840083D0A1 /* DateCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCVC.swift; sourceTree = "<group>"; };
-		CEF0205D22377DF90083D0A1 /* TimeDurationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDurationCVC.swift; sourceTree = "<group>"; };
 		CEF3668722394FC2003F17D8 /* ViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControll.swift; sourceTree = "<group>"; };
 		CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedLabel.swift; sourceTree = "<group>"; };
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
 		CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescCViCell.swift; sourceTree = "<group>"; };
 		CEF692E522274AC9000F3307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationCanceled.storyboard; sourceTree = "<group>"; };
 		CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCanceledVC.swift; sourceTree = "<group>"; };
 		CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
@@ -245,12 +243,11 @@
 		CEF02056223778340083D0A1 /* BookingMainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CE481FF5223D06740032AB78 /* Timetable.swift */,
 				CEF02057223778650083D0A1 /* BookingMain.storyboard */,
 				CEF0205922377D700083D0A1 /* BookingVC.swift */,
 				CE5A4726223BF72100724490 /* HoursWork.swift */,
 				CEF0205B22377D840083D0A1 /* DateCVC.swift */,
-				CEF0205D22377DF90083D0A1 /* TimeDurationCVC.swift */,
-				CEF7603F223A2DBF00C4DBC1 /* Timetable.swift */,
 				CE5A4712223BD5B600724490 /* Cell.swift */,
 			);
 			path = BookingMainScreen;
@@ -495,7 +492,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
-				CEF76040223A2DBF00C4DBC1 /* Timetable.swift in Sources */,
 				CEF7C3A622391E6D00FBAA8B /* TablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */,
@@ -518,6 +514,7 @@
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
+				CE481FF6223D06740032AB78 /* Timetable.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
 				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
@@ -531,7 +528,6 @@
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,
 				CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
-				CEF0205E22377DF90083D0A1 /* TimeDurationCVC.swift in Sources */,
 				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
 				CEF7C39A22391E6500FBAA8B /* ReserveResponseData.swift in Sources */,
 			);

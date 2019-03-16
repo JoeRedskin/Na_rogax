@@ -8,24 +8,7 @@
 
 import UIKit
 
-class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    var picker = false{
-        didSet{
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm"
-            changeTimeSting.setTitle(dateFormatter.string(for: datePicker.date), for: .normal)
-            timeFrom = dateFormatter.string(for: datePicker.date)!
-        }
-    }
-    
-    private var first: Bool = true
-    
-    var date = ""
-    var timeFrom = ""
-    var timeTo = ""
-    var timeTable:[Timetable] = []
-    
+class BookingVC: UIViewController{
     private var previewIndex = [IndexPath(), IndexPath()]
     private var arrayDay: [DateCVC] = []
     private var arrayHour: [DateCVC] = []
@@ -45,52 +28,68 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         changeTimeSting.layer.borderWidth = 3.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
         changeTimeSting.layer.cornerRadius = 5
-        
-        let dataLoader = DataLoader()
-        dataLoader.getTimetable{ items in self.timeTable.append(contentsOf: items)
-            self.datePicker.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            var dateComponent = DateComponents()
-            dateComponent.hour = Calendar.current.component(.hour, from: Date())
-            self.datePicker.date = Calendar.current.date(from: dateComponent)!
-            self.datePicker.date = Calendar.current.date(byAdding: .hour, value: 3, to: self.datePicker.date)!
-        }
+        reloadColorButton(target: false)
+        setFirstData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setDataArray()
-        DateCollectionView.reloadData()
-        TimeDurationCollectionView.reloadData()
     }
     
-    private func setDataArray(){
+    private func reloadColorButton(target: Bool){
+        if (target){
+            changeTableField.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            changeTableField.isUserInteractionEnabled = true
+        }else{
+            changeTableField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
+            changeTableField.isUserInteractionEnabled = false
+        }
+    }
+    
+    private func setFirstData(){
         for item in 0..<7{
             let day = DateCVC(numberDay: item)
             arrayDay.append(day)
         }
+        //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
+        // доступное для брони
+        arrayDay[0].check = true
+        previewIndex[0] = IndexPath(indexes: [0, 0])
+        hoursWork.changeDay(day: String(arrayDay[0].text.split(separator: "\n")[1]),
+                            today: true)
+        hoursWork.selectIndex(index: 0)
+        calcAndSetTime()
+        DateCollectionView.reloadData()
     }
     
     private func setDataHours(){
         arrayHour.removeAll()
         self.TimeDurationCollectionView.reloadData()
         for item in 0..<hoursWork.getCountDurationTime(){
-            let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчасов")
+            let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчаса")
             arrayHour.append(hour)
         }
+        TimeDurationCollectionView.reloadData()
+    }
+    
+    //Перерасчет времени куда можно забронить
+    private func calcAndSetTime(){
+        self.hoursWork.calcDurationTime()
+        self.setDataHours()
+        self.changeTimeSting.setTitle(self.hoursWork.getSelectTime(), for: .normal)
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
         hoursWork.selectIndex(index: 0)
         let editRadiusAlert = UIAlertController(title: "Выберите время", message: "", preferredStyle: UIAlertController.Style.alert)
-        let pickeViewFrame: CGRect = CGRect(x: 0, y: 0, width: 250, height: 300)
+        print("alert", editRadiusAlert.view.frame.height)
+        print("alert", self.view.frame.height)
+        let pickeViewFrame: CGRect = CGRect(x: 5, y: 10, width: 250, height: editRadiusAlert.view.frame.height/3)
         let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
         pickerViewRadius.delegate = self
         pickerViewRadius.dataSource = self
         editRadiusAlert.view.addSubview(pickerViewRadius)
         editRadiusAlert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default,handler:{ (UIAlertAction) in
-            self.changeTimeSting.titleLabel?.text = self.hoursWork.getSelectTime()
-            self.hoursWork.calcDurationTime()
-            self.setDataHours()
-            self.TimeDurationCollectionView.reloadData()
+            self.calcAndSetTime()
         }))
         editRadiusAlert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: { (UIAlertAction) in
             if (self.arrayHour.count > 0){
@@ -103,32 +102,21 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     
     @IBAction func changeTable(_ sender: UIButton) {
-        if date != "" && timeTo != "" && timeFrom != "" {
-            
-            var newDate = date
-            var newTimeTo = timeTo
-            var newTimeFrom = timeFrom
-            var newDateTo = date
-            
-            
-            let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
-            
-            vc.date = newDate
-            vc.time_to = newTimeTo
-            vc.time_from = newTimeFrom
-            vc.date_to = newDateTo
-            
-            newDate = date
-            newTimeTo = timeTo
-            newTimeFrom = timeFrom
-            newDateTo = date
-            
-            navigationController?.pushViewController(vc, animated: true)
-            
-        }
+        let time = hoursWork.getSelectTimeToServer()
+        let date = arrayDay[previewIndex[0].item].getDate(timeTo: time.timeTo)
+        
+        let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
+        vc.date = date.date
+        vc.date_to = date.dateTo
+        vc.time_to = time.timeTo
+        vc.time_from = time.timeFrom
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
+}
+
+//расширение для методов CollectionView
+extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == DateCollectionView{
             return 7
@@ -141,38 +129,41 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == DateCollectionView{
             if (arrayDay.count > 0){
-                //print(arrayDay[indexPath.item].text.split(separator: "\n")[1])
-                hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
-                                    today: indexPath.item == 0)
+                //обновление модели
                 arrayDay[indexPath.item].reload()
                 if (!previewIndex[0].isEmpty){
                     arrayDay[previewIndex[0].item].reload()
+                    print(previewIndex[0])
                 }
+                //установка первоночальных значений для выбора времени
+                hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
+                                    today: indexPath.item == 0)
+                hoursWork.selectIndex(index: 0)
             }
-            print("collectionView", indexPath, arrayDay.count)
+            reloadColorButton(target: false)
             previewIndex[0] = indexPath
             DateCollectionView.reloadData()
         } else {
             if (arrayHour.count > 0){
                 arrayHour[indexPath.item].reload()
+                hoursWork.setIndexDuration(index: indexPath.item)
                 if (!previewIndex[1].isEmpty){
                     arrayHour[previewIndex[1].item].reload()
                 }
             }
-            timeTo = hoursWork.getItemDurationTime(index: indexPath.row)
-            TimeDurationCollectionView.reloadData()
             previewIndex[1] = indexPath
+            reloadColorButton(target: true)
+            TimeDurationCollectionView.reloadData()
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         if collectionView == DateCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! Cell
             //print(indexPath.item, arrayDay.count)
             if (arrayDay.count > 0){
                 cell.setDate(dateCVC: arrayDay[indexPath.item])
+                calcAndSetTime()
             }
             return cell
         } else {
@@ -186,6 +177,7 @@ class BookingVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
 }
 
 
+//расширение для методов picker
 extension BookingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

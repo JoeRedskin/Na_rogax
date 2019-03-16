@@ -9,14 +9,16 @@
 import Foundation
 
 class HoursWork{
+    private let PRINT_DEBUG = false
     //для интервала времени
-    private let minute: TimeInterval = 30
+    private let TIME_INTERVAL: TimeInterval = 30
     private var startTimeD: Double = 0
     private var endTimeD: Double = 0
     private var arrayTime: [String] = []
     private var indexSelectTime: Int = 0
     //переменные для выбора сколько сидим
-    private var durationTime: [String] = []
+    private var arrayDurationTime: [String] = []
+    private var indexSelectDuration: Int = 0
     private let START_DURATION: Double = 2
     private let STOP_DURATION: Double = 4
 
@@ -43,19 +45,19 @@ class HoursWork{
         if (today){
             let date = Date()
             let calendar = Calendar.current
-            let hour = calendar.component(.hour, from: date)
-            print(hour)
+            //Ограничение на сегоднешнний день + 3 часа от текущего времени
+            startTimeD = Double(calendar.component(.hour, from: date) + 3)
         }
         calcTime()
     }
     
     //Расчет интервала времени
     private func calcTime(){
+        arrayTime.removeAll()
         var currentTime = startTimeD
-        let incrementMinutes: Double = 30
-        
+        arrayTime.append("\(Int(startTimeD)):00")
         while currentTime < endTimeD {
-            startTimeD += (incrementMinutes/60)
+            startTimeD += (TIME_INTERVAL/60)
             let hours = Int(floor(startTimeD))
             let minutes = Int(startTimeD.truncatingRemainder(dividingBy: 1)*60)
             currentTime = Double(hours)
@@ -65,16 +67,18 @@ class HoursWork{
                 arrayTime.append("\(hours):\(minutes)")
             }
         }
-        print(arrayTime)
+        if (PRINT_DEBUG){
+            print(arrayTime)
+        }
     }
 
     func getCountDurationTime() -> Int{
-        return durationTime.count
+        return arrayDurationTime.count
     }
     
     func getItemDurationTime(index: Int) -> String {
-        if (durationTime.count > 0){
-            return durationTime[index]
+        if (arrayDurationTime.count > 0){
+            return arrayDurationTime[index]
         }else{
             return "Error"
         }
@@ -82,6 +86,10 @@ class HoursWork{
     
     func getCountTime() -> Int {
         return arrayTime.count
+    }
+    
+    func setIndexDuration(index: Int){
+        indexSelectDuration = index
     }
     
     func getItemTime(item: Int) -> String {
@@ -94,23 +102,27 @@ class HoursWork{
     
     //расчитываем на сколько можно забронировть
     func calcDurationTime(){
-        durationTime.removeAll()
+        arrayDurationTime.removeAll()
         var culcTime = START_DURATION
         while culcTime <= STOP_DURATION{
             let time = culcTimeTo(interval: String(culcTime))
-            print(culcTime, time)
+            if (PRINT_DEBUG){
+                print(culcTime, time)
+            }
             if (Double(time.timeH) < endTimeD + 2){
-                durationTime.append(String(culcTime))
+                arrayDurationTime.append(String(culcTime))
                 culcTime += 0.5
             } else {
                 if (time.timeM < 30){
-                    durationTime.append(String(culcTime))
+                    arrayDurationTime.append(String(culcTime))
                 }
                 break
             }
             
         }
-        print(durationTime)
+        if (PRINT_DEBUG){
+            print(arrayDurationTime)
+        }
     }
     
     //когда пользователь выбирает время индекс передается сюда
@@ -138,9 +150,9 @@ class HoursWork{
     //получает время для отпаврки на сервер
     //где interval - на сколько люди будут бронировать
     //возвращает: timeFrom - со сколько, timeTo - до скольки
-    func getSelectTime(interval: String) -> (timeFrom: String, timeTo: String) {
+    func getSelectTimeToServer() -> (timeFrom: String, timeTo: String) {
         var timeTo = ""
-        let time = culcTimeTo(interval: interval)
+        let time = culcTimeTo(interval: arrayDurationTime[indexSelectDuration])
         switch time.timeH {
         case 24:
             timeTo = "00:"
