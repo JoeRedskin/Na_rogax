@@ -124,6 +124,7 @@ class ReserveScreenVC: UIViewController {
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
+        
         ReserveBtn.layer.cornerRadius = 20
         setStyleForTextField(field: NameField, placeholder: "Имя")
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")

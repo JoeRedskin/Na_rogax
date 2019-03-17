@@ -39,10 +39,12 @@ class Cell: UICollectionViewCell {
             lable.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
             lable.layer.borderWidth = 3
             lable.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            lable.layer.cornerRadius = 4
         }else{
             lable.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
             lable.layer.borderWidth = 1
             lable.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
+            lable.layer.cornerRadius = 4
         }
     }
 }

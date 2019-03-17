@@ -27,7 +27,7 @@ class BookingVC: UIViewController{
         dateFormatter.dateFormat =  "HH:mm"
         changeTimeSting.layer.borderWidth = 3.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
-        changeTimeSting.layer.cornerRadius = 5
+        changeTimeSting.layer.cornerRadius = 4
         reloadColorButton(target: false)
         setFirstData()
         self.setNeedsStatusBarAppearanceUpdate()
