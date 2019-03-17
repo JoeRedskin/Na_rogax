@@ -25,19 +25,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите ваши данные" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvn-5u-6Sp">
-                                                <rect key="frame" x="16" y="52" width="343" height="29"/>
+                                                <rect key="frame" x="16" y="27" width="343" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-vy-IBX">
-                                                <rect key="frame" x="17" y="94" width="268" height="14"/>
+                                                <rect key="frame" x="17" y="69" width="268" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYD-IJ-aGG">
-                                                <rect key="frame" x="17" y="110" width="342" height="30"/>
+                                                <rect key="frame" x="17" y="85" width="342" height="30"/>
                                                 <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -51,7 +51,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7O-80-PVb">
-                                                <rect key="frame" x="17" y="177" width="342" height="30"/>
+                                                <rect key="frame" x="17" y="152" width="342" height="30"/>
                                                 <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,33 +62,33 @@
                                                 </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Телефон" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdg-28-L4c">
-                                                <rect key="frame" x="17" y="160" width="286" height="14"/>
+                                                <rect key="frame" x="17" y="135" width="286" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r11-Zq-RXG">
-                                                <rect key="frame" x="17" y="227" width="286" height="14"/>
+                                                <rect key="frame" x="17" y="202" width="286" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-eZ-0m2">
-                                                <rect key="frame" x="339" y="175" width="20" height="20"/>
+                                                <rect key="frame" x="339" y="150" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="dJC-EO-TiI"/>
                                                     <constraint firstAttribute="height" constant="20" id="lHm-dz-sl7"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rPK-uM-JAq">
-                                                <rect key="frame" x="339" y="115" width="20" height="20"/>
+                                                <rect key="frame" x="339" y="90" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="9Ne-Qh-RdH"/>
                                                     <constraint firstAttribute="height" constant="20" id="cNJ-xh-cbU"/>
                                                 </constraints>
                                             </imageView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста,введите корректный номер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAE-oL-tcB">
-                                                <rect key="frame" x="17" y="209" width="354" height="12"/>
+                                                <rect key="frame" x="17" y="184" width="354" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="WSs-8N-PEp"/>
                                                 </constraints>
@@ -97,7 +97,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-mn-DyF">
-                                                <rect key="frame" x="17" y="244" width="342" height="30"/>
+                                                <rect key="frame" x="17" y="219" width="342" height="30"/>
                                                 <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,14 +108,14 @@
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="iDV-qh-cxh">
-                                                <rect key="frame" x="339" y="242" width="20" height="20"/>
+                                                <rect key="frame" x="339" y="217" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="LTb-eu-ERN"/>
                                                     <constraint firstAttribute="height" constant="20" id="aqK-AR-Gcm"/>
                                                 </constraints>
                                             </imageView>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста,введите корректный E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-R9-nto">
-                                                <rect key="frame" x="17" y="276" width="332" height="12"/>
+                                                <rect key="frame" x="17" y="251" width="332" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="Ocw-Nz-Eyj"/>
                                                 </constraints>
@@ -124,7 +124,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваша бронь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHB-7n-Z1g">
-                                                <rect key="frame" x="16" y="308" width="309" height="28"/>
+                                                <rect key="frame" x="16" y="283" width="309" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="aec-eB-oNQ"/>
                                                 </constraints>
@@ -133,19 +133,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стол" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYs-I6-7pC">
-                                                <rect key="frame" x="17" y="351" width="129" height="14"/>
+                                                <rect key="frame" x="17" y="326" width="129" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 места, у окна, стулья" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kre-vx-fmk">
-                                                <rect key="frame" x="16" y="367" width="330" height="20"/>
+                                                <rect key="frame" x="16" y="342" width="330" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vir-8k-ey3">
-                                                <rect key="frame" x="16" y="407" width="131" height="14"/>
+                                                <rect key="frame" x="16" y="382" width="131" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="131" id="Qga-sr-o5s"/>
                                                 </constraints>
@@ -154,7 +154,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня, 7 марта" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlM-GA-v0p">
-                                                <rect key="frame" x="16" y="423" width="150" height="17"/>
+                                                <rect key="frame" x="16" y="398" width="150" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="rYQ-LS-pGM"/>
                                                 </constraints>
@@ -163,19 +163,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J7-5N-fC6">
-                                                <rect key="frame" x="198" y="407" width="127" height="14"/>
+                                                <rect key="frame" x="198" y="382" width="127" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfZ-aT-1Nk">
-                                                <rect key="frame" x="198" y="423" width="157" height="17"/>
+                                                <rect key="frame" x="198" y="398" width="157" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-qR-uMd">
-                                                <rect key="frame" x="16" y="465" width="343" height="36"/>
+                                                <rect key="frame" x="16" y="571" width="343" height="36"/>
                                                 <color key="backgroundColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="42" id="Dzr-la-4uQ"/>
@@ -189,7 +189,7 @@
                                                 </connections>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста,введите корректное имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCA-Uf-FFJ">
-                                                <rect key="frame" x="17" y="142" width="354" height="12"/>
+                                                <rect key="frame" x="17" y="117" width="354" height="12"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="12" id="uOE-sl-1vN"/>
                                                 </constraints>
@@ -220,7 +220,6 @@
                                             <constraint firstItem="P3R-R9-nto" firstAttribute="top" secondItem="C9j-mn-DyF" secondAttribute="bottom" constant="2" id="Ir9-I7-4VF"/>
                                             <constraint firstItem="iDV-qh-cxh" firstAttribute="top" secondItem="JAE-oL-tcB" secondAttribute="bottom" constant="21" id="JfN-Ac-a6E"/>
                                             <constraint firstAttribute="trailing" secondItem="kre-vx-fmk" secondAttribute="trailing" constant="29" id="KHj-Jf-hOX"/>
-                                            <constraint firstItem="O5T-qR-uMd" firstAttribute="top" secondItem="YfZ-aT-1Nk" secondAttribute="bottom" constant="25" id="LCw-6k-0Lu"/>
                                             <constraint firstAttribute="trailing" secondItem="r11-Zq-RXG" secondAttribute="trailing" constant="72" id="NTL-wI-Vnd"/>
                                             <constraint firstAttribute="height" priority="250" id="Nrd-tf-0K5"/>
                                             <constraint firstItem="Mvn-5u-6Sp" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="16" id="OVj-dv-HpK"/>
@@ -245,6 +244,7 @@
                                             <constraint firstItem="DRi-vy-IBX" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="17" id="fm1-Le-0bF"/>
                                             <constraint firstAttribute="trailing" secondItem="DRi-vy-IBX" secondAttribute="trailing" constant="90" id="gST-eY-Eez"/>
                                             <constraint firstItem="Qdg-28-L4c" firstAttribute="top" secondItem="jYD-IJ-aGG" secondAttribute="bottom" constant="20" id="hDG-Qc-xKp"/>
+                                            <constraint firstAttribute="bottom" secondItem="O5T-qR-uMd" secondAttribute="bottom" constant="40" id="hXT-JM-ncj"/>
                                             <constraint firstItem="JAE-oL-tcB" firstAttribute="top" secondItem="eVz-eZ-0m2" secondAttribute="bottom" constant="14" id="inr-uj-bix"/>
                                             <constraint firstAttribute="trailing" secondItem="YfZ-aT-1Nk" secondAttribute="trailing" constant="20" id="kWx-u6-d1Q"/>
                                             <constraint firstItem="C7O-80-PVb" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="17" id="kdc-94-HNP"/>
@@ -255,14 +255,14 @@
                                             <constraint firstAttribute="trailing" secondItem="Mvn-5u-6Sp" secondAttribute="trailing" constant="16" id="pbh-Re-eJK"/>
                                             <constraint firstItem="O5T-qR-uMd" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="16" id="qVk-Y3-6Nb"/>
                                             <constraint firstItem="rPK-uM-JAq" firstAttribute="trailing" secondItem="eVz-eZ-0m2" secondAttribute="trailing" id="qvc-aI-hGC"/>
-                                            <constraint firstItem="eVz-eZ-0m2" firstAttribute="top" secondItem="A3x-0q-7f5" secondAttribute="top" constant="175" id="rVN-D7-6ZG"/>
+                                            <constraint firstItem="eVz-eZ-0m2" firstAttribute="top" secondItem="A3x-0q-7f5" secondAttribute="top" constant="150" id="rVN-D7-6ZG"/>
                                             <constraint firstItem="YfZ-aT-1Nk" firstAttribute="top" secondItem="4J7-5N-fC6" secondAttribute="bottom" constant="2" id="sfE-5z-rkW"/>
                                             <constraint firstItem="rPK-uM-JAq" firstAttribute="top" secondItem="Mvn-5u-6Sp" secondAttribute="bottom" constant="34" id="syY-F5-ONI"/>
                                             <constraint firstItem="DRi-vy-IBX" firstAttribute="top" secondItem="Mvn-5u-6Sp" secondAttribute="bottom" constant="13" id="veM-k6-iRO"/>
                                             <constraint firstItem="4J7-5N-fC6" firstAttribute="leading" secondItem="Vir-8k-ey3" secondAttribute="trailing" constant="51" id="xIB-Hg-XlX"/>
                                             <constraint firstAttribute="trailing" secondItem="kHB-7n-Z1g" secondAttribute="trailing" constant="50" id="xp9-Cv-0EE"/>
                                             <constraint firstItem="kHB-7n-Z1g" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="16" id="yES-Gv-fBN"/>
-                                            <constraint firstItem="Mvn-5u-6Sp" firstAttribute="top" secondItem="A3x-0q-7f5" secondAttribute="top" constant="52" id="yYq-w2-Wma"/>
+                                            <constraint firstItem="Mvn-5u-6Sp" firstAttribute="top" secondItem="A3x-0q-7f5" secondAttribute="top" constant="27" id="yYq-w2-Wma"/>
                                             <constraint firstAttribute="trailing" secondItem="Qdg-28-L4c" secondAttribute="trailing" constant="72" id="zYu-zI-I56"/>
                                             <constraint firstItem="kre-vx-fmk" firstAttribute="leading" secondItem="A3x-0q-7f5" secondAttribute="leading" constant="16" id="zgx-YA-huM"/>
                                         </constraints>

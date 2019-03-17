@@ -38,6 +38,13 @@ extension String
     }
 }
 
+extension UITextField {
+    
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.cut) || action == #selector(UIResponderStandardEditActions.copy)
+    }
+}
+
 class ReserveScreenVC: UIViewController {
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var NameField: UITextField!

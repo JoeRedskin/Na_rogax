@@ -10,7 +10,7 @@ import UIKit
 
 class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
-    @IBOutlet weak var ImageBGView: UIView!
+    @IBOutlet weak var ImageBGView: GradientView!
     @IBOutlet weak var Image: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DescLabel: UILabel!
@@ -40,8 +40,9 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         GetValuesInView(menu: dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish])
-        ImageBGView.layer.cornerRadius = CGFloat(16)
-        ImageBGView.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.9793184433)
+        ImageBGView.clipsToBounds = true
+        ImageBGView.layer.cornerRadius = 16.0
+        
         AddToCartBtn.layer.cornerRadius = 20
         AddToCartBtn.layer.borderWidth = 1
         AddToCartBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
@@ -72,16 +73,29 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             NameLabel.text = menu.name
         }
         
-        if menu.longDescription == ""{
-            DescLabel.isHidden = true
+        if let desc = menu.longDescription {
+            if desc == "" {
+                DescLabel.isHidden = true
+            } else {
+                //print(menu.longDescription!)
+                DescLabel.text = desc
+            }
         } else {
-            DescLabel.text = menu.longDescription
+            if menu.name.contains("Лимонад") {
+                DescLabel.text = "Стекло"
+            } else {
+                DescLabel.text = ""
+            }
         }
         
         if menu.weight == ""{
             WeightLabel.isHidden = true
         } else {
-            WeightLabel.text = menu.weight
+            if menu.name.contains("Сок") || menu.name.contains("Лимонад") {
+                WeightLabel.text = menu.weight + " мл"
+            } else {
+                WeightLabel.text = menu.weight
+            }
         }
          
          if menu.price == nil{

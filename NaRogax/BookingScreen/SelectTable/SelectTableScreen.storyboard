@@ -106,39 +106,57 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-U3-o5t">
-                                <rect key="frame" x="29" y="296" width="328" height="95.5"/>
-                                <string key="text">На указанный вами период нет
-свободных столов. Измените параметры
-или свяжитесь с администратором
-ресторана по номеру : +7 (8142) 63-23-89</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZ9-rd-9c1">
+                                <rect key="frame" x="12.5" y="346.5" width="350" height="147"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azw-ZT-WGi">
+                                        <rect key="frame" x="56" y="0.0" width="238" height="38.5"/>
+                                        <string key="text">На указанный вами период нет
+свободных столов. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.70474501533742329" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Измените параметры или свяжитесь с администратором ресторана по номеру :" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-UT-Slu">
+                                        <rect key="frame" x="0.0" y="48.5" width="350" height="69"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="69" id="NIQ-aC-F8r"/>
+                                            <constraint firstAttribute="width" constant="350" id="vkM-Tz-P2w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.7047450153" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+7 (8142) 63-23-89" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFj-fK-2yh">
+                                        <rect key="frame" x="101" y="127.5" width="148.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zaq-U3-o5t" firstAttribute="centerY" secondItem="mxB-0T-BwL" secondAttribute="centerY" constant="-76.25" id="1se-mr-dd0"/>
-                            <constraint firstItem="Zaq-U3-o5t" firstAttribute="leading" secondItem="mxB-0T-BwL" secondAttribute="leading" constant="29" id="D9c-03-mJQ"/>
+                            <constraint firstItem="PZ9-rd-9c1" firstAttribute="centerY" secondItem="mxB-0T-BwL" secondAttribute="centerY" id="552-OD-fhY"/>
                             <constraint firstItem="BbG-V5-1NI" firstAttribute="leading" secondItem="mxB-0T-BwL" secondAttribute="leading" constant="16" id="IcG-sQ-K38"/>
-                            <constraint firstItem="mxB-0T-BwL" firstAttribute="trailing" secondItem="Zaq-U3-o5t" secondAttribute="trailing" constant="18" id="LN5-QQ-8M8"/>
                             <constraint firstItem="mxB-0T-BwL" firstAttribute="bottom" secondItem="BbG-V5-1NI" secondAttribute="bottom" id="Wfh-uG-n3V"/>
                             <constraint firstItem="mxB-0T-BwL" firstAttribute="trailing" secondItem="BbG-V5-1NI" secondAttribute="trailing" id="ngy-sT-me4"/>
                             <constraint firstItem="BbG-V5-1NI" firstAttribute="top" secondItem="mxB-0T-BwL" secondAttribute="top" id="rxh-q0-0ua"/>
+                            <constraint firstItem="PZ9-rd-9c1" firstAttribute="centerX" secondItem="mxB-0T-BwL" secondAttribute="centerX" id="y28-yq-gJC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mxB-0T-BwL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Выберите стол" id="qHK-N1-IB5"/>
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
-                        <outlet property="NoEmptyTablesLabel" destination="Zaq-U3-o5t" id="ZlE-rv-uKH"/>
+                        <outlet property="NoEmptyTablesLabel" destination="PZ9-rd-9c1" id="wBo-bo-o5v"/>
                         <outlet property="TableView" destination="BbG-V5-1NI" id="dwe-Cg-eNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeY-B3-HjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="165.96701649175412"/>
+            <point key="canvasLocation" x="-175.19999999999999" y="165.51724137931035"/>
         </scene>
         <!--No Free TablesVC-->
         <scene sceneID="Mqx-Sg-jz1">

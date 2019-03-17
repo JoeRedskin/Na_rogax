@@ -10,7 +10,9 @@ import UIKit
 
 class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var TableView: UITableView!
-    @IBOutlet weak var NoEmptyTablesLabel: UILabel!
+    //@IBOutlet weak var NoEmptyTablesLabel: UILabel!
+    @IBOutlet weak var NoEmptyTablesLabel: UIStackView!
+    
     
     var date = "2019-02-13"
     var time_from = "10:00:00"

@@ -87,8 +87,9 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         //drinksArr = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].longDescription!.components(separatedBy: ", ")
         DrinksTableView.delegate = self
         DrinksTableView.dataSource = self
+        ImageBGView.clipsToBounds = true
         ImageBGView.layer.cornerRadius = CGFloat(16)
-        ImageBGView.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.9793184433)
+        //ImageBGView.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.9793184433)
 
         if dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Сок"){
             drinksArr = ["Апельсин", "Томат", "Яблоко"]
