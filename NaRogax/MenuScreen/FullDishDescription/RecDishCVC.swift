@@ -36,7 +36,11 @@ class RecDishCVC: UICollectionViewCell {
         if dish.weight == ""{
             WeightLabel.isHidden = true
         } else {
-            WeightLabel.text = dish.weight + " г"
+            if dish.name.contains("Сок") || dish.name.contains("Чай") || dish.name.contains("Кофе") || dish.name.contains("Лимонад") || dish.name.contains("Пиво") {
+                WeightLabel.text = dish.weight + " мл"
+            } else {
+                WeightLabel.text = dish.weight + " г"
+            }
         }
         
         if dish.price == nil{
