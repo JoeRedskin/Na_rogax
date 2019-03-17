@@ -37,6 +37,7 @@ class BasicCell: UICollectionViewCell {
         super.init(frame: frame)
         titleLabel.textAlignment = .center
         titleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         addSubview(titleLabel)
         addConstraintsWithFormatString(formate: "H:|[v0]|", views: titleLabel)
         addConstraintsWithFormatString(formate: "V:|[v0]|", views: titleLabel)

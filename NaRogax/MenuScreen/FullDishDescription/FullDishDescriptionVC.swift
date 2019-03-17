@@ -39,6 +39,12 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Меню"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
         GetValuesInView(menu: dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish])
         ImageBGView.clipsToBounds = true
         ImageBGView.layer.cornerRadius = 16.0
@@ -61,7 +67,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        //super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     

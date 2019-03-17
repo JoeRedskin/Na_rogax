@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Бронирование-->
+        <!--BookingVC-->
         <scene sceneID="Zcw-q5-sKv">
             <objects>
                 <viewController storyboardIdentifier="BookingVC" id="DGe-oM-haH" customClass="BookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,7 +192,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nmn-bN-6MI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Бронирование" id="KKz-6g-zdF"/>
                     <connections>
                         <outlet property="DateCollectionView" destination="vPH-hf-0cU" id="0mz-wy-umf"/>
                         <outlet property="TimeDurationCollectionView" destination="YTD-Wt-zTS" id="x5o-Ju-JRp"/>

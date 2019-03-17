@@ -41,12 +41,14 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let backButton = UIBarButtonItem()
         backButton.title = ""
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         TableView.delegate = self

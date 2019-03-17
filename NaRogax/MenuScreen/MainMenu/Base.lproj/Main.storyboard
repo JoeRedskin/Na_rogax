@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="x1b-Mu-taz">
             <objects>
                 <viewController storyboardIdentifier="MenuVC" id="Huj-JE-gGb" customClass="ViewController" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,20 +47,20 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hv-iW-ffC" userLabel="Name Dish Label">
-                                                    <rect key="frame" x="8" y="111" width="84" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="89.5" width="86" height="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-f8-3Bj" userLabel="Dish Price">
-                                                    <rect key="frame" x="349" y="110.5" width="41" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <rect key="frame" x="348" y="85" width="42" height="29"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish short info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-XK-Qr3" userLabel="Short Dish Info">
-                                                    <rect key="frame" x="8" y="135" width="89" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish short info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-XK-Qr3" userLabel="Short Dish Info">
+                                                    <rect key="frame" x="8" y="113.5" width="111.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="0.59898629219999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -71,7 +71,8 @@
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ych-XK-Qr3" secondAttribute="trailing" symbolic="YES" id="1hk-3j-PB5"/>
+                                                <constraint firstAttribute="bottom" secondItem="kzq-f8-3Bj" secondAttribute="bottom" constant="44" id="04J-0k-6CV"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ych-XK-Qr3" secondAttribute="trailing" constant="20" symbolic="YES" id="1hk-3j-PB5"/>
                                                 <constraint firstAttribute="trailing" secondItem="hCJ-Re-iu6" secondAttribute="trailing" id="5gz-cB-Wzp"/>
                                                 <constraint firstAttribute="trailing" secondItem="kzq-f8-3Bj" secondAttribute="trailing" constant="8" id="G94-Gf-jgg"/>
                                                 <constraint firstItem="kzq-f8-3Bj" firstAttribute="centerY" secondItem="7Hv-iW-ffC" secondAttribute="centerY" id="Gms-rm-eqa"/>
@@ -82,7 +83,7 @@
                                                 <constraint firstItem="hCJ-Re-iu6" firstAttribute="leading" secondItem="k6K-7c-lhV" secondAttribute="leading" id="Lgg-wg-WwZ"/>
                                                 <constraint firstItem="hCJ-Re-iu6" firstAttribute="top" secondItem="k6K-7c-lhV" secondAttribute="top" id="M7S-aD-Ckm"/>
                                                 <constraint firstItem="Ooo-dl-wgK" firstAttribute="top" secondItem="k6K-7c-lhV" secondAttribute="top" constant="48" id="UAL-wK-Le4"/>
-                                                <constraint firstAttribute="bottom" secondItem="ych-XK-Qr3" secondAttribute="bottom" constant="7" id="Ygu-3P-4TZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="ych-XK-Qr3" secondAttribute="bottom" constant="24" id="Ygu-3P-4TZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="hCJ-Re-iu6" secondAttribute="bottom" id="ac1-gw-b44"/>
                                                 <constraint firstItem="ych-XK-Qr3" firstAttribute="top" secondItem="7Hv-iW-ffC" secondAttribute="bottom" constant="4" id="ccw-jd-aGB"/>
                                                 <constraint firstItem="ych-XK-Qr3" firstAttribute="leading" secondItem="k6K-7c-lhV" secondAttribute="leading" constant="8" id="gZn-n8-iut"/>
@@ -121,6 +122,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uvw-4i-U8J"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="ehL-QS-2Di"/>
                     <connections>
                         <outlet property="DishTableView" destination="ekF-ZQ-lwh" id="VQu-ai-gxL"/>
                     </connections>

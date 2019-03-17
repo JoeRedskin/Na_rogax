@@ -26,7 +26,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите ваши данные" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvn-5u-6Sp">
                                                 <rect key="frame" x="16" y="27" width="343" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -128,7 +128,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="aec-eB-oNQ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -288,6 +288,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Dj-p2-isl"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Бронирование" id="9rh-PQ-hLP"/>
                     <connections>
                         <outlet property="DateLabel" destination="rlM-GA-v0p" id="SQl-OI-aEp"/>
                         <outlet property="EmailErrorLabel" destination="P3R-R9-nto" id="GUr-27-tr9"/>
