@@ -26,7 +26,7 @@ class DishTableViewCell: UITableViewCell {
         } else {
             dishName.text = dish.name
         }
-        if (dish.shortDescription?.isEmpty)!{
+        if dish.shortDescription == ""{
             dishShortInfo.isHidden = true
         } else {
             dishShortInfo.text = dish.shortDescription
