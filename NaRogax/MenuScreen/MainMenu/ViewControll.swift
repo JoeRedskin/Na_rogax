@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.present(alert, animated: true, completion: nil)
             })
         } else {
-            if (dishes[0].categories[pageIndex].cat_name != "Топинги" && dishes[0].categories[pageIndex].cat_name != "Напитки") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
+            if (dishes[0].categories[pageIndex].cat_name != "ТОПИНГИ" && dishes[0].categories[pageIndex].cat_name != "НАПИТКИ") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
                 //                print("Rec: \(String(describing: dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith))")
                 //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
                 //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vc.indexOfCategory = pageIndex
                 
                 navigationController?.pushViewController(vc, animated: true)
-            } else if dishes[0].categories[pageIndex].cat_name == "Напитки" {
+            } else if dishes[0].categories[pageIndex].cat_name == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
                 
