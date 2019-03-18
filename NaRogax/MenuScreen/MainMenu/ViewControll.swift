@@ -43,11 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
-        //        print("****************")
-        //        print(indexPath.row)
-        //        print("****************")
         cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.section])
-        
         return cell
         
     }

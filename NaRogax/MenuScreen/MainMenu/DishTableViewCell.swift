@@ -26,11 +26,11 @@ class DishTableViewCell: UITableViewCell {
         } else {
             dishName.text = dish.name
         }
-        
-        if dish.shortDescription == ""{
+        if (dish.shortDescription?.isEmpty)!{
             dishShortInfo.isHidden = true
         } else {
             dishShortInfo.text = dish.shortDescription
+            dishShortInfo.isHidden = false
         }
         
         if dish.price == nil{
