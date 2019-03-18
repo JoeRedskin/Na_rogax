@@ -299,7 +299,7 @@ class ReserveScreenVC: UIViewController {
     func validateEmail(email: String) -> Bool {
         let range = NSRange(location: 0, length: email.count)
         //let reg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,64}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,10}"
+        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,64}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,255}"
         let regex = try! NSRegularExpression(pattern: reg)
         if regex.firstMatch(in: email, options: [], range: range) != nil{
             return true
