@@ -88,10 +88,10 @@
                                                 <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-al-jqx">
-                                                <rect key="frame" x="249" y="0.0" width="66" height="26.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-al-jqx">
+                                                <rect key="frame" x="219" y="0.0" width="96" height="26.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="66" id="QTF-pu-wMo"/>
+                                                    <constraint firstAttribute="width" constant="96" id="QTF-pu-wMo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="I8f-Cb-eLM" firstAttribute="leading" secondItem="uyT-Vt-eGt" secondAttribute="leading" id="8td-9s-4y3"/>
-                                            <constraint firstItem="Hh1-al-jqx" firstAttribute="leading" secondItem="I8f-Cb-eLM" secondAttribute="trailing" constant="40" id="DAf-aI-AsC"/>
+                                            <constraint firstItem="Hh1-al-jqx" firstAttribute="leading" secondItem="I8f-Cb-eLM" secondAttribute="trailing" constant="10" id="DAf-aI-AsC"/>
                                             <constraint firstAttribute="trailing" secondItem="Hh1-al-jqx" secondAttribute="trailing" id="JDG-vj-ZnP"/>
                                         </constraints>
                                     </stackView>
@@ -124,7 +124,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-b8-AH4">
-                                        <rect key="frame" x="24" y="559" width="351" height="194"/>
+                                        <rect key="frame" x="0.0" y="559" width="375" height="194"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="194" id="bwb-u1-Wd2"/>
@@ -133,11 +133,11 @@
                                             <size key="itemSize" width="152" height="194"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecDish" id="Kon-iR-TvJ" customClass="RecDishCVC" customModule="NaRogax" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="152" height="194"/>
+                                                <rect key="frame" x="24" y="0.0" width="152" height="194"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="152" height="194"/>
@@ -329,7 +329,7 @@
                                     <constraint firstItem="qhI-u1-q1z" firstAttribute="leading" secondItem="LAi-iY-xwS" secondAttribute="leading" constant="30" id="5Yn-B3-8kJ"/>
                                     <constraint firstItem="uyT-Vt-eGt" firstAttribute="leading" secondItem="LAi-iY-xwS" secondAttribute="leading" constant="30" id="7UQ-bb-zAm"/>
                                     <constraint firstItem="2Dp-7V-K5j" firstAttribute="top" secondItem="wiH-iy-cBm" secondAttribute="bottom" constant="18.5" id="9HU-DG-cc2"/>
-                                    <constraint firstItem="hQe-b8-AH4" firstAttribute="leading" secondItem="LAi-iY-xwS" secondAttribute="leading" constant="24" id="DFc-2B-XHI"/>
+                                    <constraint firstItem="hQe-b8-AH4" firstAttribute="leading" secondItem="LAi-iY-xwS" secondAttribute="leading" id="DFc-2B-XHI"/>
                                     <constraint firstAttribute="trailing" secondItem="uyT-Vt-eGt" secondAttribute="trailing" constant="30" id="Dyv-2j-wgy"/>
                                     <constraint firstItem="g8K-o1-kPv" firstAttribute="leading" secondItem="FDg-68-CHR" secondAttribute="trailing" constant="1" id="HpR-Ad-Zvh"/>
                                     <constraint firstAttribute="trailing" secondItem="2Dp-7V-K5j" secondAttribute="trailing" constant="8" id="Io0-se-mUL"/>
