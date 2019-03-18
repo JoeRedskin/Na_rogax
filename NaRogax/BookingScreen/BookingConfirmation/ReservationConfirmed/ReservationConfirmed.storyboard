@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,12 +15,15 @@
             <objects>
                 <viewController storyboardIdentifier="ReservationConfirmed" hidesBottomBarWhenPushed="YES" id="F1c-nT-bfY" customClass="ReservationConfirmedVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0HL-nK-0Ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-Zj-kI4">
-                                <rect key="frame" x="16" y="801" width="382" height="41"/>
+                                <rect key="frame" x="16" y="598" width="343" height="41"/>
                                 <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="cXJ-l2-bls"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Продолжить">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -30,69 +33,82 @@
                                     <action selector="continueToMenu:" destination="F1c-nT-bfY" eventType="touchUpInside" id="nBT-2J-6UC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npe-YH-rkV">
-                                <rect key="frame" x="16" y="464.5" width="382" height="63"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Приложение работает в тестовом режиме, приносим свои извинения за причиненное неудобство.">
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="18" name=".SFNSText"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9F-Cs-1sf">
+                                <rect key="frame" x="23" y="516" width="328" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="IbO-cx-hlT"/>
+                                </constraints>
+                                <string key="text">Приложение работает в тестовом режиме, приносим
+свои извенения за причиненное неудобство.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0r-Vj-tcb">
-                                <rect key="frame" x="16" y="308.5" width="382" height="0.0"/>
-                                <attributedString key="attributedText"/>
-                                <color key="highlightedColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-Qf-KTW">
+                                <rect key="frame" x="24" y="68" width="328" height="115"/>
+                                <string key="text">Екатерина, заявка на бронирование
+принята рестораном.  По указанному
+номеру (+7 999 123-45-67) с
+вами свяжется администратор и уточнит
+детали. 
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-nc-Z2O">
-                                <rect key="frame" x="38" y="589" width="339" height="37.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Отмена бронирования возможно только по звонку в ресторан.">
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="22" name=".SFNSText"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYa-89-hGL">
+                                <rect key="frame" x="24" y="190" width="328" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="6ik-c8-hQF"/>
+                                </constraints>
+                                <string key="text">Если в течении 1 часа, вам не
+перезвонят, свяжитесь с нами по
+телефону.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="257-Hx-vG0">
-                                <rect key="frame" x="20" y="454" width="374" height="91"/>
-                                <attributedString key="attributedText"/>
-                                <color key="highlightedColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laH-O6-Jef">
+                                <rect key="frame" x="24" y="283" width="328" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="OIP-Ac-na3"/>
+                                </constraints>
+                                <string key="text">Отмена бронирования возможна только
+по звонку в ресторан. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-DH-uFN">
-                                <rect key="frame" x="16" y="420" width="382" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yye-sp-Qel">
+                                <rect key="frame" x="24" y="359" width="328" height="38.5"/>
+                                <string key="text">Телефон для связи:
++7 (8142) 63-23-89</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="257-Hx-vG0" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="BPA-md-I1i"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="AYa-89-hGL" secondAttribute="trailing" constant="23" id="0ln-yM-MpP"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="83H-Qf-KTW" secondAttribute="trailing" constant="23" id="0zq-Cz-45n"/>
+                            <constraint firstItem="laH-O6-Jef" firstAttribute="top" secondItem="AYa-89-hGL" secondAttribute="bottom" constant="9" id="50Y-Qc-BtI"/>
+                            <constraint firstItem="AYa-89-hGL" firstAttribute="top" secondItem="83H-Qf-KTW" secondAttribute="bottom" constant="7" id="6Ek-L6-o7g"/>
+                            <constraint firstItem="AYa-89-hGL" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="A0N-eF-HSK"/>
+                            <constraint firstItem="Yye-sp-Qel" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="ADh-ut-zqF"/>
                             <constraint firstItem="9ch-Zj-kI4" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="E6u-gp-UIw"/>
-                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="npe-YH-rkV" secondAttribute="bottom" constant="20" id="KKt-XD-cQ9"/>
-                            <constraint firstItem="lUI-DH-uFN" firstAttribute="top" secondItem="IS2-nc-Z2O" secondAttribute="bottom" constant="20" id="LB8-EF-pC7"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="257-Hx-vG0" secondAttribute="trailing" constant="16" id="T7s-X4-7SI"/>
-                            <constraint firstItem="IS2-nc-Z2O" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="20" id="TW4-4P-tS0"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="lUI-DH-uFN" secondAttribute="trailing" constant="16" id="XNV-Vd-oQ8"/>
-                            <constraint firstItem="npe-YH-rkV" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="b53-vU-DyW"/>
-                            <constraint firstItem="e0r-Vj-tcb" firstAttribute="top" relation="lessThanOrEqual" secondItem="7iR-ip-hlB" secondAttribute="top" multiplier="4:3" constant="250" id="gs3-RS-NMA"/>
+                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" secondItem="Y9F-Cs-1sf" secondAttribute="bottom" constant="24" id="R0n-rw-EdG"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="top" secondItem="7iR-ip-hlB" secondAttribute="top" constant="48" id="UbR-3w-DfB"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="laH-O6-Jef" secondAttribute="trailing" constant="23" id="ZRi-a6-GzJ"/>
+                            <constraint firstItem="Y9F-Cs-1sf" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="23" id="aRD-gQ-UPG"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="Y9F-Cs-1sf" secondAttribute="trailing" constant="24" id="gbA-BO-hm2"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="9ch-Zj-kI4" secondAttribute="trailing" constant="16" id="hbT-Dn-9gl"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="e0r-Vj-tcb" secondAttribute="trailing" constant="16" id="iTp-2c-mn0"/>
-                            <constraint firstItem="257-Hx-vG0" firstAttribute="top" secondItem="e0r-Vj-tcb" secondAttribute="bottom" constant="20" id="igz-tl-zgG"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="IS2-nc-Z2O" secondAttribute="trailing" constant="20" id="oDM-2m-sAC"/>
-                            <constraint firstItem="e0r-Vj-tcb" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="rGN-7j-p9Q"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="bottom" secondItem="9ch-Zj-kI4" secondAttribute="bottom" constant="20" id="sLY-bD-SHI"/>
-                            <constraint firstItem="lUI-DH-uFN" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="vhc-wm-gSB"/>
-                            <constraint firstItem="IS2-nc-Z2O" firstAttribute="top" secondItem="257-Hx-vG0" secondAttribute="bottom" constant="20" id="w1Y-02-zng"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="npe-YH-rkV" secondAttribute="trailing" constant="16" id="z5m-AP-J3Z"/>
+                            <constraint firstItem="laH-O6-Jef" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="iA6-Gr-vj9"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="icJ-XH-ONu"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="Yye-sp-Qel" secondAttribute="trailing" constant="23" id="qT4-uC-aqg"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="bottom" secondItem="9ch-Zj-kI4" secondAttribute="bottom" constant="28" id="sLY-bD-SHI"/>
+                            <constraint firstItem="Yye-sp-Qel" firstAttribute="top" secondItem="laH-O6-Jef" secondAttribute="bottom" constant="11" id="uDs-OZ-7lE"/>
+                            <constraint firstItem="Y9F-Cs-1sf" firstAttribute="top" relation="lessThanOrEqual" secondItem="Yye-sp-Qel" secondAttribute="bottom" constant="136.5" id="vVT-Zq-HHr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7iR-ip-hlB"/>
                     </view>
@@ -100,17 +116,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="ConfirmLabel" destination="83H-Qf-KTW" id="BY0-8m-Ilv"/>
                         <outlet property="button" destination="9ch-Zj-kI4" id="lho-kr-bsz"/>
-                        <outletCollection property="textView" destination="e0r-Vj-tcb" collectionClass="NSMutableArray" id="9Ue-5u-gT0"/>
-                        <outletCollection property="textView" destination="257-Hx-vG0" collectionClass="NSMutableArray" id="Tbh-Zp-IWd"/>
-                        <outletCollection property="textView" destination="IS2-nc-Z2O" collectionClass="NSMutableArray" id="s1O-VI-Ty0"/>
-                        <outletCollection property="textView" destination="npe-YH-rkV" collectionClass="NSMutableArray" id="jOM-Xh-6n4"/>
-                        <outletCollection property="textView" destination="lUI-DH-uFN" collectionClass="NSMutableArray" id="apD-ub-z5H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THa-jC-OM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.768115942028992" y="-36.830357142857139"/>
+            <point key="canvasLocation" x="-64.799999999999997" y="-37.331334332833585"/>
         </scene>
     </scenes>
 </document>

@@ -12,13 +12,14 @@ class ReservationConfirmedVC: UIViewController{
 
     private let firstTextDiscr = ", заявка на бронирование принята рестораном.\nПо указанному номеру ("
     private let lastTextDiscr = ") с Вами свяжется администратор и уточнит детали. "
-    private let textPhoneNaRogax = "Если в течении 1 часа Вам не перезвонят, свяжитесь с нами по номеру \n"
+    //private let textPhoneNaRogax = "Если в течении 1 часа Вам не перезвонят, свяжитесь с нами по номеру \n"
     
-    private let phoneText = "Телефон для связи. \n +7 (8142) 63-23-89"
+    //private let phoneText = "Телефон для связи. \n +7 (8142) 63-23-89"
     
-    @IBOutlet var textView: [UILabel]!
+    //@IBOutlet var textView: [UILabel]!
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var ConfirmLabel: UILabel!
+
     var name: String = ""
     var phone: String = ""
     
@@ -41,13 +42,13 @@ class ReservationConfirmedVC: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        textView[1].text = textPhoneNaRogax
-        textView[4].text = phoneText
-        setAttTextView()
+        //textView[1].text = textPhoneNaRogax
+        //textView[4].text = phoneText
+        //setAttTextView()
         setText()
     }
     
-    func setAttTextView(){
+    /*func setAttTextView(){
         for i in 0..<textView.count{
             textView[i].textAlignment = .center
             textView[i].textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
@@ -64,10 +65,11 @@ class ReservationConfirmedVC: UIViewController{
                 break
             }
         }
-    }
+    }*/
     
 
     func setText(){
-        textView[0].text = name + firstTextDiscr + phone + lastTextDiscr
+        //textView[0].text = name + firstTextDiscr + phone + lastTextDiscr
+        ConfirmLabel.text = name + firstTextDiscr + phone + lastTextDiscr
     }
 }
