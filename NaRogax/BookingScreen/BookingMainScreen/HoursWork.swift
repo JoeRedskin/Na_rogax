@@ -222,15 +222,19 @@ class HoursWork{
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-        if !(Double(hour) < startTimeD){
+        print("count", (startTimeD - 3))
+        print("count", !(Double(hour) < (startTimeD - 3)))
+
+        if !(Double(hour) < (startTimeD - 3)){
             var hourAdd = 3
             if (calendar.component(.minute, from: date) >= 30){
                 hourAdd += 1
+                startTimeD = Double(hour + hourAdd)
             }else{
+                startTimeD = Double(hour + hourAdd)
                 return false
             }
             //Ограничение на сегоднешнний день + 3 часа от текущего времени
-            startTimeD = Double(calendar.component(.hour, from: date) + hourAdd)
         }
         return true
     }
