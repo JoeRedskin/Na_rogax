@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Alamofire
 
 class DataLoader{
+    private let SERVER_URL = "https://na-rogah-api.herokuapp.com/api/v1/"
     
     func postReservePlace(post: PostReservePlace, completion:((_ result: ResponseReservePlace, _ error: Error?) -> Void)?) {
         var responseReservePlace = ResponseReservePlace(code: -1, desc: "")
@@ -62,8 +64,31 @@ class DataLoader{
     
     
     func getDishes(completion: @escaping ([DishesList]) -> ()){
-        
+        let REQ = "menu_by_classes"
         var dishes = [DishesList]()
+
+       /* Alamofire.request(SERVER_URL + REQ, method: .get).responseJSON { response in
+            guard response.result.isSuccess else {
+                print("Ошибка при запросе данных\(String(describing: response.result.error))")
+                return
+            }
+            
+            guard let arrayOfItems = response.result.value as? [[String:AnyObject]]
+                else {
+                    print("Не могу перевести в массив")
+                    return
+            }
+            
+            for itm in arrayOfItems {
+                let item = 
+                //let item = Item(albimID: itm["albumId"] as! Int, id: itm["id"] as! Int, title: itm["title"] as! String, url: itm["url"] as! String)
+                //self.items.append(item)
+            }
+            
+            OperationQueue.main.addOperation {
+                completion(dishes)
+            }
+        }*/
         //TO DO: edit link. Put pageIdvalue  instead of categoryId.
         
         //let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")!
@@ -75,7 +100,7 @@ class DataLoader{
                     print(error?.localizedDescription ?? "Response Error")
                     return}
             do{
-                //print(data)
+                print("dataResponse", data.re)
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(DishesList.self, from: dataResponse)
                 dishes.append(model)
@@ -83,9 +108,7 @@ class DataLoader{
             } catch let parsingError {
                 print("Error", parsingError)
             }
-            OperationQueue.main.addOperation {
-                completion(dishes)
-            }
+
         }
         task.resume()
     }
@@ -174,8 +197,6 @@ class DataLoader{
         task.resume()
     }
     
-    
-    
     func getTimetable(completion: @escaping ([Timetable]) -> ()){
         
         var timetable = [Timetable]()
@@ -204,18 +225,4 @@ class DataLoader{
         }
         task.resume()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
-
-

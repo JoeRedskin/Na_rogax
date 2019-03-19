@@ -153,6 +153,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE40185B22411FD2004825EB /* ServerAccess */ = {
+			isa = PBXGroup;
+			children = (
+				CEAEE92522200BF7000AF395 /* DisherList.swift */,
+				CEAEE927222042EE000AF395 /* DataLoader.swift */,
+			);
+			path = ServerAccess;
+			sourceTree = "<group>";
+		};
 		CE564BDA2237ADF20035BAC9 /* ContactBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,13 +201,13 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CE564BDA2237ADF20035BAC9 /* ContactBar */,
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
-				CEAEE927222042EE000AF395 /* DataLoader.swift */,
 				CE90194C221D904200BA1B47 /* Assets.xcassets */,
 				CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */,
 				CE901951221D904200BA1B47 /* Info.plist */,
@@ -307,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF692E422274AC9000F3307 /* Main.storyboard */,
-				CEAEE92522200BF7000AF395 /* DisherList.swift */,
 				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
 				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
 				CEF3668722394FC2003F17D8 /* ViewControll.swift */,
@@ -449,12 +457,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NaRogax/Pods-NaRogax-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
