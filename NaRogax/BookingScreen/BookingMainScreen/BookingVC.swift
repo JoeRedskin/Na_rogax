@@ -93,7 +93,7 @@ class BookingVC: UIViewController{
         hoursWork.calcDurationTime()
         setDataHours()
         changeTimeSting.setTitle(self.hoursWork.getSelectTime(), for: .normal)
-        reloadColorButton(target: false)
+        reloadColorButton(target: true)
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
