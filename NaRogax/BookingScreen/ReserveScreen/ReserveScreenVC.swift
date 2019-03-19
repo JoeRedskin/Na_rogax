@@ -119,7 +119,7 @@ class ReserveScreenVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ReserveBtn.isEnabled = true
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -308,10 +308,12 @@ class ReserveScreenVC: UIViewController {
         }
     }
     @IBAction func onReserveBtnTap(_ sender: UIButton) {
+        ReserveBtn.isEnabled = false
         if (!Reachability.isConnectedToNetwork()){
             let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            ReserveBtn.isEnabled = true
         } else {
             if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
                 
@@ -366,6 +368,7 @@ class ReserveScreenVC: UIViewController {
                             self.navigationController?.pushViewController(vc, animated: true)
 
                         }
+                        self.ReserveBtn.isEnabled = true
                     }
                 } else {
                     if !isCorrectPhone {
@@ -379,7 +382,10 @@ class ReserveScreenVC: UIViewController {
                     if !isCorrectName {
                         incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
                     }
+                    ReserveBtn.isEnabled = true
                 }
+            } else {
+                ReserveBtn.isEnabled = true
             }
         }
     }
