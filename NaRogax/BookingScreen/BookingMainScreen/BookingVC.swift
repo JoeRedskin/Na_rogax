@@ -111,7 +111,6 @@ class BookingVC: UIViewController{
     @IBAction func changeTable(_ sender: UIButton) {
         let time = hoursWork.getDataToServer(day: arrayDay[previewIndex[0].item].getDate())
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
-            reloadColorButton(target: false)
             return
         }
         let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
