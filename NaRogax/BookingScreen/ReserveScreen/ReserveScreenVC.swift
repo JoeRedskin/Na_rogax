@@ -368,6 +368,7 @@ class ReserveScreenVC: UIViewController {
                             self.navigationController?.pushViewController(vc, animated: true)
 
                         }
+                        self.ReserveBtn.isEnabled = true
                     }
                 } else {
                     if !isCorrectPhone {
@@ -381,9 +382,11 @@ class ReserveScreenVC: UIViewController {
                     if !isCorrectName {
                         incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
                     }
+                    ReserveBtn.isEnabled = true
                 }
+            } else {
+                ReserveBtn.isEnabled = true
             }
         }
-        ReserveBtn.isEnabled = true
     }
 }
