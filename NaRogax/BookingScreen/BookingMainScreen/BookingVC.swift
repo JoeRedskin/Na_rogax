@@ -38,7 +38,9 @@ class BookingVC: UIViewController{
     
     private func setFirstData(){
         var countDay = 7
-        for item in 0..<countDay{
+        var item = 0
+        //for item in 0..<countDay{
+        while item < countDay {
             let day = DateCVC(numberDay: item)
             if (item == 0){
                 if !hoursWork.isBookingCloseToday(day: day.getDate()){
@@ -50,7 +52,9 @@ class BookingVC: UIViewController{
             }else{
                 arrayDay.append(day)
             }
+            item += 1
         }
+        print("setFirstData", arrayDay.count)
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
         // доступное для брони
         arrayDay[0].reload()
@@ -111,7 +115,6 @@ class BookingVC: UIViewController{
     @IBAction func changeTable(_ sender: UIButton) {
         let time = hoursWork.getDataToServer(day: arrayDay[previewIndex[0].item].getDate())
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
-            reloadColorButton(target: false)
             return
         }
         let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
