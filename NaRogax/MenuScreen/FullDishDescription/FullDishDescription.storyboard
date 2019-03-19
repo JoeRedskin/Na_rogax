@@ -46,7 +46,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8F-aw-AMe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8F-aw-AMe">
                                                 <rect key="frame" x="30" y="259" width="315" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,15 +83,15 @@
                                         <rect key="frame" x="30" y="415" width="315" height="26.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8f-Cb-eLM">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-al-jqx">
-                                                <rect key="frame" x="249" y="0.0" width="66" height="26.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-al-jqx">
+                                                <rect key="frame" x="235" y="0.0" width="80" height="26.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="66" id="QTF-pu-wMo"/>
+                                                    <constraint firstAttribute="width" constant="80" id="QTF-pu-wMo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="I8f-Cb-eLM" firstAttribute="leading" secondItem="uyT-Vt-eGt" secondAttribute="leading" id="8td-9s-4y3"/>
-                                            <constraint firstItem="Hh1-al-jqx" firstAttribute="leading" secondItem="I8f-Cb-eLM" secondAttribute="trailing" constant="40" id="DAf-aI-AsC"/>
+                                            <constraint firstItem="Hh1-al-jqx" firstAttribute="leading" secondItem="I8f-Cb-eLM" secondAttribute="trailing" constant="10" id="HJy-aF-gON"/>
                                             <constraint firstAttribute="trailing" secondItem="Hh1-al-jqx" secondAttribute="trailing" id="JDG-vj-ZnP"/>
                                         </constraints>
                                     </stackView>
