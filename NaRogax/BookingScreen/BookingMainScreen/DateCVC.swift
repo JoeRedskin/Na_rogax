@@ -22,8 +22,8 @@ class DateCVC {
         self.text = text
     }
     
-    func itIsToday() {
-        self.today = true
+    func isToday() {
+        today = !today
     }
     
     func checkToday() -> Bool {
@@ -40,7 +40,6 @@ class DateCVC {
         format.dateFormat = "dd\nEE"
         format.locale = Locale(identifier: "ru_RU")
         let date = Calendar.current.date(byAdding: .day, value: item, to: Date())!
-        print("setDate", date)
         text = format.string(from: date)
         setLocDate(date: date)
     }
@@ -51,7 +50,6 @@ class DateCVC {
         format.dateFormat = "yyyy-MM-dd"
         format.locale = Locale(identifier: "ru_RU")
         self.date = format.string(from: date)
-        print("setDateLoc", date)
     }
     
     //возращает дату в ячейке
