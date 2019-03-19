@@ -22,7 +22,7 @@ class DateCVC {
         self.text = text
     }
     
-    func isToday() {
+    func reloadToday() {
         today = !today
     }
     

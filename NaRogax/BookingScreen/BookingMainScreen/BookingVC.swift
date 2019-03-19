@@ -28,22 +28,12 @@ class BookingVC: UIViewController{
         changeTimeSting.layer.borderWidth = 3.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
         changeTimeSting.layer.cornerRadius = 4
-        reloadColorButton(target: false)
         setFirstData()
         self.setNeedsStatusBarAppearanceUpdate()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    private func reloadColorButton(target: Bool){
-        if (target){
-            changeTableField.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-            changeTableField.isUserInteractionEnabled = true
-        }else{
-            changeTableField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
-            changeTableField.isUserInteractionEnabled = false
-        }
     }
     
     private func setFirstData(){
@@ -52,7 +42,7 @@ class BookingVC: UIViewController{
             let day = DateCVC(numberDay: item)
             if (item == 0){
                 if !hoursWork.isBookingCloseToday(day: day.getDate()){
-                    day.isToday()
+                    day.reloadToday()
                     arrayDay.append(day)
                 }else{
                     countDay += 1
@@ -65,7 +55,7 @@ class BookingVC: UIViewController{
         // доступное для брони
         arrayDay[0].reload()
         hoursWork.changeDay(day: String(arrayDay[0].text.split(separator: "\n")[1]),
-                            today: true)
+                            today: arrayDay[0].checkToday())
         hoursWork.selectIndex(index: 0)
         calcAndSetTime()
         DateCollectionView.reloadData()
@@ -79,9 +69,11 @@ class BookingVC: UIViewController{
             arrayHour.append(hour)
         }
         if (hoursWork.getCountDurationTime() < previewIndex[1].item || previewIndex[1].item == 0){
-            previewIndex[1] = IndexPath(indexes: [0, 0])
-            arrayHour[0].reload()
-            hoursWork.setIndexDuration(index: 0)
+            if (arrayHour.count > 0){
+                previewIndex[1] = IndexPath(indexes: [0, 0])
+                arrayHour[0].reload()
+                hoursWork.setIndexDuration(index: 0)
+            }
         }else{
             arrayHour[previewIndex[1].item].reload()
         }
@@ -93,7 +85,6 @@ class BookingVC: UIViewController{
         hoursWork.calcDurationTime()
         setDataHours()
         changeTimeSting.setTitle(self.hoursWork.getSelectTime(), for: .normal)
-        reloadColorButton(target: true)
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
@@ -160,7 +151,6 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 calcAndSetTime()
                 //imeDurationCollectionView.reloadData()
             }
-            reloadColorButton(target: false)
             previewIndex[0] = indexPath
             DateCollectionView.reloadData()
         } else {
@@ -172,7 +162,6 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 }
             }
             previewIndex[1] = indexPath
-            reloadColorButton(target: true)
             TimeDurationCollectionView.reloadData()
         }
     }
