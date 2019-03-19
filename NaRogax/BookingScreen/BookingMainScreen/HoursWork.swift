@@ -44,28 +44,28 @@ class HoursWork{
    
     //Расчет интервала времени
     private func calcTime(today: Bool = false){
-        var chekH = true
         if (today){
-            chekH = setTimeToday()
+            //считаем со скольки времени можно бронировать в текущей день
+            setTimeToday()
+        }else{
+            //убираем полчаса, что бы можно было бронить прямо с открытия 
+            startTimeD -= 0.5
         }
         var currentTime = startTimeD
         arrayTime.removeAll()
-        //arrayTime.append("\(Int(startTimeD)):00")
         while currentTime < endTimeD {
             startTimeD += (TIME_INTERVAL/60)
             let hours = Int(floor(startTimeD))
             let minutes = Int(startTimeD.truncatingRemainder(dividingBy: 1)*60)
             currentTime = Double(hours)
-            if chekH {
-                arrayTime.append("\(hours):00")
-            }else if minutes == 0 {
+            if minutes == 0 {
                 arrayTime.append("\(hours):00")
             } else {
                 arrayTime.append("\(hours):\(minutes)")
             }
         }
         if (PRINT_DEBUG){
-            print(arrayTime)
+            print("array", arrayTime)
         }
     }
 
@@ -218,25 +218,24 @@ class HoursWork{
      *  Методы для текущего дня
      */
     //метод для расчета текущего часа
-    private func setTimeToday() -> Bool{
+    private func setTimeToday(){
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
-        print("count", (startTimeD - 3))
-        print("count", !(Double(hour) < (startTimeD - 3)))
-
+        if (PRINT_DEBUG){
+            print("count", (startTimeD - 3))
+            print("count", !(Double(hour) < (startTimeD - 3)))
+        }
+        //Ограничение на сегоднешнний день + 3 часа от текущего времени
         if !(Double(hour) < (startTimeD - 3)){
             var hourAdd = 3
             if (calendar.component(.minute, from: date) >= 30){
                 hourAdd += 1
-                startTimeD = Double(hour + hourAdd)
+                startTimeD = Double(hour + hourAdd) - 0.5
             }else{
                 startTimeD = Double(hour + hourAdd)
-                return false
             }
-            //Ограничение на сегоднешнний день + 3 часа от текущего времени
         }
-        return true
     }
     
     

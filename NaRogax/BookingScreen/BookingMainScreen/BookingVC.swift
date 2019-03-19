@@ -9,7 +9,7 @@
 import UIKit
 
 class BookingVC: UIViewController{
-    private var previewIndex = [IndexPath(), IndexPath()]
+    private var previewIndex = [IndexPath(indexes: [0, 0]), IndexPath(indexes: [0, 0])]
     private var arrayDay: [DateCVC] = []
     private var arrayHour: [DateCVC] = []
     private var arrayHourOfDay: [String] = []
@@ -48,12 +48,11 @@ class BookingVC: UIViewController{
     
     private func setFirstData(){
         var countDay = 7
-        
         for item in 0..<countDay{
             let day = DateCVC(numberDay: item)
             if (item == 0){
                 if !hoursWork.isBookingCloseToday(day: day.getDate()){
-                    day.itIsToday()
+                    day.isToday()
                     arrayDay.append(day)
                 }else{
                     countDay += 1
@@ -64,8 +63,7 @@ class BookingVC: UIViewController{
         }
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
         // доступное для брони
-        arrayDay[0].check = true
-        previewIndex[0] = IndexPath(indexes: [0, 0])
+        arrayDay[0].reload()
         hoursWork.changeDay(day: String(arrayDay[0].text.split(separator: "\n")[1]),
                             today: true)
         hoursWork.selectIndex(index: 0)
@@ -80,24 +78,27 @@ class BookingVC: UIViewController{
             let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчаса")
             arrayHour.append(hour)
         }
-        previewIndex[1] = IndexPath()
-        hoursWork.setIndexDuration(index: 0)
-        reloadColorButton(target: false)
+        if (hoursWork.getCountDurationTime() < previewIndex[1].item || previewIndex[1].item == 0){
+            previewIndex[1] = IndexPath(indexes: [0, 0])
+            arrayHour[0].reload()
+            hoursWork.setIndexDuration(index: 0)
+        }else{
+            arrayHour[previewIndex[1].item].reload()
+        }
         TimeDurationCollectionView.reloadData()
     }
     
     //Перерасчет времени куда можно забронить
     private func calcAndSetTime(){
-        self.hoursWork.calcDurationTime()
-        self.setDataHours()
-        self.changeTimeSting.setTitle(self.hoursWork.getSelectTime(), for: .normal)
+        hoursWork.calcDurationTime()
+        setDataHours()
+        changeTimeSting.setTitle(self.hoursWork.getSelectTime(), for: .normal)
+        reloadColorButton(target: true)
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
         hoursWork.selectIndex(index: 0)
         let editRadiusAlert = UIAlertController(title: "Выберите время", message: "", preferredStyle: UIAlertController.Style.alert)
-        print("alert", editRadiusAlert.view.frame.height)
-        print("alert", self.view.frame.height)
         let pickeViewFrame: CGRect = CGRect(x: 5, y: 10, width: 250, height: editRadiusAlert.view.frame.height/3)
         let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
         pickerViewRadius.delegate = self
@@ -156,6 +157,8 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
                                     today: arrayDay[indexPath.item].checkToday())
                 hoursWork.selectIndex(index: 0)
+                calcAndSetTime()
+                //imeDurationCollectionView.reloadData()
             }
             reloadColorButton(target: false)
             previewIndex[0] = indexPath
@@ -180,7 +183,6 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
             print(indexPath.item, arrayDay.count)
             if (arrayDay.count > 0){
                 cell.setDate(dateCVC: arrayDay[indexPath.item])
-                calcAndSetTime()
             }
             return cell
         } else {

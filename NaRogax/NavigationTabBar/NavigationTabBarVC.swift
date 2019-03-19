@@ -15,6 +15,7 @@ class NavigationTabBarVC: UITabBarController {
         UITabBar.appearance().barTintColor = UIColor(red: CGFloat(55/255.0), green: CGFloat(55/255.0), blue: CGFloat(55/255.0), alpha: CGFloat(1.0) )
         UITabBar.appearance().tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: CGFloat(1.0) )
         settingTabBar()
+        UIView.appearance().isExclusiveTouch = true
     }
     
 
