@@ -77,8 +77,6 @@ class ReserveScreenVC: UIViewController {
     var table_time = ""
     var table_date = ""
     
-    var response: [ReserveResponseData] = []
-    
     var isCorrectName = false
     var isCorrectPhone = false
     var isCorrectEmail = false
@@ -337,7 +335,7 @@ class ReserveScreenVC: UIViewController {
                     UserDefaults.standard.set(phone, forKey: "Phone")
                     UserDefaults.standard.set(email, forKey: "Email")
 
-                    var data = ReserveTableData()
+                    var data = RequestPostReservePlace()
                     data.date = self.date
                     data.email = email
                     data.name = name
@@ -348,23 +346,20 @@ class ReserveScreenVC: UIViewController {
                     data.time_to = time_to
                     
                     let dataLoader = DataLoader()
-                    dataLoader.reserveTable(data: data){ items in self.response.append(contentsOf: items)
-                        print(self.response[0])
-                        if self.response[0].code == 451 {
-                            
-                            let storyboard = UIStoryboard(name: "ReservationCanceled", bundle: nil)
-                            let vc = storyboard.instantiateViewController(withIdentifier: "ReservationCanceled") as! ReservationCanceledVC
-                            vc.name = data.name
-                            self.navigationController?.pushViewController(vc, animated: true)
-                            
-                        } else if self.response[0].code == 200 {
-                            
-                            let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
-                            let vc = storyboard.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
-                            vc.name = data.name
-                            vc.phone = data.phone
-                            self.navigationController?.pushViewController(vc, animated: true)
-
+                    dataLoader.reserveTable(data: data){ result in
+                        if result != nil {
+                            if (result?.code == 200){
+                                let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
+                                vc.name = data.name
+                                vc.phone = data.phone
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }else {
+                                let storyboard = UIStoryboard(name: "ReservationCanceled", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "ReservationCanceled") as! ReservationCanceledVC
+                                vc.name = data.name
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                         }
                     }
                 } else {

@@ -26,7 +26,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var RecommendLabel: UILabel!
     
     
-    var dishFull: [DishesList] = []
+    var dishFull: [ResponseDishesList] = []
     var indexOfDish = 0
     var indexOfCategory = 0
     var recDish: [String] = []

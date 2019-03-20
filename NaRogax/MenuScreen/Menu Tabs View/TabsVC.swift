@@ -16,7 +16,7 @@ class TabsVC: UIViewController {
     var pageController: UIPageViewController!
     private var finished = false
 
-    var newTabs: [DishesList] = []
+    var newTabs: [ResponseDishesList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,8 @@ class TabsVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             let dataLoader = DataLoader()
-            dataLoader.getDishes(){items in self.newTabs.append(contentsOf: items)
+            dataLoader.getDishes(){items, error in
+                self.newTabs.append(contentsOf: items)
                 for tab in self.newTabs[0].categories{
                     self.tabs += [tab.cat_name]
                 }

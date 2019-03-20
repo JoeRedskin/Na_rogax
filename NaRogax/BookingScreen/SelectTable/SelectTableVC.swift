@@ -23,7 +23,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var SelectedTable = Table()
     var table_info = ""
     
-    var Tables: [TablesList] = []
+    var Tables: [ResponseTablesList] = []
     var datasize = 0
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +54,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         TableView.delegate = self
         TableView.dataSource = self
         
-        var date = ReserveDate()
+        var date = RequestPostEmptyPlaces()
         date.date = self.date
         date.time_from = self.time_from
         date.date_to = self.date_to
@@ -66,7 +66,8 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.present(alert, animated: true, completion: nil)
         } else {
             let dataLoader = DataLoader()
-            dataLoader.getEmptyTables(date: date){ items in self.Tables.append(contentsOf: items)
+            dataLoader.getEmptyTables(data: date){ result, error in
+                self.Tables.append(contentsOf: result)
                 self.datasize = self.Tables[0].data.count
                 if self.datasize == 0 {
                     self.TableView.isHidden = true

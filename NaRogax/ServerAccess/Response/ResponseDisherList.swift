@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct DishesList: Decodable{
+struct ResponseDishesList: Decodable{
     let categories: [Categories]
     enum CodingKeys: String, CodingKey {
         case categories

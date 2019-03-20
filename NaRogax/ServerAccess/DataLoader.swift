@@ -11,218 +11,209 @@ import Alamofire
 
 class DataLoader{
     private let SERVER_URL = "https://na-rogah-api.herokuapp.com/api/v1/"
+    private let REQUEST_DISHES = "menu_by_classes"
+    private let REQUEST_EMPTY_PLACES = "empty_places"
+    private let REQUEST_RESERVE_PLACE = "reserve_place"
+    private let REQUEST_TIMETABLE = "timetable"
+    private let REQUEST_VERIFY_EMAIL = "verify_email"
+    private let REQUEST_REG_USER = "reg_user"
+    private let REQUEST_AUTH = "auth"
+    private let REQUEST_PASSWORD_RECOVERY = "password_recovery"
     
-    func postReservePlace(post: PostReservePlace, completion:((_ result: ResponseReservePlace, _ error: Error?) -> Void)?) {
-        var responseReservePlace = ResponseReservePlace(code: -1, desc: "")
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "na-rogah-api.herokuapp.com"
-        urlComponents.path = "/api/v1/reserve_place"
-        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        
-        
-        // Specify this request as being a POST method
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        // Make sure that we include headers specifying that our request's HTTP body
-        // will be JSON encoded
-        var headers = request.allHTTPHeaderFields ?? [:]
-        headers["Content-Type"] = "application/json"
-        request.allHTTPHeaderFields = headers
-        
-        // Now let's encode out Post struct into JSON data...
-        let encoder = JSONEncoder()
-        do {
-            let jsonData = try encoder.encode(post)
-            // ... and set our request's HTTP body
-            request.httpBody = jsonData
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-        } catch {
-            completion?(responseReservePlace, error)
-        }
-        
-        // Create and run a URLSession data task with our JSON encoded POST request
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-            //Если прилетела ошибка то выкидываем ее выше и выходим
-            guard responseError == nil else {
-                completion?(responseReservePlace, responseError!)
-                return
+    //@escaping ([DishesList]) -> ()
+    func getDishes(completion:@escaping ((_ result: [ResponseDishesList],_ error: ErrorResponse?) -> Void)){
+        var dishes = [ResponseDishesList]()
+        Alamofire.request(SERVER_URL + REQUEST_DISHES, method: .get).validate().responseData { response in
+            var errResp = ErrorResponse(code: 200,desc: "")
+            switch response.result {
+            case .success:
+                if let data = response.data{
+                    do{
+                        let decoder = JSONDecoder()
+                        let model = try decoder.decode(ResponseDishesList.self, from: data)
+                        dishes.append(model)
+                    } catch _ {
+                        errResp.code = 500
+                        errResp.desc = ""
+                    }
+                }
+            case .failure(_):
+                if let data = response.data{
+                    errResp = self.decodeErrResponse(data: data)
+                }
             }
-            //декодируем данные из json в структуру
-            do{
-                let decoder = JSONDecoder()
-                responseReservePlace = try decoder.decode(ResponseReservePlace.self, from: responseData!)
-                completion?(responseReservePlace, nil)
-            } catch let parsingError {
-                completion?(responseReservePlace, parsingError)
+            OperationQueue.main.addOperation {
+                completion(dishes, errResp)
             }
         }
-        task.resume()
     }
     
+    private func decodeErrResponse(data: Data) -> ErrorResponse{
+        do{
+            //print("dataResponse", data.re)
+            let decoder = JSONDecoder()
+            return try decoder.decode(ErrorResponse.self, from: data)
+            //print("Alamofire", model)
+        } catch _ {
+            return ErrorResponse(code: 500,desc: "")
+        }
+    }
     
-    func getDishes(completion: @escaping ([DishesList]) -> ()){
-        let REQ = "menu_by_classes"
-        var dishes = [DishesList]()
-
-       /* Alamofire.request(SERVER_URL + REQ, method: .get).responseJSON { response in
-            guard response.result.isSuccess else {
-                print("Ошибка при запросе данных\(String(describing: response.result.error))")
-                return
+    func getEmptyTables(data: RequestPostEmptyPlaces,
+                        completion:@escaping ((_ result: [ResponseTablesList],_ error: ErrorResponse?) -> Void)) {
+        var tables = [ResponseTablesList]()
+        let paramet = data.conventParameters()
+        Alamofire.request(SERVER_URL + REQUEST_EMPTY_PLACES, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            let model = try decoder.decode(ResponseTablesList.self, from: data)
+                            tables.append(model)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(tables, errResp)
+                }
             }
-            
-            guard let arrayOfItems = response.result.value as? [[String:AnyObject]]
-                else {
-                    print("Не могу перевести в массив")
-                    return
-            }
-            
-            for itm in arrayOfItems {
-                let item = 
-                //let item = Item(albimID: itm["albumId"] as! Int, id: itm["id"] as! Int, title: itm["title"] as! String, url: itm["url"] as! String)
-                //self.items.append(item)
-            }
-            
-            OperationQueue.main.addOperation {
-                completion(dishes)
-            }
-        }*/
+    }
+    
+    func getTimetable(completion:@escaping ((_ result: [ResponseTimetable],_ error: ErrorResponse?) -> Void)){
+        var timetable = [ResponseTimetable]()
         //TO DO: edit link. Put pageIdvalue  instead of categoryId.
-        
-        //let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")!
-        guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/menu_by_classes") else {return}
-
-        let task = URLSession.shared.dataTask(with: dishCategoryURL){  (data, response, error) -> Void in
-            guard let dataResponse = data,
-                error == nil else{
-                    print(error?.localizedDescription ?? "Response Error")
-                    return}
-            do{
-                print("dataResponse", data.re)
-                let decoder = JSONDecoder()
-                let model = try decoder.decode(DishesList.self, from: dataResponse)
-                dishes.append(model)
-                //print(model)
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
-
+        Alamofire.request(SERVER_URL + REQUEST_TIMETABLE)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            let model = try decoder.decode(ResponseTimetable.self, from: data)
+                            timetable.append(model)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(timetable, errResp)
+                }
         }
-        task.resume()
     }
     
-    func getEmptyTables(date: ReserveDate, completion: @escaping ([TablesList]) -> ()) {
-        var tables = [TablesList]()
-        guard let url = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/empty_places") else {return}
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        var headers = request.allHTTPHeaderFields ?? [:]
-        headers["Content-Type"] = "application/json"
-        request.allHTTPHeaderFields = headers
-        
-        let encoder = JSONEncoder()
-        do {
-            let jsonData = try encoder.encode(date)
-            request.httpBody = jsonData
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-        } catch {
-            completion(tables)
+    func authorizeUser(data: RequestPostAuth,
+                       completion:@escaping ((_ result: ResponseAuthorizeUser,_ error: ErrorResponse?) -> Void)){
+        var auth = ResponseAuthorizeUser()
+        let paramet = data.conventParameters()
+        Alamofire.request(SERVER_URL + REQUEST_AUTH, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            auth = try decoder.decode(ResponseAuthorizeUser.self, from: data)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(auth, errResp)
+                }
         }
-        
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-            guard let dataResponse = responseData,
-                responseError == nil else{
-                    print(responseError?.localizedDescription ?? "Response Error")
-                    return}
-            do{
-                let decoder = JSONDecoder()
-                let model = try decoder.decode(TablesList.self, from: dataResponse)
-                //dishes.append(model)
-                tables.append(model)
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
-            OperationQueue.main.addOperation {
-                completion(tables)
-            }
-            
-        }
-        task.resume()
     }
     
-    func reserveTable(data: ReserveTableData, completion: @escaping ([ReserveResponseData]) -> ()) {
-        var respData = [ReserveResponseData]()
-        guard let url = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/reserve_place") else {return}
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        var headers = request.allHTTPHeaderFields ?? [:]
-        headers["Content-Type"] = "application/json"
-        request.allHTTPHeaderFields = headers
-        
-        let encoder = JSONEncoder()
-        do {
-            let jsonData = try encoder.encode(data)
-            request.httpBody = jsonData
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-        } catch {
-            completion(respData)
-        }
-        
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-            guard let dataResponse = responseData,
-                responseError == nil else{
-                    print(responseError?.localizedDescription ?? "Response Error")
-                    return}
-            do{
-                let decoder = JSONDecoder()
-                let model = try decoder.decode(ReserveResponseData.self, from: dataResponse)
-                //dishes.append(model)
-                respData.append(model)
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
-            OperationQueue.main.addOperation {
+    //общий метод для отправки на сервер когда ответ с сервера является ErrorResponse
+    private func postToServer(parameters: Parameters, request: String, completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        var respData = ErrorResponse(code: 200,desc: "")
+        Alamofire.request(SERVER_URL + request, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            respData = try decoder.decode(ErrorResponse.self, from: data)
+                        } catch _ {
+                            respData.code = 500
+                            respData.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        respData = self.decodeErrResponse(data: data)
+                    }
+                }
                 completion(respData)
-            }
-            
         }
-        task.resume()
     }
     
-    func getTimetable(completion: @escaping ([Timetable]) -> ()){
-        
-        var timetable = [Timetable]()
-        //TO DO: edit link. Put pageIdvalue  instead of categoryId.
-        
-        //let dishCategoryURL = Bundle.main.url(forResource: "document", withExtension: "txt")!
-        guard let dishCategoryURL = URL(string: "https://na-rogah-api.herokuapp.com/api/v1/timetable") else {return}
-        
-        let task = URLSession.shared.dataTask(with: dishCategoryURL){  (data, response, error) -> Void in
-            guard let dataResponse = data,
-                error == nil else{
-                    print(error?.localizedDescription ?? "Response Error")
-                    return}
-            do{
-
-                let decoder = JSONDecoder()
-                let model = try decoder.decode(Timetable.self, from: dataResponse)
-                timetable.append(model)
-
-            } catch let parsingError {
-                print("Error", parsingError)
-            }
+    
+    func verifyEmail(data: RequestPostVertifyEmail,
+                     completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_VERIFY_EMAIL){ result in
             OperationQueue.main.addOperation {
-                completion(timetable)
+                completion(result)
             }
         }
-        task.resume()
+    }
+    
+    func regUser(data: RequestPostRegUser,
+                 completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_REG_USER){ result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+    }
+    
+    func passwordRecovery(data: RequestPostPasswordRecovery,
+                          completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_PASSWORD_RECOVERY){ result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+    }
+    
+    func reserveTable(data: RequestPostReservePlace,
+                      completion:@escaping ((_ result: ErrorResponse?) -> Void)) {
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_RESERVE_PLACE){ result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
     }
 }

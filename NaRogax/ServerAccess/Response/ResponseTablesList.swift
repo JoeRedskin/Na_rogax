@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TablesList: Decodable {
+struct ResponseTablesList: Decodable {
     let data: [Table]
 }
 
