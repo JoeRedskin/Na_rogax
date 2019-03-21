@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
+		CE220B222243EC9400BDE492 /* SignInScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE220B212243EC9400BDE492 /* SignInScreen.storyboard */; };
+		CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE220B232243FF7A00BDE492 /* SignInVC.swift */; };
 		CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* ResponseTimetable.swift */; };
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
@@ -75,6 +77,8 @@
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
+		CE220B212243EC9400BDE492 /* SignInScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInScreen.storyboard; sourceTree = "<group>"; };
+		CE220B232243FF7A00BDE492 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		CE481FF5223D06740032AB78 /* ResponseTimetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTimetable.swift; sourceTree = "<group>"; };
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
@@ -169,6 +173,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE220B202243EA8200BDE492 /* AuthorizationScreens */ = {
+			isa = PBXGroup;
+			children = (
+				CE220B212243EC9400BDE492 /* SignInScreen.storyboard */,
+				CE220B232243FF7A00BDE492 /* SignInVC.swift */,
+			);
+			path = AuthorizationScreens;
+			sourceTree = "<group>";
+		};
 		CE40185B22411FD2004825EB /* ServerAccess */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CE220B202243EA8200BDE492 /* AuthorizationScreens */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
@@ -475,6 +489,7 @@
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
+				CE220B222243EC9400BDE492 /* SignInScreen.storyboard in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
@@ -567,6 +582,7 @@
 				CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */,
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
+				CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
 				CE4F01992243788E009E526F /* Alert.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
