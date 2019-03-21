@@ -19,6 +19,7 @@ class DataLoader{
     private let REQUEST_REG_USER = "reg_user"
     private let REQUEST_AUTH = "auth"
     private let REQUEST_PASSWORD_RECOVERY = "password_recovery"
+    private let REQUEST_CATEGORY = "categories"
     
     private static var uniqueInstance: DataLoader?
     
@@ -31,9 +32,36 @@ class DataLoader{
         return uniqueInstance!
     }
     
+    func getCategories(completion:@escaping ((_ result: ResponseCategory,_ error: ErrorResponse?) -> Void)){
+        var category = ResponseCategory(categories: [])
+        Alamofire.request(SERVER_URL + REQUEST_CATEGORY, method: .get).validate().responseData { response in
+            var errResp = ErrorResponse(code: 200,desc: "")
+            switch response.result {
+            case .success:
+                if let data = response.data{
+                    do{
+                        let decoder = JSONDecoder()
+                        category = try decoder.decode(ResponseCategory.self, from: data)
+                    } catch _ {
+                        errResp.code = 500
+                        errResp.desc = ""
+                    }
+                }
+            case .failure(_):
+                if let data = response.data{
+                    errResp = self.decodeErrResponse(data: data)
+                }
+            }
+            OperationQueue.main.addOperation {
+                completion(category, errResp)
+            }
+        }
+    }
+    
+    
     //@escaping ([DishesList]) -> ()
-    func getDishes(completion:@escaping ((_ result: [ResponseDishesList],_ error: ErrorResponse?) -> Void)){
-        var dishes = [ResponseDishesList]()
+    func getDishes(completion:@escaping ((_ result: ResponseDishesList,_ error: ErrorResponse?) -> Void)){
+        var dishes = ResponseDishesList(categories: [])
         Alamofire.request(SERVER_URL + REQUEST_DISHES, method: .get).validate().responseData { response in
             var errResp = ErrorResponse(code: 200,desc: "")
             switch response.result {
@@ -41,8 +69,7 @@ class DataLoader{
                 if let data = response.data{
                     do{
                         let decoder = JSONDecoder()
-                        let model = try decoder.decode(ResponseDishesList.self, from: data)
-                        dishes.append(model)
+                        dishes = try decoder.decode(ResponseDishesList.self, from: data)
                     } catch _ {
                         errResp.code = 500
                         errResp.desc = ""
@@ -71,8 +98,8 @@ class DataLoader{
     }
     
     func getEmptyTables(data: RequestPostEmptyPlaces,
-                        completion:@escaping ((_ result: [ResponseTablesList],_ error: ErrorResponse?) -> Void)) {
-        var tables = [ResponseTablesList]()
+                        completion:@escaping ((_ result: ResponseTablesList,_ error: ErrorResponse?) -> Void)) {
+        var tables = ResponseTablesList(data: [])
         let paramet = data.conventParameters()
         Alamofire.request(SERVER_URL + REQUEST_EMPTY_PLACES, method: .post, parameters: paramet, encoding: JSONEncoding.default)
             .validate()
@@ -83,8 +110,7 @@ class DataLoader{
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
-                            let model = try decoder.decode(ResponseTablesList.self, from: data)
-                            tables.append(model)
+                            tables = try decoder.decode(ResponseTablesList.self, from: data)
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""
@@ -101,8 +127,8 @@ class DataLoader{
             }
     }
     
-    func getTimetable(completion:@escaping ((_ result: [ResponseTimetable],_ error: ErrorResponse?) -> Void)){
-        var timetable = [ResponseTimetable]()
+    func getTimetable(completion:@escaping ((_ result: ResponseTimetable,_ error: ErrorResponse?) -> Void)){
+        var timetable = ResponseTimetable(data: [])
         //TO DO: edit link. Put pageIdvalue  instead of categoryId.
         Alamofire.request(SERVER_URL + REQUEST_TIMETABLE)
             .validate()
@@ -113,8 +139,7 @@ class DataLoader{
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
-                            let model = try decoder.decode(ResponseTimetable.self, from: data)
-                            timetable.append(model)
+                            timetable = try decoder.decode(ResponseTimetable.self, from: data)
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""

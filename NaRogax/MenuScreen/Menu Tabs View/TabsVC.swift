@@ -15,31 +15,33 @@ class TabsVC: UIViewController {
     var tabs: [String] = []
     var pageController: UIPageViewController!
     private var finished = false
-
-    var newTabs: [ResponseDishesList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if (!DataLoader.shared().testNetwork()) {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            DataLoader.shared().getDishes(){items, error in
-                self.newTabs.append(contentsOf: items)
-                for tab in self.newTabs[0].categories{
-                    self.tabs += [tab.cat_name]
+            DataLoader.shared().getCategories(){items, error in
+                if error?.code == 200 {
+                    for tab in items.categories{
+                        self.tabs += [tab.name]
+                    }
+                    self.menuBarView.dataArray = self.tabs
+                    self.menuBarView.isSizeToFitCellsNeeded = true
+                    
+                    self.presentPageVCOnView()
+                    
+                    self.menuBarView.menuDelegate = self
+                    self.pageController.delegate =  self
+                    self.pageController.dataSource =  self
+                    
+                    //For Intial Display
+                    self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
+                    self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
+                } else{
+                    print("TabsVC", error)
+                    self.present(Alert.shared().couldNotDownload(protocol: self), animated: true, completion: nil)
                 }
-                self.menuBarView.dataArray = self.tabs
-                self.menuBarView.isSizeToFitCellsNeeded = true
-                
-                self.presentPageVCOnView()
-                
-                self.menuBarView.menuDelegate = self
-                self.pageController.delegate =  self
-                self.pageController.dataSource =  self
-                
-                //For Intial Display
-                self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
-                self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
                 
             }
         }
@@ -85,6 +87,7 @@ class TabsVC: UIViewController {
 
 extension TabsVC: AlertProtocol{
     func clickButtonPositiv() {
+        print("TabsVC")
         self.reloadViewFromNib()
     }
     

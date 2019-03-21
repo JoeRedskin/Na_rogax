@@ -13,6 +13,7 @@
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
 		CE4F01992243788E009E526F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F01982243788E009E526F /* Alert.swift */; };
+		CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F019A22439625009E526F /* ResponseCategory.swift */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
 		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
@@ -78,6 +79,7 @@
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
 		CE4F01982243788E009E526F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		CE4F019A22439625009E526F /* ResponseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCategory.swift; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
 		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				CEAEE92522200BF7000AF395 /* ResponseDisherList.swift */,
 				CE481FF5223D06740032AB78 /* ResponseTimetable.swift */,
 				CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */,
+				CE4F019A22439625009E526F /* ResponseCategory.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */,
 				CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */,
+				CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */,
 				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CE5A4727223BF72100724490 /* HoursWork.swift in Sources */,
 				CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */,

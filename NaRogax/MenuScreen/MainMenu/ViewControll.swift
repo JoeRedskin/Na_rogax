@@ -12,18 +12,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var DishTableView: UITableView!
     
     var pageIndex: Int = 0
-    var dishes: [ResponseDishesList] = []
+    var dishes = ResponseDishesList(categories: [])
     
     let cellSpacingHeight: CGFloat = 8
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if dishes.count == 0{
+        if dishes.categories.count == 0{
             //print(dishes.count)
             return 0
         }
         else{
             //print(dishes[0].categories[pageIndex].cat_dishes.count)
-            return dishes[0].categories[pageIndex].cat_dishes.count
+            return dishes.categories[pageIndex].cat_dishes.count
         }
     }
     
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
-        cell.displayDish(dish: dishes[0].categories[pageIndex].cat_dishes[indexPath.section])
+        cell.displayDish(dish: dishes.categories[pageIndex].cat_dishes[indexPath.section])
         return cell
         
     }
@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if (dishes[0].categories[pageIndex].cat_name != "ТОПИНГИ" && dishes[0].categories[pageIndex].cat_name != "НАПИТКИ") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
+            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
                 //                print("Rec: \(String(describing: dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith))")
                 //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
                 //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vc.indexOfCategory = pageIndex
                 
                 navigationController?.pushViewController(vc, animated: true)
-            } else if dishes[0].categories[pageIndex].cat_name == "НАПИТКИ" {
+            } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
                 
@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             DataLoader.shared().getDishes(){ result, error in
                 if error?.code == 200{
-                    self.dishes.append(contentsOf: result)
+                    self.dishes = result
                     self.DishTableView.reloadData()
                 }else{
                     self.present(Alert.shared().couldNotDownload(protocol: self), animated: true, completion: nil)

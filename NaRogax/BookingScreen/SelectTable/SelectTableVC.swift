@@ -23,7 +23,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var SelectedTable = Table()
     var table_info = ""
     
-    var Tables: [ResponseTablesList] = []
+    var tables = ResponseTablesList(data: [])
     var datasize = 0
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,7 +37,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
-        cell.displayTable(table: Tables[0].data[indexPath.row], index: indexPath.row)
+        cell.displayTable(table: tables.data[indexPath.row], index: indexPath.row)
         return cell
     }
 
@@ -64,13 +64,17 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
         } else {
             DataLoader.shared().getEmptyTables(data: date){ result, error in
-                self.Tables.append(contentsOf: result)
-                self.datasize = self.Tables[0].data.count
-                if self.datasize == 0 {
-                    self.TableView.isHidden = true
-                    self.NoEmptyTablesLabel.isHidden = false
+                if error?.code == 200 {
+                    self.tables = result
+                    self.datasize = self.tables.data.count
+                    if self.datasize == 0 {
+                        self.TableView.isHidden = true
+                        self.NoEmptyTablesLabel.isHidden = false
+                    }
+                    self.TableView.reloadData()
+                }else{
+                    
                 }
-                self.TableView.reloadData()
             }
         }
         
@@ -83,8 +87,8 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
         } else {
             let ind = sender.tag
-            self.table_id = Tables[0].data[ind].table_id
-            self.SelectedTable = Tables[0].data[ind]
+            self.table_id = tables.data[ind].table_id
+            self.SelectedTable = tables.data[ind]
             table_info = String(SelectedTable.chair_count)
             if SelectedTable.chair_count == 4 {
                 table_info += " места"
@@ -136,4 +140,13 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
     }
     
+}
+
+
+extension SelectTableVC: AlertProtocol{
+    func clickButtonPositiv() {
+    }
+    
+    func clickButtonCanсel() {
+    }
 }
