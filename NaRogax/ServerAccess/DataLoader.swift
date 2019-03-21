@@ -20,6 +20,9 @@ class DataLoader{
     private let REQUEST_AUTH = "auth"
     private let REQUEST_PASSWORD_RECOVERY = "password_recovery"
     private let REQUEST_CATEGORY = "categories"
+    private let REQUEST_CHECK_AUTH = "check_auth"
+    private let REQUEST_SHOW_USER_BOOKING = "show_user_booking"
+    private let REQUEST_DELETE_USER_BOOKING = "delete_user_booking"
     
     private static var uniqueInstance: DataLoader?
     
@@ -30,6 +33,36 @@ class DataLoader{
             uniqueInstance = DataLoader()
         }
         return uniqueInstance!
+    }
+    
+    func showUserBooking(data: RequestPostCheckAuto,
+                         completion:@escaping ((_ result: ResponseShowUserBooking,_ error: ErrorResponse?) -> Void)){
+        var showBooking = ResponseShowUserBooking()
+        let paramet = data.conventParameters()
+        Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            showBooking = try decoder.decode(ResponseShowUserBooking.self, from: data)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(showBooking, errResp)
+                }
+        }
     }
     
     func getCategories(completion:@escaping ((_ result: ResponseCategory,_ error: ErrorResponse?) -> Void)){
@@ -247,6 +280,26 @@ class DataLoader{
                       completion:@escaping ((_ result: ErrorResponse?) -> Void)) {
         let parameters = data.conventParameters()
         postToServer(parameters: parameters, request: REQUEST_RESERVE_PLACE){ result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+    }
+    
+    func checkAuto(data: RequestPostCheckAuto,
+                   completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_CHECK_AUTH){ result in
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
+        }
+    }
+    
+    func userDeleteUserBooking(data: RequestPostDeleteUserBooking,
+                               completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        let parameters = data.conventParameters()
+        postToServer(parameters: parameters, request: REQUEST_DELETE_USER_BOOKING){ result in
             OperationQueue.main.addOperation {
                 completion(result)
             }

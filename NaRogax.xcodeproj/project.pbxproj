@@ -45,6 +45,9 @@
 		CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF02057223778650083D0A1 /* BookingMain.storyboard */; };
 		CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205922377D700083D0A1 /* BookingVC.swift */; };
 		CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205B22377D840083D0A1 /* DateCVC.swift */; };
+		CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */; };
+		CEF1C08E224403510081CA91 /* ResponseShowUserBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */; };
+		CEF1C0902244077E0081CA91 /* RequestPostDeleteUserBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */; };
 		CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058922427E1D001D6D96 /* RequestPostVertifyEmail.swift */; };
 		CEF3058C22427E78001D6D96 /* RequestPostRegUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058B22427E78001D6D96 /* RequestPostRegUser.swift */; };
 		CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */; };
@@ -113,6 +116,9 @@
 		CEF02057223778650083D0A1 /* BookingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookingMain.storyboard; sourceTree = "<group>"; };
 		CEF0205922377D700083D0A1 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		CEF0205B22377D840083D0A1 /* DateCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCVC.swift; sourceTree = "<group>"; };
+		CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostCheckAuto.swift; sourceTree = "<group>"; };
+		CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseShowUserBooking.swift; sourceTree = "<group>"; };
+		CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostDeleteUserBooking.swift; sourceTree = "<group>"; };
 		CEF3058922427E1D001D6D96 /* RequestPostVertifyEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostVertifyEmail.swift; sourceTree = "<group>"; };
 		CEF3058B22427E78001D6D96 /* RequestPostRegUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostRegUser.swift; sourceTree = "<group>"; };
 		CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostAuth.swift; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				CEF3058B22427E78001D6D96 /* RequestPostRegUser.swift */,
 				CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */,
 				CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */,
+				CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */,
+				CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */,
 			);
 			path = RequestParameters;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 				CE481FF5223D06740032AB78 /* ResponseTimetable.swift */,
 				CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */,
 				CE4F019A22439625009E526F /* ResponseCategory.swift */,
+				CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 				CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */,
 				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CE5A4727223BF72100724490 /* HoursWork.swift in Sources */,
+				CEF1C08E224403510081CA91 /* ResponseShowUserBooking.swift in Sources */,
 				CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
@@ -563,6 +573,7 @@
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
+				CEF1C0902244077E0081CA91 /* RequestPostDeleteUserBooking.swift in Sources */,
 				CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */,
 				CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */,
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
@@ -584,6 +595,7 @@
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
+				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,
 				CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
