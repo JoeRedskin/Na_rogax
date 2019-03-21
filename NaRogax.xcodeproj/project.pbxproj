@@ -12,6 +12,7 @@
 		CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* ResponseTimetable.swift */; };
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
+		CE4F01992243788E009E526F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F01982243788E009E526F /* Alert.swift */; };
 		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
 		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
 		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
@@ -76,6 +77,7 @@
 		CE481FF5223D06740032AB78 /* ResponseTimetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTimetable.swift; sourceTree = "<group>"; };
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
+		CE4F01982243788E009E526F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
 		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
 		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				CEE215F7222D1147000899EF /* Reachability.swift */,
 				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
 				CED522842228365A0069DBDA /* document.txt */,
+				CE4F01982243788E009E526F /* Alert.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
+				CE4F01992243788E009E526F /* Alert.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */,

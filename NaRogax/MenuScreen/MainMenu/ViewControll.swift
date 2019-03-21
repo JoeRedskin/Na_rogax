@@ -53,12 +53,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         /*
          If no internet connection when select dish from table view, show alert
          */
-        if (!Reachability.isConnectedToNetwork()){
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
-            DispatchQueue.main.async(execute: {
-                self.present(alert, animated: true, completion: nil)
-            })
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
             if (dishes[0].categories[pageIndex].cat_name != "ТОПИНГИ" && dishes[0].categories[pageIndex].cat_name != "НАПИТКИ") || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes[0].categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
                 //                print("Rec: \(String(describing: dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith))")
@@ -95,29 +91,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          If no internet connection when view did load, show alert and reload view
          */
         
-        if (!Reachability.isConnectedToNetwork()){
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
-                self.reloadViewFromNib()
-            }))
-            self.present(alert, animated: true, completion: nil)
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            let dataLoader = DataLoader()
-            dataLoader.getDishes(){ result, error in
-                self.dishes.append(contentsOf: result)
-                self.DishTableView.reloadData()
-                
-                /*
-                 If no dishes from server show alert and reload view
-                 */
-                if (self.dishes.count) < 1 {
-                    let alert = UIAlertController(title: "", message: "К сожалению мы не смогли загрузить блюда, попробуйте позже", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
-                        self.reloadViewFromNib()
-                    }))
-                    DispatchQueue.main.async(execute: {
-                        self.present(alert, animated: true, completion: nil)
-                    })
+            DataLoader.shared().getDishes(){ result, error in
+                if error?.code == 200{
+                    self.dishes.append(contentsOf: result)
+                    self.DishTableView.reloadData()
+                }else{
+                    self.present(Alert.shared().couldNotDownload(protocol: self), animated: true, completion: nil)
                 }
             }
         }
@@ -130,4 +112,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func reloadViewFromNib() {
         self.viewDidLoad()
     }
+}
+
+
+extension ViewController: AlertProtocol{
+    func clickButtonPositiv() {
+        self.reloadViewFromNib()
+    }
+    func clickButtonCanсel() {}
 }

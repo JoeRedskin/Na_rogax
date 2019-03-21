@@ -308,10 +308,8 @@ class ReserveScreenVC: UIViewController {
     }
     @IBAction func onReserveBtnTap(_ sender: UIButton) {
         ReserveBtn.isEnabled = false
-        if (!Reachability.isConnectedToNetwork()){
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
             ReserveBtn.isEnabled = true
         } else {
             if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text {
@@ -348,8 +346,7 @@ class ReserveScreenVC: UIViewController {
                     data.date_to = date_to
                     data.time_to = time_to
                     
-                    let dataLoader = DataLoader()
-                    dataLoader.reserveTable(data: data){ result in
+                    DataLoader.shared().reserveTable(data: data){ result in
                         if result != nil {
                             if (result?.code == 200){
                                 let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)

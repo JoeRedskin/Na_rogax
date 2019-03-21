@@ -20,15 +20,10 @@ class TabsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (!Reachability.isConnectedToNetwork()) {
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { action in
-                self.reloadViewFromNib()
-            }))
-            self.present(alert, animated: true, completion: nil)
+        if (!DataLoader.shared().testNetwork()) {
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            let dataLoader = DataLoader()
-            dataLoader.getDishes(){items, error in
+            DataLoader.shared().getDishes(){items, error in
                 self.newTabs.append(contentsOf: items)
                 for tab in self.newTabs[0].categories{
                     self.tabs += [tab.cat_name]
@@ -88,9 +83,15 @@ class TabsVC: UIViewController {
     }
 }
 
-
-
-
+extension TabsVC: AlertProtocol{
+    func clickButtonPositiv() {
+        self.reloadViewFromNib()
+    }
+    
+    func clickButtonCanсel() {
+        
+    }
+}
 
 extension TabsVC: MenuBarDelegate {
     

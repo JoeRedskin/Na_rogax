@@ -20,6 +20,17 @@ class DataLoader{
     private let REQUEST_AUTH = "auth"
     private let REQUEST_PASSWORD_RECOVERY = "password_recovery"
     
+    private static var uniqueInstance: DataLoader?
+    
+    private init() {}
+    
+    static func shared() -> DataLoader {
+        if uniqueInstance == nil {
+            uniqueInstance = DataLoader()
+        }
+        return uniqueInstance!
+    }
+    
     //@escaping ([DishesList]) -> ()
     func getDishes(completion:@escaping ((_ result: [ResponseDishesList],_ error: ErrorResponse?) -> Void)){
         var dishes = [ResponseDishesList]()
@@ -215,5 +226,9 @@ class DataLoader{
                 completion(result)
             }
         }
+    }
+    
+    func testNetwork() -> Bool{
+        return Reachability.isConnectedToNetwork()
     }
 }

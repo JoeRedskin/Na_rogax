@@ -61,12 +61,9 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         date.time_to = self.time_to
         
         if (!Reachability.isConnectedToNetwork()){
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
         } else {
-            let dataLoader = DataLoader()
-            dataLoader.getEmptyTables(data: date){ result, error in
+            DataLoader.shared().getEmptyTables(data: date){ result, error in
                 self.Tables.append(contentsOf: result)
                 self.datasize = self.Tables[0].data.count
                 if self.datasize == 0 {
@@ -82,10 +79,8 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     @IBAction func selectTable(_ sender: UIButton) {
-        if (!Reachability.isConnectedToNetwork()){
-            let alert = UIAlertController(title: "", message: "Проверьте интернет соединение", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
         } else {
             let ind = sender.tag
             self.table_id = Tables[0].data[ind].table_id

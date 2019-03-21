@@ -93,22 +93,7 @@ class BookingVC: UIViewController{
     
     @IBAction func changeTime(_ sender: UIButton) {
         hoursWork.selectIndex(index: 0)
-        let editRadiusAlert = UIAlertController(title: "Выберите время", message: "", preferredStyle: UIAlertController.Style.alert)
-        let pickeViewFrame: CGRect = CGRect(x: 5, y: 10, width: 250, height: editRadiusAlert.view.frame.height/3)
-        let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
-        pickerViewRadius.delegate = self
-        pickerViewRadius.dataSource = self
-        editRadiusAlert.view.addSubview(pickerViewRadius)
-        editRadiusAlert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default,handler:{ (UIAlertAction) in
-            self.calcAndSetTime()
-        }))
-        editRadiusAlert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: { (UIAlertAction) in
-            /*if (self.arrayHour.count > 0){
-                self.changeTimeSting.titleLabel?.text = self.hoursWork.getSelectTime()
-            }*/
-        }))
-        editRadiusAlert.view.addConstraint(NSLayoutConstraint(item: editRadiusAlert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.5))
-        self.present(editRadiusAlert, animated: true, completion: nil)
+        self.present(Alert.shared().pickerAlert(protocol: self, delegate: self, dataSource: self, height: self.view.frame.height), animated: true, completion: nil)
     }
     
     
@@ -125,6 +110,14 @@ class BookingVC: UIViewController{
         vc.time_from = time.timeFrom
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension BookingVC: AlertProtocol{
+    func clickButtonPositiv() {
+        self.calcAndSetTime()
+    }
+    
+    func clickButtonCanсel() {}
 }
 
 //расширение для методов CollectionView
