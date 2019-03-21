@@ -7,4 +7,5 @@ target 'NaRogax' do
 
   # Pods for NaRogax
   pod 'Kingfisher'
+  pod 'Alamofire'
 end

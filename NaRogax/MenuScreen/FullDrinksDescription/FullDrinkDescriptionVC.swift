@@ -18,7 +18,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var priceLabel: UILabel!
     
-    var dishFull: [DishesList] = []
+    var dishFull: [ResponseDishesList] = []
     var indexOfDish = 0
     var indexOfCategory = 0
     var drinksArr: [String] = []

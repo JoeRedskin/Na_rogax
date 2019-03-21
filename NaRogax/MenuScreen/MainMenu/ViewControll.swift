@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var DishTableView: UITableView!
     
     var pageIndex: Int = 0
-    var dishes: [DishesList] = []
+    var dishes: [ResponseDishesList] = []
     
     let cellSpacingHeight: CGFloat = 8
     
@@ -103,7 +103,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.present(alert, animated: true, completion: nil)
         } else {
             let dataLoader = DataLoader()
-            dataLoader.getDishes{ items in self.dishes.append(contentsOf: items)
+            dataLoader.getDishes(){ result, error in
+                self.dishes.append(contentsOf: result)
                 self.DishTableView.reloadData()
                 
                 /*

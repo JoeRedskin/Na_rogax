@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Timetable: Decodable {
+struct ResponseTimetable: Decodable {
 
     let data: [TimeForDay]
     enum CodingKeys: CodingKey {

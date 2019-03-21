@@ -39,7 +39,7 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var weightField: UILabel!
     @IBOutlet weak var priceField: UILabel!
     
-    var dishFull: [DishesList] = []
+    var dishFull: [ResponseDishesList] = []
     var indexOfDish = 0
     var indexOfCategory = 0
     var recDish: [String] = []
