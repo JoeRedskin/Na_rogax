@@ -16,7 +16,6 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var imageField: UIImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var priceLabel: UILabel!
     
     var dishFull = ResponseDishesList(categories: [])
     var indexOfDish = 0
@@ -28,30 +27,18 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (drinksArr.count + 2)
+        return (drinksArr.count)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print(indexPath.row)
+        //print(indexPath.row)
         switch indexPath.row {
-            case drinksArr.count:
-                let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DPriceCell", for: indexPath) as! DrinkPriceCell
-                if let Price = dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].price {
-                    cell.displayPrice(price: String(Price) + " ₽")
-                } else {
-                    cell.displayPrice(price: "⏤ ₽")
-                }
-                return cell
-            case drinksArr.count + 1:
-                let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DButtonCell", for: indexPath) as! DrinkButtonCell
-                cell.displayBtn()
-                return cell
             case 0..<drinksArr.count:
                 let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
             
-                cell.displayDish(dish: drinksArr[indexPath.row] + ", " + dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].weight + " мл")
+                cell.displayDish(dish: drinksArr[indexPath.row] + ", " + dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].weight + " мл", price: String(dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].price!))
                 return cell
             default:
             /*let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
@@ -94,7 +81,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Сок"){
             drinksArr = ["Апельсин", "Томат", "Яблоко"]
         } else if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Кофе") {
-            drinksArr = ["Американо", "Капучино", "Эспрессо"]
+            drinksArr = ["Американо", "Капучино", "Латте", "Эспрессо"]
         } else if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Чай") {
             drinksArr = ["Черный", "Зеленый", "Бергамот"]
         } else if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].name.contains("Лимонад") {
@@ -118,9 +105,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
             nameField.text = menu.name
         }
         
-        
         fetchImage(url_img: menu.photo)
-        
     }
     
     func fetchImage(url_img: String) {
@@ -137,6 +122,4 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-    
-
 }
