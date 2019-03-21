@@ -21,9 +21,11 @@ class TabsVC: UIViewController {
         if (!DataLoader.shared().testNetwork()) {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            DataLoader.shared().getCategories(){items, error in
+            DataLoader.shared().getCategories(){result, error in
                 if error?.code == 200 {
-                    for tab in items.categories{
+                    //items =  sorted(items, {$0 < $1})
+                    let items = result.categories.sorted(by: { $0.order < $1.order})
+                    for tab in items{
                         self.tabs += [tab.name]
                     }
                     self.menuBarView.dataArray = self.tabs
