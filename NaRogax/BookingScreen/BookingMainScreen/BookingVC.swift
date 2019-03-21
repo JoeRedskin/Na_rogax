@@ -102,13 +102,43 @@ class BookingVC: UIViewController{
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
             return
         }
-        let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
-        vc.date = time.dateFrom
-        vc.date_to = time.dateTo
-        vc.time_to = time.timeTo
-        vc.time_from = time.timeFrom
-        navigationController?.pushViewController(vc, animated: true)
+        if (!Reachability.isConnectedToNetwork()){
+            self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+        }else{
+            var date = RequestPostEmptyPlaces()
+            date.date = time.dateFrom
+            date.date_to = time.dateTo
+            date.time_to = time.timeTo
+            date.time_from = time.timeFrom
+            downloadTable(date: date)
+            
+
+        }
+    }
+    
+    private func downloadTable(date: RequestPostEmptyPlaces){
+        if (!Reachability.isConnectedToNetwork()){
+            self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+        } else {
+            DataLoader.shared().getEmptyTables(data: date){ result, error in
+                if error?.code == 200 {
+                    if result.data.count == 0 {
+                        self.present(Alert.shared().tableAraBusy(protocol: self), animated: true, completion: nil)
+                    }else{
+                        let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "SelectTableVC") as! SelectTableVC
+                        vc.date = date.date
+                        vc.date_to = date.date_to
+                        vc.time_to = date.time_to
+                        vc.time_from = date.time_from
+                        vc.tables = result
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }else{
+                    self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+                }
+            }
+        }
     }
 }
 

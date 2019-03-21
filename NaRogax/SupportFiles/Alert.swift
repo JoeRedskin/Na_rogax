@@ -5,7 +5,6 @@
 //  Created by User on 21/03/2019.
 //  Copyright © 2019 Zappa. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
@@ -24,14 +23,20 @@ class Alert{
     private let MESSEGE_NO_DOWNLOAD_DISH = "К сожалению мы не смогли загрузить блюда, попробуйте позже"
     private let MESSEGE_TABLE_BUSY = "Измените время, продолжительность или дату визита и попробуйте снова."
     private let MESSEGE_CANSEL_BOOKING = "Отменить бронирование на "
+    private let MESSEGE_PASSWORD_CHANGED = "Ваш пароль успешно изменен. Мы рады, что вы снова с нами."
+    private let MESSEGE_ERROR_NETWORK_BOOKING = "Без подключения к сети невозможно продолжить бронирование. \nПроверьте соединение и попробуйте снова"
+    
     //Титулы
     private let TITLE_SELECT_TIME = "Выберите время"
     private let TITLE_TABLE_BUSY = "Все столы заняты"
     private let TITLE_CANSEL_BOOKING = "Отмена брони"
+    private let TITLE_PASSWORD_CHANGED = "Пароль изменен"
+    private let TITLE_ERROR_NETWORK_BOOKING = "Ошибка соединения"
+    
     //Название кнопок
     private let BUTTON_MESSEGE_OK = ["Ок"]
     private let BUTTON_MESSEGE_OK_CANCEL = ["Ок", "Отмена"]
-
+    private let BUTTON_MESSEGE_ERROR_NETWORK = ["Повторить соединение", "Отмена"]
     
     static func shared() -> Alert {
         if uniqueInstance == nil {
@@ -40,12 +45,21 @@ class Alert{
         return uniqueInstance!
     }
     
+    func messegeErrorNetworkBooking(protocol prot: AlertProtocol?) -> UIAlertController {
+        return createAlert(title: TITLE_ERROR_NETWORK_BOOKING,messege: MESSEGE_ERROR_NETWORK_BOOKING
+            , buttonMessege: BUTTON_MESSEGE_ERROR_NETWORK, protocol: prot)
+    }
+    
     func couldNotDownload(protocol prot: AlertProtocol?) -> UIAlertController{
         return createAlert(messege: MESSEGE_NO_DOWNLOAD_DISH, buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
     }
     
     func noInternet(protocol prot: AlertProtocol?) -> UIAlertController{
         return createAlert(messege: MESSEGE_NO_NETWORK, buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
+    }
+    
+    func changePassword(protocol prot: AlertProtocol?) -> UIAlertController {
+        return createAlert(title: TITLE_PASSWORD_CHANGED,messege: MESSEGE_PASSWORD_CHANGED, buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
     }
     
     func tableAraBusy(protocol prot: AlertProtocol?) -> UIAlertController {
