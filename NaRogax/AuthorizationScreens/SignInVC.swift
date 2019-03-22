@@ -16,6 +16,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var PasswordField: UITextField!
     @IBOutlet weak var ErrorLabel: UILabel!
     @IBOutlet weak var EmailIcon: UIImageView!
+    @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var SignInBtn: UIButton!
     @IBOutlet weak var ShowPasswordBtn: UIButton!
     
@@ -155,7 +156,8 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func passwordChanged(_ sender: Any) {
-        correctData(field: PasswordField, label: ErrorLabel, image: nil)
+        correctData(field: PasswordField, label: ErrorLabel, image: PasswordIcon)
+        ShowPasswordBtn.isHidden = false
         if let pass = PasswordField.text {
             if pass != "" {
                 isEmptyPassword = false
@@ -179,7 +181,8 @@ class SignInVC: UIViewController {
                 /* TO DO: Auth request */
             } else {
                 if !validatePassword(pass: pass) {
-                    incorrectData(field: PasswordField, label: nil, image: nil)
+                    incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
+                    ShowPasswordBtn.isHidden = true
                     showErrorLabel(text: "Некорректный пароль")
                 }
                 if !validateEmail(email: email) {
@@ -187,7 +190,7 @@ class SignInVC: UIViewController {
                     showErrorLabel(text: "Некорректный E-mail")
                 }
                 if !validatePassword(pass: pass) && !validateEmail(email: email) {
-                    incorrectData(field: PasswordField, label: nil, image: nil)
+                    incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
                     incorrectData(field: EmailField, label: nil, image: EmailIcon)
                     showErrorLabel(text: "Некорректные E-mail и пароль")
                 }

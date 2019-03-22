@@ -125,9 +125,17 @@
                                     <action selector="showPassword:" destination="zE3-vt-l9n" eventType="touchUpInside" id="9Mi-MD-vc2"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gBm-jL-9Ze">
+                                <rect key="frame" x="337" y="317" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="7Wq-S5-d8s"/>
+                                    <constraint firstAttribute="height" constant="20" id="7d1-cC-7lf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gBm-jL-9Ze" firstAttribute="top" secondItem="661-os-j4d" secondAttribute="bottom" constant="7" id="01q-7q-sgg"/>
                             <constraint firstItem="3qc-CU-mmT" firstAttribute="leading" secondItem="fvd-gc-8XF" secondAttribute="trailing" constant="-22" id="1Fc-TE-97K"/>
                             <constraint firstItem="Z8N-X3-dpv" firstAttribute="leading" secondItem="vVn-ZT-Gos" secondAttribute="trailing" constant="-22" id="1GY-Va-DVN"/>
                             <constraint firstItem="QpD-Tk-pzE" firstAttribute="leading" secondItem="iyX-0K-VXM" secondAttribute="leading" constant="16" id="9MY-Qv-cmc"/>
@@ -144,6 +152,7 @@
                             <constraint firstItem="vVn-ZT-Gos" firstAttribute="leading" secondItem="iyX-0K-VXM" secondAttribute="leading" constant="16" id="XH1-wY-2L4"/>
                             <constraint firstItem="fvd-gc-8XF" firstAttribute="top" secondItem="661-os-j4d" secondAttribute="bottom" constant="2" id="Y3y-4s-8PX"/>
                             <constraint firstItem="iyX-0K-VXM" firstAttribute="trailing" secondItem="9dC-Sh-iFE" secondAttribute="trailing" constant="73" id="aeu-QO-YEC"/>
+                            <constraint firstItem="gBm-jL-9Ze" firstAttribute="leading" secondItem="fvd-gc-8XF" secondAttribute="trailing" constant="-22" id="ef3-Tf-VmM"/>
                             <constraint firstItem="K09-nd-IbM" firstAttribute="top" secondItem="jYK-3V-BBu" secondAttribute="bottom" constant="5" id="huz-0B-jal"/>
                             <constraint firstItem="jYK-3V-BBu" firstAttribute="top" secondItem="fvd-gc-8XF" secondAttribute="bottom" constant="4" id="jHZ-pd-mJq"/>
                             <constraint firstItem="iyX-0K-VXM" firstAttribute="trailing" secondItem="pbl-1P-QUC" secondAttribute="trailing" constant="83" id="jap-9f-ZnU"/>
@@ -163,9 +172,11 @@
                     <navigationItem key="navigationItem" title="Вход" id="iHz-NA-ZYO"/>
                     <connections>
                         <outlet property="EmailField" destination="vVn-ZT-Gos" id="4r1-vx-ltb"/>
+                        <outlet property="EmailIcon" destination="Z8N-X3-dpv" id="rwf-dZ-zSF"/>
                         <outlet property="EmailLabel" destination="9dC-Sh-iFE" id="AUH-Ta-Atu"/>
                         <outlet property="ErrorLabel" destination="jYK-3V-BBu" id="BAd-ao-SSR"/>
                         <outlet property="PasswordField" destination="fvd-gc-8XF" id="L0u-7E-sF4"/>
+                        <outlet property="PasswordIcon" destination="gBm-jL-9Ze" id="1nX-7S-6fY"/>
                         <outlet property="PasswordLabel" destination="661-os-j4d" id="Vbh-DY-Rwk"/>
                         <outlet property="ShowPasswordBtn" destination="3qc-CU-mmT" id="Ckc-Jl-EpQ"/>
                         <outlet property="SignInBtn" destination="QpD-Tk-pzE" id="gdc-qu-Aip"/>
