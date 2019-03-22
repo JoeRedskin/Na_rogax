@@ -11,11 +11,11 @@ import Alamofire
 
 struct RequestPostCheckAuto {
     var email = ""
-    var code = ""
+    var uuid = ""
     
     func conventParameters() -> Parameters{
         let par: Parameters = [ "email": email,
-                                "code": code]
+                                "uuid": uuid]
         return par
     }
 }
