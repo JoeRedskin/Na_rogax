@@ -66,7 +66,6 @@
 		CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C39522391E6500FBAA8B /* ReserveScreen.storyboard */; };
 		CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39622391E6500FBAA8B /* ReserveScreenVC.swift */; };
 		CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */; };
-		CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */; };
 		CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39E22391E6D00FBAA8B /* TableCell.swift */; };
 		CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39F22391E6D00FBAA8B /* RequestPostEmptyPlaces.swift */; };
 		CEF7C3A622391E6D00FBAA8B /* ResponseTablesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3A022391E6D00FBAA8B /* ResponseTablesList.swift */; };
@@ -137,7 +136,6 @@
 		CEF7C39522391E6500FBAA8B /* ReserveScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReserveScreen.storyboard; sourceTree = "<group>"; };
 		CEF7C39622391E6500FBAA8B /* ReserveScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveScreenVC.swift; sourceTree = "<group>"; };
 		CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTableVC.swift; sourceTree = "<group>"; };
-		CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFreeTablesVC.swift; sourceTree = "<group>"; };
 		CEF7C39E22391E6D00FBAA8B /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		CEF7C39F22391E6D00FBAA8B /* RequestPostEmptyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPostEmptyPlaces.swift; sourceTree = "<group>"; };
 		CEF7C3A022391E6D00FBAA8B /* ResponseTablesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTablesList.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF7C39C22391E6D00FBAA8B /* SelectTableVC.swift */,
-				CEF7C39D22391E6D00FBAA8B /* NoFreeTablesVC.swift */,
 				CEF7C39E22391E6D00FBAA8B /* TableCell.swift */,
 				CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */,
 			);
@@ -554,7 +551,6 @@
 				CEF7C3A622391E6D00FBAA8B /* ResponseTablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */,
-				CEF7C3A322391E6D00FBAA8B /* NoFreeTablesVC.swift in Sources */,
 				CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */,
 				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
 				CE5A4727223BF72100724490 /* HoursWork.swift in Sources */,

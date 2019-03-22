@@ -21,13 +21,13 @@ class TableCell: UITableViewCell {
         if String(table.chair_count) == "" {
             TitleLabel.text = "Без названия"
         } else {
-            var tableString = ""
+            var tableCountString = ""
             if table.chair_count == 4 {
-                tableString = String(table.chair_count) + " места"
+                tableCountString = String(table.chair_count) + " места"
             } else {
-                tableString = String(table.chair_count) + " мест"
+                tableCountString = String(table.chair_count) + " мест"
                     }
-            TitleLabel.text = "Стол: № \(table_id) на \(tableString)"
+            TitleLabel.text = "Стол: № \(table_id) на \(tableCountString)"
         }
         
         if table.chair_type == "" {
