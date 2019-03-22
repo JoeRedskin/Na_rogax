@@ -42,6 +42,7 @@
 		CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */; };
 		CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */; };
 		CEE215F8222D1147000899EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE215F7222D1147000899EF /* Reachability.swift */; };
+		CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE135E224532B9000B7D32 /* NumberTextView.swift */; };
 		CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF02057223778650083D0A1 /* BookingMain.storyboard */; };
 		CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205922377D700083D0A1 /* BookingVC.swift */; };
 		CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0205B22377D840083D0A1 /* DateCVC.swift */; };
@@ -58,6 +59,8 @@
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
 		CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */; };
 		CEF692E622274ACA000F3307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF692E422274AC9000F3307 /* Main.storyboard */; };
+		CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF6A15B2244C46C00B28B05 /* CheckNumber.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
+		CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6A15D2244C48400B28B05 /* CheckNumberVC.swift */; };
 		CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */; };
 		CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */; };
 		CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */; };
@@ -113,6 +116,7 @@
 		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
 		CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescCell.swift; sourceTree = "<group>"; };
 		CEE215F7222D1147000899EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		CEEE135E224532B9000B7D32 /* NumberTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextView.swift; sourceTree = "<group>"; };
 		CEF02057223778650083D0A1 /* BookingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookingMain.storyboard; sourceTree = "<group>"; };
 		CEF0205922377D700083D0A1 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		CEF0205B22377D840083D0A1 /* DateCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCVC.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
 		CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescCViCell.swift; sourceTree = "<group>"; };
 		CEF692E522274AC9000F3307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEF6A15B2244C46C00B28B05 /* CheckNumber.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckNumber.storyboard; sourceTree = "<group>"; };
+		CEF6A15D2244C48400B28B05 /* CheckNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNumberVC.swift; sourceTree = "<group>"; };
 		CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationCanceled.storyboard; sourceTree = "<group>"; };
 		CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCanceledVC.swift; sourceTree = "<group>"; };
 		CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
@@ -253,6 +259,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CEF6A15F2244C4C000B28B05 /* RegAuth */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
@@ -321,6 +328,24 @@
 				CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */,
 			);
 			path = FullDescription;
+			sourceTree = "<group>";
+		};
+		CEF6A15A2244C43E00B28B05 /* CheckNumber */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6A15B2244C46C00B28B05 /* CheckNumber.storyboard */,
+				CEF6A15D2244C48400B28B05 /* CheckNumberVC.swift */,
+				CEEE135E224532B9000B7D32 /* NumberTextView.swift */,
+			);
+			path = CheckNumber;
+			sourceTree = "<group>";
+		};
+		CEF6A15F2244C4C000B28B05 /* RegAuth */ = {
+			isa = PBXGroup;
+			children = (
+				CEF6A15A2244C43E00B28B05 /* CheckNumber */,
+			);
+			path = RegAuth;
 			sourceTree = "<group>";
 		};
 		CEF7C37F2238E01500FBAA8B /* BookingConfirmation */ = {
@@ -445,6 +470,9 @@
 		CE90193A221D904100BA1B47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Zappa;
@@ -484,6 +512,7 @@
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
+				CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
@@ -570,6 +599,7 @@
 				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
 				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */,
+				CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
@@ -593,6 +623,7 @@
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
+				CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,
