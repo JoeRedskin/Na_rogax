@@ -67,6 +67,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
         } else {
+            //TO DO: сделать переход на экран авторизации, если пользователь неавторизированннй, либо на экран завершения брони
             if (item > -1){
                 self.table_id = tables.data[item].table_id
                 self.selectedTable = tables.data[item]
