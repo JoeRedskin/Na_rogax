@@ -34,12 +34,6 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
     
-    private var isCorrectName = false
-    private var isCorrectPhone = false
-    private var isCorrectEmail = false
-    private var isCorrectPassword = false
-    private var isEqualPasswords = false
-    
     private var isEmptyName = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
@@ -119,7 +113,7 @@ class SignUpVC: UIViewController {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
                 SignUpBtn.isEnabled = false
             }
-            if !isEmptyPassword {
+            if !isEmptyRepeatedPassword {
                 RepeatPasswordLabel.isHidden = false
                 RepeatPasswordBtn.isHidden = false
             } else {
@@ -221,6 +215,11 @@ class SignUpVC: UIViewController {
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
+        EmailField.maxLength = 100
+        PasswordField.maxLength = 32
+        RepeatPasswordField.maxLength = 32
+        NameField.maxLength = 30
+        PhoneField.maxLength = 11
         SignUpBtn.layer.cornerRadius = 20
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         setStyleForTextField(field: PasswordField, placeholder: "Пароль")
@@ -306,6 +305,11 @@ class SignUpVC: UIViewController {
         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
         if let phone = PhoneField.text {
             if phone != "" {
+                if phone.prefix(1) == "+" {
+                    PhoneField.maxLength = 12
+                } else {
+                    PhoneField.maxLength = 11
+                }
                 isEmptyPhone = false
             } else {
                 isEmptyPhone = true

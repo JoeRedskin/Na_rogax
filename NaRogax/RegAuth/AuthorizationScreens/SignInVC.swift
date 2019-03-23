@@ -68,6 +68,9 @@ class SignInVC: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        EmailField.maxLength = 100
+        PasswordField.maxLength = 32
         SignInBtn.layer.cornerRadius = 20
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         setStyleForTextField(field: PasswordField, placeholder: "Пароль")
