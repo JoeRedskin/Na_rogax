@@ -64,7 +64,7 @@ class DataLoader{
                     }
                 }
                 OperationQueue.main.addOperation {
-                    completion(changeUserCredentials, errResp)
+                    completion(userCredentials, errResp)
                 }
         }
     }
