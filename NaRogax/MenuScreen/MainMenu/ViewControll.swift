@@ -60,14 +60,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 //                print("Rec: \(String(describing: dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith))")
                 //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
                 //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
-                /*let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
+                let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFull = dishes
                 vc.indexOfDish = indexPath.section
-                vc.indexOfCategory = pageIndex*/
-                
-                let storyboard = UIStoryboard(name: "SignInScreen", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
+                vc.indexOfCategory = pageIndex
                 
                 navigationController?.pushViewController(vc, animated: true)
             } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
