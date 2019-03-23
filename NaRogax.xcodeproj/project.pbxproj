@@ -54,6 +54,9 @@
 		CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */; };
 		CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */; };
 		CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3668722394FC2003F17D8 /* ViewControll.swift */; };
+		CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */; };
+		CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFEF22461F7900F07765 /* RequestChangeUserCredentials.swift */; };
+		CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFF12246208100F07765 /* ResponseChangeUserCredentials.swift */; };
 		CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */; };
 		CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */; };
 		CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */; };
@@ -125,6 +128,9 @@
 		CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostPasswordRecovery.swift; sourceTree = "<group>"; };
 		CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAuthorizeUser.swift; sourceTree = "<group>"; };
 		CEF3668722394FC2003F17D8 /* ViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControll.swift; sourceTree = "<group>"; };
+		CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseUserCredentials.swift; sourceTree = "<group>"; };
+		CEF3FFEF22461F7900F07765 /* RequestChangeUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestChangeUserCredentials.swift; sourceTree = "<group>"; };
+		CEF3FFF12246208100F07765 /* ResponseChangeUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseChangeUserCredentials.swift; sourceTree = "<group>"; };
 		CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedLabel.swift; sourceTree = "<group>"; };
 		CEF5B8F52224B13200DE4E06 /* FullDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescriptionVC.swift; sourceTree = "<group>"; };
 		CEF692E02226BC0C000F3307 /* FullDescCViCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescCViCell.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */,
 				CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */,
 				CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */,
+				CEF3FFEF22461F7900F07765 /* RequestChangeUserCredentials.swift */,
 			);
 			path = RequestParameters;
 			sourceTree = "<group>";
@@ -210,6 +217,8 @@
 				CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */,
 				CE4F019A22439625009E526F /* ResponseCategory.swift */,
 				CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */,
+				CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */,
+				CEF3FFF12246208100F07765 /* ResponseChangeUserCredentials.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -579,9 +588,11 @@
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
+				CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */,
 				CE4F01992243788E009E526F /* Alert.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
+				CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */,
 				CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */,
 				CEF692E12226BC0C000F3307 /* FullDescCViCell.swift in Sources */,
 				CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */,
@@ -593,6 +604,7 @@
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
+				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,

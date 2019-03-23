@@ -23,6 +23,9 @@ class DataLoader{
     private let REQUEST_CHECK_AUTH = "check_auth"
     private let REQUEST_SHOW_USER_BOOKING = "show_user_booking"
     private let REQUEST_DELETE_USER_BOOKING = "delete_user_booking"
+    private let REQUEST_FIND_USER = "find_user/"
+    private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
+    private let REQUEST_CHANGE_USER_CREDENTIALS = "change_user_credentials"
     
     private static var uniqueInstance: DataLoader?
     
@@ -33,6 +36,36 @@ class DataLoader{
             uniqueInstance = DataLoader()
         }
         return uniqueInstance!
+    }
+    
+    func changeUserCredentials(data: RequestPostCheckAuto,
+                               completion:@escaping ((_ result: ResponseChangeUserCredentials,_ error: ErrorResponse?) -> Void)) {
+        var changeUserCredentials = ResponseChangeUserCredentials(code: 0, desc: "", email: "",uuid: "")
+        let paramet = data.conventParameters()
+        Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            changeUserCredentials = try decoder.decode(ResponseChangeUserCredentials.self, from: data)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(changeUserCredentials, errResp)
+                }
+        }
     }
     
     func showUserBooking(data: RequestPostCheckAuto,
@@ -190,8 +223,8 @@ class DataLoader{
     }
     
     func authorizeUser(data: RequestPostAuth,
-                       completion:@escaping ((_ result: ResponseAuthorizeUser,_ error: ErrorResponse?) -> Void)){
-        var auth = ResponseAuthorizeUser()
+                       completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)){
+        var credentals = ResponseUserCredentials(email: "", name: "", phone: "",reg_date: "")
         let paramet = data.conventParameters()
         Alamofire.request(SERVER_URL + REQUEST_AUTH, method: .post, parameters: paramet, encoding: JSONEncoding.default)
             .validate()
@@ -202,7 +235,7 @@ class DataLoader{
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
-                            auth = try decoder.decode(ResponseAuthorizeUser.self, from: data)
+                            credentals = try decoder.decode(ResponseUserCredentials.self, from: data)
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""
@@ -214,7 +247,7 @@ class DataLoader{
                     }
                 }
                 OperationQueue.main.addOperation {
-                    completion(auth, errResp)
+                    completion(credentals, errResp)
                 }
         }
     }
@@ -243,6 +276,11 @@ class DataLoader{
                 }
                 completion(respData)
         }
+    }
+    
+    func viewUserCredentials(data: RequestPostCheckAuto,
+                             completion:@escaping ((_ error: ErrorResponse?) -> Void)) {
+        
     }
     
     
@@ -305,6 +343,35 @@ class DataLoader{
             }
         }
     }
+    
+    func findUser(email: String,
+                  completion:@escaping ((_ result: ErrorResponse?) -> Void)) {
+        Alamofire.request(SERVER_URL + REQUEST_FIND_USER + email)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            errResp = try decoder.decode(ErrorResponse.self, from: data)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(errResp)
+                }
+        }
+    }
+    
     
     func testNetwork() -> Bool{
         return Reachability.isConnectedToNetwork()
