@@ -26,6 +26,189 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var RepeatPasswordField: UITextField!
     @IBOutlet weak var PasswordErrorLabel: UILabel!
     @IBOutlet weak var SignUpBtn: UIButton!
+    @IBOutlet weak var NameImage: UIImageView!
+    @IBOutlet weak var PhoneImage: UIImageView!
+    @IBOutlet weak var EmailImage: UIImageView!
+    @IBOutlet weak var PasswordBtn: UIButton!
+    @IBOutlet weak var RepeatPasswordBtn: UIButton!
+    @IBOutlet weak var PasswordIcon: UIImageView!
+    @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
+    
+    private var isCorrectName = false
+    private var isCorrectPhone = false
+    private var isCorrectEmail = false
+    private var isCorrectPassword = false
+    private var isEqualPasswords = false
+    
+    private var isEmptyName = true {
+        didSet {
+            if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.isEnabled = true
+            } else {
+                SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                SignUpBtn.isEnabled = false
+            }
+            if !isEmptyName {
+                NameLabel.isHidden = false
+            } else {
+                NameLabel.isHidden = true
+            }
+        }
+    }
+    
+    private var isEmptyPhone = true {
+        didSet {
+            if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.isEnabled = true
+            } else {
+                SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                SignUpBtn.isEnabled = false
+            }
+            if !isEmptyName {
+                PhoneLabel.isHidden = false
+            } else {
+                PhoneLabel.isHidden = true
+            }
+        }
+    }
+    
+    private var isEmptyEmail = true {
+        didSet {
+            if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.isEnabled = true
+            } else {
+                SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                SignUpBtn.isEnabled = false
+            }
+            if !isEmptyEmail {
+                EmailLabel.isHidden = false
+            } else {
+                EmailLabel.isHidden = true
+            }
+        }
+    }
+    
+    private var isEmptyPassword = true {
+        didSet {
+            if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.isEnabled = true
+            } else {
+                SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                SignUpBtn.isEnabled = false
+            }
+            if !isEmptyPassword {
+                PasswordLabel.isHidden = false
+                PasswordBtn.isHidden = false
+            } else {
+                PasswordLabel.isHidden = true
+                PasswordBtn.isHidden = true
+            }
+        }
+    }
+    
+    private var isEmptyRepeatedPassword = true {
+        didSet {
+            if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.isEnabled = true
+            } else {
+                SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
+                SignUpBtn.isEnabled = false
+            }
+            if !isEmptyPassword {
+                RepeatPasswordLabel.isHidden = false
+                RepeatPasswordBtn.isHidden = false
+            } else {
+                RepeatPasswordLabel.isHidden = true
+                RepeatPasswordBtn.isHidden = true
+            }
+        }
+    }
+    
+    func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
+        field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        if let lbl = label {
+            lbl.isHidden = false
+        }
+        if let img = image {
+            img.isHidden = false
+        }
+    }
+    
+    func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
+        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        if let lbl = label {
+            lbl.isHidden = true
+        }
+        if let img = image {
+            img.isHidden = true
+        }
+    }
+    
+    func validateName(name: String) -> Bool {
+        if name.count > 1 {
+            let range = NSRange(location: 0, length: name.count)
+            //let reg = "^[a-zA-Zа-яА-ЯёЁ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+            let reg = "^[A-Za-zА-Яа-яЁё]{1,\(NameField.maxLength)}$"
+            let regex = try! NSRegularExpression(pattern: reg)
+            if regex.firstMatch(in: name, options: [], range: range) != nil{
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
+    func validatePassword(pass: String) -> Bool {
+        let reg = "^(?=.*\\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,32}$"
+        let range = NSRange(location: 0, length: pass.count)
+        let regex = try! NSRegularExpression(pattern: reg)
+        if regex.firstMatch(in: pass, options: [], range: range) != nil{
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func validateEmail(email: String) -> Bool {
+        let range = NSRange(location: 0, length: email.count)
+        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,62}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,255}"
+        let regex = try! NSRegularExpression(pattern: reg)
+        if regex.firstMatch(in: email, options: [], range: range) != nil{
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func validatePhone(number: String) -> Bool {
+        let range = NSRange(location: 0, length: number.count)
+        let reg = "^(\\+7|8)[0-9]{10}"
+        let regex = try! NSRegularExpression(pattern: reg)
+        if regex.firstMatch(in: number, options: [], range: range) != nil{
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    @IBAction func showPassword(_ sender: UIButton) {
+        PasswordField.isSecureTextEntry = !PasswordField.isSecureTextEntry
+    }
+    
+    @IBAction func showRepeatedPassword(_ sender: UIButton) {
+        RepeatPasswordField.isSecureTextEntry = !RepeatPasswordField.isSecureTextEntry
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -33,9 +216,7 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*if self.view.frame.height < 712 {
-            ScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 712)
-        }*/
+
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -66,5 +247,115 @@ class SignUpVC: UIViewController {
         field.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: field.frame.height))
         field.rightViewMode = .always
     }
-
+    
+    @IBAction func passwordChanged(_ sender: Any) {
+        correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+        PasswordBtn.isHidden = false
+        if let pass = PasswordField.text {
+            if pass != "" {
+                isEmptyPassword = false
+            } else {
+                isEmptyPassword = true
+            }
+        } else {
+            isEmptyPassword = true
+        }
+    }
+    
+    @IBAction func repeatedPasswordChanged(_ sender: Any) {
+        correctData(field: RepeatPasswordField, label: PasswordErrorLabel, image: RepeatedPasswordIcon)
+        RepeatPasswordBtn.isHidden = false
+        if let pass = RepeatPasswordField.text {
+            if pass != "" {
+                isEmptyRepeatedPassword = false
+            } else {
+                isEmptyRepeatedPassword = true
+            }
+        } else {
+            isEmptyRepeatedPassword = true
+        }
+    }
+    
+    @IBAction func emailChanged(_ sender: Any) {
+        correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+        if let email = EmailField.text {
+            if email != "" {
+                isEmptyEmail = false
+            } else {
+                isEmptyEmail = true
+            }
+        } else {
+            isEmptyEmail = true
+        }
+    }
+    
+    @IBAction func nameChanged(_ sender: Any) {
+        correctData(field: NameField, label: NameErrorLabel, image: NameImage)
+        if let name = NameField.text {
+            if name != "" {
+                isEmptyName = false
+            } else {
+                isEmptyName = true
+            }
+        } else {
+            isEmptyName = true
+        }
+    }
+    
+    @IBAction func phoneChanged(_ sender: Any) {
+        correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+        if let phone = PhoneField.text {
+            if phone != "" {
+                isEmptyPhone = false
+            } else {
+                isEmptyPhone = true
+            }
+        } else {
+            isEmptyPhone = true
+        }
+    }
+    
+    func showErrorLabel(text: String) {
+        PasswordErrorLabel.text = text
+        PasswordErrorLabel.isHidden = false
+    }
+    
+    @IBAction func SignUpBtnTap(_ sender: UIButton) {
+        if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
+            if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
+                /* TODO: Registration request */
+            }
+            if !validateName(name: name) {
+                incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
+            }
+            if !validatePhone(number: phone) {
+                incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+            }
+            if !validateEmail(email: email) {
+                incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+            }
+            if !validatePassword(pass: pass) {
+                incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
+                incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
+                showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
+                RepeatPasswordBtn.isHidden = true
+                PasswordBtn.isHidden = true
+            }else if pass != rpass {
+                incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
+                showErrorLabel(text: "Пароли должны совпадать")
+                RepeatPasswordBtn.isHidden = true
+            }
+        } else {
+            incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
+            incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
+            incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
+            incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+            incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
+            
+            RepeatPasswordBtn.isHidden = true
+            PasswordBtn.isHidden = true
+            
+            showErrorLabel(text: "Все поля должны быть заполнены")
+        }
+    }
 }

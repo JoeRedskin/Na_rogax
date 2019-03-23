@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eey-cD-s5F">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="706.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Contacts_logo" translatesAutoresizingMaskIntoConstraints="NO" id="JFS-V4-puG">
                                                 <rect key="frame" x="83" y="0.0" width="208" height="220"/>
@@ -45,7 +45,10 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                                                <connections>
+                                                    <action selector="nameChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="sme-f3-edf"/>
+                                                </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-pu-4Ib">
                                                 <rect key="frame" x="337" y="257" width="20" height="20"/>
@@ -75,7 +78,10 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
+                                                <connections>
+                                                    <action selector="phoneChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="wWT-Gq-5za"/>
+                                                </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-Jc-bRS">
                                                 <rect key="frame" x="337" y="322" width="20" height="20"/>
@@ -106,6 +112,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <connections>
+                                                    <action selector="emailChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="VkB-Mc-oxN"/>
+                                                </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cx5-2G-9R2">
                                                 <rect key="frame" x="337" y="387" width="20" height="20"/>
@@ -135,7 +144,10 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="passwordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="uHq-vk-ce7"/>
+                                                </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-jo-bkI">
                                                 <rect key="frame" x="337" y="452" width="20" height="20"/>
@@ -151,6 +163,9 @@
                                                     <constraint firstAttribute="width" constant="20" id="Kel-zv-gkv"/>
                                                 </constraints>
                                                 <state key="normal" image="ShowPasswordIcon"/>
+                                                <connections>
+                                                    <action selector="showPassword:" destination="2Jr-56-8fE" eventType="touchUpInside" id="IoH-fC-SeT"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите пароль еще раз" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tN6-ZE-50J">
                                                 <rect key="frame" x="16" y="511" width="343" height="30"/>
@@ -161,7 +176,10 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="repeatedPasswordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="tmy-cd-eeh"/>
+                                                </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XLz-Jp-aCn">
                                                 <rect key="frame" x="337" y="516" width="20" height="20"/>
@@ -177,6 +195,9 @@
                                                     <constraint firstAttribute="height" constant="14" id="qt7-ii-hXi"/>
                                                 </constraints>
                                                 <state key="normal" image="ShowPasswordIcon"/>
+                                                <connections>
+                                                    <action selector="showRepeatedPassword:" destination="2Jr-56-8fE" eventType="touchUpInside" id="7ue-uO-ZiS"/>
+                                                </connections>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoB-uq-1ZH">
                                                 <rect key="frame" x="16" y="496" width="343" height="14"/>
@@ -184,15 +205,18 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-cY-Um7">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-cY-Um7">
                                                 <rect key="frame" x="16" y="544" width="332" height="63"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="63" id="Glg-v5-qAd"/>
+                                                </constraints>
                                                 <string key="text">Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-1D-TEl">
-                                                <rect key="frame" x="16" y="626.5" width="343" height="48"/>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-1D-TEl">
+                                                <rect key="frame" x="16" y="632" width="343" height="48"/>
                                                 <color key="backgroundColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="kKM-sD-wbE"/>
@@ -201,6 +225,9 @@
                                                 <state key="normal" title="ЗАРЕГИСТРИРОВАТЬСЯ">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="SignUpBtnTap:" destination="2Jr-56-8fE" eventType="touchUpInside" id="68N-1y-3bA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -295,18 +322,25 @@
                     <connections>
                         <outlet property="EmailErrorLabel" destination="oQy-gt-LSq" id="Nkl-ty-ph3"/>
                         <outlet property="EmailField" destination="hJL-Mf-ICQ" id="PjU-UV-90Q"/>
+                        <outlet property="EmailImage" destination="Cx5-2G-9R2" id="xTK-zM-3kI"/>
                         <outlet property="EmailLabel" destination="elA-Nv-lkP" id="yut-UW-ShK"/>
                         <outlet property="NameErrorLabel" destination="u9x-i4-gq9" id="XVN-2X-B3g"/>
                         <outlet property="NameField" destination="z0l-fk-enF" id="Jl0-JX-iWJ"/>
+                        <outlet property="NameImage" destination="3Gc-pu-4Ib" id="qAi-EN-cMM"/>
                         <outlet property="NameLabel" destination="3iJ-4G-5Gt" id="94d-eF-res"/>
+                        <outlet property="PasswordBtn" destination="Wb8-2C-MGB" id="3z4-95-nst"/>
                         <outlet property="PasswordErrorLabel" destination="aRB-cY-Um7" id="CJN-JC-6Vu"/>
                         <outlet property="PasswordField" destination="boz-Yn-ahg" id="Xn9-F7-95s"/>
+                        <outlet property="PasswordIcon" destination="QcS-jo-bkI" id="2fj-bZ-ufq"/>
                         <outlet property="PasswordLabel" destination="8iT-rH-Bjd" id="ZoZ-HQ-RKd"/>
                         <outlet property="PhoneErrorLabel" destination="zTy-6Q-KY7" id="s20-fh-30U"/>
                         <outlet property="PhoneField" destination="fC5-Wy-nMf" id="kBH-6A-nsb"/>
+                        <outlet property="PhoneImage" destination="yBp-Jc-bRS" id="brF-K2-g9y"/>
                         <outlet property="PhoneLabel" destination="RhA-dG-104" id="GWh-h9-UUP"/>
+                        <outlet property="RepeatPasswordBtn" destination="UHI-JP-fej" id="pfr-Ht-FTC"/>
                         <outlet property="RepeatPasswordField" destination="tN6-ZE-50J" id="iip-vq-0Bx"/>
                         <outlet property="RepeatPasswordLabel" destination="KoB-uq-1ZH" id="7cg-Tu-sGC"/>
+                        <outlet property="RepeatedPasswordIcon" destination="XLz-Jp-aCn" id="kfk-PC-XMv"/>
                         <outlet property="ScrollView" destination="loa-dg-Gkl" id="JOx-lk-BXf"/>
                         <outlet property="SignUpBtn" destination="oJS-1D-TEl" id="Tjg-vW-NUf"/>
                     </connections>
