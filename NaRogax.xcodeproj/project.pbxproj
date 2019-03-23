@@ -168,6 +168,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		746345B422469A2C0074083A /* RegAuth */ = {
+			isa = PBXGroup;
+			children = (
+				CE220B202243EA8200BDE492 /* AuthorizationScreens */,
+			);
+			path = RegAuth;
+			sourceTree = "<group>";
+		};
 		8A9E90FFA323C3BFCBCC4EC5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +271,7 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
-				CE220B202243EA8200BDE492 /* AuthorizationScreens */,
+				746345B422469A2C0074083A /* RegAuth */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
