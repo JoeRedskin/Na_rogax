@@ -198,4 +198,12 @@ class SignInVC: UIViewController {
         }
     }
     
+    
+    @IBAction func goToSignUp(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "SignUpScreen", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpVC
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
