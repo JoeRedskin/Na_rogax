@@ -45,7 +45,7 @@ class SignUpVC: UIViewController {
         setStyleForTextField(field: PasswordField, placeholder: "Пароль")
         setStyleForTextField(field: NameField, placeholder: "Имя")
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")
-        setStyleForTextField(field: RepeatPasswordField, placeholder: "Пароль")
+        setStyleForTextField(field: RepeatPasswordField, placeholder: "Введите пароль еще раз")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
