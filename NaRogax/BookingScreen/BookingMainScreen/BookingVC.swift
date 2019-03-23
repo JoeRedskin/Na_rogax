@@ -111,8 +111,6 @@ class BookingVC: UIViewController{
             date.time_to = time.timeTo
             date.time_from = time.timeFrom
             downloadTable(date: date)
-            
-
         }
     }
     

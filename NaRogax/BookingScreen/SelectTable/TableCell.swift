@@ -56,4 +56,18 @@ class TableCell: UITableViewCell {
         SelectBtn.layer.borderWidth = 2
     }
     
+    func displayCancelBooking(booking: Bookings, index: Int) {
+        TitleLabel.text = booking.configData()
+        
+        if (table.bookings[index].accepted){
+            SelectBtn.titleLabel?.text = "Отменить"
+        }else{
+            SelectBtn.titleLabel?.text = "обрабатывается"
+        }
+        
+        SelectBtn.layer.cornerRadius = 17
+        SelectBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        SelectBtn.layer.borderWidth = 2
+    }
+    
 }

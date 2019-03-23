@@ -60,12 +60,7 @@ class TabsVC: UIViewController {
         self.viewDidLoad()
     }
     
-//    func getTabName(i: Int) -> String {
-//        return tabs[i]
-//    }
-    
     func presentPageVCOnView() {
-        
         self.pageController = storyboard?.instantiateViewController(withIdentifier: "PageControllerVC") as! PageControllerVC
         self.pageController.view.frame = CGRect.init(x: 0, y: menuBarView.frame.maxY, width: self.view.frame.width, height: self.view.frame.height - menuBarView.frame.maxY)
         self.addChild(self.pageController)
@@ -75,10 +70,8 @@ class TabsVC: UIViewController {
     
     //Present ViewController At The Given Index
     func viewController(At index: Int) -> UIViewController? {
-        
         if((self.menuBarView.dataArray.count == 0) || (index >= self.menuBarView.dataArray.count)) {return nil}
         let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
-        
         menuVC.pageIndex = index
         ///currentIndex = index
         print("viewController: ", index)

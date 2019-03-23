@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGe-oM-haH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mp-Jk-o6T">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main BookingVC-->
+        <scene sceneID="NNK-ne-TZJ">
+            <objects>
+                <viewController id="5mp-Jk-o6T" customClass="MainBookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KBX-fX-ppx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oyG-c6-c4J">
+                                <rect key="frame" x="20" y="36" width="280" height="29"/>
+                                <segments>
+                                    <segment title="НОВЫЙ СТОЛ"/>
+                                    <segment title="БРОНИРОВАНИЯ"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedValue:" destination="5mp-Jk-o6T" eventType="valueChanged" id="heV-rg-l7C"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="iFJ-ah-PQb" firstAttribute="trailing" secondItem="oyG-c6-c4J" secondAttribute="trailing" constant="20" id="R73-a1-eWV"/>
+                            <constraint firstItem="oyG-c6-c4J" firstAttribute="top" secondItem="iFJ-ah-PQb" secondAttribute="top" constant="16" id="V6w-Aq-MXb"/>
+                            <constraint firstItem="oyG-c6-c4J" firstAttribute="leading" secondItem="iFJ-ah-PQb" secondAttribute="leading" constant="20" id="XWD-UJ-GJW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iFJ-ah-PQb"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControler" destination="oyG-c6-c4J" id="5RA-2q-h8C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWI-Q1-o1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1142" y="152"/>
+        </scene>
+        <!--Page ControllerVC-->
+        <scene sceneID="vJ6-ce-kWf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0fh-0O-u0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="BookintPageControl" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1yN-03-0qv" customClass="PageControllerVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                </pageViewController>
+            </objects>
+            <point key="canvasLocation" x="-413" y="151"/>
+        </scene>
         <!--BookingVC-->
         <scene sceneID="Zcw-q5-sKv">
             <objects>
