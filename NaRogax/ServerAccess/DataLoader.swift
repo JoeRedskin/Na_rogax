@@ -38,11 +38,43 @@ class DataLoader{
         return uniqueInstance!
     }
     
+    
+    func viewUserCredentials(data: RequestPostCheckAuto,
+                             completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)) {
+        var userCredentials = ResponseUserCredentials(email: "", name: "", phone: "", reg_date: "")
+        let paramet = data.conventParameters()
+        Alamofire.request(SERVER_URL + REQUEST_VIEW_USER_CREDENTIALS, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+            .validate()
+            .responseData { response in
+                var errResp = ErrorResponse(code: 200,desc: "")
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            userCredentials = try decoder.decode(ResponseUserCredentials.self, from: data)
+                        } catch _ {
+                            errResp.code = 500
+                            errResp.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        errResp = self.decodeErrResponse(data: data)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(userCredentials, errResp)
+                }
+        }
+    }
+    
+    
     func changeUserCredentials(data: RequestPostCheckAuto,
                                completion:@escaping ((_ result: ResponseChangeUserCredentials,_ error: ErrorResponse?) -> Void)) {
         var changeUserCredentials = ResponseChangeUserCredentials(code: 0, desc: "", email: "",uuid: "")
         let paramet = data.conventParameters()
-        Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+        Alamofire.request(SERVER_URL + REQUEST_CHANGE_USER_CREDENTIALS, method: .post, parameters: paramet, encoding: JSONEncoding.default)
             .validate()
             .responseData { response in
                 var errResp = ErrorResponse(code: 200,desc: "")
@@ -223,8 +255,8 @@ class DataLoader{
     }
     
     func authorizeUser(data: RequestPostAuth,
-                       completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)){
-        var credentals = ResponseUserCredentials(email: "", name: "", phone: "",reg_date: "")
+                       completion:@escaping ((_ result: ResponseAuthorizeUser,_ error: ErrorResponse?) -> Void)){
+        var credentals = ResponseAuthorizeUser()
         let paramet = data.conventParameters()
         Alamofire.request(SERVER_URL + REQUEST_AUTH, method: .post, parameters: paramet, encoding: JSONEncoding.default)
             .validate()
@@ -235,7 +267,7 @@ class DataLoader{
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
-                            credentals = try decoder.decode(ResponseUserCredentials.self, from: data)
+                            credentals = try decoder.decode(ResponseAuthorizeUser.self, from: data)
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""
@@ -277,12 +309,6 @@ class DataLoader{
                 completion(respData)
         }
     }
-    
-    func viewUserCredentials(data: RequestPostCheckAuto,
-                             completion:@escaping ((_ error: ErrorResponse?) -> Void)) {
-        
-    }
-    
     
     func verifyEmail(data: RequestPostVertifyEmail,
                      completion:@escaping ((_ result: ErrorResponse?) -> Void)){
