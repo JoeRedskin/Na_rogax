@@ -93,6 +93,9 @@
                                 <state key="normal" title="Забыли пароль?">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="ForgotPasswordTap:" destination="zE3-vt-l9n" eventType="touchUpInside" id="ka5-N2-PXA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzY-wJ-7Q4">
                                 <rect key="frame" x="128.5" y="540" width="118" height="36"/>

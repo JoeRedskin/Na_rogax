@@ -209,4 +209,12 @@ class SignInVC: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    @IBAction func ForgotPasswordTap(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "PasswordRecoveryMain", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainRecoveryScreen") as! PasswordRecoveryMainVC
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
