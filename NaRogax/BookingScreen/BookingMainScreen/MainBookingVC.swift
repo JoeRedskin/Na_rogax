@@ -12,20 +12,20 @@ class MainBookingVC: UIViewController {
     var pageController: UIPageViewController!
     var arrayBookingVC = [UIViewController]()
     var firstPage = BookingVC()
-    var secondPage = ReservationConfirmedVC()
-
-    private var currentPage = -1
+    var secondPage = SelectTableShowBookingVC()
     @IBOutlet weak var segmentedControler: UISegmentedControl!
+    @IBOutlet weak var custView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presentPageVCOnView()
         pageController.delegate =  self
         pageController.dataSource =  self
-        firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
-        let storyboard2 = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
-        secondPage = storyboard2.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
         
-        pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
+        //segmentedControl = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
+        segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
+        getUUID()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -33,8 +33,26 @@ class MainBookingVC: UIViewController {
         return .lightContent
     }
     
-    private func getUUID{
-        DataLoader.shared().
+    //временная
+    private func start(resp: RequestPostCheckAuto){
+        firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
+        let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
+        secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
+        secondPage.chekAuto = resp
+        pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
+    }
+    
+    //переписать на д.р. получении
+    private func getUUID(){
+        let post = RequestPostAuth(email: "zlobrynya@gmail.com",password: "test")
+        var ret = RequestPostCheckAuto(email: "zlobrynya@gmail.com",uuid: "")
+        DataLoader.shared().authorizeUser(data: post){ result, error in
+            if error?.code == 200{
+                ret.uuid = result.uuid
+                self.start(resp: ret)
+            }else{
+            }
+        }
     }
     
     @IBAction func changedValue(_ sender: UISegmentedControl) {
@@ -49,9 +67,10 @@ class MainBookingVC: UIViewController {
     
     func presentPageVCOnView() {
         self.pageController = storyboard?.instantiateViewController(withIdentifier: "BookintPageControl") as! PageControllerVC
-        self.pageController.view.frame = CGRect.init(x: 0, y: segmentedControler.frame.maxY, width: self.view.frame.width, height: self.view.frame.height - segmentedControler.frame.maxY)
+        self.pageController.view.frame = CGRect.init(x: 0, y: 0, width: custView.frame.width, height: custView.frame.height)
         self.addChild(self.pageController)
-        self.view.addSubview(self.pageController.view)
+        //custView.addChild(self.pageController)
+        custView.addSubview(self.pageController.view)
         self.pageController.didMove(toParent: self)
     }
     
@@ -61,29 +80,39 @@ class MainBookingVC: UIViewController {
 extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
-        segmentedControler.selectedSegmentIndex = 0
-        /*
+        //segmentedControler.selectedSegmentIndex = 0
         if viewController == secondPage{
-            // 2 -> 1
             print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
             segmentedControler.selectedSegmentIndex = 0
             return firstPage
         } else {
-            // 0 -> end of the road
             return nil
-        }*/
+        }
         return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         print("change viewControllerAfter", segmentedControler.selectedSegmentIndex)
-        segmentedControler.selectedSegmentIndex = 1
+        //segmentedControler.selectedSegmentIndex = 1
         if viewController ==  firstPage{
-            // 0 -> 1
             return secondPage
         } else {
-            // 2 -> end of the road
             return nil
+        }
+    }
+    
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        print("finished completed", finished, completed)
+        if finished {
+            if completed {
+                //self.finished = true
+                if (segmentedControler.selectedSegmentIndex == 0){
+                    segmentedControler.selectedSegmentIndex = 1
+                }else{
+                    segmentedControler.selectedSegmentIndex = 0
+                }
+            }
         }
     }
 }

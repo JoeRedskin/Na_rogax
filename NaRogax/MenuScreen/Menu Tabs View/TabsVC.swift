@@ -41,7 +41,7 @@ class TabsVC: UIViewController {
                     self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
                     self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
                 } else{
-                    self.present(Alert.shared().couldNotDownload(protocol: self), animated: true, completion: nil)
+                    self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                 }
                 
             }
@@ -80,12 +80,12 @@ class TabsVC: UIViewController {
 }
 
 extension TabsVC: AlertProtocol{
-    func clickButtonPositiv() {
+    func clickButtonPositiv(status: Int) {
         print("TabsVC")
         self.reloadViewFromNib()
     }
     
-    func clickButtonCanсel() {
+    func clickButtonCanсel(status: Int) {
         
     }
 }

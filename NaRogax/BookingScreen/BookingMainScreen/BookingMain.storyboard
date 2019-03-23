@@ -20,40 +20,41 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oyG-c6-c4J">
                                 <rect key="frame" x="20" y="36" width="280" height="29"/>
+                                <viewLayoutGuide key="safeArea" id="r9j-xf-FS5"/>
                                 <segments>
                                     <segment title="НОВЫЙ СТОЛ"/>
                                     <segment title="БРОНИРОВАНИЯ"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changedValue:" destination="5mp-Jk-o6T" eventType="valueChanged" id="heV-rg-l7C"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-ci-fjZ">
+                                <rect key="frame" x="5" y="74" width="310" height="489"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="iFJ-ah-PQb" firstAttribute="trailing" secondItem="cDr-ci-fjZ" secondAttribute="trailing" constant="5" id="CDU-Ko-xA2"/>
                             <constraint firstItem="iFJ-ah-PQb" firstAttribute="trailing" secondItem="oyG-c6-c4J" secondAttribute="trailing" constant="20" id="R73-a1-eWV"/>
                             <constraint firstItem="oyG-c6-c4J" firstAttribute="top" secondItem="iFJ-ah-PQb" secondAttribute="top" constant="16" id="V6w-Aq-MXb"/>
                             <constraint firstItem="oyG-c6-c4J" firstAttribute="leading" secondItem="iFJ-ah-PQb" secondAttribute="leading" constant="20" id="XWD-UJ-GJW"/>
+                            <constraint firstItem="cDr-ci-fjZ" firstAttribute="leading" secondItem="iFJ-ah-PQb" secondAttribute="leading" constant="5" id="h4z-Ez-1On"/>
+                            <constraint firstItem="iFJ-ah-PQb" firstAttribute="bottom" secondItem="cDr-ci-fjZ" secondAttribute="bottom" constant="5" id="t9j-fX-lYA"/>
+                            <constraint firstItem="cDr-ci-fjZ" firstAttribute="top" secondItem="oyG-c6-c4J" secondAttribute="bottom" constant="10" id="zxr-Mh-Lh1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iFJ-ah-PQb"/>
                     </view>
                     <connections>
+                        <outlet property="custView" destination="cDr-ci-fjZ" id="Trq-Lx-fit"/>
                         <outlet property="segmentedControler" destination="oyG-c6-c4J" id="5RA-2q-h8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWI-Q1-o1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1142" y="152"/>
-        </scene>
-        <!--Page ControllerVC-->
-        <scene sceneID="vJ6-ce-kWf">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0fh-0O-u0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pageViewController storyboardIdentifier="BookintPageControl" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1yN-03-0qv" customClass="PageControllerVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                </pageViewController>
-            </objects>
-            <point key="canvasLocation" x="-413" y="151"/>
         </scene>
         <!--BookingVC-->
         <scene sceneID="Zcw-q5-sKv">
@@ -248,6 +249,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmU-aj-5FG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="277.5" y="152.11267605633802"/>
+        </scene>
+        <!--Page ControllerVC-->
+        <scene sceneID="CgF-I0-TPS">
+            <objects>
+                <pageViewController storyboardIdentifier="BookintPageControl" autoresizesArchivedViewToFullSize="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="pageSheet" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Or5-2M-efJ" customClass="PageControllerVC" customModule="NaRogax" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E6r-7s-xpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-443" y="152"/>
         </scene>
     </scenes>
 </document>

@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.dishes = result
                     self.DishTableView.reloadData()
                 }else{
-                    self.present(Alert.shared().couldNotDownload(protocol: self), animated: true, completion: nil)
+                    self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                 }
             }
         }
@@ -116,8 +116,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
 extension ViewController: AlertProtocol{
-    func clickButtonPositiv() {
+    func clickButtonPositiv(status: Int) {
         self.reloadViewFromNib()
     }
-    func clickButtonCanсel() {}
+    func clickButtonCanсel(status: Int) {}
 }

@@ -180,7 +180,7 @@
         <!--Выберите стол-->
         <scene sceneID="kvn-9N-VYk">
             <objects>
-                <viewController storyboardIdentifier="SelectTableShowBooking" id="xdm-3D-QeZ" customClass="SelectTableShowBookingViewController" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectTableShowBooking" id="xdm-3D-QeZ" customClass="SelectTableShowBookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="efF-IH-e24">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,17 +210,19 @@
                                                     <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-fs-q8V">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-fs-q8V">
                                                     <rect key="frame" x="251" y="17" width="92" height="36"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="92" id="bHd-ZL-i8V"/>
                                                         <constraint firstAttribute="height" constant="36" id="y2F-dI-rWR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="ВЫБРАТЬ">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="clickButton:" destination="xdm-3D-QeZ" eventType="touchUpInside" id="ce9-A8-NOj"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-oR-3Zy">
                                                     <rect key="frame" x="0.0" y="70" width="358" height="1"/>
@@ -302,7 +304,7 @@
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
                         <outlet property="NoEmptyTablesLabel" destination="itk-U2-ydH" id="Z3R-ks-mjG"/>
-                        <outlet property="TableView" destination="9lp-Rr-cid" id="UTU-l5-hCP"/>
+                        <outlet property="TableView" destination="9lp-Rr-cid" id="wbh-jC-PXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sL-DH-Y1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
