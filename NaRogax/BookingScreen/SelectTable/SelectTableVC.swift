@@ -121,10 +121,10 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 }
 
 extension SelectTableVC: AlertProtocol{
-    func clickButtonPositiv() {
+    func clickButtonPositiv(status: Int) {
         startReserveScreen()
     }
     
-    func clickButtonCanсel() {
-    }
+    func clickButtonCanсel(status: Int) {}
+
 }

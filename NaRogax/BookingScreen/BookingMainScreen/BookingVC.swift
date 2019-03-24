@@ -111,8 +111,6 @@ class BookingVC: UIViewController{
             date.time_to = time.timeTo
             date.time_from = time.timeFrom
             downloadTable(date: date)
-            
-
         }
     }
     
@@ -143,11 +141,11 @@ class BookingVC: UIViewController{
 }
 
 extension BookingVC: AlertProtocol{
-    func clickButtonPositiv() {
+    func clickButtonPositiv(status: Int) {
         self.calcAndSetTime()
     }
     
-    func clickButtonCanсel() {}
+    func clickButtonCanсel(status: Int) {}
 }
 
 //расширение для методов CollectionView

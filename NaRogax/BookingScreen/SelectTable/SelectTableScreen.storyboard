@@ -145,5 +145,171 @@
             </objects>
             <point key="canvasLocation" x="-175.19999999999999" y="165.51724137931035"/>
         </scene>
+        <!--No Free TablesVC-->
+        <scene sceneID="Mqx-Sg-jz1">
+            <objects>
+                <viewController storyboardIdentifier="NoFreeTables" id="Sn7-Rq-xsf" customClass="NoFreeTablesVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vNB-mr-w3d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-bj-1G8">
+                                <rect key="frame" x="29" y="296" width="328" height="95.5"/>
+                                <string key="text">На указанный вами период нет
+свободных столов. Измените параметры
+или свяжитесь с администратором
+ресторана по номеру : +7 (8142) 63-23-89</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="SaY-Dq-6aN" firstAttribute="trailing" secondItem="LmV-bj-1G8" secondAttribute="trailing" constant="18" id="RVI-eH-K8D"/>
+                            <constraint firstItem="LmV-bj-1G8" firstAttribute="leading" secondItem="SaY-Dq-6aN" secondAttribute="leading" constant="29" id="SCR-7I-MeY"/>
+                            <constraint firstItem="LmV-bj-1G8" firstAttribute="centerY" secondItem="SaY-Dq-6aN" secondAttribute="centerY" id="mH1-e5-PvV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SaY-Dq-6aN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vI0-i2-ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="96.7016491754123"/>
+        </scene>
+        <!--Выберите стол-->
+        <scene sceneID="kvn-9N-VYk">
+            <objects>
+                <viewController storyboardIdentifier="SelectTableShowBooking" id="xdm-3D-QeZ" customClass="SelectTableShowBookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="efF-IH-e24">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9lp-Rr-cid">
+                                <rect key="frame" x="16" y="20" width="359" height="800"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" rowHeight="71" id="0Bg-1f-smW" customClass="TableCell" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Bg-1f-smW" id="ZBE-Lv-H8j">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFP-bL-v73">
+                                                    <rect key="frame" x="0.0" y="16" width="250" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-aZ-KgA">
+                                                    <rect key="frame" x="0.0" y="42" width="200" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-fs-q8V">
+                                                    <rect key="frame" x="251" y="17" width="92" height="36"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="92" id="bHd-ZL-i8V"/>
+                                                        <constraint firstAttribute="height" constant="36" id="y2F-dI-rWR"/>
+                                                    </constraints>
+                                                    <state key="normal" title="ВЫБРАТЬ">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="clickButton:" destination="xdm-3D-QeZ" eventType="touchUpInside" id="ce9-A8-NOj"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-oR-3Zy">
+                                                    <rect key="frame" x="0.0" y="70" width="358" height="1"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="358" id="Ybx-gx-1CA"/>
+                                                        <constraint firstAttribute="height" constant="1" id="zeW-Fb-VX1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9Nj-oR-3Zy" secondAttribute="bottom" id="132-rT-S46"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Nj-oR-3Zy" secondAttribute="trailing" constant="1" id="2YI-Ya-XlG"/>
+                                                <constraint firstItem="qls-aZ-KgA" firstAttribute="top" secondItem="BFP-bL-v73" secondAttribute="bottom" constant="2" id="5jk-YU-ED3"/>
+                                                <constraint firstItem="9Nj-oR-3Zy" firstAttribute="leading" secondItem="ZBE-Lv-H8j" secondAttribute="leading" id="9Ky-KG-Iti"/>
+                                                <constraint firstItem="qls-aZ-KgA" firstAttribute="leading" secondItem="ZBE-Lv-H8j" secondAttribute="leading" id="9i8-gu-Ine"/>
+                                                <constraint firstItem="rk8-fs-q8V" firstAttribute="top" secondItem="ZBE-Lv-H8j" secondAttribute="top" constant="17" id="Kd3-vO-IAB"/>
+                                                <constraint firstItem="rk8-fs-q8V" firstAttribute="leading" secondItem="qls-aZ-KgA" secondAttribute="trailing" constant="51" id="Rs9-fJ-FSK"/>
+                                                <constraint firstItem="BFP-bL-v73" firstAttribute="leading" secondItem="ZBE-Lv-H8j" secondAttribute="leading" id="SOa-bw-9x6"/>
+                                                <constraint firstItem="rk8-fs-q8V" firstAttribute="leading" secondItem="BFP-bL-v73" secondAttribute="trailing" constant="1" id="dUK-XA-Xjy"/>
+                                                <constraint firstAttribute="trailing" secondItem="rk8-fs-q8V" secondAttribute="trailing" constant="16" id="lZ0-wJ-nBP"/>
+                                                <constraint firstItem="BFP-bL-v73" firstAttribute="top" secondItem="ZBE-Lv-H8j" secondAttribute="top" constant="16" id="qnX-ER-gaz"/>
+                                                <constraint firstAttribute="bottom" secondItem="rk8-fs-q8V" secondAttribute="bottom" constant="18" id="tSZ-k5-oT9"/>
+                                                <constraint firstItem="9Nj-oR-3Zy" firstAttribute="top" secondItem="qls-aZ-KgA" secondAttribute="bottom" constant="14" id="uDl-hr-Vti"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="DescLabel" destination="qls-aZ-KgA" id="eJX-m0-lw8"/>
+                                            <outlet property="SelectBtn" destination="rk8-fs-q8V" id="37d-q3-kdu"/>
+                                            <outlet property="TitleLabel" destination="BFP-bL-v73" id="Y6X-b2-EGz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="itk-U2-ydH">
+                                <rect key="frame" x="12.5" y="346.5" width="350" height="147"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrR-8H-DZR">
+                                        <rect key="frame" x="56" y="0.0" width="238" height="38.5"/>
+                                        <string key="text">На указанный вами период нет
+свободных столов. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.7047450153" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Измените параметры или свяжитесь с администратором ресторана по номеру :" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6l-08-iHU">
+                                        <rect key="frame" x="0.0" y="48.5" width="350" height="69"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="I9x-Du-SRr"/>
+                                            <constraint firstAttribute="height" constant="69" id="OWr-O2-oaY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.7047450153" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+7 (8142) 63-23-89" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-UO-dfg">
+                                        <rect key="frame" x="101" y="127.5" width="148.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12549019610000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9lp-Rr-cid" firstAttribute="top" secondItem="2d2-Vk-wBm" secondAttribute="top" id="JPg-Au-8ge"/>
+                            <constraint firstItem="9lp-Rr-cid" firstAttribute="leading" secondItem="2d2-Vk-wBm" secondAttribute="leading" constant="16" id="lZV-Xb-JGr"/>
+                            <constraint firstItem="itk-U2-ydH" firstAttribute="centerY" secondItem="2d2-Vk-wBm" secondAttribute="centerY" id="sb4-68-0Dp"/>
+                            <constraint firstItem="itk-U2-ydH" firstAttribute="centerX" secondItem="2d2-Vk-wBm" secondAttribute="centerX" id="uu2-sg-Kst"/>
+                            <constraint firstItem="2d2-Vk-wBm" firstAttribute="trailing" secondItem="9lp-Rr-cid" secondAttribute="trailing" id="woa-dO-U1h"/>
+                            <constraint firstItem="2d2-Vk-wBm" firstAttribute="bottom" secondItem="9lp-Rr-cid" secondAttribute="bottom" id="ypZ-Uh-qwW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2d2-Vk-wBm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Выберите стол" id="j6x-k5-l0N"/>
+                    <size key="freeformSize" width="375" height="820"/>
+                    <connections>
+                        <outlet property="NoEmptyTablesLabel" destination="itk-U2-ydH" id="Z3R-ks-mjG"/>
+                        <outlet property="TableView" destination="9lp-Rr-cid" id="wbh-jC-PXu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sL-DH-Y1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-919" y="166"/>
+        </scene>
     </scenes>
 </document>
