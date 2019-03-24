@@ -8,8 +8,15 @@
 
 import UIKit
 
-class PasswordRecoveryNewPasswordVC: UIViewController {
-
+class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
+    func clickButtonPositiv(status: Int) {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+    }
+    
+    func clickButtonCanсel(status: Int) {
+        print("do nothing")
+    }
     @IBOutlet weak var PasswordLabel: UILabel!
     @IBOutlet weak var PasswordField: UITextField!
     @IBOutlet weak var PasswordIcon: UIImageView!
@@ -27,6 +34,8 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     @IBOutlet weak var CodeErrorLabel: UILabel!
     
     @IBOutlet weak var ChangePasswordBtn: UIButton!
+    
+    var email = ""
     
     private var isEmptyPassword = true {
         didSet {
@@ -218,11 +227,24 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
         }
     }
     
+    
     @IBAction func ChangePasswordTap(_ sender: UIButton) {
-        if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text {
+        if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text, let icode = Int(code) {
             if validateCode(code: code) && validatePassword(pass: pass) && pass == rpass {
                 /* TODO: Send request for change password */
-                
+                var data = RequestPostPasswordRecovery()
+                data.code = icode
+                data.email = self.email
+                data.password = pass
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
+                }else{
+                    DataLoader.shared().passwordRecovery(data: data){ result in
+                        if result?.code == 200 {
+                            self.present(Alert.shared().changePassword(protocol: self as AlertProtocol), animated: true, completion: nil)
+                        }
+                    }
+                }
             }
             if !validateCode(code: code) {
                 incorrectData(field: CodeField, label: CodeErrorLabel, image: CodeIcon)
