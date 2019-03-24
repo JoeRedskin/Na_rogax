@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D52247DC710049C016 /* ExtensionsBooking.swift */; };
+		74A520D82247FF2B0049C016 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D72247FF2B0049C016 /* DataValidation.swift */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* ResponseTimetable.swift */; };
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
@@ -92,6 +93,7 @@
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		74A520D52247DC710049C016 /* ExtensionsBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsBooking.swift; sourceTree = "<group>"; };
+		74A520D72247FF2B0049C016 /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE481FF5223D06740032AB78 /* ResponseTimetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTimetable.swift; sourceTree = "<group>"; };
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				CED522842228365A0069DBDA /* document.txt */,
 				CE4F01982243788E009E526F /* Alert.swift */,
 				74A520D52247DC710049C016 /* ExtensionsBooking.swift */,
+				74A520D72247FF2B0049C016 /* DataValidation.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,
 				CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */,
+				74A520D82247FF2B0049C016 /* DataValidation.swift in Sources */,
 				CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
 				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
