@@ -1,0 +1,45 @@
+//
+//  NumberTextView.swift
+//  NaRogax
+//
+//  Created by User on 22/03/2019.
+//  Copyright © 2019 Zappa. All rights reserved.
+//
+
+import UIKit
+
+class NumberTextView: UITextField {
+    var cutPasteProt: CutPasteProtocol? = nil
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(UIResponderStandardEditActions.copy(_:)){
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
+    }
+    
+    override func cut(_ sender: Any?) {
+        print("sekector", "cut")
+        cutPasteProt?.setText()
+        super.cut(sender)
+    }
+    
+    override func paste(_ sender: Any?) {
+        print("sekector", "cut")
+        cutPasteProt?.setText()
+        super.cut(sender)
+    }
+    
+    func setBottomLine(borderColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)) {
+        
+        self.borderStyle = UITextField.BorderStyle.none
+        self.backgroundColor = UIColor.clear
+        
+        let borderLine = UIView()
+        let height = 4.0
+        borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) + 8, width: Double(self.frame.width), height: height)
+        
+        borderLine.backgroundColor = borderColor
+        self.addSubview(borderLine)
+    }
+}

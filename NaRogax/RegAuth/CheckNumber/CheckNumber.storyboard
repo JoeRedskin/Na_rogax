@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JAH-cy-hDp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Check NumberVC-->
+        <scene sceneID="fQU-iF-ept">
+            <objects>
+                <viewController id="JAH-cy-hDp" customClass="CheckNumberVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t9J-qm-cdm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0g4-sv-OTK">
+                                <rect key="frame" x="40" y="243" width="295" height="56"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="1cz-yk-9jU" customClass="NumberTextView" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="A4P-9j-ZHO"/>
+                                            <constraint firstAttribute="width" constant="51" id="Ch0-MO-4uj"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textViewChange:" destination="JAH-cy-hDp" eventType="editingChanged" id="B2i-f5-aRV"/>
+                                            <action selector="touchTextView:" destination="JAH-cy-hDp" eventType="editingDidBegin" id="doh-fg-rw8"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="6pj-eG-NRS" customClass="NumberTextView" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="61" y="0.0" width="51" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="fGu-62-KGK"/>
+                                            <constraint firstAttribute="width" constant="51" id="xUG-cV-cv1"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textViewChange:" destination="JAH-cy-hDp" eventType="editingChanged" id="MeQ-Ah-OMc"/>
+                                            <action selector="touchTextView:" destination="JAH-cy-hDp" eventType="editingDidBegin" id="kvi-Tq-Xcb"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="pyV-Pz-vvC" customClass="NumberTextView" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="122" y="0.0" width="51" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="8p2-WW-Xp3"/>
+                                            <constraint firstAttribute="height" constant="56" id="nc0-Ur-86x"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textViewChange:" destination="JAH-cy-hDp" eventType="editingChanged" id="ZrA-af-F1c"/>
+                                            <action selector="touchTextView:" destination="JAH-cy-hDp" eventType="editingDidBegin" id="Keg-Gc-t2U"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="4" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="IrI-1w-evd" customClass="NumberTextView" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="183" y="0.0" width="51" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="K0Y-ww-U2j"/>
+                                            <constraint firstAttribute="height" constant="56" id="UOr-qh-egv"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textViewChange:" destination="JAH-cy-hDp" eventType="editingChanged" id="HZZ-DU-CZ5"/>
+                                            <action selector="touchTextView:" destination="JAH-cy-hDp" eventType="editingDidBegin" id="XKU-KB-0J7"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="5" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0" textAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="Bsp-GV-O4V" customClass="NumberTextView" customModule="NaRogax" customModuleProvider="target">
+                                        <rect key="frame" x="244" y="0.0" width="51" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="MPd-vn-lqU"/>
+                                            <constraint firstAttribute="height" constant="56" id="qQ1-Pe-Qsw"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textViewChange:" destination="JAH-cy-hDp" eventType="editingChanged" id="Eyk-6i-uB3"/>
+                                            <action selector="touchTextView:" destination="JAH-cy-hDp" eventType="editingDidBegin" id="ghD-jj-VSu"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="8WF-jK-n5b"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OE7-E0-syu">
+                                <rect key="frame" x="40" y="581" width="288" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.10980392156862745" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="ПРОДОЛЖИТЬ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressButton:" destination="JAH-cy-hDp" eventType="touchUpInside" id="u8f-0F-JaR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-2H-j5u">
+                                <rect key="frame" x="40" y="128" width="223" height="85"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY7-44-kbZ">
+                                <rect key="frame" x="20" y="335" width="335" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.10980392156862745" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="AzM-T7-BU6" firstAttribute="trailing" secondItem="rLc-2H-j5u" secondAttribute="trailing" constant="20" id="DVa-Tx-dQN"/>
+                            <constraint firstItem="OE7-E0-syu" firstAttribute="leading" secondItem="AzM-T7-BU6" secondAttribute="leading" constant="20" id="EY5-oQ-RDG"/>
+                            <constraint firstItem="0g4-sv-OTK" firstAttribute="top" secondItem="rLc-2H-j5u" secondAttribute="bottom" constant="36" id="F13-8J-dhZ"/>
+                            <constraint firstItem="AzM-T7-BU6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0g4-sv-OTK" secondAttribute="trailing" constant="10" id="Gmg-xU-0Af"/>
+                            <constraint firstItem="0g4-sv-OTK" firstAttribute="centerX" secondItem="AzM-T7-BU6" secondAttribute="centerX" id="IO1-w2-A7y"/>
+                            <constraint firstItem="rLc-2H-j5u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AzM-T7-BU6" secondAttribute="top" constant="110" id="OTA-Mb-HFa"/>
+                            <constraint firstItem="zY7-44-kbZ" firstAttribute="top" secondItem="0g4-sv-OTK" secondAttribute="bottom" constant="36" id="afp-u0-Fxv"/>
+                            <constraint firstItem="rLc-2H-j5u" firstAttribute="leading" secondItem="AzM-T7-BU6" secondAttribute="leading" constant="20" id="cVh-xR-3hg"/>
+                            <constraint firstItem="AzM-T7-BU6" firstAttribute="trailing" secondItem="OE7-E0-syu" secondAttribute="trailing" constant="20" id="dKg-mM-aku"/>
+                            <constraint firstItem="0g4-sv-OTK" firstAttribute="top" secondItem="AzM-T7-BU6" secondAttribute="top" constant="223" id="eZp-jw-dQU"/>
+                            <constraint firstItem="AzM-T7-BU6" firstAttribute="bottom" secondItem="OE7-E0-syu" secondAttribute="bottom" constant="80" id="en9-yl-3tW"/>
+                            <constraint firstItem="zY7-44-kbZ" firstAttribute="leading" secondItem="AzM-T7-BU6" secondAttribute="leading" constant="20" id="lgf-2s-kGk"/>
+                            <constraint firstItem="0g4-sv-OTK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AzM-T7-BU6" secondAttribute="leading" constant="10" id="o6R-kB-Eik"/>
+                            <constraint firstItem="AzM-T7-BU6" firstAttribute="trailing" secondItem="zY7-44-kbZ" secondAttribute="trailing" constant="20" id="you-Qd-EwM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AzM-T7-BU6"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonCon" destination="OE7-E0-syu" id="60c-jg-hzo"/>
+                        <outlet property="labelError" destination="zY7-44-kbZ" id="sNr-X8-GsZ"/>
+                        <outlet property="labelTitle" destination="rLc-2H-j5u" id="SkG-D7-xTL"/>
+                        <outletCollection property="textViews" destination="1cz-yk-9jU" collectionClass="NSMutableArray" id="dpN-sA-1HJ"/>
+                        <outletCollection property="textViews" destination="6pj-eG-NRS" collectionClass="NSMutableArray" id="25P-UX-ZPt"/>
+                        <outletCollection property="textViews" destination="pyV-Pz-vvC" collectionClass="NSMutableArray" id="EJC-tw-JxA"/>
+                        <outletCollection property="textViews" destination="IrI-1w-evd" collectionClass="NSMutableArray" id="GL7-xI-j7a"/>
+                        <outletCollection property="textViews" destination="Bsp-GV-O4V" collectionClass="NSMutableArray" id="ldT-h0-dED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Rk-zJ-Puq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250.40000000000001" y="2.2488755622188905"/>
+        </scene>
+    </scenes>
+</document>
