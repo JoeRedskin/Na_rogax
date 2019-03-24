@@ -182,6 +182,27 @@ class SignInVC: UIViewController {
             if validateEmail(email: email) && validatePassword(pass: pass){
                 print("SUCCESS")
                 /* TO DO: Auth request */
+                
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                }else{
+                    var data = RequestPostAuth()
+                    data.email = email
+                    data.password = pass
+                    DataLoader.shared().authorizeUser(data: data){ result, error  in
+                        if result.code == 200 {
+                            let uuid = result.uuid
+                            /* TODO: Переход на экран бронирования */
+                        } else {
+                            self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
+                            self.incorrectData(field: self.PasswordField, label: nil, image: self.PasswordIcon)
+                            
+                            self.showErrorLabel(text: "Неверный пароль или E-mail")
+                        }
+                        
+                    }
+                }
+                
             } else {
                 if !validatePassword(pass: pass) {
                     incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
