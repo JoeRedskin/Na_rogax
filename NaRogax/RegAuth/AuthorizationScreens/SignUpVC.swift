@@ -33,6 +33,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var RepeatPasswordBtn: UIButton!
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
+    @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
     
     private var isEmptyName = true {
         didSet {
@@ -60,7 +61,7 @@ class SignUpVC: UIViewController {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
                 SignUpBtn.isEnabled = false
             }
-            if !isEmptyName {
+            if !isEmptyPhone {
                 PhoneLabel.isHidden = false
             } else {
                 PhoneLabel.isHidden = true
@@ -200,6 +201,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+        PasswordErrorLabel.text = "Некорректный пароль"
         PasswordBtn.isHidden = false
         if let pass = PasswordField.text {
             if pass != "" {
@@ -213,7 +215,7 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
-        correctData(field: RepeatPasswordField, label: PasswordErrorLabel, image: RepeatedPasswordIcon)
+        correctData(field: RepeatPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
         RepeatPasswordBtn.isHidden = false
         if let pass = RepeatPasswordField.text {
             if pass != "" {
@@ -271,8 +273,8 @@ class SignUpVC: UIViewController {
     }
     
     func showErrorLabel(text: String) {
-        PasswordErrorLabel.text = text
-        PasswordErrorLabel.isHidden = false
+        RepeatedPasswordErrorLabel.text = text
+        RepeatedPasswordErrorLabel.isHidden = false
     }
     
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
@@ -316,9 +318,10 @@ class SignUpVC: UIViewController {
                 incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
             }
             if !validatePassword(pass: pass) {
-                incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
+                incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
                 incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
-                showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
+                PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
+                //showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
                 RepeatPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
             }else if pass != rpass {
