@@ -181,6 +181,11 @@ class SignInVC: UIViewController {
         if let email = EmailField.text, let pass = PasswordField.text {
             if validateEmail(email: email) && validatePassword(pass: pass){
                 print("SUCCESS")
+                let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen")
+
+                navigationController?.pushViewController(vc, animated: true)
+                
                 /* TO DO: Auth request */
             } else {
                 if !validatePassword(pass: pass) {

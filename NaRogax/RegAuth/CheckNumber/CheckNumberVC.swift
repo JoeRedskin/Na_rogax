@@ -64,7 +64,7 @@ class CheckNumberVC: UIViewController{
         }
         if (strCode.count == textViews.count){
             print("sekector", "true", strCode)
-            requestPostRegUser.code = Int(strCode)!
+ //           requestPostRegUser.code = Int(strCode)!
             reloadButton(active: true)
         }else{
             print("sekector", "false", strCode)

@@ -327,7 +327,16 @@ class SignUpVC: UIViewController {
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
+                
                 /* TODO: Registration request */
+                
+                
+                /* переход на экран подтвержения регистрации(ввод кода) */
+                let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumber")
+                
+                navigationController?.pushViewController(vc, animated: true)
+                
             }
             if !validateName(name: name) {
                 incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
