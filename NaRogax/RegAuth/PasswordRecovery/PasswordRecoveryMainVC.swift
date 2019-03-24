@@ -122,10 +122,29 @@ class PasswordRecoveryMainVC: UIViewController {
             if email != "" {
                 if validateEmail(email: email) {
                     /* TODO: Send request for code */
-                    let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
                     
-                    navigationController?.pushViewController(vc, animated: true)
+                    if (!DataLoader.shared().testNetwork()){
+                        self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                    }else{
+                        DataLoader.shared().findUser(email: email){ result in
+                            switch result?.code {
+                            case 200:
+                                let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
+                                
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                break
+                            case 404:
+                                self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
+                                self.showErrorLabel(text: "Пользователя с такой почтой не существует")
+                                break
+                            case .none:
+                                break
+                            case .some(_):
+                                break
+                            }
+                        }
+                    }
                 } else {
                     incorrectData(field: EmailField, label: nil, image: EmailIcon)
                     showErrorLabel(text: "Пожалуйста, введите корректный адрес")
