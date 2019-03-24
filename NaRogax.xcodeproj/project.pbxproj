@@ -84,6 +84,14 @@
 		CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C39F22391E6D00FBAA8B /* RequestPostEmptyPlaces.swift */; };
 		CEF7C3A622391E6D00FBAA8B /* ResponseTablesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3A022391E6D00FBAA8B /* ResponseTablesList.swift */; };
 		CEF7C3A722391E6D00FBAA8B /* SelectTableScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */; };
+		CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D7882247DB7C00725FA0 /* SignInVC.swift */; };
+		CEF7D78D2247DB7C00725FA0 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D7892247DB7C00725FA0 /* SignUpVC.swift */; };
+		CEF7D78E2247DB7C00725FA0 /* SignInScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D78A2247DB7C00725FA0 /* SignInScreen.storyboard */; };
+		CEF7D78F2247DB7C00725FA0 /* SignUpScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D78B2247DB7C00725FA0 /* SignUpScreen.storyboard */; };
+		CEF7D7952247DB8600725FA0 /* PasswordRecoveryMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D7912247DB8600725FA0 /* PasswordRecoveryMainVC.swift */; };
+		CEF7D7962247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D7922247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift */; };
+		CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D7932247DB8600725FA0 /* PasswordRecoveryMain.storyboard */; };
+		CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D7942247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard */; };
 		CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF87B1A2232492400E2AB28 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +176,14 @@
 		CEF7C39F22391E6D00FBAA8B /* RequestPostEmptyPlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPostEmptyPlaces.swift; sourceTree = "<group>"; };
 		CEF7C3A022391E6D00FBAA8B /* ResponseTablesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTablesList.swift; sourceTree = "<group>"; };
 		CEF7C3A122391E6D00FBAA8B /* SelectTableScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectTableScreen.storyboard; sourceTree = "<group>"; };
+		CEF7D7882247DB7C00725FA0 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		CEF7D7892247DB7C00725FA0 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		CEF7D78A2247DB7C00725FA0 /* SignInScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInScreen.storyboard; sourceTree = "<group>"; };
+		CEF7D78B2247DB7C00725FA0 /* SignUpScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpScreen.storyboard; sourceTree = "<group>"; };
+		CEF7D7912247DB8600725FA0 /* PasswordRecoveryMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryMainVC.swift; sourceTree = "<group>"; };
+		CEF7D7922247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryNewPasswordVC.swift; sourceTree = "<group>"; };
+		CEF7D7932247DB8600725FA0 /* PasswordRecoveryMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PasswordRecoveryMain.storyboard; sourceTree = "<group>"; };
+		CEF7D7942247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PasswordRecoveryNewPassword.storyboard; sourceTree = "<group>"; };
 		CEF87B1A2232492400E2AB28 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC4E8E9A19A710987DB9142E /* Pods-NaRogax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.debug.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,26 +208,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		745728952246B80400BF27C1 /* PasswordRecovery */ = {
-			isa = PBXGroup;
-			children = (
-				745728962246B88A00BF27C1 /* PasswordRecoveryMain.storyboard */,
-				745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */,
-				7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */,
-				7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */,
-			);
-			path = PasswordRecovery;
-			sourceTree = "<group>";
-		};
-		746345B422469A2C0074083A /* RegAuth */ = {
-			isa = PBXGroup;
-			children = (
-				745728952246B80400BF27C1 /* PasswordRecovery */,
-				CE220B202243EA8200BDE492 /* AuthorizationScreens */,
-			);
-			path = RegAuth;
-			sourceTree = "<group>";
-		};
 		8A9E90FFA323C3BFCBCC4EC5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,17 +215,6 @@
 				4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CE220B202243EA8200BDE492 /* AuthorizationScreens */ = {
-			isa = PBXGroup;
-			children = (
-				CE220B212243EC9400BDE492 /* SignInScreen.storyboard */,
-				CE220B232243FF7A00BDE492 /* SignInVC.swift */,
-				CE6E54472244B4790021BA1E /* SignUpScreen.storyboard */,
-				CE6E54492244B4A00021BA1E /* SignUpVC.swift */,
-			);
-			path = AuthorizationScreens;
 			sourceTree = "<group>";
 		};
 		CE40185B22411FD2004825EB /* ServerAccess */ = {
@@ -299,6 +284,7 @@
 				CE901943221D904100BA1B47 /* Products */,
 				8A9E90FFA323C3BFCBCC4EC5 /* Pods */,
 				6B7AB9BE73D7102C555DB08E /* Frameworks */,
+				CEF7D77D2247DB4900725FA0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,6 +381,8 @@
 		CEF6A15F2244C4C000B28B05 /* RegAuth */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7D7902247DB8600725FA0 /* PasswordRecovery */,
+				CEF7D7872247DB7C00725FA0 /* AuthorizationScreens */,
 				CEF6A15A2244C43E00B28B05 /* CheckNumber */,
 			);
 			path = RegAuth;
@@ -495,6 +483,43 @@
 			path = BookingScreen;
 			sourceTree = "<group>";
 		};
+		CEF7D77D2247DB4900725FA0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */,
+				CE220B232243FF7A00BDE492 /* SignInVC.swift */,
+				7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */,
+				CE6E54492244B4A00021BA1E /* SignUpVC.swift */,
+				CE6E54472244B4790021BA1E /* SignUpScreen.storyboard */,
+				745728962246B88A00BF27C1 /* PasswordRecoveryMain.storyboard */,
+				CE220B212243EC9400BDE492 /* SignInScreen.storyboard */,
+				745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		CEF7D7872247DB7C00725FA0 /* AuthorizationScreens */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7D7882247DB7C00725FA0 /* SignInVC.swift */,
+				CEF7D7892247DB7C00725FA0 /* SignUpVC.swift */,
+				CEF7D78A2247DB7C00725FA0 /* SignInScreen.storyboard */,
+				CEF7D78B2247DB7C00725FA0 /* SignUpScreen.storyboard */,
+			);
+			path = AuthorizationScreens;
+			sourceTree = "<group>";
+		};
+		CEF7D7902247DB8600725FA0 /* PasswordRecovery */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7D7912247DB8600725FA0 /* PasswordRecoveryMainVC.swift */,
+				CEF7D7922247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift */,
+				CEF7D7932247DB8600725FA0 /* PasswordRecoveryMain.storyboard */,
+				CEF7D7942247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard */,
+			);
+			path = PasswordRecovery;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,9 +585,13 @@
 			files = (
 				CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */,
 				CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */,
+				CEF7D78E2247DB7C00725FA0 /* SignInScreen.storyboard in Resources */,
+				CEF7D78F2247DB7C00725FA0 /* SignUpScreen.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
 				CE6E54482244B4790021BA1E /* SignUpScreen.storyboard in Resources */,
+				CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */,
+				CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
 				745728972246B88A00BF27C1 /* PasswordRecoveryMain.storyboard in Resources */,
@@ -636,6 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF7D7952247DB8600725FA0 /* PasswordRecoveryMainVC.swift in Sources */,
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
 				CEF7C3A622391E6D00FBAA8B /* ResponseTablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
@@ -659,11 +689,13 @@
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				7457289D2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
+				CEF7D7962247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
 				CEF1C0902244077E0081CA91 /* RequestPostDeleteUserBooking.swift in Sources */,
 				CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */,
 				CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */,
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
+				CEF7D78D2247DB7C00725FA0 /* SignUpVC.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
 				CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
@@ -681,6 +713,7 @@
 				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
+				CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
