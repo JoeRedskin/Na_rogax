@@ -18,26 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1S-Ze-9s3">
-                                <rect key="frame" x="25" y="319" width="343" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1S-Ze-9s3">
+                                <rect key="frame" x="16" y="333.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение работает в тестовом режиме, приносим свои извинения за причиненное неудобство." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWI-PF-8il">
-                                <rect key="frame" x="16" y="514" width="343" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-Tz-CvV">
                                 <rect key="frame" x="16" y="606" width="343" height="41"/>
-                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Продолжить">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="touchButton:" destination="iF2-Qz-1lL" eventType="touchUpInside" id="cBW-AY-eHG"/>
                                 </connections>
@@ -45,23 +44,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WAF-hP-4hV" firstAttribute="trailing" secondItem="sWI-PF-8il" secondAttribute="trailing" constant="16" id="4Gx-oH-pGb"/>
-                            <constraint firstItem="sWI-PF-8il" firstAttribute="top" relation="lessThanOrEqual" secondItem="I1S-Ze-9s3" secondAttribute="bottom" constant="300" id="HVE-wA-4mj"/>
                             <constraint firstItem="WAF-hP-4hV" firstAttribute="leading" secondItem="Ifc-Tz-CvV" secondAttribute="leading" constant="-16" id="Jtz-fh-K0I"/>
-                            <constraint firstItem="Ifc-Tz-CvV" firstAttribute="top" secondItem="sWI-PF-8il" secondAttribute="bottom" constant="31" id="N6G-mq-a6M"/>
                             <constraint firstItem="I1S-Ze-9s3" firstAttribute="leading" secondItem="WAF-hP-4hV" secondAttribute="leading" constant="16" id="NJn-kt-wnE"/>
                             <constraint firstItem="WAF-hP-4hV" firstAttribute="bottom" secondItem="Ifc-Tz-CvV" secondAttribute="bottom" constant="20" id="OC9-dP-YT7"/>
                             <constraint firstItem="WAF-hP-4hV" firstAttribute="trailing" secondItem="I1S-Ze-9s3" secondAttribute="trailing" constant="16" id="TpZ-f9-8E4"/>
-                            <constraint firstItem="sWI-PF-8il" firstAttribute="leading" secondItem="WAF-hP-4hV" secondAttribute="leading" constant="16" id="dad-sf-o7J"/>
+                            <constraint firstItem="I1S-Ze-9s3" firstAttribute="centerX" secondItem="WAF-hP-4hV" secondAttribute="centerX" id="cyF-cO-L3d"/>
                             <constraint firstItem="I1S-Ze-9s3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WAF-hP-4hV" secondAttribute="top" constant="60" id="xVV-M9-qCt"/>
                             <constraint firstItem="WAF-hP-4hV" firstAttribute="trailing" secondItem="Ifc-Tz-CvV" secondAttribute="trailing" constant="16" id="y4i-fS-ROc"/>
+                            <constraint firstItem="I1S-Ze-9s3" firstAttribute="centerY" secondItem="WAF-hP-4hV" secondAttribute="centerY" id="zaD-Gp-yOY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WAF-hP-4hV"/>
                     </view>
                     <connections>
                         <outlet property="button" destination="Ifc-Tz-CvV" id="GN7-qE-i1c"/>
                         <outletCollection property="textViews" destination="I1S-Ze-9s3" collectionClass="NSMutableArray" id="DVD-kV-rSR"/>
-                        <outletCollection property="textViews" destination="sWI-PF-8il" collectionClass="NSMutableArray" id="egv-Za-qFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuh-bF-SDx" userLabel="First Responder" sceneMemberID="firstResponder"/>

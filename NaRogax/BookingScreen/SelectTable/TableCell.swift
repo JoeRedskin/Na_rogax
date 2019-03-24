@@ -21,38 +21,26 @@ class TableCell: UITableViewCell {
         if String(table.chair_count) == "" {
             TitleLabel.text = "Без названия"
         } else {
+            var tableCountString = ""
             if table.chair_count == 4 {
-                
-                if let pos = table.position {
-                    if pos != "" {
-                        TitleLabel.text = String(table.chair_count) + " места, " + pos
-                    } else {
-                        TitleLabel.text = String(table.chair_count) + " места"
-                    }
-                } else {
-                    TitleLabel.text = String(table.chair_count) + " места"
-                }
-                
+                tableCountString = String(table.chair_count) + " места"
             } else {
-                if let pos = table.position {
-                    if pos != "" {
-                        TitleLabel.text = String(table.chair_count) + " мест, " + pos
-                    } else {
-                        TitleLabel.text = String(table.chair_count) + " мест"
+                tableCountString = String(table.chair_count) + " мест"
                     }
-                } else {
-                    TitleLabel.text = String(table.chair_count) + " мест"
-                }
-            }
+            TitleLabel.text = "Стол: № \(table_id) на \(tableCountString)"
         }
         
         if table.chair_type == "" {
             DescLabel.isHidden = true
         } else {
-            DescLabel.text = table.chair_type.uppercased()
+            if let pos = table.position{
+                DescLabel.text = "\(table.chair_type.uppercased()), \(pos.uppercased())"
+            } else {
+                DescLabel.text = table.chair_type.uppercased()
+            }
         }
         SelectBtn.layer.cornerRadius = 17
-        SelectBtn.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        SelectBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
         SelectBtn.layer.borderWidth = 2
     }
     

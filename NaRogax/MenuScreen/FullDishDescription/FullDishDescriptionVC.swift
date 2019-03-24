@@ -15,14 +15,9 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DescLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var AddToCartBtn: UIButton!
     @IBOutlet weak var WeightLabel: UILabel!
     @IBOutlet weak var PriceLabel: UILabel!
     @IBOutlet weak var RecomendedCollectionView: UICollectionView!
-    @IBOutlet weak var AddedLabel: UILabel!
-    @IBOutlet weak var MinusStepper: UIButton!
-    @IBOutlet weak var CountLabel: UILabel!
-    @IBOutlet weak var PlusStepper: UIButton!
     @IBOutlet weak var RecommendLabel: UILabel!
     
     
@@ -31,12 +26,6 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     var indexOfCategory = 0
     var recDish: [String] = []
     
-    var AddCount: Int = 1 {
-        didSet {
-            CountLabel.text = String(AddCount)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,30 +33,16 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         backButton.title = "Меню"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        
         GetValuesInView(menu: dishFull.categories[indexOfCategory].cat_dishes[indexOfDish])
         ImageBGView.clipsToBounds = true
         ImageBGView.layer.cornerRadius = 16.0
         
-        AddToCartBtn.layer.cornerRadius = 20
-        AddToCartBtn.layer.borderWidth = 1
-        AddToCartBtn.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
         RecomendedCollectionView.delegate = self
         RecomendedCollectionView.dataSource = self
-        //recStringToMassive()
         RecomendedCollectionView.reloadData()
-        
-        PlusStepper.layer.cornerRadius = 2
-        PlusStepper.layer.borderWidth = 1
-        PlusStepper.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
-        
-        MinusStepper.layer.cornerRadius = 2
-        MinusStepper.layer.borderWidth = 1
-        MinusStepper.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -118,7 +93,6 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         }
         
         fetchImage(url_img: menu.photo)
-        
     }
     
     func fetchImage(url_img: String) {
@@ -138,22 +112,17 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     
     func recStringToMassive(){
         if let recDishString = dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
-            //print(recDishString)
             var str = ""
             for index in recDishString.indices{
                 if (recDishString[index] >= "0" && recDishString[index] <= "9") {
                     str += String(recDishString[index])
                     if index.encodedOffset == recDishString.count-1{
-                        //print(str)
                         recDish.append(str)
-                        //print(recDish)
                         str = ""
                         break;
                     }
                 } else {
-                    //print(str)
                     recDish.append(str)
-                    //
                     str = ""
                 }
             }
@@ -161,17 +130,13 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func findRecDish(topping: Int) -> DishDescription{
-        //print(topping)
         var rightDish = DishDescription()
         for category in dishFull.categories{
-            //print(category.cat_name)
-            //if category.cat_name == "Топинги" || category.cat_name == "Напитки"{
                 for dish in category.cat_dishes{
                     if dish.itemId == topping{
                         rightDish = dish
                     }
                 }
-            //}
         }
         return rightDish
     }
@@ -186,44 +151,10 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
-        //print(recDish)
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
         cell.displayDish(dish: findRecDish(topping: Int(recDish[indexPath.row])!))
         return cell
-    }
-        
-    func changeState(active: Bool){
-        AddToCartBtn.isHidden = !active
-        AddedLabel.isHidden = active
-        MinusStepper.isHidden = active
-        PlusStepper.isHidden = active
-        CountLabel.isHidden = active
-    }
-    
-    @IBAction func onAddToCartTap(_ sender: UIButton) {
-        changeState(active: false)
-    }
-    
-    @IBAction func decCount(_ sender: UIButton) {
-        if AddCount == 1 {
-            changeState(active: true)
-            AddCount = 1
-        } else {
-            AddCount -= 1
-        }
-        if AddCount == 14 {
-            PlusStepper.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
-        }
-    }
-    
-    @IBAction func incCount(_ sender: UIButton) {
-        if AddCount < 15 {
-            AddCount += 1
-            if AddCount == 15 {
-                PlusStepper.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-            }
-        } 
     }
 }
 

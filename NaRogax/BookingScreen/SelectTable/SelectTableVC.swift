@@ -10,9 +10,7 @@ import UIKit
 
 class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var TableView: UITableView!
-    //@IBOutlet weak var NoEmptyTablesLabel: UILabel!
     @IBOutlet weak var NoEmptyTablesLabel: UIStackView!
-    
     
     var date = "2019-02-13"
     var time_from = "10:00:00"
@@ -25,7 +23,6 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     private var table_id = 0
     private var table_info = ""
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -33,7 +30,6 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tables.data.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
@@ -71,21 +67,19 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
         } else {
+            //TO DO: сделать переход на экран авторизации, если пользователь неавторизированннй, либо на экран завершения брони
             if (item > -1){
                 self.table_id = tables.data[item].table_id
                 self.selectedTable = tables.data[item]
-                table_info = String(selectedTable.chair_count)
+                
+                var tableCountString = ""
                 if selectedTable.chair_count == 4 {
-                    table_info += " места"
+                    tableCountString = String(selectedTable.chair_count) + " места"
                 } else {
-                    table_info += " мест"
+                    tableCountString = String(selectedTable.chair_count) + " мест"
                 }
-                if let pos = selectedTable.position {
-                    if pos != "" {
-                        table_info += ", \(pos)"
-                    }
-                }
-                table_info += ", \(selectedTable.chair_type)"
+ 
+                table_info = "Стол: № \(table_id) на \(tableCountString), \(selectedTable.position ?? "") \(selectedTable.chair_type)"
                 
                 let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
