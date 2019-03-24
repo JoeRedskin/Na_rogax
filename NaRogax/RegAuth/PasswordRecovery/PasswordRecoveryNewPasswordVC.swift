@@ -102,7 +102,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         PasswordField.maxLength = 32
         RepeatedPasswordField.maxLength = 32
         CodeField.maxLength = 5
-        setStyleForTextField(field: PasswordField, placeholder: "Пароль")
+        setStyleForTextField(field: PasswordField, placeholder: "Новый пароль")
         setStyleForTextField(field: RepeatedPasswordField, placeholder: "Введите пароль еще раз")
         setStyleForTextField(field: CodeField, placeholder: "Код из E-mail")
         
