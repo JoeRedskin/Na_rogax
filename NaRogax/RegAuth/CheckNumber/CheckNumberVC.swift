@@ -183,10 +183,7 @@ extension CheckNumberVC:CutPasteProtocol{
                 let regex = try! NSRegularExpression(pattern: reg)
                 if regex.firstMatch(in: myString, options: [], range: range) != nil{
                     self.setCutText(messege: myString)
-                } else {
-                    print("sekector", "false")
                 }
-                print("sekector", myString)
             }
         }
     }

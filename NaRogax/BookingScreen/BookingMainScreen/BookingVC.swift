@@ -52,9 +52,9 @@ class BookingVC: UIViewController{
             }else{
                 arrayDay.append(day)
             }
+            print("setFirstData", day.getDate())
             item += 1
         }
-        print("setFirstData", arrayDay.count)
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
         // доступное для брони
         arrayDay[0].reload()
@@ -171,7 +171,7 @@ extension BookingVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 //установка первоночальных значений для выбора времени
                 hoursWork.changeDay(day: String(arrayDay[indexPath.item].text.split(separator: "\n")[1]),
                                     today: arrayDay[indexPath.item].checkToday())
-                hoursWork.selectIndex(index: 0)
+                //hoursWork.selectIndex(index: 0)
                 calcAndSetTime()
                 //imeDurationCollectionView.reloadData()
             }
