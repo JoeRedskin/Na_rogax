@@ -33,8 +33,6 @@
 		CE9D671F22339A39004E5E1D /* RecDishCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D671E22339A39004E5E1D /* RecDishCVC.swift */; };
 		CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* ResponseDisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
-		CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010D2232C90300361332 /* DrinkPriceCell.swift */; };
-		CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */; };
 		CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB401122233117500361332 /* FullDishDescription.storyboard */; };
 		CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB401142233128800361332 /* FullDishDescriptionVC.swift */; };
 		CED522852228365A0069DBDA /* document.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED522842228365A0069DBDA /* document.txt */; };
@@ -107,8 +105,6 @@
 		CE9D671E22339A39004E5E1D /* RecDishCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecDishCVC.swift; sourceTree = "<group>"; };
 		CEAEE92522200BF7000AF395 /* ResponseDisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		CEB4010D2232C90300361332 /* DrinkPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPriceCell.swift; sourceTree = "<group>"; };
-		CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButtonCell.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
 		CEB401142233128800361332 /* FullDishDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishDescriptionVC.swift; sourceTree = "<group>"; };
 		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document.txt; path = NaRogax/SupportFiles/document.txt; sourceTree = SOURCE_ROOT; };
@@ -304,8 +300,6 @@
 				CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */,
 				CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */,
 				CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */,
-				CEB4010D2232C90300361332 /* DrinkPriceCell.swift */,
-				CEB4010F2232CB8C00361332 /* DrinkButtonCell.swift */,
 			);
 			path = FullDrinksDescription;
 			sourceTree = "<group>";
@@ -577,7 +571,6 @@
 				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
 				CEF3058C22427E78001D6D96 /* RequestPostRegUser.swift in Sources */,
 				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
-				CEB401102232CB8C00361332 /* DrinkButtonCell.swift in Sources */,
 				CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
@@ -602,7 +595,6 @@
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
-				CEB4010E2232C90300361332 /* DrinkPriceCell.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
 				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
