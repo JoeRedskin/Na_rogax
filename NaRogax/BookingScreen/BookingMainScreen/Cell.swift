@@ -22,12 +22,12 @@ class Cell: UICollectionViewCell {
         //inital()
     }
     
-    private func inital(){
-        lable.clipsToBounds = true
-        lable.layer.cornerRadius = 4
-        lable.layer.borderWidth = 1
-        lable.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
-    }
+//    private func inital(){
+//        lable.clipsToBounds = true
+//        lable.layer.cornerRadius = 4
+//        lable.layer.borderWidth = 1
+//        lable.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
+//    }
     
     func setDate(dateCVC date: DateCVC){
         lable.text = date.text
@@ -36,7 +36,7 @@ class Cell: UICollectionViewCell {
     
     private func reloadColor(check: Bool){
         if (check){
-            lable.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+            lable.layer.borderColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
             lable.layer.borderWidth = 3
             lable.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             lable.layer.cornerRadius = 4

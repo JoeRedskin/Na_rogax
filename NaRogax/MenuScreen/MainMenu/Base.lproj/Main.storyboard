@@ -97,6 +97,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="BorderView" destination="k6K-7c-lhV" id="LAO-8e-KuS"/>
                                             <outlet property="dishGradient" destination="Ooo-dl-wgK" id="BUU-nW-04g"/>
                                             <outlet property="dishImage" destination="hCJ-Re-iu6" id="orH-4K-152"/>
                                             <outlet property="dishName" destination="7Hv-iW-ffC" id="x9v-WP-mUC"/>
