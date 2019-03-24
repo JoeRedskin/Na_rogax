@@ -40,7 +40,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -57,7 +57,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -74,7 +74,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     private var isEmptyCode = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
