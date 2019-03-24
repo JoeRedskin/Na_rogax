@@ -159,12 +159,20 @@ class CheckNumberVC: UIViewController{
 }
 
 extension CheckNumberVC: AlertProtocol{
-    func clickButtonPositiv() {
+    func clickButtonPositiv(status: Int) {
         sendCode()
     }
     
-    func clickButtonCanсel() {
+    func clickButtonCanсel(status: Int) {
+        
     }
+    
+//    func clickButtonPositiv() {
+//
+//    }
+//
+//    func clickButtonCanсel() {
+//    }
 }
 
 extension CheckNumberVC:CutPasteProtocol{

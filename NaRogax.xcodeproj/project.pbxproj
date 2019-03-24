@@ -8,14 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
-		745728972246B88A00BF27C1 /* PasswordRecoveryMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745728962246B88A00BF27C1 /* PasswordRecoveryMain.storyboard */; };
-		745728992246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */; };
-		7457289B2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */; };
-		7457289D2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */; };
-		74A520D62247DC710049C016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D52247DC710049C016 /* Extensions.swift */; };
+		74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D52247DC710049C016 /* ExtensionsBooking.swift */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
-		CE220B222243EC9400BDE492 /* SignInScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE220B212243EC9400BDE492 /* SignInScreen.storyboard */; };
-		CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE220B232243FF7A00BDE492 /* SignInVC.swift */; };
 		CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* ResponseTimetable.swift */; };
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
@@ -27,8 +21,6 @@
 		CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */; };
 		CE5A4713223BD5B600724490 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4712223BD5B600724490 /* Cell.swift */; };
 		CE5A4727223BF72100724490 /* HoursWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4726223BF72100724490 /* HoursWork.swift */; };
-		CE6E54482244B4790021BA1E /* SignUpScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E54472244B4790021BA1E /* SignUpScreen.storyboard */; };
-		CE6E544A2244B4A00021BA1E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E54492244B4A00021BA1E /* SignUpVC.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
@@ -99,14 +91,8 @@
 /* Begin PBXFileReference section */
 		007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaRogax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
-		745728962246B88A00BF27C1 /* PasswordRecoveryMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordRecoveryMain.storyboard; sourceTree = "<group>"; };
-		745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordRecoveryNewPassword.storyboard; sourceTree = "<group>"; };
-		7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryMainVC.swift; sourceTree = "<group>"; };
-		7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryNewPasswordVC.swift; sourceTree = "<group>"; };
-		74A520D52247DC710049C016 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		74A520D52247DC710049C016 /* ExtensionsBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsBooking.swift; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
-		CE220B212243EC9400BDE492 /* SignInScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInScreen.storyboard; sourceTree = "<group>"; };
-		CE220B232243FF7A00BDE492 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		CE481FF5223D06740032AB78 /* ResponseTimetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTimetable.swift; sourceTree = "<group>"; };
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
@@ -118,8 +104,6 @@
 		CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarVC.swift; sourceTree = "<group>"; };
 		CE5A4712223BD5B600724490 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CE5A4726223BF72100724490 /* HoursWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWork.swift; sourceTree = "<group>"; };
-		CE6E54472244B4790021BA1E /* SignUpScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpScreen.storyboard; sourceTree = "<group>"; };
-		CE6E54492244B4A00021BA1E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -450,7 +434,7 @@
 				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
 				CED522842228365A0069DBDA /* document.txt */,
 				CE4F01982243788E009E526F /* Alert.swift */,
-				74A520D52247DC710049C016 /* Extensions.swift */,
+				74A520D52247DC710049C016 /* ExtensionsBooking.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -489,14 +473,6 @@
 		CEF7D77D2247DB4900725FA0 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */,
-				CE220B232243FF7A00BDE492 /* SignInVC.swift */,
-				7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */,
-				CE6E54492244B4A00021BA1E /* SignUpVC.swift */,
-				CE6E54472244B4790021BA1E /* SignUpScreen.storyboard */,
-				745728962246B88A00BF27C1 /* PasswordRecoveryMain.storyboard */,
-				CE220B212243EC9400BDE492 /* SignInScreen.storyboard */,
-				745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -592,18 +568,14 @@
 				CEF7D78F2247DB7C00725FA0 /* SignUpScreen.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
-				CE6E54482244B4790021BA1E /* SignUpScreen.storyboard in Resources */,
 				CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */,
 				CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
-				745728972246B88A00BF27C1 /* PasswordRecoveryMain.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */,
-				CE220B222243EC9400BDE492 /* SignInScreen.storyboard in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
-				745728992246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
 				CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
@@ -690,7 +662,6 @@
 				CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */,
 				CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
-				7457289D2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CEF7D7962247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
@@ -700,11 +671,9 @@
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7D78D2247DB7C00725FA0 /* SignUpVC.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
-				CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
 				CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */,
 				CE4F01992243788E009E526F /* Alert.swift in Sources */,
-				7457289B2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
 				CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */,
@@ -721,9 +690,8 @@
 				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
 				CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */,
-				CE6E544A2244B4A00021BA1E /* SignUpVC.swift in Sources */,
 				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,
-				74A520D62247DC710049C016 /* Extensions.swift in Sources */,
+				74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,
