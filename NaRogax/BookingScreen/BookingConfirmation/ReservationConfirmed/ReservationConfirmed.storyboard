@@ -20,7 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-Zj-kI4">
                                 <rect key="frame" x="16" y="598" width="343" height="41"/>
-                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="cXJ-l2-bls"/>
                                 </constraints>
@@ -29,86 +29,34 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="continueToMenu:" destination="F1c-nT-bfY" eventType="touchUpInside" id="nBT-2J-6UC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9F-Cs-1sf">
-                                <rect key="frame" x="23" y="516" width="328" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="IbO-cx-hlT"/>
-                                </constraints>
-                                <string key="text">Приложение работает в тестовом режиме, приносим
-свои извенения за причиненное неудобство.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-Qf-KTW">
-                                <rect key="frame" x="24" y="68" width="328" height="115"/>
+                                <rect key="frame" x="16" y="296" width="343" height="95.5"/>
                                 <string key="text">Екатерина, заявка на бронирование
-принята рестораном.  По указанному
-номеру (+7 999 123-45-67) с
-вами свяжется администратор и уточнит
-детали. 
+принята.   В ближайшее время Вам позвонит наш администратори уточнит детали
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYa-89-hGL">
-                                <rect key="frame" x="24" y="190" width="328" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="6ik-c8-hQF"/>
-                                </constraints>
-                                <string key="text">Если в течении 1 часа, вам не
-перезвонят, свяжитесь с нами по
-телефону.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laH-O6-Jef">
-                                <rect key="frame" x="24" y="283" width="328" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="OIP-Ac-na3"/>
-                                </constraints>
-                                <string key="text">Отмена бронирования возможна только
-по звонку в ресторан. </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yye-sp-Qel">
-                                <rect key="frame" x="24" y="359" width="328" height="38.5"/>
-                                <string key="text">Телефон для связи:
-+7 (8142) 63-23-89</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="AYa-89-hGL" secondAttribute="trailing" constant="23" id="0ln-yM-MpP"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="83H-Qf-KTW" secondAttribute="trailing" constant="23" id="0zq-Cz-45n"/>
-                            <constraint firstItem="laH-O6-Jef" firstAttribute="top" secondItem="AYa-89-hGL" secondAttribute="bottom" constant="9" id="50Y-Qc-BtI"/>
-                            <constraint firstItem="AYa-89-hGL" firstAttribute="top" secondItem="83H-Qf-KTW" secondAttribute="bottom" constant="7" id="6Ek-L6-o7g"/>
-                            <constraint firstItem="AYa-89-hGL" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="A0N-eF-HSK"/>
-                            <constraint firstItem="Yye-sp-Qel" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="ADh-ut-zqF"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="centerY" secondItem="7iR-ip-hlB" secondAttribute="centerY" id="CmJ-oo-7zB"/>
                             <constraint firstItem="9ch-Zj-kI4" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="E6u-gp-UIw"/>
-                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="top" secondItem="Y9F-Cs-1sf" secondAttribute="bottom" constant="24" id="R0n-rw-EdG"/>
-                            <constraint firstItem="83H-Qf-KTW" firstAttribute="top" secondItem="7iR-ip-hlB" secondAttribute="top" constant="48" id="UbR-3w-DfB"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="laH-O6-Jef" secondAttribute="trailing" constant="23" id="ZRi-a6-GzJ"/>
-                            <constraint firstItem="Y9F-Cs-1sf" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="23" id="aRD-gQ-UPG"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="Y9F-Cs-1sf" secondAttribute="trailing" constant="24" id="gbA-BO-hm2"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="centerX" secondItem="7iR-ip-hlB" secondAttribute="centerX" id="bai-uW-x7H"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="9ch-Zj-kI4" secondAttribute="trailing" constant="16" id="hbT-Dn-9gl"/>
-                            <constraint firstItem="laH-O6-Jef" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="iA6-Gr-vj9"/>
-                            <constraint firstItem="83H-Qf-KTW" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="24" id="icJ-XH-ONu"/>
-                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="Yye-sp-Qel" secondAttribute="trailing" constant="23" id="qT4-uC-aqg"/>
+                            <constraint firstAttribute="trailing" secondItem="83H-Qf-KTW" secondAttribute="trailing" constant="16" id="nxs-Ze-EQe"/>
                             <constraint firstItem="7iR-ip-hlB" firstAttribute="bottom" secondItem="9ch-Zj-kI4" secondAttribute="bottom" constant="28" id="sLY-bD-SHI"/>
-                            <constraint firstItem="Yye-sp-Qel" firstAttribute="top" secondItem="laH-O6-Jef" secondAttribute="bottom" constant="11" id="uDs-OZ-7lE"/>
-                            <constraint firstItem="Y9F-Cs-1sf" firstAttribute="top" relation="lessThanOrEqual" secondItem="Yye-sp-Qel" secondAttribute="bottom" constant="136.5" id="vVT-Zq-HHr"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="leading" secondItem="0HL-nK-0Ah" secondAttribute="leading" constant="16" id="xLS-ZV-4g3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7iR-ip-hlB"/>
                     </view>

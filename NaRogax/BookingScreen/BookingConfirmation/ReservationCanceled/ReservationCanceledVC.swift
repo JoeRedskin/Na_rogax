@@ -10,7 +10,7 @@ import UIKit
 
 class ReservationCanceledVC: UIViewController {
 
-    private let text = ", заявка на бронирование отклонена : выбранный вами стол уже забронирован. \n Измените, пожалуйста, параметры запроса."
+    private let text = ", к сожалению, выбранный вами стол уже забронирован. \n Измените время, дату визита или столик и попробуйте снова."
     
     var name: String = ""
     
@@ -19,8 +19,6 @@ class ReservationCanceledVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        button.layer.cornerRadius = 20
-        // Do any additional setup after loading the view.
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -29,8 +27,6 @@ class ReservationCanceledVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setAttText()
-        //name = "Екатерина"
         textViews[0].text = name +  text
     }
     
@@ -38,16 +34,6 @@ class ReservationCanceledVC: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    private func setAttText(){
-        for i in 0..<textViews.count{
-            textViews[i].textAlignment = .center
-            textViews[i].textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
-            if (i == 1){
-                textViews[i].font = UIFont.systemFont(ofSize: 18)
-            }else{
-                textViews[i].font = UIFont.systemFont(ofSize: 22)
-            }
-        }
-    }
+
 
 }
