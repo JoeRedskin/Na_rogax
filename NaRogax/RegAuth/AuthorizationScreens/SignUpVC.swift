@@ -328,6 +328,32 @@ class SignUpVC: UIViewController {
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
                 /* TODO: Registration request */
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                }else{
+                    DataLoader.shared().findUser(email: email){ result in
+                        switch result?.code {
+                            case 404:
+                                let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumberScreen") as! CheckNumberVC
+                                vc.email = email
+                                vc.name = name
+                                vc.password = pass
+                                vc.phone = phone
+                                
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                break
+                            case 200:
+                                self.incorrectData(field: self.EmailField, label: nil, image: self.EmailImage)
+                                self.showErrorLabel(text: "Пользователь с такой почтой уже существует")
+                                break
+                            case .none:
+                                break
+                            case .some(_):
+                                break
+                        }
+                    }
+                }
             }
             if !validateName(name: name) {
                 incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)

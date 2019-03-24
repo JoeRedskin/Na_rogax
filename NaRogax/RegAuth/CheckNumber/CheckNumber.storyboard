@@ -13,7 +13,7 @@
         <!--Check NumberVC-->
         <scene sceneID="fQU-iF-ept">
             <objects>
-                <viewController id="JAH-cy-hDp" customClass="CheckNumberVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckNumberScreen" id="JAH-cy-hDp" customClass="CheckNumberVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t9J-qm-cdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
