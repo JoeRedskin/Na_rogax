@@ -10,18 +10,12 @@ import UIKit
 
 class ReservationConfirmedVC: UIViewController{
 
-    private let firstTextDiscr = ", заявка на бронирование принята рестораном.\nПо указанному номеру ("
-    private let lastTextDiscr = ") с Вами свяжется администратор и уточнит детали. "
-    //private let textPhoneNaRogax = "Если в течении 1 часа Вам не перезвонят, свяжитесь с нами по номеру \n"
-    
-    //private let phoneText = "Телефон для связи. \n +7 (8142) 63-23-89"
-    
-    //@IBOutlet var textView: [UILabel]!
+    private let TextDiscr = ", заявка на бронирование принята. \n В ближайшее время Вам позвонит наш администратори уточнит детали"
+
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var ConfirmLabel: UILabel!
 
     var name: String = ""
-    var phone: String = ""
     
     @IBAction func continueToMenu(_ sender: UIButton) {
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -32,7 +26,6 @@ class ReservationConfirmedVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        button.layer.cornerRadius = 20
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.setNeedsStatusBarAppearanceUpdate()
     }
@@ -42,10 +35,7 @@ class ReservationConfirmedVC: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //textView[1].text = textPhoneNaRogax
-        //textView[4].text = phoneText
-        //setAttTextView()
-        setText()
+        ConfirmLabel.text = name + TextDiscr
     }
     
     /*func setAttTextView(){
@@ -67,9 +57,4 @@ class ReservationConfirmedVC: UIViewController{
         }
     }*/
     
-
-    func setText(){
-        //textView[0].text = name + firstTextDiscr + phone + lastTextDiscr
-        ConfirmLabel.text = name + firstTextDiscr + phone + lastTextDiscr
-    }
 }
