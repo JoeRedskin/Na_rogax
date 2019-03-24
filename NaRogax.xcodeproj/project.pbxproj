@@ -12,6 +12,7 @@
 		745728992246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */; };
 		7457289B2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */; };
 		7457289D2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */; };
+		74A520D62247DC710049C016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D52247DC710049C016 /* Extensions.swift */; };
 		CE0D261F2223104500D50293 /* FullDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0D261E2223104500D50293 /* FullDescription.storyboard */; };
 		CE220B222243EC9400BDE492 /* SignInScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE220B212243EC9400BDE492 /* SignInScreen.storyboard */; };
 		CE220B242243FF7A00BDE492 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE220B232243FF7A00BDE492 /* SignInVC.swift */; };
@@ -102,6 +103,7 @@
 		745728982246B8A700BF27C1 /* PasswordRecoveryNewPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordRecoveryNewPassword.storyboard; sourceTree = "<group>"; };
 		7457289A2246BD0F00BF27C1 /* PasswordRecoveryMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryMainVC.swift; sourceTree = "<group>"; };
 		7457289C2246CD2600BF27C1 /* PasswordRecoveryNewPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryNewPasswordVC.swift; sourceTree = "<group>"; };
+		74A520D52247DC710049C016 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE0D261E2223104500D50293 /* FullDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDescription.storyboard; sourceTree = "<group>"; };
 		CE220B212243EC9400BDE492 /* SignInScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInScreen.storyboard; sourceTree = "<group>"; };
 		CE220B232243FF7A00BDE492 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				CEF5B8F022249DAF00DE4E06 /* BorderedLabel.swift */,
 				CED522842228365A0069DBDA /* document.txt */,
 				CE4F01982243788E009E526F /* Alert.swift */,
+				74A520D52247DC710049C016 /* Extensions.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */,
 				CE6E544A2244B4A00021BA1E /* SignUpVC.swift in Sources */,
 				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,
+				74A520D62247DC710049C016 /* Extensions.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */,
