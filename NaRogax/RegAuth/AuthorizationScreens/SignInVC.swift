@@ -26,7 +26,7 @@ class SignInVC: UIViewController {
     private var isEmptyEmail = true {
         didSet {
             if !isEmptyEmail && !isEmptyPassword {
-                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignInBtn.isEnabled = true
             } else {
                 SignInBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -43,7 +43,7 @@ class SignInVC: UIViewController {
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyEmail && !isEmptyPassword {
-                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignInBtn.isEnabled = true
             } else {
                 SignInBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)

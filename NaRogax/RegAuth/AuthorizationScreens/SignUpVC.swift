@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
     private var isEmptyName = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -55,7 +55,7 @@ class SignUpVC: UIViewController {
     private var isEmptyPhone = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -72,7 +72,7 @@ class SignUpVC: UIViewController {
     private var isEmptyEmail = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -89,7 +89,7 @@ class SignUpVC: UIViewController {
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -108,7 +108,7 @@ class SignUpVC: UIViewController {
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
