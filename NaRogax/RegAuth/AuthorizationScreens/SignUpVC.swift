@@ -215,6 +215,10 @@ class SignUpVC: UIViewController {
         }
     }
     
+    @IBAction func passwordDidBegin(_ sender: UITextField) {
+        sender.text = ""
+    }
+    
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
         correctData(field: RepeatPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
         RepeatPasswordBtn.isHidden = false

@@ -147,6 +147,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <action selector="passwordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="uHq-vk-ce7"/>
+                                                    <action selector="passwordDidBegin:" destination="2Jr-56-8fE" eventType="valueChanged" id="ODy-Gb-GpI"/>
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-jo-bkI">
@@ -178,6 +179,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
+                                                    <action selector="passwordDidBegin:" destination="2Jr-56-8fE" eventType="valueChanged" id="Dop-Cq-4v2"/>
                                                     <action selector="repeatedPasswordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="tmy-cd-eeh"/>
                                                 </connections>
                                             </textField>
