@@ -12,22 +12,24 @@ class NumberTextView: UITextField {
     var cutPasteProt: CutPasteProtocol? = nil
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if action == #selector(UIResponderStandardEditActions.copy(_:)){
+        if action == #selector(UIResponderStandardEditActions.copy(_:)) ||
+            action == #selector(UIResponderStandardEditActions.cut(_:)){
             return false
+        }
+        if action == #selector(UIResponderStandardEditActions.paste(_:)){
+            return true
         }
         return super.canPerformAction(action, withSender: sender)
     }
     
     override func cut(_ sender: Any?) {
-        print("sekector", "cut")
         cutPasteProt?.setText()
         super.cut(sender)
     }
     
     override func paste(_ sender: Any?) {
-        print("sekector", "cut")
         cutPasteProt?.setText()
-        super.cut(sender)
+        //super.paste(sender)
     }
     
     func setBottomLine(borderColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)) {
