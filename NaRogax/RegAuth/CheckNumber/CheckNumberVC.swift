@@ -43,8 +43,7 @@ class CheckNumberVC: UIViewController{
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, surname: surname, birthday: birthday, phone: phone)
+        requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, phone: phone)
         UITextField.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.setNeedsStatusBarAppearanceUpdate()
     }
