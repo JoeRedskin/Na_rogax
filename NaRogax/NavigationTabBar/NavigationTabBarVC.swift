@@ -33,8 +33,8 @@ class NavigationTabBarVC: UITabBarController {
         let thirdVC = thirdViewController.instantiateViewController(withIdentifier: "MainBooking")
         thirdVC.tabBarItem = UITabBarItem(title: "бронь", image: UIImage(named: "ic_calendar"), tag: 1)
         
-        let secondViewController = UIStoryboard(name: "ContactBar", bundle: nil)
-        let secVC = secondViewController.instantiateViewController(withIdentifier: "ContactBar") as! ContactBarVC
+        let secondViewController = UIStoryboard(name: "MainProfile", bundle: nil)
+        let secVC = secondViewController.instantiateViewController(withIdentifier: "MainProfile") as! MainProfile
         secVC.tabBarItem = UITabBarItem(title: "контакты", image: UIImage(named: "ic_contacts"), tag: 2)
         
         let tabBarList = [vc, thirdVC, secVC]

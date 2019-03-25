@@ -200,34 +200,22 @@
                                     <action selector="changeTable:" destination="DGe-oM-haH" eventType="touchUpInside" id="5xQ-jM-5a4"/>
                                 </connections>
                             </button>
-                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-pr-mSg">
-                                <rect key="frame" x="0.0" y="405" width="320" height="163"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <date key="date" timeIntervalSinceReferenceDate="574097703.58689106">
-                                    <!--2019-03-12 15:35:03 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="ru_RU"/>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vPH-hf-0cU" firstAttribute="top" secondItem="2zR-9e-rw4" secondAttribute="bottom" constant="15" id="1Vs-8k-uY5"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="WzX-dl-isj" secondAttribute="trailing" constant="16" id="2KM-Sa-dcs"/>
                             <constraint firstItem="NBc-wG-qLA" firstAttribute="top" secondItem="vPH-hf-0cU" secondAttribute="bottom" constant="25" id="5Op-y8-RaG"/>
-                            <constraint firstItem="u6F-pr-mSg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="03U-jY-a7z" secondAttribute="top" constant="405" id="8FR-XR-yYr"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="1kk-HZ-dyy" secondAttribute="trailing" constant="16" id="8XZ-JL-dU1"/>
                             <constraint firstItem="103-rR-66w" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="B44-M4-UIR"/>
                             <constraint firstItem="YTD-Wt-zTS" firstAttribute="top" secondItem="103-rR-66w" secondAttribute="bottom" constant="16" id="DlQ-kx-Yde"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="YTD-Wt-zTS" secondAttribute="trailing" constant="16" id="FX6-eB-t3f"/>
                             <constraint firstItem="1kk-HZ-dyy" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="Gjb-qi-sZE"/>
-                            <constraint firstItem="u6F-pr-mSg" firstAttribute="trailing" secondItem="Nmn-bN-6MI" secondAttribute="trailing" id="Hjm-dL-bij"/>
                             <constraint firstAttribute="trailing" secondItem="103-rR-66w" secondAttribute="trailing" constant="38" id="PjO-Ru-VDc"/>
                             <constraint firstItem="2zR-9e-rw4" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="Qv2-rj-sU0"/>
                             <constraint firstItem="vPH-hf-0cU" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="UK5-Qp-35g"/>
                             <constraint firstItem="YTD-Wt-zTS" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="WUS-Kf-YnM"/>
-                            <constraint firstItem="u6F-pr-mSg" firstAttribute="bottom" secondItem="Nmn-bN-6MI" secondAttribute="bottom" id="Xla-mz-SsU"/>
                             <constraint firstItem="103-rR-66w" firstAttribute="top" secondItem="1kk-HZ-dyy" secondAttribute="bottom" constant="25" id="YgU-FV-hos"/>
-                            <constraint firstItem="u6F-pr-mSg" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" id="anL-au-dFj"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YTD-Wt-zTS" secondAttribute="bottom" id="dAq-Kv-uKl"/>
                             <constraint firstItem="NBc-wG-qLA" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="fTc-TQ-N1H"/>
                             <constraint firstItem="2zR-9e-rw4" firstAttribute="top" secondItem="Nmn-bN-6MI" secondAttribute="top" constant="10" id="iG0-oj-h3h"/>
@@ -243,7 +231,6 @@
                         <outlet property="TimeDurationCollectionView" destination="YTD-Wt-zTS" id="x5o-Ju-JRp"/>
                         <outlet property="changeTableField" destination="WzX-dl-isj" id="Bra-Kp-2TS"/>
                         <outlet property="changeTimeSting" destination="1kk-HZ-dyy" id="quR-wQ-GGH"/>
-                        <outlet property="datePicker" destination="u6F-pr-mSg" id="f6m-pS-dPN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmU-aj-5FG" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,8 +15,8 @@
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
 		CE4F01992243788E009E526F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F01982243788E009E526F /* Alert.swift */; };
 		CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F019A22439625009E526F /* ResponseCategory.swift */; };
-		CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */; };
-		CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */; };
+		CE564BDC2237AE0A0035BAC9 /* MainProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BDB2237AE0A0035BAC9 /* MainProfile.storyboard */; };
+		CE564BDE2237AE1C0035BAC9 /* MainProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BDD2237AE1C0035BAC9 /* MainProfile.swift */; };
 		CE564BE12237C5D10035BAC9 /* NavigationTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */; };
 		CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */; };
 		CE5A4713223BD5B600724490 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4712223BD5B600724490 /* Cell.swift */; };
@@ -48,6 +48,8 @@
 		CEF1C08C2244024E0081CA91 /* RequestPostCheckAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */; };
 		CEF1C08E224403510081CA91 /* ResponseShowUserBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */; };
 		CEF1C0902244077E0081CA91 /* RequestPostDeleteUserBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */; };
+		CEF24FA62249124F00D5B1C2 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF24FA52249124F00D5B1C2 /* EditProfile.storyboard */; };
+		CEF24FA822491E0800D5B1C2 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF24FA722491E0800D5B1C2 /* EditProfileVC.swift */; };
 		CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058922427E1D001D6D96 /* RequestPostVertifyEmail.swift */; };
 		CEF3058C22427E78001D6D96 /* RequestPostRegUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058B22427E78001D6D96 /* RequestPostRegUser.swift */; };
 		CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */; };
@@ -96,8 +98,8 @@
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
 		CE4F01982243788E009E526F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CE4F019A22439625009E526F /* ResponseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCategory.swift; sourceTree = "<group>"; };
-		CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactBar.storyboard; sourceTree = "<group>"; };
-		CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBarVC.swift; sourceTree = "<group>"; };
+		CE564BDB2237AE0A0035BAC9 /* MainProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainProfile.storyboard; sourceTree = "<group>"; };
+		CE564BDD2237AE1C0035BAC9 /* MainProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfile.swift; sourceTree = "<group>"; };
 		CE564BE02237C5D10035BAC9 /* NavigationTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTabBar.storyboard; sourceTree = "<group>"; };
 		CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarVC.swift; sourceTree = "<group>"; };
 		CE5A4712223BD5B600724490 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -131,6 +133,8 @@
 		CEF1C08B2244024E0081CA91 /* RequestPostCheckAuto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostCheckAuto.swift; sourceTree = "<group>"; };
 		CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseShowUserBooking.swift; sourceTree = "<group>"; };
 		CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostDeleteUserBooking.swift; sourceTree = "<group>"; };
+		CEF24FA52249124F00D5B1C2 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		CEF24FA722491E0800D5B1C2 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		CEF3058922427E1D001D6D96 /* RequestPostVertifyEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostVertifyEmail.swift; sourceTree = "<group>"; };
 		CEF3058B22427E78001D6D96 /* RequestPostRegUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostRegUser.swift; sourceTree = "<group>"; };
 		CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostAuth.swift; sourceTree = "<group>"; };
@@ -241,13 +245,13 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		CE564BDA2237ADF20035BAC9 /* ContactBar */ = {
+		CE564BDA2237ADF20035BAC9 /* MainProfile */ = {
 			isa = PBXGroup;
 			children = (
-				CE564BDB2237AE0A0035BAC9 /* ContactBar.storyboard */,
-				CE564BDD2237AE1C0035BAC9 /* ContactBarVC.swift */,
+				CE564BDB2237AE0A0035BAC9 /* MainProfile.storyboard */,
+				CE564BDD2237AE1C0035BAC9 /* MainProfile.swift */,
 			);
-			path = ContactBar;
+			path = MainProfile;
 			sourceTree = "<group>";
 		};
 		CE564BDF2237C4D50035BAC9 /* NavigationTabBar */ = {
@@ -281,11 +285,11 @@
 		CE901944221D904100BA1B47 /* NaRogax */ = {
 			isa = PBXGroup;
 			children = (
+				CEF24FA22248F43600D5B1C2 /* Profile */,
 				CEF6A15F2244C4C000B28B05 /* RegAuth */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
 				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
-				CE564BDA2237ADF20035BAC9 /* ContactBar */,
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
@@ -338,6 +342,24 @@
 				CEF3FFF32246284500F07765 /* MainBookingVC.swift */,
 			);
 			path = BookingMainScreen;
+			sourceTree = "<group>";
+		};
+		CEF24FA22248F43600D5B1C2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEF24FA32249122300D5B1C2 /* EditProfile */,
+				CE564BDA2237ADF20035BAC9 /* MainProfile */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CEF24FA32249122300D5B1C2 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				CEF24FA52249124F00D5B1C2 /* EditProfile.storyboard */,
+				CEF24FA722491E0800D5B1C2 /* EditProfileVC.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		CEF5B8F22224A31000DE4E06 /* FullDescription */ = {
@@ -546,6 +568,7 @@
 				CEF7D78F2247DB7C00725FA0 /* SignUpScreen.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
 				CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */,
+				CEF24FA62249124F00D5B1C2 /* EditProfile.storyboard in Resources */,
 				CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
@@ -554,7 +577,7 @@
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
-				CE564BDC2237AE0A0035BAC9 /* ContactBar.storyboard in Resources */,
+				CE564BDC2237AE0A0035BAC9 /* MainProfile.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
 				CEF7C3A722391E6D00FBAA8B /* SelectTableScreen.storyboard in Resources */,
@@ -623,7 +646,7 @@
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
 				CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */,
 				CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */,
-				CE564BDE2237AE1C0035BAC9 /* ContactBarVC.swift in Sources */,
+				CE564BDE2237AE1C0035BAC9 /* MainProfile.swift in Sources */,
 				CE5A4727223BF72100724490 /* HoursWork.swift in Sources */,
 				CEF1C08E224403510081CA91 /* ResponseShowUserBooking.swift in Sources */,
 				CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */,
@@ -645,6 +668,7 @@
 				CEF1C0902244077E0081CA91 /* RequestPostDeleteUserBooking.swift in Sources */,
 				CEF7C39922391E6500FBAA8B /* ReserveScreenVC.swift in Sources */,
 				CEF3058A22427E1D001D6D96 /* RequestPostVertifyEmail.swift in Sources */,
+				CEF24FA822491E0800D5B1C2 /* EditProfileVC.swift in Sources */,
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7D78D2247DB7C00725FA0 /* SignUpVC.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
