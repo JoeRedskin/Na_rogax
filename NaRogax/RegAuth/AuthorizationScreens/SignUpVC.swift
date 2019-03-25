@@ -333,12 +333,13 @@ class SignUpVC: UIViewController {
             }
             if !validatePassword(pass: pass) {
                 incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
-                incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
+                //incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
                 PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
                 //showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
-                RepeatPasswordBtn.isHidden = true
+                //RepeatPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
-            }else if pass != rpass {
+            }
+            if pass != rpass {
                 incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
                 showErrorLabel(text: "Пароли должны совпадать")
                 RepeatPasswordBtn.isHidden = true
