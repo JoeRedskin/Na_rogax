@@ -56,3 +56,18 @@ func validatePhone(number: String) -> Bool {
         return false
     }
 }
+
+func validateCode(code: String) -> Bool {
+    if code.count != 5 {
+        return false
+    }
+    
+    let reg = "^[0-9]*$"
+    let range = NSRange(location: 0, length: code.count)
+    let regex = try! NSRegularExpression(pattern: reg)
+    if regex.firstMatch(in: code, options: [], range: range) != nil{
+        return true
+    } else {
+        return false
+    }
+}
