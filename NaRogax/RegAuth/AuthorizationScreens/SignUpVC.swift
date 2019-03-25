@@ -281,8 +281,10 @@ class SignUpVC: UIViewController {
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
                 /* TODO: Registration request */
+                self.SignUpBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                    self.SignUpBtn.isEnabled = true
                 }else{
                     DataLoader.shared().findUser(email: email){ result in
                         switch result?.code {
@@ -294,7 +296,14 @@ class SignUpVC: UIViewController {
                                 vc.password = pass
                                 vc.phone = phone
                                 
-                                self.navigationController?.pushViewController(vc, animated: true)
+                                var data = RequestPostVertifyEmail()
+                                data.email = email
+                                DataLoader.shared().verifyEmail(data: data){ result in
+                                    if result?.code == 200 {
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        self.SignUpBtn.isEnabled = true
+                                    }
+                                }
                                 break
                             case 200:
                                 self.incorrectData(field: self.EmailField, label: nil, image: self.EmailImage)
@@ -305,6 +314,7 @@ class SignUpVC: UIViewController {
                             case .some(_):
                                 break
                         }
+                        self.SignUpBtn.isEnabled = true
                     }
                 }
             }

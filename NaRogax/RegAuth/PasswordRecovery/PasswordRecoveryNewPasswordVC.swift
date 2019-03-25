@@ -232,17 +232,20 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text, let icode = Int(code) {
             if validateCode(code: code) && validatePassword(pass: pass) && pass == rpass {
                 /* TODO: Send request for change password */
+                self.ChangePasswordBtn.isEnabled = false
                 var data = RequestPostPasswordRecovery()
                 data.code = icode
                 data.email = self.email
                 data.password = pass
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
+                    self.ChangePasswordBtn.isEnabled = true
                 }else{
                     DataLoader.shared().passwordRecovery(data: data){ result in
                         if result?.code == 200 {
                             self.present(Alert.shared().changePassword(protocol: self as AlertProtocol), animated: true, completion: nil)
                         }
+                        self.ChangePasswordBtn.isEnabled = true
                     }
                 }
             }

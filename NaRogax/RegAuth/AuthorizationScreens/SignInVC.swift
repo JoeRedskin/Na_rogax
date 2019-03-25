@@ -160,9 +160,10 @@ class SignInVC: UIViewController {
             if validateEmail(email: email) && validatePassword(pass: pass){
                 print("SUCCESS")
                 /* TO DO: Auth request */
-                
+                self.SignInBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                    self.SignInBtn.isEnabled = true
                 }else{
                     var data = RequestPostAuth()
                     data.email = email
@@ -177,7 +178,7 @@ class SignInVC: UIViewController {
                             
                             self.showErrorLabel(text: "Неверный пароль или E-mail")
                         }
-                        
+                        self.SignInBtn.isEnabled = true
                     }
                 }
                 

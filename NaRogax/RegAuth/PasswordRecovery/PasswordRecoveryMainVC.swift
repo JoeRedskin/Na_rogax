@@ -123,9 +123,10 @@ class PasswordRecoveryMainVC: UIViewController {
             if email != "" {
                 if validateEmail(email: email) {
                     /* TODO: Send request for code */
-                    
+                    self.SendBtn.isEnabled = false
                     if (!DataLoader.shared().testNetwork()){
                         self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                        self.SendBtn.isEnabled = true
                     }else{
                         DataLoader.shared().findUser(email: email){ result in
                             switch result?.code {
@@ -141,6 +142,7 @@ class PasswordRecoveryMainVC: UIViewController {
                                         
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }
+                                    self.SendBtn.isEnabled = true
                                 }
                                 
                                 break
@@ -153,6 +155,7 @@ class PasswordRecoveryMainVC: UIViewController {
                             case .some(_):
                                 break
                             }
+                            self.SendBtn.isEnabled = true
                         }
                     }
                 } else {
