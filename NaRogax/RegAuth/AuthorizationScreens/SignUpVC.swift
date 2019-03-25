@@ -34,6 +34,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
+    @IBOutlet weak var Spinner: UIActivityIndicatorView!
     
     private var isEmptyName = true {
         didSet {
@@ -286,6 +287,7 @@ class SignUpVC: UIViewController {
                     self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                     self.SignUpBtn.isEnabled = true
                 }else{
+                    self.Spinner.startAnimating()
                     DataLoader.shared().findUser(email: email){ result in
                         switch result?.code {
                             case 404:
@@ -301,6 +303,7 @@ class SignUpVC: UIViewController {
                                 DataLoader.shared().verifyEmail(data: data){ result in
                                     if result?.code == 200 {
                                         self.navigationController?.pushViewController(vc, animated: true)
+                                        self.Spinner.stopAnimating()
                                         self.SignUpBtn.isEnabled = true
                                     }
                                 }
@@ -314,6 +317,7 @@ class SignUpVC: UIViewController {
                             case .some(_):
                                 break
                         }
+                        self.Spinner.stopAnimating()
                         self.SignUpBtn.isEnabled = true
                     }
                 }

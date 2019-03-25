@@ -231,6 +231,9 @@
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tLD-W7-Wmj">
+                                                <rect key="frame" x="169" y="601.5" width="37" height="37"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -251,6 +254,7 @@
                                             <constraint firstItem="Wb8-2C-MGB" firstAttribute="leading" secondItem="boz-Yn-ahg" secondAttribute="trailing" constant="-22" id="FJP-PS-Avm"/>
                                             <constraint firstItem="hJL-Mf-ICQ" firstAttribute="leading" secondItem="eey-cD-s5F" secondAttribute="leading" constant="16" id="GPl-VH-5Pb"/>
                                             <constraint firstItem="Cx5-2G-9R2" firstAttribute="leading" secondItem="hJL-Mf-ICQ" secondAttribute="trailing" constant="-22" id="JWi-Pd-dx1"/>
+                                            <constraint firstItem="tLD-W7-Wmj" firstAttribute="centerX" secondItem="oJS-1D-TEl" secondAttribute="centerX" id="Jds-pE-B2z"/>
                                             <constraint firstAttribute="trailing" secondItem="aRB-cY-Um7" secondAttribute="trailing" constant="16" id="LCS-w4-nds"/>
                                             <constraint firstItem="UHI-JP-fej" firstAttribute="leading" secondItem="tN6-ZE-50J" secondAttribute="trailing" constant="-22" id="Lzk-be-f9X"/>
                                             <constraint firstItem="Wb8-2C-MGB" firstAttribute="top" secondItem="8iT-rH-Bjd" secondAttribute="bottom" constant="9" id="M9D-DV-HcO"/>
@@ -279,6 +283,7 @@
                                             <constraint firstItem="fC5-Wy-nMf" firstAttribute="top" secondItem="RhA-dG-104" secondAttribute="bottom" constant="1" id="gvZ-vB-D2z"/>
                                             <constraint firstItem="8iT-rH-Bjd" firstAttribute="top" secondItem="oQy-gt-LSq" secondAttribute="bottom" constant="4" id="huE-o3-o6W"/>
                                             <constraint firstAttribute="trailing" secondItem="z0l-fk-enF" secondAttribute="trailing" constant="16" id="ipp-Df-0MZ"/>
+                                            <constraint firstItem="tLD-W7-Wmj" firstAttribute="centerY" secondItem="oJS-1D-TEl" secondAttribute="centerY" id="jdM-aN-daS"/>
                                             <constraint firstAttribute="trailing" secondItem="zTy-6Q-KY7" secondAttribute="trailing" constant="16" id="kJK-8U-Xak"/>
                                             <constraint firstAttribute="trailing" secondItem="JFS-V4-puG" secondAttribute="trailing" constant="84" id="kc1-3m-hVJ"/>
                                             <constraint firstAttribute="trailing" secondItem="8iT-rH-Bjd" secondAttribute="trailing" constant="16" id="lHv-OW-jYB"/>
@@ -349,6 +354,7 @@
                         <outlet property="RepeatedPasswordIcon" destination="XLz-Jp-aCn" id="kfk-PC-XMv"/>
                         <outlet property="ScrollView" destination="loa-dg-Gkl" id="JOx-lk-BXf"/>
                         <outlet property="SignUpBtn" destination="oJS-1D-TEl" id="Tjg-vW-NUf"/>
+                        <outlet property="Spinner" destination="tLD-W7-Wmj" id="aAh-RG-5Ba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHV-ia-AXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
