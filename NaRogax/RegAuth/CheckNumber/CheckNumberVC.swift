@@ -84,7 +84,7 @@ class CheckNumberVC: UIViewController{
             DataLoader.shared().regUser(data: requestPostRegUser){ result in
                 if (result?.code == 200){
                     print("regUser", "OK")
-                    
+                    self.navigationController?.popToRootViewController(animated: true)
                 }else{
                     print("regUser", result)
                     self.reloadError(show: true)

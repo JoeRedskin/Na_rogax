@@ -20,6 +20,7 @@ class SelectTableShowBookingVC: UIViewController {
         super.viewDidLoad()
         TableView.delegate = self
         TableView.dataSource = self
+        chekAuto.email = UserDefaults.standard.string(forKey: "email") ?? "zlobrynya@gmail.com"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,19 +28,17 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     private func checkUserData(){
-        
-        
         //тут происходит обращение к внутреней памяти и достаем данные
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
-            DataLoader.shared().checkAuto(data: chekAuto){ error in
+            DataLoader.shared().checkAuto(){ error in
                 print("checkUserData", error)
                 switch error?.code{
                 case 200:
                     self.getData()
                     break
-                case 401, 422:
+                case 401, 422, 404:
                     self.startStoryAuto()
                     break
                 default:
@@ -67,11 +66,19 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().showUserBooking(data: chekAuto){ result, error in
-                if error?.code == 200{
+                print("checkUserData", self.chekAuto)
+                print("checkUserData", error)
+                switch error?.code{
+                case 200:
                     self.userBooking = result
                     self.TableView.reloadData()
-                }else{
+                    break
+                case 404:
+                    self.startStoryAuto()
+                    break
+                default:
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    break
                 }
             }
         }

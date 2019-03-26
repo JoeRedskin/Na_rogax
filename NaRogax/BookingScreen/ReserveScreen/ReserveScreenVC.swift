@@ -79,11 +79,10 @@ class ReserveScreenVC: UIViewController {
                     vc.name = self.PersonNameLabel.text!
                     if (result?.code == 200){
                         vc.confirmation = true
-                        self.navigationController?.pushViewController(vc, animated: true)
                     } else {
                         vc.confirmation = false
-                        self.navigationController?.pushViewController(vc, animated: true)
                     }
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }}
             }
         }

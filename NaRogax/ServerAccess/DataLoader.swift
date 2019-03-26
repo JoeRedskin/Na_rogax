@@ -326,9 +326,8 @@ class DataLoader{
     }
     
     
-    func checkAuto(data: RequestUserEmail,
-                   completion:@escaping ((_ result: ErrorResponse?) -> Void)){
-        var respData = ErrorResponse(code: 200,desc: "")
+    func checkAuto(completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        var respData = ErrorResponse(code: 401,desc: "")
         let headers = ["Authorization": access_token]
         Alamofire.request(SERVER_URL + REQUEST_CHECK_AUTH, method: .get,
                           encoding: JSONEncoding.default,

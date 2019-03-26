@@ -302,7 +302,6 @@ class SignUpVC: UIViewController {
                                 vc.name = name
                                 vc.password = pass
                                 vc.phone = phone
-                                
                                 let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
                                     print("RequestUserEmail", result)

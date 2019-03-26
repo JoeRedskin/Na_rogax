@@ -157,13 +157,7 @@ class SignInVC: UIViewController {
     
     @IBAction func signInBtnTap(_ sender: UIButton) {
         if let email = EmailField.text, let pass = PasswordField.text {
-            if validateEmail(email: email) && validatePassword(pass: pass){
-                print("SUCCESS")
-                let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen")
-
-                navigationController?.pushViewController(vc, animated: true)
-                
+            if validateEmail(email: email) && validatePassword(pass: pass){                
                 /* TO DO: Auth request */
                 self.SignInBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
@@ -177,6 +171,7 @@ class SignInVC: UIViewController {
                         if result.code == 200 {
                             //let uuid = result.uuid
                             /* TODO: Переход на экран бронирования */
+                            self.dismiss(animated: true, completion: nil)
                         } else {
                             self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
                             self.incorrectData(field: self.PasswordField, label: nil, image: self.PasswordIcon)

@@ -67,7 +67,8 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
         } else {
-            //TO DO: сделать переход на экран авторизации, если пользователь неавторизированннй, либо на экран завершения брони
+            //TO DO: прилизать немного код, что б выглядело получше
+            // Сделать что бы передавалась имя для брони
             if (item > -1){
                 self.table_id = tables.data[item].table_id
                 self.selectedTable = tables.data[item]
@@ -114,11 +115,24 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     vc.table_date = dateFormatter.string(from: resDate!)
                 }
                 
-                //TO DO: сделать проверку на авторизованного пользователя
-                let storyboardSingIn = UIStoryboard(name: "SignInScreen", bundle: nil)
-                let vcSignIn = storyboardSingIn.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
+                DataLoader.shared().checkAuto(){ result in
+                    switch (result?.code){
+                    case 200:
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        break
+                    case 401:
+                        let storyboardSingIn = UIStoryboard(name: "SignInScreen", bundle: nil)
+                        let vcSignIn = storyboardSingIn.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
+                        self.navigationController?.pushViewController(vcSignIn, animated: true)
+                        break
+                    default:
+                        break
+                    }
+                    
+                }
                 
-                navigationController?.pushViewController(vcSignIn, animated: true)
+                //TO DO: сделать проверку на авторизованного пользователя
+                
             }
         }
     }
