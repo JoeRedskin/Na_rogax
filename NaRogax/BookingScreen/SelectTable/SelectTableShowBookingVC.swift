@@ -23,8 +23,39 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getData()
+        checkUserData()
     }
+    
+    private func checkUserData(){
+        
+        
+        //тут происходит обращение к внутреней памяти и достаем данные
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
+        }else{
+            DataLoader.shared().checkAuto(data: chekAuto){ error in
+                print("checkUserData", error)
+                switch error?.code{
+                case 200:
+                    self.getData()
+                    break
+                case 401, 422:
+                    self.startStoryAuto()
+                    break
+                default:
+                    self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    break
+                }
+            }
+        }
+    }
+    
+    private func startStoryAuto(){
+        let storyboard = UIStoryboard(name: "SignInScreen", bundle: nil)
+        let auto = storyboard.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
+        self.navigationController?.pushViewController(auto, animated: true)
+    }
+    
     
     @IBAction func clickButton(_ sender: UIButton) {
         index = sender.tag
@@ -77,14 +108,12 @@ extension SelectTableShowBookingVC: AlertProtocol{
 
 extension SelectTableShowBookingVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("tableView",userBooking.bookings.count)
         return userBooking.bookings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
         cell.displayCancelBooking(booking: userBooking.bookings[indexPath.row], index: indexPath.row)
-        print("tableView",cell)
         return cell
     }
     

@@ -25,7 +25,7 @@ class MainBookingVC: UIViewController {
         //segmentedControl = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
-        getUUID()
+        start()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -34,24 +34,11 @@ class MainBookingVC: UIViewController {
     }
     
     //временная
-    private func start(resp: RequestUserEmail){
+    private func start(){
         firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
         let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
-        secondPage.chekAuto = resp
         pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
-    }
-    
-    //переписать на д.р. получении
-    private func getUUID(){
-        let post = RequestPostAuth(email: "zlobrynya@gmail.com",password: "test")
-        let ret = RequestUserEmail(email: "zlobrynya@gmail.com")
-        DataLoader.shared().authorizeUser(data: post){ result, error in
-            if error?.code == 200{
-                self.start(resp: ret)
-            }else{
-            }
-        }
     }
     
     @IBAction func changedValue(_ sender: UISegmentedControl) {
@@ -87,7 +74,6 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
         } else {
             return nil
         }
-        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{

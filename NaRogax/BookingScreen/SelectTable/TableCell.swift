@@ -48,6 +48,8 @@ class TableCell: UITableViewCell {
         TitleLabel.text = booking.configData()
         TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 17)
         SelectBtn.tag = index
+        DescLabel.text = booking.configDesc()
+        TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 14)
 
         if (booking.accepted){
             SelectBtn.setTitle("Отменить", for: UIControl.State.normal)
@@ -56,7 +58,7 @@ class TableCell: UITableViewCell {
             SelectBtn.layer.borderWidth = 0
             SelectBtn.isUserInteractionEnabled = true
         }else{
-            SelectBtn.setImage(UIImage(named: "processed"), for: UIControl.State.normal)
+            SelectBtn.setImage(UIImage(named: "ic_processed"), for: UIControl.State.normal)
             SelectBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: UIControl.State.normal)
             SelectBtn.setTitle("", for: UIControl.State.normal)
             SelectBtn.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -65,8 +67,5 @@ class TableCell: UITableViewCell {
             SelectBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 0)
             SelectBtn.layer.borderWidth = 0
         }
-        
-
     }
-    
 }

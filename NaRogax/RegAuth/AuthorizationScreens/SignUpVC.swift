@@ -305,6 +305,7 @@ class SignUpVC: UIViewController {
                                 
                                 let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
+                                    print("RequestUserEmail", result)
                                     if result?.code == 200 {
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         self.Spinner.stopAnimating()

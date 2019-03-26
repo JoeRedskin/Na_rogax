@@ -65,7 +65,7 @@ class CheckNumberVC: UIViewController{
         if (strCode.count == textViews.count){
             reloadButton(active: true)
             view.endEditing(true)
-
+            code = Int(strCode)!
         }else{
             reloadButton(active: false)
         }
@@ -79,11 +79,14 @@ class CheckNumberVC: UIViewController{
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
+            print("regUser", requestPostRegUser)
+            requestPostRegUser.code = code
             DataLoader.shared().regUser(data: requestPostRegUser){ result in
                 if (result?.code == 200){
                     print("regUser", "OK")
+                    
                 }else{
-                    print("sendCode", result)
+                    print("regUser", result)
                     self.reloadError(show: true)
                 }
                 // print("sendCode", result)

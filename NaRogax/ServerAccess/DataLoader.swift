@@ -28,17 +28,32 @@ class DataLoader{
     private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
 
     
-    private var access_token = ""
+    
+    private var access_token = ""{
+        didSet{
+            saveAccessToken()
+        }
+    }
     private static var uniqueInstance: DataLoader?
     
     
-    private init() {}
+    private init() {
+        loadAccessToken()
+    }
     
     static func shared() -> DataLoader {
         if uniqueInstance == nil {
             uniqueInstance = DataLoader()
         }
         return uniqueInstance!
+    }
+    
+    private func loadAccessToken(){
+        access_token = KeychainService.token(service: "TokenService", account: "zlobrynya@gmail.com")
+    }
+    
+    private func saveAccessToken(){
+        KeychainService.setToken(access_token, service: "TokenService", account: "zlobrynya@gmail.com")
     }
     
     
@@ -69,7 +84,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -107,7 +122,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -143,7 +158,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -169,7 +184,7 @@ class DataLoader{
                 }
             case .failure(_):
                 if let data = response.data{
-                    errResp = self.decodeErrResponse(data: data)
+                    errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                 }
             }
             OperationQueue.main.addOperation {
@@ -197,7 +212,7 @@ class DataLoader{
                 }
             case .failure(_):
                 if let data = response.data{
-                    errResp = self.decodeErrResponse(data: data)
+                    errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                 }
             }
             OperationQueue.main.addOperation {
@@ -206,14 +221,14 @@ class DataLoader{
         }
     }
     
-    private func decodeErrResponse(data: Data) -> ErrorResponse{
+    private func decodeErrResponse(data: Data, code: Int) -> ErrorResponse{
         do{
-            //print("dataResponse", data.re)
             let decoder = JSONDecoder()
             return try decoder.decode(ErrorResponse.self, from: data)
             //print("Alamofire", model)
-        } catch _ {
-            return ErrorResponse(code: 500,desc: "")
+        } catch let error {
+            print("checkUserData", error)
+            return ErrorResponse(code: code,desc: "")
         }
     }
     
@@ -238,7 +253,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -267,7 +282,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -301,7 +316,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {
@@ -320,8 +335,10 @@ class DataLoader{
                           headers: headers)
             .validate()
             .responseData { response in
+                print("checkUserData", response)
                 switch response.result {
                 case .success:
+                    print("checkUserData", "success")
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
@@ -332,8 +349,9 @@ class DataLoader{
                         }
                     }
                 case .failure(_):
+                    print("checkUserData", "failure")
                     if let data = response.data{
-                        respData = self.decodeErrResponse(data: data)
+                        respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 completion(respData)
@@ -371,7 +389,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        respData = self.decodeErrResponse(data: data)
+                        respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 completion(respData)
@@ -447,7 +465,7 @@ class DataLoader{
                     }
                 case .failure(_):
                     if let data = response.data{
-                        errResp = self.decodeErrResponse(data: data)
+                        errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
                 OperationQueue.main.addOperation {

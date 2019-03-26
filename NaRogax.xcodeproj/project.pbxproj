@@ -83,6 +83,7 @@
 		CEF7D7962247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D7922247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift */; };
 		CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D7932247DB8600725FA0 /* PasswordRecoveryMain.storyboard */; };
 		CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7D7942247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard */; };
+		CEF83771224A23F800124293 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF83770224A23F800124293 /* KeychainService.swift */; };
 		CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF87B1A2232492400E2AB28 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		CEF7D7922247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryNewPasswordVC.swift; sourceTree = "<group>"; };
 		CEF7D7932247DB8600725FA0 /* PasswordRecoveryMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PasswordRecoveryMain.storyboard; sourceTree = "<group>"; };
 		CEF7D7942247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PasswordRecoveryNewPassword.storyboard; sourceTree = "<group>"; };
+		CEF83770224A23F800124293 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		CEF87B1A2232492400E2AB28 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DC4E8E9A19A710987DB9142E /* Pods-NaRogax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.debug.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -413,6 +415,7 @@
 				CE4F01982243788E009E526F /* Alert.swift */,
 				74A520D52247DC710049C016 /* ExtensionsBooking.swift */,
 				74A520D72247FF2B0049C016 /* DataValidation.swift */,
+				CEF83770224A23F800124293 /* KeychainService.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
+				CEF83771224A23F800124293 /* KeychainService.swift in Sources */,
 				CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */,
 				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,
 				74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */,

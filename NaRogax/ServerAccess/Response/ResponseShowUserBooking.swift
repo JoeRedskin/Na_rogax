@@ -33,6 +33,26 @@ struct Bookings: Decodable {
         return stringDate + ", " + strTimeFrom + "-" + strTimeTo
     }
     
+    func configDesc() -> String{
+        var countStr = ""
+        if chair_count == 4 {
+            countStr = String(chair_count) + " места"
+        } else {
+            countStr = String(chair_count) + " мест"
+        }
+        return "Стол: № \(table_id) на \(countStr), \(position) \(chair_type)"
+    }
+    
+    /*
+     if selectedTable.chair_count == 4 {
+     tableCountString = String(selectedTable.chair_count) + " места"
+     } else {
+     tableCountString = String(selectedTable.chair_count) + " мест"
+     }
+     
+     table_info = "Стол: № \(table_id) на \(tableCountString), \(selectedTable.position ?? "") \(selectedTable.chair_type)"
+     */
+    
     private func getDate(str: String) -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
