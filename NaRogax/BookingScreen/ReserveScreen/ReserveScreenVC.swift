@@ -65,8 +65,6 @@ class ReserveScreenVC: UIViewController {
 
                 var data = RequestPostReservePlace()
                 data.date = self.date
-                data.name = name
-                data.phone = phone
                 data.table_id = table_id
                 data.time_from = time_from
                 data.date_to = date_to
@@ -78,7 +76,7 @@ class ReserveScreenVC: UIViewController {
                 if result != nil {
                     let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
-                    vc.name = data.name
+                    vc.name = self.PersonNameLabel.text!
                     if (result?.code == 200){
                         vc.confirmation = true
                         self.navigationController?.pushViewController(vc, animated: true)

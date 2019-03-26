@@ -131,8 +131,7 @@ class PasswordRecoveryMainVC: UIViewController {
                         DataLoader.shared().findUser(email: email){ result in
                             switch result?.code {
                             case 200:
-                                var data = RequestPostVertifyEmail()
-                                data.email = email
+                                let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
                                     if result?.code == 200 {
                                         let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)

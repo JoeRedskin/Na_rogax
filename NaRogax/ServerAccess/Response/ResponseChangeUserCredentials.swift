@@ -12,5 +12,5 @@ struct ResponseChangeUserCredentials: Decodable {
     var code: Int
     var desc: String
     var email: String
-    var uuid: String
+    var access_token: String
 }

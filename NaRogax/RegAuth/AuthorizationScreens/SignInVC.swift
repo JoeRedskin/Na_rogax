@@ -175,7 +175,7 @@ class SignInVC: UIViewController {
                     data.password = pass
                     DataLoader.shared().authorizeUser(data: data){ result, error  in
                         if result.code == 200 {
-                            let uuid = result.uuid
+                            //let uuid = result.uuid
                             /* TODO: Переход на экран бронирования */
                         } else {
                             self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)

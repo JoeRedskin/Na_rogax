@@ -24,10 +24,13 @@ class DataLoader{
     private let REQUEST_SHOW_USER_BOOKING = "show_user_booking"
     private let REQUEST_DELETE_USER_BOOKING = "delete_user_booking"
     private let REQUEST_FIND_USER = "find_user/"
-    private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
     private let REQUEST_CHANGE_USER_CREDENTIALS = "change_user_credentials"
+    private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
+
     
+    private var access_token = ""
     private static var uniqueInstance: DataLoader?
+    
     
     private init() {}
     
@@ -39,11 +42,17 @@ class DataLoader{
     }
     
     
-    func viewUserCredentials(data: RequestPostCheckAuto,
+    func viewUserCredentials(data: RequestUserEmail,
                              completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)) {
         var userCredentials = ResponseUserCredentials(email: "", name: "", phone: "", reg_date: "")
         let paramet = data.conventParameters()
-        Alamofire.request(SERVER_URL + REQUEST_VIEW_USER_CREDENTIALS, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+        let headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        Alamofire.request(SERVER_URL + REQUEST_VIEW_USER_CREDENTIALS,
+                          method: .post,
+                          parameters: paramet,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
             .validate()
             .responseData { response in
                 var errResp = ErrorResponse(code: 200,desc: "")
@@ -70,11 +79,17 @@ class DataLoader{
     }
     
     
-    func changeUserCredentials(data: RequestPostCheckAuto,
+    func changeUserCredentials(data: RequestChangeUserCredentials,
                                completion:@escaping ((_ result: ResponseChangeUserCredentials,_ error: ErrorResponse?) -> Void)) {
-        var changeUserCredentials = ResponseChangeUserCredentials(code: 0, desc: "", email: "",uuid: "")
+        var changeUserCredentials = ResponseChangeUserCredentials(code: 0, desc: "", email: "", access_token: "")
         let paramet = data.conventParameters()
-        Alamofire.request(SERVER_URL + REQUEST_CHANGE_USER_CREDENTIALS, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+        let headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        Alamofire.request(SERVER_URL + REQUEST_CHANGE_USER_CREDENTIALS,
+                          method: .post,
+                          parameters: paramet,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
             .validate()
             .responseData { response in
                 var errResp = ErrorResponse(code: 200,desc: "")
@@ -84,6 +99,7 @@ class DataLoader{
                         do{
                             let decoder = JSONDecoder()
                             changeUserCredentials = try decoder.decode(ResponseChangeUserCredentials.self, from: data)
+                            self.access_token = changeUserCredentials.access_token
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""
@@ -100,11 +116,17 @@ class DataLoader{
         }
     }
     
-    func showUserBooking(data: RequestPostCheckAuto,
+    func showUserBooking(data: RequestUserEmail,
                          completion:@escaping ((_ result: ResponseShowUserBooking,_ error: ErrorResponse?) -> Void)){
         var showBooking = ResponseShowUserBooking()
         let paramet = data.conventParameters()
-        Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+        let headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING,
+                          method: .post,
+                          parameters: paramet,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
             .validate()
             .responseData { response in
                 var errResp = ErrorResponse(code: 200,desc: "")
@@ -258,7 +280,10 @@ class DataLoader{
                        completion:@escaping ((_ result: ResponseAuthorizeUser,_ error: ErrorResponse?) -> Void)){
         var credentals = ResponseAuthorizeUser()
         let paramet = data.conventParameters()
-        Alamofire.request(SERVER_URL + REQUEST_AUTH, method: .post, parameters: paramet, encoding: JSONEncoding.default)
+        Alamofire.request(SERVER_URL + REQUEST_AUTH,
+                          method: .post,
+                          parameters: paramet,
+                          encoding: JSONEncoding.default)
             .validate()
             .responseData { response in
                 var errResp = ErrorResponse(code: 200,desc: "")
@@ -268,6 +293,7 @@ class DataLoader{
                         do{
                             let decoder = JSONDecoder()
                             credentals = try decoder.decode(ResponseAuthorizeUser.self, from: data)
+                            self.access_token = credentals.access_token
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""
@@ -284,10 +310,52 @@ class DataLoader{
         }
     }
     
-    //общий метод для отправки на сервер когда ответ с сервера является ErrorResponse
-    private func postToServer(parameters: Parameters, request: String, completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+    
+    func checkAuto(data: RequestUserEmail,
+                   completion:@escaping ((_ result: ErrorResponse?) -> Void)){
         var respData = ErrorResponse(code: 200,desc: "")
-        Alamofire.request(SERVER_URL + request, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        let headers = ["Authorization": access_token]
+        Alamofire.request(SERVER_URL + REQUEST_CHECK_AUTH, method: .get,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            respData = try decoder.decode(ErrorResponse.self, from: data)
+                        } catch _ {
+                            respData.code = 500
+                            respData.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        respData = self.decodeErrResponse(data: data)
+                    }
+                }
+                completion(respData)
+        }
+        
+    }
+    
+    //общий метод для отправки на сервер когда ответ с сервера является ErrorResponse
+    private func postToServer(parameters: Parameters, auto: Bool = false, request: String, completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        var respData = ErrorResponse(code: 200,desc: "")
+        var headers: [String: String]? = nil
+        if (auto){
+            headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        }else{
+            headers = ["Content-Type": "application/json"]
+        }
+        Alamofire.request(SERVER_URL + request,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: headers!)
             .validate()
             .responseData { response in
                 switch response.result {
@@ -310,7 +378,7 @@ class DataLoader{
         }
     }
     
-    func verifyEmail(data: RequestPostVertifyEmail,
+    func verifyEmail(data: RequestUserEmail,
                      completion:@escaping ((_ result: ErrorResponse?) -> Void)){
         let parameters = data.conventParameters()
         postToServer(parameters: parameters, request: REQUEST_VERIFY_EMAIL){ result in
@@ -343,17 +411,7 @@ class DataLoader{
     func reserveTable(data: RequestPostReservePlace,
                       completion:@escaping ((_ result: ErrorResponse?) -> Void)) {
         let parameters = data.conventParameters()
-        postToServer(parameters: parameters, request: REQUEST_RESERVE_PLACE){ result in
-            OperationQueue.main.addOperation {
-                completion(result)
-            }
-        }
-    }
-    
-    func checkAuto(data: RequestPostCheckAuto,
-                   completion:@escaping ((_ result: ErrorResponse?) -> Void)){
-        let parameters = data.conventParameters()
-        postToServer(parameters: parameters, request: REQUEST_CHECK_AUTH){ result in
+        postToServer(parameters: parameters, auto: true, request: REQUEST_RESERVE_PLACE){ result in
             OperationQueue.main.addOperation {
                 completion(result)
             }
@@ -363,7 +421,7 @@ class DataLoader{
     func userDeleteUserBooking(data: RequestPostDeleteUserBooking,
                                completion:@escaping ((_ result: ErrorResponse?) -> Void)){
         let parameters = data.conventParameters()
-        postToServer(parameters: parameters, request: REQUEST_DELETE_USER_BOOKING){ result in
+        postToServer(parameters: parameters, auto: true, request: REQUEST_DELETE_USER_BOOKING){ result in
             OperationQueue.main.addOperation {
                 completion(result)
             }

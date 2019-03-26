@@ -303,8 +303,7 @@ class SignUpVC: UIViewController {
                                 vc.password = pass
                                 vc.phone = phone
                                 
-                                var data = RequestPostVertifyEmail()
-                                data.email = email
+                                let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
                                     if result?.code == 200 {
                                         self.navigationController?.pushViewController(vc, animated: true)

@@ -34,7 +34,7 @@ class MainBookingVC: UIViewController {
     }
     
     //временная
-    private func start(resp: RequestPostCheckAuto){
+    private func start(resp: RequestUserEmail){
         firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
         let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
@@ -45,10 +45,9 @@ class MainBookingVC: UIViewController {
     //переписать на д.р. получении
     private func getUUID(){
         let post = RequestPostAuth(email: "zlobrynya@gmail.com",password: "test")
-        var ret = RequestPostCheckAuto(email: "zlobrynya@gmail.com",uuid: "")
+        let ret = RequestUserEmail(email: "zlobrynya@gmail.com")
         DataLoader.shared().authorizeUser(data: post){ result, error in
             if error?.code == 200{
-                ret.uuid = result.uuid
                 self.start(resp: ret)
             }else{
             }

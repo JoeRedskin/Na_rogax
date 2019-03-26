@@ -14,7 +14,7 @@ class SelectTableShowBookingVC: UIViewController {
     private var userBooking = ResponseShowUserBooking()
     private var CODE_ALERT_DELETE = 100
     private var index = -1
-    var chekAuto = RequestPostCheckAuto()
+    var chekAuto = RequestUserEmail()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     private func deleteBooking(){
-        let deleteUserBooking = RequestPostDeleteUserBooking(email: chekAuto.email, uuid: chekAuto.uuid, booking_id:userBooking.bookings[index].booking_id)
+        let deleteUserBooking = RequestPostDeleteUserBooking(email: chekAuto.email, booking_id:userBooking.bookings[index].booking_id)
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
