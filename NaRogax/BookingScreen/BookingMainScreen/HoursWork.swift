@@ -51,6 +51,10 @@ class HoursWork{
             //убираем полчаса, что бы можно было бронить прямо с открытия 
             startTimeD -= 0.5
         }
+        var lastTime = ""
+        if (arrayTime.count != 0){
+            lastTime = arrayTime[indexSelectTime]
+        }
         var currentTime = startTimeD
         arrayTime.removeAll()
         while currentTime < endTimeD {
@@ -63,6 +67,9 @@ class HoursWork{
             } else {
                 arrayTime.append("\(hours):\(minutes)")
             }
+        }
+        if !lastTime.isEmpty{
+            indexSelectTime = arrayTime.lastIndex(of: lastTime) ?? 0
         }
         if (PRINT_DEBUG){
             print("array", arrayTime)
@@ -246,6 +253,6 @@ class HoursWork{
         if (PRINT_DEBUG){
             print("isBookingCloseToday", hours, workhours)
         }
-        return Int((workhours.close - 2)) < hours
+        return Int((workhours.close - 2)) <= hours
     }
 }

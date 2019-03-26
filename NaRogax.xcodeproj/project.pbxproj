@@ -66,8 +66,6 @@
 		CEF692E622274ACA000F3307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF692E422274AC9000F3307 /* Main.storyboard */; };
 		CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF6A15B2244C46C00B28B05 /* CheckNumber.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6A15D2244C48400B28B05 /* CheckNumberVC.swift */; };
-		CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */; };
-		CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */; };
 		CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */; };
 		CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */; };
 		CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C3892238E01500FBAA8B /* ReservePlace.swift */; };
@@ -152,8 +150,6 @@
 		CEF692E522274AC9000F3307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEF6A15B2244C46C00B28B05 /* CheckNumber.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckNumber.storyboard; sourceTree = "<group>"; };
 		CEF6A15D2244C48400B28B05 /* CheckNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNumberVC.swift; sourceTree = "<group>"; };
-		CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationCanceled.storyboard; sourceTree = "<group>"; };
-		CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCanceledVC.swift; sourceTree = "<group>"; };
 		CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReservationConfirmed.storyboard; sourceTree = "<group>"; };
 		CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationConfirmedVC.swift; sourceTree = "<group>"; };
 		CEF7C3892238E01500FBAA8B /* ReservePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservePlace.swift; sourceTree = "<group>"; };
@@ -379,29 +375,11 @@
 		CEF7C37F2238E01500FBAA8B /* BookingConfirmation */ = {
 			isa = PBXGroup;
 			children = (
-				CEF7C3832238E01500FBAA8B /* ReservationCanceled */,
-				CEF7C3862238E01500FBAA8B /* ReservationConfirmed */,
+				CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */,
+				CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */,
 				CEF7C3892238E01500FBAA8B /* ReservePlace.swift */,
 			);
 			path = BookingConfirmation;
-			sourceTree = "<group>";
-		};
-		CEF7C3832238E01500FBAA8B /* ReservationCanceled */ = {
-			isa = PBXGroup;
-			children = (
-				CEF7C3842238E01500FBAA8B /* ReservationCanceled.storyboard */,
-				CEF7C3852238E01500FBAA8B /* ReservationCanceledVC.swift */,
-			);
-			path = ReservationCanceled;
-			sourceTree = "<group>";
-		};
-		CEF7C3862238E01500FBAA8B /* ReservationConfirmed */ = {
-			isa = PBXGroup;
-			children = (
-				CEF7C3872238E01500FBAA8B /* ReservationConfirmed.storyboard */,
-				CEF7C3882238E01500FBAA8B /* ReservationConfirmedVC.swift */,
-			);
-			path = ReservationConfirmed;
 			sourceTree = "<group>";
 		};
 		CEF7C3912238E65700FBAA8B /* MenuScreen */ = {
@@ -570,7 +548,6 @@
 				CEF7D78E2247DB7C00725FA0 /* SignInScreen.storyboard in Resources */,
 				CEF7D78F2247DB7C00725FA0 /* SignUpScreen.storyboard in Resources */,
 				CEF692E622274ACA000F3307 /* Main.storyboard in Resources */,
-				CEF7C38C2238E01500FBAA8B /* ReservationCanceled.storyboard in Resources */,
 				CEF7D7982247DB8600725FA0 /* PasswordRecoveryNewPassword.storyboard in Resources */,
 				CEF7D7972247DB8600725FA0 /* PasswordRecoveryMain.storyboard in Resources */,
 				CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */,
@@ -690,7 +667,6 @@
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
-				CEF7C38D2238E01500FBAA8B /* ReservationCanceledVC.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
 				CEF6A15E2244C48400B28B05 /* CheckNumberVC.swift in Sources */,
 				CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */,

@@ -285,6 +285,7 @@ class SignUpVC: UIViewController {
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
+                
                 /* TODO: Registration request */
                 self.SignUpBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){

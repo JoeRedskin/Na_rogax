@@ -76,23 +76,17 @@ class ReserveScreenVC: UIViewController {
             
                 DataLoader.shared().reserveTable(data: data){ result in
                 if result != nil {
+                    let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
+                    vc.name = data.name
                     if (result?.code == 200){
-                        let storyboard = UIStoryboard(name: "ReservationConfirmed", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "ReservationConfirmed") as! ReservationConfirmedVC
-                        vc.name = data.name
+                        vc.confirmation = true
                         self.navigationController?.pushViewController(vc, animated: true)
                     } else {
-//                        print("**************")
-//                        print(result ?? "strange")
-//                        print("**************")
-                        let storyboard = UIStoryboard(name:
-                                "ReservationCanceled", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "ReservationCanceled") as! ReservationCanceledVC
-                        vc.name = data.name
+                        vc.confirmation = false
                         self.navigationController?.pushViewController(vc, animated: true)
-                        }
                     }
-                }
+                }}
             }
         }
     }

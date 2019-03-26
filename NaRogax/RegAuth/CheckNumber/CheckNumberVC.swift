@@ -43,8 +43,8 @@ class CheckNumberVC: UIViewController{
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, surname: surname, birthday: birthday, phone: phone)
+        requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, phone: phone)
+        UITextField.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -63,11 +63,10 @@ class CheckNumberVC: UIViewController{
             strCode += item.text ?? ""
         }
         if (strCode.count == textViews.count){
-            print("sekector", "true", strCode)
-            requestPostRegUser.code = Int(strCode)!
             reloadButton(active: true)
+            view.endEditing(true)
+
         }else{
-            print("sekector", "false", strCode)
             reloadButton(active: false)
         }
     }
@@ -84,8 +83,10 @@ class CheckNumberVC: UIViewController{
                 if (result?.code == 200){
                     print("regUser", "OK")
                 }else{
+                    print("sendCode", result)
                     self.reloadError(show: true)
                 }
+                // print("sendCode", result)
             }
         }
     }
@@ -98,33 +99,37 @@ class CheckNumberVC: UIViewController{
     @IBAction func touchTextView(_ sender: UITextField) {
         sender.becomeFirstResponder()
         sender.selectAll(nil)
-        //if (index >= textViews.count){
-            index = textViews.firstIndex(of: sender as! NumberTextView)!
-        //}
+        index = textViews.firstIndex(of: sender as! NumberTextView)!
     }
     
     @IBAction func textViewChange(_ sender: UITextField) {
-        print("sekector textViewChange", index)
+        print("textViewChange")
         reloadError(show: false)
+        if sender.text == "."{
+            sender.text = ""
+            return
+        }
         if (index + 1 < textViews.count){
-            if !(textViews[index].text?.isEmpty)!{
+            //if !(textViews[index].text?.isEmpty)!{
                 index += 1
                 textViews[index].becomeFirstResponder()
-            }
+            //}
         }else{
             view.endEditing(true)
-            checkCode()
         }
+        checkCode()
     }
     
     private func reloadError(show: Bool){
+        print("reloadError", show)
         var color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         if (show){
-            color = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+            color = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.7)
             labelError.isHidden = false
         }else{
             labelError.isHidden = true
         }
+        
         for item in textViews{
             item.textColor = color
         }
@@ -132,7 +137,7 @@ class CheckNumberVC: UIViewController{
     
     private func reloadButton(active: Bool){
         if (active){
-            buttonCon.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            buttonCon.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
             buttonCon.isUserInteractionEnabled = true
             view.endEditing(true)
         }else{
@@ -166,30 +171,19 @@ extension CheckNumberVC: AlertProtocol{
     func clickButtonCanсel(status: Int) {
         
     }
-    
-//    func clickButtonPositiv() {
-//
-//    }
-//
-//    func clickButtonCanсel() {
-//    }
 }
 
 extension CheckNumberVC:CutPasteProtocol{
     func setText() {
         if let myString = UIPasteboard.general.string {
-            if myString.count <= 5{
+            if myString.count <= 5 && !myString.isEmpty{
                 let range = NSRange(location: 0, length: myString.count)
                 let reg = "^[0-9]"
                 let regex = try! NSRegularExpression(pattern: reg)
                 if regex.firstMatch(in: myString, options: [], range: range) != nil{
                     self.setCutText(messege: myString)
-                } else {
-                    print("sekector", "false")
                 }
-                print("sekector", myString)
             }
         }
-        UIPasteboard.general.string = ""
     }
 }

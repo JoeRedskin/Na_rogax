@@ -114,7 +114,11 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     vc.table_date = dateFormatter.string(from: resDate!)
                 }
                 
-                navigationController?.pushViewController(vc, animated: true)
+                //TO DO: сделать проверку на авторизованного пользователя
+                let storyboardSingIn = UIStoryboard(name: "SignInScreen", bundle: nil)
+                let vcSignIn = storyboardSingIn.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
+                
+                navigationController?.pushViewController(vcSignIn, animated: true)
             }
         }
     }

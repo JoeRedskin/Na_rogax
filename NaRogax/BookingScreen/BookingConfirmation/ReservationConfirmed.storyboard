@@ -64,8 +64,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ConfirmLabel" destination="83H-Qf-KTW" id="BY0-8m-Ilv"/>
                         <outlet property="button" destination="9ch-Zj-kI4" id="lho-kr-bsz"/>
+                        <outlet property="confirmLabel" destination="83H-Qf-KTW" id="BY0-8m-Ilv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THa-jC-OM4" userLabel="First Responder" sceneMemberID="firstResponder"/>

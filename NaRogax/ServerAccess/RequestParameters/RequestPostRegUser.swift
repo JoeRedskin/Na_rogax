@@ -14,8 +14,6 @@ struct RequestPostRegUser {
     var password = ""
     var code = 0
     var name = ""
-    var surname = ""
-    var birthday = ""
     var phone = ""
     
     func conventParameters() -> Parameters{
@@ -24,8 +22,6 @@ struct RequestPostRegUser {
             "password": password,
             "code": code,
             "name":  name,
-            "surname": surname,
-            "birthday": birthday,
             "phone":  phone]
         return par
     }
