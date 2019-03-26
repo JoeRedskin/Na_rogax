@@ -52,6 +52,10 @@ class DateCVC {
         self.date = format.string(from: date)
     }
     
+    func getDay() -> String{
+        return String(text.split(separator: "\n")[1])
+    }
+    
     //возращает дату в ячейке
     func getDate() -> String{
         return date

@@ -43,16 +43,6 @@ struct Bookings: Decodable {
         return "Стол: № \(table_id) на \(countStr), \(position) \(chair_type)"
     }
     
-    /*
-     if selectedTable.chair_count == 4 {
-     tableCountString = String(selectedTable.chair_count) + " места"
-     } else {
-     tableCountString = String(selectedTable.chair_count) + " мест"
-     }
-     
-     table_info = "Стол: № \(table_id) на \(tableCountString), \(selectedTable.position ?? "") \(selectedTable.chair_type)"
-     */
-    
     private func getDate(str: String) -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

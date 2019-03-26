@@ -64,7 +64,6 @@ class CheckNumberVC: UIViewController{
         }
         if (strCode.count == textViews.count){
             reloadButton(active: true)
-            view.endEditing(true)
             code = Int(strCode)!
         }else{
             reloadButton(active: false)
@@ -100,23 +99,23 @@ class CheckNumberVC: UIViewController{
     }
     
     @IBAction func touchTextView(_ sender: UITextField) {
-        sender.becomeFirstResponder()
-        sender.selectAll(nil)
         index = textViews.firstIndex(of: sender as! NumberTextView)!
+        print("textViewChange touch", index)
+        textViews[index].becomeFirstResponder()
+        textViews[index].selectAll(nil)
     }
     
     @IBAction func textViewChange(_ sender: UITextField) {
-        print("textViewChange")
+        print("textViewChange", index)
         reloadError(show: false)
         if sender.text == "."{
             sender.text = ""
             return
         }
         if (index + 1 < textViews.count){
-            //if !(textViews[index].text?.isEmpty)!{
-                index += 1
-                textViews[index].becomeFirstResponder()
-            //}
+            index += 1
+            textViews[index].becomeFirstResponder()
+            print("textViewChange if", index)
         }else{
             view.endEditing(true)
         }
@@ -142,7 +141,6 @@ class CheckNumberVC: UIViewController{
         if (active){
             buttonCon.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
             buttonCon.isUserInteractionEnabled = true
-            view.endEditing(true)
         }else{
             buttonCon.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
             buttonCon.isUserInteractionEnabled = false

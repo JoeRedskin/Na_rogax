@@ -16,11 +16,13 @@ class HoursWork{
     private var endTimeD: Double = 0
     private var arrayTime: [String] = []
     private var indexSelectTime: Int = 0
+    var responseTimetable = ResponseTimetable(data: [])
     //переменные для выбора сколько сидим
     private var arrayDurationTime: [String] = []
     private var indexSelectDuration: Int = 0
     private let START_DURATION: Double = 2
     private let STOP_DURATION: Double = 4
+    
     
     //перерасчет времени
     func changeDay(day: String, today: Bool) {
@@ -30,16 +32,19 @@ class HoursWork{
     
     //возвращает рабочие часы для брони
     private func getOpenClose(day: String) -> (open: Double, close: Double){
-        switch day {
-        case "вс":
-            return (13, 20)
-        case "сб":
-            return (13, 23)
-        case "пт":
-            return (12, 21)
-        default:
-            return (12, 21)
+        for item in responseTimetable.data{
+            if (day == item.week_day){
+                var to = Double(item.time_to.split(separator: ":")[0])
+                if (to == 1){
+                    to = 23
+                }else{
+                    to = to! - 2
+                }
+                let from = Double(item.time_from.split(separator: ":")[0])
+                return (from!, to!)
+            }
         }
+        return (0,0)
     }
    
     //Расчет интервала времени
@@ -248,10 +253,14 @@ class HoursWork{
     
     func isBookingCloseToday(day: String) -> Bool{
         let calendar = Calendar.current
-        let hours = calendar.component(.hour, from: Date())
+        var hours = calendar.component(.hour, from: Date())
+        let min = calendar.component(.minute, from: Date())
+        if (min > 30){
+            hours += 1
+        }
         let workhours = getOpenClose(day: day)
         if (PRINT_DEBUG){
-            print("isBookingCloseToday", hours, workhours)
+            print("isBookingCloseToday", hours, (workhours.close - 2))
         }
         return Int((workhours.close - 2)) <= hours
     }

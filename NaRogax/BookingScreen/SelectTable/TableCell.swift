@@ -57,6 +57,7 @@ class TableCell: UITableViewCell {
             SelectBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
             SelectBtn.layer.borderWidth = 0
             SelectBtn.isUserInteractionEnabled = true
+            SelectBtn.setImage(nil, for: UIControl.State.normal)
         }else{
             SelectBtn.setImage(UIImage(named: "ic_processed"), for: UIControl.State.normal)
             SelectBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: UIControl.State.normal)
