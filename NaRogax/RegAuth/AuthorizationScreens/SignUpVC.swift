@@ -33,11 +33,13 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var RepeatPasswordBtn: UIButton!
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
+    @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
+    @IBOutlet weak var Spinner: UIActivityIndicatorView!
     
     private var isEmptyName = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -54,13 +56,13 @@ class SignUpVC: UIViewController {
     private var isEmptyPhone = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
                 SignUpBtn.isEnabled = false
             }
-            if !isEmptyName {
+            if !isEmptyPhone {
                 PhoneLabel.isHidden = false
             } else {
                 PhoneLabel.isHidden = true
@@ -71,7 +73,7 @@ class SignUpVC: UIViewController {
     private var isEmptyEmail = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -88,7 +90,7 @@ class SignUpVC: UIViewController {
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -107,7 +109,7 @@ class SignUpVC: UIViewController {
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
-                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignUpBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignUpBtn.isEnabled = true
             } else {
                 SignUpBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -144,55 +146,6 @@ class SignUpVC: UIViewController {
         }
         if let img = image {
             img.isHidden = true
-        }
-    }
-    
-    func validateName(name: String) -> Bool {
-        if name.count > 1 {
-            let range = NSRange(location: 0, length: name.count)
-            //let reg = "^[a-zA-Zа-яА-ЯёЁ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
-            let reg = "^[A-Za-zА-Яа-яЁё]{1,\(NameField.maxLength)}$"
-            let regex = try! NSRegularExpression(pattern: reg)
-            if regex.firstMatch(in: name, options: [], range: range) != nil{
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
-    }
-    
-    func validatePassword(pass: String) -> Bool {
-        let reg = "^(?=.*\\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,32}$"
-        let range = NSRange(location: 0, length: pass.count)
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: pass, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func validateEmail(email: String) -> Bool {
-        let range = NSRange(location: 0, length: email.count)
-        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,62}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,255}"
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: email, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func validatePhone(number: String) -> Bool {
-        let range = NSRange(location: 0, length: number.count)
-        let reg = "^(\\+7|8)[0-9]{10}"
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: number, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
         }
     }
     
@@ -249,6 +202,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+        PasswordErrorLabel.text = "Некорректный пароль"
         PasswordBtn.isHidden = false
         if let pass = PasswordField.text {
             if pass != "" {
@@ -261,8 +215,12 @@ class SignUpVC: UIViewController {
         }
     }
     
+    @IBAction func passwordDidBegin(_ sender: UITextField) {
+        sender.text = ""
+    }
+    
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
-        correctData(field: RepeatPasswordField, label: PasswordErrorLabel, image: RepeatedPasswordIcon)
+        correctData(field: RepeatPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
         RepeatPasswordBtn.isHidden = false
         if let pass = RepeatPasswordField.text {
             if pass != "" {
@@ -320,8 +278,8 @@ class SignUpVC: UIViewController {
     }
     
     func showErrorLabel(text: String) {
-        PasswordErrorLabel.text = text
-        PasswordErrorLabel.isHidden = false
+        RepeatedPasswordErrorLabel.text = text
+        RepeatedPasswordErrorLabel.isHidden = false
     }
     
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
@@ -329,14 +287,45 @@ class SignUpVC: UIViewController {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
                 
                 /* TODO: Registration request */
-                
-                
-                /* переход на экран подтвержения регистрации(ввод кода) */
-                let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumber")
-                
-                navigationController?.pushViewController(vc, animated: true)
-                
+                self.SignUpBtn.isEnabled = false
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                    self.SignUpBtn.isEnabled = true
+                }else{
+                    self.Spinner.startAnimating()
+                    DataLoader.shared().findUser(email: email){ result in
+                        switch result?.code {
+                            case 404:
+                                let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumberScreen") as! CheckNumberVC
+                                vc.email = email
+                                vc.name = name
+                                vc.password = pass
+                                vc.phone = phone
+                                
+                                var data = RequestPostVertifyEmail()
+                                data.email = email
+                                DataLoader.shared().verifyEmail(data: data){ result in
+                                    if result?.code == 200 {
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        self.Spinner.stopAnimating()
+                                        self.SignUpBtn.isEnabled = true
+                                    }
+                                }
+                                break
+                            case 200:
+                                self.incorrectData(field: self.EmailField, label: nil, image: self.EmailImage)
+                                self.showErrorLabel(text: "Пользователь с такой почтой уже существует")
+                                break
+                            case .none:
+                                break
+                            case .some(_):
+                                break
+                        }
+                        self.Spinner.stopAnimating()
+                        self.SignUpBtn.isEnabled = true
+                    }
+                }
             }
             if !validateName(name: name) {
                 incorrectData(field: NameField, label: NameErrorLabel, image: NameImage)
@@ -348,12 +337,14 @@ class SignUpVC: UIViewController {
                 incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
             }
             if !validatePassword(pass: pass) {
-                incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
-                incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
-                showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
-                RepeatPasswordBtn.isHidden = true
+                incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+                //incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
+                PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
+                //showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
+                //RepeatPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
-            }else if pass != rpass {
+            }
+            if pass != rpass {
                 incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
                 showErrorLabel(text: "Пароли должны совпадать")
                 RepeatPasswordBtn.isHidden = true

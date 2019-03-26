@@ -8,18 +8,26 @@
 
 import UIKit
 
-class PasswordRecoveryNewPasswordVC: UIViewController {
-
+class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
+    func clickButtonPositiv(status: Int) {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+    }
+    
+    func clickButtonCanсel(status: Int) {
+        print("do nothing")
+    }
     @IBOutlet weak var PasswordLabel: UILabel!
     @IBOutlet weak var PasswordField: UITextField!
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var PasswordBtn: UIButton!
+    @IBOutlet weak var PasswordErrorLabel: UILabel!
     
     @IBOutlet weak var RepeatedPasswordLabel: UILabel!
     @IBOutlet weak var RepeatedPasswordField: UITextField!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordBtn: UIButton!
-    @IBOutlet weak var PasswordErrorLabel: UILabel!
+    @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
     
     @IBOutlet weak var CodeLabel: UILabel!
     @IBOutlet weak var CodeField: UITextField!
@@ -28,10 +36,12 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     
     @IBOutlet weak var ChangePasswordBtn: UIButton!
     
+    var email = ""
+    
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -48,7 +58,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -65,7 +75,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     private var isEmptyCode = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
-                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                ChangePasswordBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 ChangePasswordBtn.isEnabled = true
             } else {
                 ChangePasswordBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -93,7 +103,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
         PasswordField.maxLength = 32
         RepeatedPasswordField.maxLength = 32
         CodeField.maxLength = 5
-        setStyleForTextField(field: PasswordField, placeholder: "Пароль")
+        setStyleForTextField(field: PasswordField, placeholder: "Новый пароль")
         setStyleForTextField(field: RepeatedPasswordField, placeholder: "Введите пароль еще раз")
         setStyleForTextField(field: CodeField, placeholder: "Код из E-mail")
         
@@ -142,28 +152,6 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
         field.rightViewMode = .always
     }
     
-    func validatePassword(pass: String) -> Bool {
-        let reg = "^(?=.*\\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,32}$"
-        let range = NSRange(location: 0, length: pass.count)
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: pass, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func validateCode(code: String) -> Bool {
-        let reg = "^[0-9]{5}"
-        let range = NSRange(location: 0, length: code.count)
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: code, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
     func showErrorLabel(text: String) {
         PasswordErrorLabel.text = text
         PasswordErrorLabel.isHidden = false
@@ -179,6 +167,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+        PasswordErrorLabel.text = ""
         PasswordBtn.isHidden = false
         if let pass = PasswordField.text {
             if pass != "" {
@@ -192,7 +181,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
     }
     
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
-        correctData(field: RepeatedPasswordField, label: PasswordErrorLabel, image: RepeatedPasswordIcon)
+        correctData(field: RepeatedPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
         RepeatedPasswordBtn.isHidden = false
         if let pass = RepeatedPasswordField.text {
             if pass != "" {
@@ -218,24 +207,41 @@ class PasswordRecoveryNewPasswordVC: UIViewController {
         }
     }
     
+    
     @IBAction func ChangePasswordTap(_ sender: UIButton) {
-        if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text {
+        if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text, let icode = Int(code) {
             if validateCode(code: code) && validatePassword(pass: pass) && pass == rpass {
                 /* TODO: Send request for change password */
-                
+                self.ChangePasswordBtn.isEnabled = false
+                var data = RequestPostPasswordRecovery()
+                data.code = icode
+                data.email = self.email
+                data.password = pass
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
+                    self.ChangePasswordBtn.isEnabled = true
+                }else{
+                    DataLoader.shared().passwordRecovery(data: data){ result in
+                        if result?.code == 200 {
+                            self.present(Alert.shared().changePassword(protocol: self as AlertProtocol), animated: true, completion: nil)
+                        }
+                        self.ChangePasswordBtn.isEnabled = true
+                    }
+                }
             }
             if !validateCode(code: code) {
                 incorrectData(field: CodeField, label: CodeErrorLabel, image: CodeIcon)
             }
             if !validatePassword(pass: pass) {
-                incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
-                incorrectData(field: RepeatedPasswordField, label: nil, image: RepeatedPasswordIcon)
-                showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
-                RepeatedPasswordBtn.isHidden = true
+                incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
+                //incorrectData(field: RepeatedPasswordField, label: nil, image: RepeatedPasswordIcon)
+                PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
+                //PasswordErrorLabel.isHidden = false
+                //RepeatedPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
-            } else if pass != rpass {
-                incorrectData(field: RepeatedPasswordField, label: nil, image: RepeatedPasswordIcon)
-                showErrorLabel(text: "Пароли должны совпадать")
+            }
+            if pass != rpass {
+                incorrectData(field: RepeatedPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
                 RepeatedPasswordBtn.isHidden = true
             }
         }

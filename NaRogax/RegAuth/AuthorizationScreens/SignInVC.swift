@@ -26,7 +26,7 @@ class SignInVC: UIViewController {
     private var isEmptyEmail = true {
         didSet {
             if !isEmptyEmail && !isEmptyPassword {
-                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignInBtn.isEnabled = true
             } else {
                 SignInBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -43,7 +43,7 @@ class SignInVC: UIViewController {
     private var isEmptyPassword = true {
         didSet {
             if !isEmptyEmail && !isEmptyPassword {
-                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                SignInBtn.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
                 SignInBtn.isEnabled = true
             } else {
                 SignInBtn.backgroundColor = #colorLiteral(red: 0.4666666667, green: 0.4666666667, blue: 0.4666666667, alpha: 1)
@@ -119,28 +119,6 @@ class SignInVC: UIViewController {
         }
     }
     
-    func validatePassword(pass: String) -> Bool {
-        let reg = "^(?=.*\\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,32}$"
-        let range = NSRange(location: 0, length: pass.count)
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: pass, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func validateEmail(email: String) -> Bool {
-        let range = NSRange(location: 0, length: email.count)
-        let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,62}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,255}"
-        let regex = try! NSRegularExpression(pattern: reg)
-        if regex.firstMatch(in: email, options: [], range: range) != nil{
-            return true
-        } else {
-            return false
-        }
-    }
-    
     @IBAction func showPassword(_ sender: UIButton) {
         PasswordField.isSecureTextEntry = !PasswordField.isSecureTextEntry
     }
@@ -187,6 +165,28 @@ class SignInVC: UIViewController {
                 navigationController?.pushViewController(vc, animated: true)
                 
                 /* TO DO: Auth request */
+                self.SignInBtn.isEnabled = false
+                if (!DataLoader.shared().testNetwork()){
+                    self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                    self.SignInBtn.isEnabled = true
+                }else{
+                    var data = RequestPostAuth()
+                    data.email = email
+                    data.password = pass
+                    DataLoader.shared().authorizeUser(data: data){ result, error  in
+                        if result.code == 200 {
+                            let uuid = result.uuid
+                            /* TODO: Переход на экран бронирования */
+                        } else {
+                            self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
+                            self.incorrectData(field: self.PasswordField, label: nil, image: self.PasswordIcon)
+                            
+                            self.showErrorLabel(text: "Неверный пароль или E-mail")
+                        }
+                        self.SignInBtn.isEnabled = true
+                    }
+                }
+                
             } else {
                 if !validatePassword(pass: pass) {
                     incorrectData(field: PasswordField, label: nil, image: PasswordIcon)

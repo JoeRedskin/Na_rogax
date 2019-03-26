@@ -9,6 +9,7 @@
 import UIKit
 
 class PasswordRecoveryMainVC: UIViewController {
+    
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var EmailField: UITextField!
     @IBOutlet weak var EmailErrorLabel: UILabel!
@@ -122,10 +123,41 @@ class PasswordRecoveryMainVC: UIViewController {
             if email != "" {
                 if validateEmail(email: email) {
                     /* TODO: Send request for code */
-                    let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
-                    
-                    navigationController?.pushViewController(vc, animated: true)
+                    self.SendBtn.isEnabled = false
+                    if (!DataLoader.shared().testNetwork()){
+                        self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                        self.SendBtn.isEnabled = true
+                    }else{
+                        DataLoader.shared().findUser(email: email){ result in
+                            switch result?.code {
+                            case 200:
+                                var data = RequestPostVertifyEmail()
+                                data.email = email
+                                DataLoader.shared().verifyEmail(data: data){ result in
+                                    if result?.code == 200 {
+                                        let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
+                                        let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
+                                        
+                                        vc.email = email
+                                        
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
+                                    self.SendBtn.isEnabled = true
+                                }
+                                
+                                break
+                            case 404:
+                                self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
+                                self.showErrorLabel(text: "Пользователя с такой почтой не существует")
+                                break
+                            case .none:
+                                break
+                            case .some(_):
+                                break
+                            }
+                            self.SendBtn.isEnabled = true
+                        }
+                    }
                 } else {
                     incorrectData(field: EmailField, label: nil, image: EmailIcon)
                     showErrorLabel(text: "Пожалуйста, введите корректный адрес")
