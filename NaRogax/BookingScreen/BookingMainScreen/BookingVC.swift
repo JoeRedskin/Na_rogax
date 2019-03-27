@@ -88,11 +88,6 @@ class BookingVC: UIViewController{
             arrayHour.append(hour)
         }
         
-        /*if (arrayHour.count == 0){
-            arrayDay.removeAll()
-            setDataDay()
-        }*/
-        
         if (hoursWork.getCountDurationTime() < previewIndex[1].item || previewIndex[1].item == 0){
             if (arrayHour.count > 0){
                 previewIndex[1] = IndexPath(indexes: [0, 0])

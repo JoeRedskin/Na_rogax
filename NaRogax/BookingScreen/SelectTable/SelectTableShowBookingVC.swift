@@ -93,7 +93,7 @@ class SelectTableShowBookingVC: UIViewController {
                         self.TableView.reloadData()
                     }
                     break
-                case 404:
+                case 401:
                     self.startStoryAuto()
                     break
                 default:
@@ -110,11 +110,17 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().userDeleteUserBooking(data: deleteUserBooking){ result in
-                if result?.code == 200{
+                switch result?.code{
+                case 200, 404:
                     self.userBooking.bookings.remove(at: self.index)
                     self.TableView.reloadData()
-                }else{
+                    break
+                case 401:
+                    self.startStoryAuto()
+                    break
+                default:
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    break
                 }
             }
         }
