@@ -11,8 +11,6 @@ import Alamofire
 
 struct RequestPostReservePlace {
     var email = ""
-    var name = ""
-    var phone = ""
     var date = ""
     var time_from = ""
     var date_to = ""
@@ -22,8 +20,6 @@ struct RequestPostReservePlace {
     func conventParameters() -> Parameters{
         let par: Parameters = [
             "email": email,
-            "name": name,
-            "phone": phone,
             "date":  date,
             "time_from": time_from,
             "date_to": date_to,

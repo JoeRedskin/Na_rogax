@@ -39,6 +39,8 @@ class Alert{
     private let BUTTON_MESSEGE_OK_CANCEL = ["Ок", "Отмена"]
     private let BUTTON_MESSEGE_ERROR_NETWORK = ["Повторить соединение", "Отмена"]
     
+    
+    
     static func shared() -> Alert {
         if uniqueInstance == nil {
             uniqueInstance = Alert()
@@ -111,6 +113,5 @@ class Alert{
             }))
         }
         return alert
-    }
-    
+    }  
 }

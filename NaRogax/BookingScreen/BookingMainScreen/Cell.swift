@@ -14,20 +14,11 @@ class Cell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //inital()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //inital()
     }
-    
-//    private func inital(){
-//        lable.clipsToBounds = true
-//        lable.layer.cornerRadius = 4
-//        lable.layer.borderWidth = 1
-//        lable.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1978887078)
-//    }
     
     func setDate(dateCVC date: DateCVC){
         lable.text = date.text

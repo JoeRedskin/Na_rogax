@@ -11,7 +11,6 @@ import Alamofire
 
 struct RequestChangeUserCredentials {
     var email: String
-    var uuid: String
     var new_email: String
     var code: String
     var name: String
@@ -19,7 +18,6 @@ struct RequestChangeUserCredentials {
     
     func conventParameters() -> Parameters{
         let par: Parameters = [ "email": email,
-                                "uuid": uuid,
                                 "new_email": new_email,
                                 "code": code,
                                 "name": name,

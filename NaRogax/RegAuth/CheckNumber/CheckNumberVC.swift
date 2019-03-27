@@ -18,13 +18,13 @@ class CheckNumberVC: UIViewController{
     private let TEXT_ERROR = "Код введен не верно"
     private var requestPostRegUser = RequestPostRegUser()
     
-    var email = "zlobrynya@gmail.com"
-    var password = "test"
+    var email = ""
+    var password = ""
     var code = 0
-    var name = "Никита"
+    var name = ""
     var surname = ""
     var birthday = ""
-    var phone = "89210100389"
+    var phone = ""
     
     @IBOutlet weak var buttonCon: UIButton!
     @IBOutlet weak var labelError: UILabel!
@@ -57,15 +57,13 @@ class CheckNumberVC: UIViewController{
     }
     
     private func checkCode(){
-        print("sekector", "checkCode")
         var strCode = ""
         for item in textViews{
             strCode += item.text ?? ""
         }
         if (strCode.count == textViews.count){
             reloadButton(active: true)
-            view.endEditing(true)
-
+            code = Int(strCode)!
         }else{
             reloadButton(active: false)
         }
@@ -79,11 +77,30 @@ class CheckNumberVC: UIViewController{
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
-            DataLoader.shared().regUser(data: requestPostRegUser){ result in
-                if (result?.code == 200){
-                    print("regUser", "OK")
+            requestPostRegUser.code = code
+            DataLoader.shared().regUser(data: requestPostRegUser){ result, error in
+                if (error?.code == 200){
+                    UserDefaultsData.shared().saveEmail(email: result?.email ?? self.email)
+                    UserDefaultsData.shared().saveName(name: self.name)
+                    for vcIndex in 0..<self.navigationController!.viewControllers.count{
+                        if let view = self.navigationController?.viewControllers[vcIndex]{
+                            switch view{
+                            case is SelectTableVC:
+                                self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
+                                self.dismiss(animated: true)
+                                break
+                            case is SelectTableShowBookingVC:
+                                self.navigationController?.popToRootViewController(animated: true)
+                                self.dismiss(animated: true)
+                                break
+                            //TO DO добавить для профиля
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    
                 }else{
-                    print("sendCode", result)
                     self.reloadError(show: true)
                 }
                 // print("sendCode", result)
@@ -97,23 +114,23 @@ class CheckNumberVC: UIViewController{
     }
     
     @IBAction func touchTextView(_ sender: UITextField) {
-        sender.becomeFirstResponder()
-        sender.selectAll(nil)
         index = textViews.firstIndex(of: sender as! NumberTextView)!
+        print("textViewChange touch", index)
+        textViews[index].becomeFirstResponder()
+        textViews[index].selectAll(nil)
     }
     
     @IBAction func textViewChange(_ sender: UITextField) {
-        print("textViewChange")
+        print("textViewChange", index)
         reloadError(show: false)
         if sender.text == "."{
             sender.text = ""
             return
         }
         if (index + 1 < textViews.count){
-            //if !(textViews[index].text?.isEmpty)!{
-                index += 1
-                textViews[index].becomeFirstResponder()
-            //}
+            index += 1
+            textViews[index].becomeFirstResponder()
+            print("textViewChange if", index)
         }else{
             view.endEditing(true)
         }
@@ -139,7 +156,6 @@ class CheckNumberVC: UIViewController{
         if (active){
             buttonCon.backgroundColor = #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1)
             buttonCon.isUserInteractionEnabled = true
-            view.endEditing(true)
         }else{
             buttonCon.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
             buttonCon.isUserInteractionEnabled = false

@@ -11,12 +11,10 @@ import Alamofire
 
 struct RequestPostDeleteUserBooking {
     var email = ""
-    var uuid = ""
     var booking_id = -1
     
     func conventParameters() -> Parameters{
         let par: Parameters = [ "email": email,
-                                "uuid": uuid,
                                 "booking_id": booking_id]
         return par
     }

@@ -9,10 +9,12 @@
 import UIKit
 
 class MainBookingVC: UIViewController {
-    var pageController: UIPageViewController!
+    private var pageController: UIPageViewController!
     var arrayBookingVC = [UIViewController]()
     var firstPage = BookingVC()
     var secondPage = SelectTableShowBookingVC()
+    private var reloadSegmentedControler = false
+
     @IBOutlet weak var segmentedControler: UISegmentedControl!
     @IBOutlet weak var custView: UIView!
     
@@ -25,7 +27,7 @@ class MainBookingVC: UIViewController {
         //segmentedControl = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
-        getUUID()
+        start()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -34,25 +36,11 @@ class MainBookingVC: UIViewController {
     }
     
     //временная
-    private func start(resp: RequestPostCheckAuto){
+    private func start(){
         firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
         let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
-        secondPage.chekAuto = resp
         pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
-    }
-    
-    //переписать на д.р. получении
-    private func getUUID(){
-        let post = RequestPostAuth(email: "zlobrynya@gmail.com",password: "test")
-        var ret = RequestPostCheckAuto(email: "zlobrynya@gmail.com",uuid: "")
-        DataLoader.shared().authorizeUser(data: post){ result, error in
-            if error?.code == 200{
-                ret.uuid = result.uuid
-                self.start(resp: ret)
-            }else{
-            }
-        }
     }
     
     @IBAction func changedValue(_ sender: UISegmentedControl) {
@@ -69,7 +57,6 @@ class MainBookingVC: UIViewController {
         self.pageController = storyboard?.instantiateViewController(withIdentifier: "BookintPageControl") as! PageControllerVC
         self.pageController.view.frame = CGRect.init(x: 0, y: 0, width: custView.frame.width, height: custView.frame.height)
         self.addChild(self.pageController)
-        //custView.addChild(self.pageController)
         custView.addSubview(self.pageController.view)
         self.pageController.didMove(toParent: self)
     }
@@ -80,6 +67,10 @@ class MainBookingVC: UIViewController {
 extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
+        if (reloadSegmentedControler){
+            segmentedControler.selectedSegmentIndex = 0
+            reloadSegmentedControler = false
+        }
         //segmentedControler.selectedSegmentIndex = 0
         if viewController == secondPage{
             print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
@@ -88,11 +79,14 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
         } else {
             return nil
         }
-        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         print("change viewControllerAfter", segmentedControler.selectedSegmentIndex)
+        if (reloadSegmentedControler){
+            segmentedControler.selectedSegmentIndex = 1
+            reloadSegmentedControler = false
+        }
         //segmentedControler.selectedSegmentIndex = 1
         if viewController ==  firstPage{
             return secondPage
@@ -107,6 +101,7 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
         if finished {
             if completed {
                 //self.finished = true
+                reloadSegmentedControler = true
                 if (segmentedControler.selectedSegmentIndex == 0){
                     segmentedControler.selectedSegmentIndex = 1
                 }else{

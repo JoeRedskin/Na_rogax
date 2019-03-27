@@ -15,6 +15,9 @@ struct ResponseShowUserBooking: Decodable {
 struct Bookings: Decodable {
     var accepted: Bool
     var booking_id: Int
+    var chair_count: Int
+    var chair_type: String
+    var position: String
     var date_time_from: String
     var date_time_to: String
     var table_id: Int
@@ -28,6 +31,16 @@ struct Bookings: Decodable {
         let strTimeFrom = dateFormatter.string(from: getDate(str: date_time_from))
         let strTimeTo = dateFormatter.string(from: getDate(str: date_time_to))
         return stringDate + ", " + strTimeFrom + "-" + strTimeTo
+    }
+    
+    func configDesc() -> String{
+        var countStr = ""
+        if chair_count == 4 {
+            countStr = String(chair_count) + " места"
+        } else {
+            countStr = String(chair_count) + " мест"
+        }
+        return "№ \(table_id) на \(countStr), \(position) \(chair_type)"
     }
     
     private func getDate(str: String) -> Date{

@@ -12,5 +12,5 @@ struct ResponseAuthorizeUser: Decodable {
     var code = 0
     var desc = ""
     var email = ""
-    var uuid = ""
+    var access_token = ""
 }

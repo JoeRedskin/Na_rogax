@@ -28,7 +28,7 @@ class BookingVC: UIViewController{
         changeTimeSting.layer.borderWidth = 3.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
         changeTimeSting.layer.cornerRadius = 4
-        setFirstData()
+        firstStart()
         self.setNeedsStatusBarAppearanceUpdate()
     }
 
@@ -36,14 +36,29 @@ class BookingVC: UIViewController{
         return .lightContent
     }
     
-    private func setFirstData(){
+    private func firstStart(){
+        if !(DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(status: 100, protocol: self), animated: true, completion: nil)
+        }else{
+            DataLoader.shared().getTimetable(){ result, error  in
+                if (error?.code == 200){
+                    self.hoursWork.responseTimetable = result
+                    self.setDataDay()
+                }else{
+                    self.present(Alert.shared().couldServerDown(status: 100, protocol: self), animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func setDataDay(){
         var countDay = 7
         var item = 0
         //for item in 0..<countDay{
         while item < countDay {
             let day = DateCVC(numberDay: item)
             if (item == 0){
-                if !hoursWork.isBookingCloseToday(day: day.getDate()){
+                if !hoursWork.isBookingCloseToday(day: day.text){
                     day.reloadToday()
                     arrayDay.append(day)
                 }else{
@@ -72,6 +87,7 @@ class BookingVC: UIViewController{
             let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчаса")
             arrayHour.append(hour)
         }
+        
         if (hoursWork.getCountDurationTime() < previewIndex[1].item || previewIndex[1].item == 0){
             if (arrayHour.count > 0){
                 previewIndex[1] = IndexPath(indexes: [0, 0])
@@ -142,7 +158,11 @@ class BookingVC: UIViewController{
 
 extension BookingVC: AlertProtocol{
     func clickButtonPositiv(status: Int) {
-        self.calcAndSetTime()
+        if (status == 100){
+            firstStart()
+        }else{
+            calcAndSetTime()
+        }
     }
     
     func clickButtonCanсel(status: Int) {}
