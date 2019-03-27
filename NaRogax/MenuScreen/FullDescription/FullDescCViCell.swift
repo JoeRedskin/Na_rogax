@@ -36,10 +36,10 @@ class FullDescCViCell: UICollectionViewCell {
             recPrice.text = String(dish.price!) + " р"
         }
 
-        if dish.photo == ""{
+        if dish.photo == "" || dish.photo == nil{
             recImage.image = UIImage(named: "no_image")
         } else {
-            fetchImage(url_img: dish.photo)
+            fetchImage(url_img: dish.photo!)
         }
 
     }

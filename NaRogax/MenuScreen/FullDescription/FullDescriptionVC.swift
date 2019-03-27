@@ -70,7 +70,7 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
             priceField.text = String(menu.price!)+" р"
         }
         
-        fetchImage(url_img: menu.photo)
+        fetchImage(url_img: menu.photo!)
         
     }
     

@@ -45,7 +45,7 @@ struct DishDescription: Decodable {
     var itemId: Int = 0
     var name: String = ""
     var price: Int? = 0
-    var photo: String = ""
+    var photo: String? = ""
     var shortDescription: String? = ""
     var longDescription: String? = ""
     var weight: String = ""
@@ -53,3 +53,16 @@ struct DishDescription: Decodable {
 
 }
 
+struct SubMenu {
+    var parent_name: String = ""
+    var name: String = ""
+    var weight: String = ""
+    var price: Int = 0
+    
+    private enum CodingKeys: String, CodingKey{
+        case parent_name
+        case name
+        case weight
+        case price
+    }
+}

@@ -105,7 +105,11 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
             nameField.text = menu.name
         }
         
-        fetchImage(url_img: menu.photo)
+        if menu.photo == "" || menu.photo == nil{
+            imageField.image = UIImage(named: "no_image")
+        } else {
+            fetchImage(url_img: menu.photo!)
+        }
     }
     
     func fetchImage(url_img: String) {
