@@ -18,13 +18,13 @@ class CheckNumberVC: UIViewController{
     private let TEXT_ERROR = "Код введен не верно"
     private var requestPostRegUser = RequestPostRegUser()
     
-    var email = "zlobrynya@gmail.com"
-    var password = "test"
+    var email = ""
+    var password = ""
     var code = 0
-    var name = "Никита"
+    var name = ""
     var surname = ""
     var birthday = ""
-    var phone = "89210100389"
+    var phone = ""
     
     @IBOutlet weak var buttonCon: UIButton!
     @IBOutlet weak var labelError: UILabel!
@@ -57,7 +57,6 @@ class CheckNumberVC: UIViewController{
     }
     
     private func checkCode(){
-        print("sekector", "checkCode")
         var strCode = ""
         for item in textViews{
             strCode += item.text ?? ""
@@ -78,7 +77,6 @@ class CheckNumberVC: UIViewController{
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
-            print("regUser", requestPostRegUser)
             requestPostRegUser.code = code
             DataLoader.shared().regUser(data: requestPostRegUser){ result, error in
                 if (error?.code == 200){
@@ -89,9 +87,11 @@ class CheckNumberVC: UIViewController{
                             switch view{
                             case is SelectTableVC:
                                 self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
+                                self.dismiss(animated: true)
                                 break
                             case is SelectTableShowBookingVC:
                                 self.navigationController?.popToRootViewController(animated: true)
+                                self.dismiss(animated: true)
                                 break
                             //TO DO добавить для профиля
                             default:

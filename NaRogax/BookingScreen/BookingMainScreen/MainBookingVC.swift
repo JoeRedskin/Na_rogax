@@ -102,6 +102,11 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
             if completed {
                 //self.finished = true
                 reloadSegmentedControler = true
+                if (segmentedControler.selectedSegmentIndex == 0){
+                    segmentedControler.selectedSegmentIndex = 1
+                }else{
+                    segmentedControler.selectedSegmentIndex = 0
+                }
             }
         }
     }

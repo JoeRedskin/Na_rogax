@@ -113,6 +113,5 @@ class Alert{
             }))
         }
         return alert
-    }
-    
+    }  
 }

@@ -36,6 +36,8 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
     @IBOutlet weak var Spinner: UIActivityIndicatorView!
     
+    var vSpinner : UIView?
+    
     private var isEmptyName = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
@@ -292,6 +294,7 @@ class SignUpVC: UIViewController {
                     self.SignUpBtn.isEnabled = true
                 }else{
                     self.Spinner.startAnimating()
+                    self.showSpinner(onView: self.view)
                     DataLoader.shared().findUser(email: email){ result in
                         switch result?.code {
                             case 404:
@@ -307,12 +310,14 @@ class SignUpVC: UIViewController {
                                         self.Spinner.stopAnimating()
                                         self.SignUpBtn.isEnabled = true
                                         self.navigationController?.pushViewController(vc, animated: true)
+                                        self.removeSpinner()
                                     }
                                 }
                                 break
                             case 200:
                                 self.incorrectData(field: self.EmailField, label: nil, image: self.EmailImage)
                                 self.showErrorLabel(text: "Пользователь с такой почтой уже существует")
+                                self.removeSpinner()
                                 break
                             case .none:
                                 break
@@ -357,6 +362,31 @@ class SignUpVC: UIViewController {
             PasswordBtn.isHidden = true
             
             showErrorLabel(text: "Все поля должны быть заполнены")
+        }
+    }
+    
+    /*
+     * Для спинера загрузки
+     */
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.7)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            self.vSpinner?.removeFromSuperview()
+            self.vSpinner = nil
         }
     }
 }

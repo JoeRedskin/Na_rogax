@@ -33,7 +33,6 @@ class NumberTextView: UITextField {
     }
     
     func setBottomLine(borderColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)) {
-        
         self.borderStyle = UITextField.BorderStyle.none
         self.backgroundColor = UIColor.clear
         
