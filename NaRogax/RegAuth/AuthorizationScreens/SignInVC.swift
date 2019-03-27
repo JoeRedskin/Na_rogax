@@ -9,7 +9,6 @@
 import UIKit
 
 class SignInVC: UIViewController {
-
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var EmailField: UITextField!
     @IBOutlet weak var PasswordLabel: UILabel!
@@ -169,19 +168,17 @@ class SignInVC: UIViewController {
                     data.password = pass
                     DataLoader.shared().authorizeUser(data: data){ result, error  in
                         if result.code == 200 {
-                            //let uuid = result.uuid
-                            /* TODO: Переход на экран бронирования */
+                            UserDefaultsData.shared().saveEmail(email: email)
+                            self.navigationController?.popViewController(animated: true)
                             self.dismiss(animated: true, completion: nil)
                         } else {
                             self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
                             self.incorrectData(field: self.PasswordField, label: nil, image: self.PasswordIcon)
-                            
                             self.showErrorLabel(text: "Неверный пароль или E-mail")
                         }
                         self.SignInBtn.isEnabled = true
                     }
                 }
-                
             } else {
                 if !validatePassword(pass: pass) {
                     incorrectData(field: PasswordField, label: nil, image: PasswordIcon)
@@ -205,7 +202,6 @@ class SignInVC: UIViewController {
     @IBAction func goToSignUp(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SignUpScreen", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignUpScreen") as! SignUpVC
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -213,8 +209,6 @@ class SignInVC: UIViewController {
     @IBAction func ForgotPasswordTap(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "PasswordRecoveryMain", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainRecoveryScreen") as! PasswordRecoveryMainVC
-        
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
+    }    
 }

@@ -14,7 +14,7 @@ struct ResponseUserCredentials: Decodable {
 
 struct DataResponse: Decodable {
     var email: String
-    var birthday: String
+    var birthday: String?
     var name: String
     var phone: String
     var reg_date: String

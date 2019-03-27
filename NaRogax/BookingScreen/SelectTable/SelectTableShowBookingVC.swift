@@ -11,11 +11,17 @@ import UIKit
 class SelectTableShowBookingVC: UIViewController {
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var NoEmptyTablesLabel: UIStackView!
+    @IBOutlet weak var labelText: UILabel!
+    @IBOutlet weak var buttonAuto: UIButton!
+    
+    private let TEXT_NO_BOOKING = "У вас нет активных  бронирований."
+    private let TEXT_NO_AUTO = "Для просмотра списка бронирований, пожалуйста, войдите в свой профиль."
     private var userBooking = ResponseShowUserBooking()
     private var CODE_ALERT_DELETE = 100
     private var index = -1
     var chekAuto = RequestUserEmail()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         TableView.delegate = self
@@ -33,13 +39,16 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().checkAuto(){ error in
-                print("checkUserData", error)
                 switch error?.code{
                 case 200:
                     self.getData()
                     break
                 case 401, 422, 404:
-                    self.startStoryAuto()
+                    //self.startStoryAuto()
+                    //self.TableView.isHidden = true
+                    self.buttonAuto.isHidden = false
+                    self.labelText.isHidden = false
+                    self.labelText.text = self.TEXT_NO_AUTO
                     break
                 default:
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
@@ -61,17 +70,28 @@ class SelectTableShowBookingVC: UIViewController {
         self.present(Alert.shared().canselBooking(status: CODE_ALERT_DELETE, protocol: self,time: userBooking.bookings[index].configData()), animated: true, completion: nil)
     }
     
+    @IBAction func clickButtonAuto(_ sender: UIButton) {
+        buttonAuto.isHidden = true
+        labelText.isHidden = true
+        startStoryAuto()
+    }
+    
+    
     private func getData(){
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().showUserBooking(data: chekAuto){ result, error in
-                print("checkUserData", self.chekAuto)
-                print("checkUserData", error)
                 switch error?.code{
                 case 200:
-                    self.userBooking = result
-                    self.TableView.reloadData()
+                    if (result.bookings.count == 0){
+                        self.labelText.isHidden = false
+                        self.labelText.text = self.TEXT_NO_BOOKING
+                    }else{
+                        self.userBooking = result
+                        self.TableView.isHidden = false
+                        self.TableView.reloadData()
+                    }
                     break
                 case 404:
                     self.startStoryAuto()

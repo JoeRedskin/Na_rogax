@@ -22,18 +22,15 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     @IBOutlet weak var PasswordIcon: UIImageView!
     @IBOutlet weak var PasswordBtn: UIButton!
     @IBOutlet weak var PasswordErrorLabel: UILabel!
-    
     @IBOutlet weak var RepeatedPasswordLabel: UILabel!
     @IBOutlet weak var RepeatedPasswordField: UITextField!
     @IBOutlet weak var RepeatedPasswordIcon: UIImageView!
     @IBOutlet weak var RepeatedPasswordBtn: UIButton!
     @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
-    
     @IBOutlet weak var CodeLabel: UILabel!
     @IBOutlet weak var CodeField: UITextField!
     @IBOutlet weak var CodeIcon: UIImageView!
     @IBOutlet weak var CodeErrorLabel: UILabel!
-    
     @IBOutlet weak var ChangePasswordBtn: UIButton!
     
     var email = ""

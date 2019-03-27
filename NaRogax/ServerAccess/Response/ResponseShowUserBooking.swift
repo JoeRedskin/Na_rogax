@@ -40,7 +40,7 @@ struct Bookings: Decodable {
         } else {
             countStr = String(chair_count) + " мест"
         }
-        return "Стол: № \(table_id) на \(countStr), \(position) \(chair_type)"
+        return "№ \(table_id) на \(countStr), \(position) \(chair_type)"
     }
     
     private func getDate(str: String) -> Date{

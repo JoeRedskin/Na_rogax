@@ -51,7 +51,6 @@ class PasswordRecoveryMainVC: UIViewController {
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
         field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        
         if let lbl = label {
             lbl.isHidden = false
         }
@@ -136,14 +135,11 @@ class PasswordRecoveryMainVC: UIViewController {
                                     if result?.code == 200 {
                                         let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
                                         let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
-                                        
                                         vc.email = email
-                                        
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                     self.SendBtn.isEnabled = true
                                 }
-                                
                                 break
                             case 404:
                                 self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)

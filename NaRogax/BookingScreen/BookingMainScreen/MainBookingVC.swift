@@ -9,10 +9,12 @@
 import UIKit
 
 class MainBookingVC: UIViewController {
-    var pageController: UIPageViewController!
+    private var pageController: UIPageViewController!
     var arrayBookingVC = [UIViewController]()
     var firstPage = BookingVC()
     var secondPage = SelectTableShowBookingVC()
+    private var reloadSegmentedControler = false
+
     @IBOutlet weak var segmentedControler: UISegmentedControl!
     @IBOutlet weak var custView: UIView!
     
@@ -55,7 +57,6 @@ class MainBookingVC: UIViewController {
         self.pageController = storyboard?.instantiateViewController(withIdentifier: "BookintPageControl") as! PageControllerVC
         self.pageController.view.frame = CGRect.init(x: 0, y: 0, width: custView.frame.width, height: custView.frame.height)
         self.addChild(self.pageController)
-        //custView.addChild(self.pageController)
         custView.addSubview(self.pageController.view)
         self.pageController.didMove(toParent: self)
     }
@@ -66,6 +67,10 @@ class MainBookingVC: UIViewController {
 extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
+        if (reloadSegmentedControler){
+            segmentedControler.selectedSegmentIndex = 0
+            reloadSegmentedControler = false
+        }
         //segmentedControler.selectedSegmentIndex = 0
         if viewController == secondPage{
             print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
@@ -78,6 +83,10 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         print("change viewControllerAfter", segmentedControler.selectedSegmentIndex)
+        if (reloadSegmentedControler){
+            segmentedControler.selectedSegmentIndex = 1
+            reloadSegmentedControler = false
+        }
         //segmentedControler.selectedSegmentIndex = 1
         if viewController ==  firstPage{
             return secondPage
@@ -92,11 +101,7 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
         if finished {
             if completed {
                 //self.finished = true
-                if (segmentedControler.selectedSegmentIndex == 0){
-                    segmentedControler.selectedSegmentIndex = 1
-                }else{
-                    segmentedControler.selectedSegmentIndex = 0
-                }
+                reloadSegmentedControler = true
             }
         }
     }

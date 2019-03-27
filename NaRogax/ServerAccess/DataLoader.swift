@@ -26,8 +26,6 @@ class DataLoader{
     private let REQUEST_FIND_USER = "find_user/"
     private let REQUEST_CHANGE_USER_CREDENTIALS = "change_user_credentials"
     private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
-
-    
     
     private var access_token = ""{
         didSet{
@@ -49,11 +47,17 @@ class DataLoader{
     }
     
     private func loadAccessToken(){
-        access_token = KeychainService.token(service: "TokenService", account: "zlobrynya@gmail.com")
+        let email = UserDefaultsData.shared().getEmail()
+        if !email.isEmpty{
+            access_token = KeychainService.token(service: "TokenService", account: email)
+        }
     }
     
     private func saveAccessToken(){
-        KeychainService.setToken(access_token, service: "TokenService", account: "zlobrynya@gmail.com")
+        let email = UserDefaultsData.shared().getEmail()
+        if !email.isEmpty{
+            KeychainService.setToken(access_token, service: "TokenService", account: email)
+        }
     }
     
     
@@ -78,7 +82,7 @@ class DataLoader{
                             let decoder = JSONDecoder()
                             userCredentials = try decoder.decode(ResponseUserCredentials.self, from: data)
                         } catch _ {
-                            errResp.code = 500
+                            errResp.code = response.response?.statusCode ?? 500
                             errResp.desc = ""
                         }
                     }
@@ -353,7 +357,9 @@ class DataLoader{
                         respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }
                 }
-                completion(respData)
+                OperationQueue.main.addOperation {
+                    completion(respData)
+                }
         }
         
     }
@@ -406,12 +412,38 @@ class DataLoader{
     }
     
     func regUser(data: RequestPostRegUser,
-                 completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+                 completion:@escaping ((_ result: ResponseRegUser?, _ error: ErrorResponse?) -> Void)){
         let parameters = data.conventParameters()
-        postToServer(parameters: parameters, request: REQUEST_REG_USER){ result in
-            OperationQueue.main.addOperation {
-                completion(result)
-            }
+        var respData = ErrorResponse(code: 200,desc: "")
+        var result = ResponseRegUser(code: 0, desc: "", access_token: "", email: "")
+        let headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        Alamofire.request(SERVER_URL + REQUEST_REG_USER,
+                          method: .post,
+                          parameters: parameters,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            result = try decoder.decode(ResponseRegUser.self, from: data)
+                            self.access_token = result.access_token
+                            UserDefaultsData.shared().saveEmail(email: result.email)
+                        } catch _ {
+                            respData.code = 500
+                            respData.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
+                    }
+                }
+                completion(result, respData)
         }
     }
     

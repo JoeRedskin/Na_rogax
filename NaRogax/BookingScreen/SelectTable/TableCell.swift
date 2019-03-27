@@ -49,7 +49,7 @@ class TableCell: UITableViewCell {
         TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 17)
         SelectBtn.tag = index
         DescLabel.text = booking.configDesc()
-        TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 14)
+        TitleLabel.font = UIFont(name: TitleLabel.font.fontName, size: 12)
 
         if (booking.accepted){
             SelectBtn.setTitle("Отменить", for: UIControl.State.normal)

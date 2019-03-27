@@ -285,7 +285,6 @@ class SignUpVC: UIViewController {
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
-                
                 /* TODO: Registration request */
                 self.SignUpBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
@@ -304,11 +303,10 @@ class SignUpVC: UIViewController {
                                 vc.phone = phone
                                 let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
-                                    print("RequestUserEmail", result)
                                     if result?.code == 200 {
-                                        self.navigationController?.pushViewController(vc, animated: true)
                                         self.Spinner.stopAnimating()
                                         self.SignUpBtn.isEnabled = true
+                                        self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                 }
                                 break

@@ -80,12 +80,27 @@ class CheckNumberVC: UIViewController{
         }else{
             print("regUser", requestPostRegUser)
             requestPostRegUser.code = code
-            DataLoader.shared().regUser(data: requestPostRegUser){ result in
-                if (result?.code == 200){
-                    print("regUser", "OK")
-                    self.navigationController?.popToRootViewController(animated: true)
+            DataLoader.shared().regUser(data: requestPostRegUser){ result, error in
+                if (error?.code == 200){
+                    UserDefaultsData.shared().saveEmail(email: result?.email ?? self.email)
+                    UserDefaultsData.shared().saveName(name: self.name)
+                    for vcIndex in 0..<self.navigationController!.viewControllers.count{
+                        if let view = self.navigationController?.viewControllers[vcIndex]{
+                            switch view{
+                            case is SelectTableVC:
+                                self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
+                                break
+                            case is SelectTableShowBookingVC:
+                                self.navigationController?.popToRootViewController(animated: true)
+                                break
+                            //TO DO добавить для профиля
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    
                 }else{
-                    print("regUser", result)
                     self.reloadError(show: true)
                 }
                 // print("sendCode", result)
