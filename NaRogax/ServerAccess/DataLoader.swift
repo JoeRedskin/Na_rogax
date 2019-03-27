@@ -59,7 +59,7 @@ class DataLoader{
     
     func viewUserCredentials(data: RequestUserEmail,
                              completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)) {
-        var userCredentials = ResponseUserCredentials(email: "", name: "", phone: "", reg_date: "")
+        var userCredentials = ResponseUserCredentials(data: DataResponse(email: "", birthday: "", name: "", phone: "", reg_date: ""))
         let paramet = data.conventParameters()
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]

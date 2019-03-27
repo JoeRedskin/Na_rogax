@@ -9,7 +9,12 @@
 import Foundation
 
 struct ResponseUserCredentials: Decodable {
+    var data: DataResponse
+}
+
+struct DataResponse: Decodable {
     var email: String
+    var birthday: String
     var name: String
     var phone: String
     var reg_date: String
