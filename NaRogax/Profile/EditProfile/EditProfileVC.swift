@@ -197,6 +197,7 @@ class EditProfileVC: UIViewController {
         view.addGestureRecognizer(tap)
         
         let datePicker = UIDatePicker()
+        datePicker.locale = Locale.init(identifier: "ru")
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.maximumDate = Date()
         datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -100, to: Date())

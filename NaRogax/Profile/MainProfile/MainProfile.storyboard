@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3l-4L-OdC">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3l-4L-OdC">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-Xj-JYJ">
@@ -136,6 +136,7 @@
                                             <constraint firstAttribute="trailing" secondItem="3hF-Ky-fmo" secondAttribute="trailing" constant="97" id="gFc-pe-pPO"/>
                                             <constraint firstAttribute="trailing" secondItem="sDU-gB-fnj" secondAttribute="trailing" constant="16" id="hKe-Hl-TgG"/>
                                             <constraint firstItem="9oz-Wc-yI6" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="iLw-ME-EIg"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NTN-u1-O5s" secondAttribute="bottom" constant="35" id="jUa-fM-Mfn"/>
                                             <constraint firstItem="nKM-mt-cqK" firstAttribute="top" secondItem="A91-hC-he3" secondAttribute="bottom" constant="20" id="mS8-EU-tnt"/>
                                             <constraint firstItem="g3M-9l-Ene" firstAttribute="top" secondItem="nKM-mt-cqK" secondAttribute="bottom" constant="2" id="mxJ-IZ-JyW"/>
                                             <constraint firstAttribute="trailing" secondItem="t58-FC-sHm" secondAttribute="trailing" constant="16" id="oP1-Wp-Kme"/>
