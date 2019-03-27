@@ -56,6 +56,8 @@
 		CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */; };
 		CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */; };
 		CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3668722394FC2003F17D8 /* ViewControll.swift */; };
+		CEF3DCCA224BE8E700CD7AE7 /* MainProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3DCC8224BE8E700CD7AE7 /* MainProfile.swift */; };
+		CEF3DCCB224BE8E700CD7AE7 /* MainProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF3DCC9224BE8E700CD7AE7 /* MainProfile.storyboard */; };
 		CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */; };
 		CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFEF22461F7900F07765 /* RequestChangeUserCredentials.swift */; };
 		CEF3FFF22246208100F07765 /* ResponseChangeUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFF12246208100F07765 /* ResponseChangeUserCredentials.swift */; };
@@ -142,6 +144,8 @@
 		CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostPasswordRecovery.swift; sourceTree = "<group>"; };
 		CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAuthorizeUser.swift; sourceTree = "<group>"; };
 		CEF3668722394FC2003F17D8 /* ViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControll.swift; sourceTree = "<group>"; };
+		CEF3DCC8224BE8E700CD7AE7 /* MainProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProfile.swift; sourceTree = "<group>"; };
+		CEF3DCC9224BE8E700CD7AE7 /* MainProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainProfile.storyboard; sourceTree = "<group>"; };
 		CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseUserCredentials.swift; sourceTree = "<group>"; };
 		CEF3FFEF22461F7900F07765 /* RequestChangeUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestChangeUserCredentials.swift; sourceTree = "<group>"; };
 		CEF3FFF12246208100F07765 /* ResponseChangeUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseChangeUserCredentials.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 		CEF24FA22248F43600D5B1C2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CEF3DCC7224BE8E700CD7AE7 /* MainProfile */,
 				CEF24FA32249122300D5B1C2 /* EditProfile */,
 			);
 			path = Profile;
@@ -352,6 +357,15 @@
 				CEF24FA722491E0800D5B1C2 /* EditProfileVC.swift */,
 			);
 			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		CEF3DCC7224BE8E700CD7AE7 /* MainProfile */ = {
+			isa = PBXGroup;
+			children = (
+				CEF3DCC8224BE8E700CD7AE7 /* MainProfile.swift */,
+				CEF3DCC9224BE8E700CD7AE7 /* MainProfile.storyboard */,
+			);
+			path = MainProfile;
 			sourceTree = "<group>";
 		};
 		CEF5B8F22224A31000DE4E06 /* FullDescription */ = {
@@ -571,6 +585,7 @@
 				CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */,
 				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
+				CEF3DCCB224BE8E700CD7AE7 /* MainProfile.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
 				CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */,
 				CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */,
@@ -644,6 +659,7 @@
 				CEF1C08E224403510081CA91 /* ResponseShowUserBooking.swift in Sources */,
 				CEF0205C22377D840083D0A1 /* DateCVC.swift in Sources */,
 				CEF5B8F122249DAF00DE4E06 /* BorderedLabel.swift in Sources */,
+				CEF3DCCA224BE8E700CD7AE7 /* MainProfile.swift in Sources */,
 				CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */,
 				CEF5B8F62224B13200DE4E06 /* FullDescriptionVC.swift in Sources */,
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
