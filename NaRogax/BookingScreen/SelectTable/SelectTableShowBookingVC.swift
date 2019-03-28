@@ -46,12 +46,13 @@ class SelectTableShowBookingVC: UIViewController {
                 switch error?.code{
                 case 200:
                     self.buttonAuto.isHidden = true
+                    self.TableView.isHidden = false
                     self.labelText.isHidden = true
                     self.getData()
                     break
                 case 401, 422, 404:
                     //self.startStoryAuto()
-                    //self.TableView.isHidden = true
+                    self.TableView.isHidden = true
                     self.buttonAuto.isHidden = false
                     self.labelText.isHidden = false
                     self.labelText.text = self.TEXT_NO_AUTO

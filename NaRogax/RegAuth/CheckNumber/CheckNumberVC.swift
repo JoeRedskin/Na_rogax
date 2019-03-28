@@ -17,6 +17,7 @@ class CheckNumberVC: UIViewController{
     private let TEXT_TITLE = "Введите код \n из E-mail сообщения"
     private let TEXT_ERROR = "Код введен не верно"
     private var requestPostRegUser = RequestPostRegUser()
+    var requestChengeUser = RequestChangeUserCredentials()
     
     var email = ""
     var password = ""
@@ -25,6 +26,7 @@ class CheckNumberVC: UIViewController{
     var surname = ""
     var birthday = ""
     var phone = ""
+    var isChenge = false
     
     @IBOutlet weak var buttonCon: UIButton!
     @IBOutlet weak var labelError: UILabel!
@@ -43,9 +45,11 @@ class CheckNumberVC: UIViewController{
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, phone: phone)
         UITextField.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.setNeedsStatusBarAppearanceUpdate()
+        if !isChenge{
+            requestPostRegUser = RequestPostRegUser(email: email, password: password, code: code, name: name, phone: phone)
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -74,6 +78,31 @@ class CheckNumberVC: UIViewController{
     }
     
     private func sendCode(){
+        if isChenge{
+            
+        }else{
+            sendReg()
+        }
+    }
+    
+    private func sendChange(){
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+        } else {
+            DataLoader.shared().changeUserCredentials(data: requestChengeUser){ result, error in
+                UserDefaultsData.shared().saveEmail(email: result.email ?? self.requestChengeUser.email)
+                UserDefaultsData.shared().saveName(name: self.name)
+                print(result.code)
+                if result.code == 200 {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    private func sendReg(){
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
@@ -90,6 +119,10 @@ class CheckNumberVC: UIViewController{
                                 self.dismiss(animated: true)
                                 break
                             case is SelectTableShowBookingVC:
+                                self.navigationController?.popToRootViewController(animated: true)
+                                self.dismiss(animated: true)
+                                break
+                            case is MainProfile:
                                 self.navigationController?.popToRootViewController(animated: true)
                                 self.dismiss(animated: true)
                                 break

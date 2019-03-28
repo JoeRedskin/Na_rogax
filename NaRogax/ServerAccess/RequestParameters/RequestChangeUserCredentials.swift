@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 
 struct RequestChangeUserCredentials {
-    var email: String
-    var new_email: String
-    var code: String
-    var name: String
-    var phone: String
-    var birthday: String
+    var email: String = ""
+    var new_email: String = ""
+    var code: String = ""
+    var name: String = ""
+    var phone: String = ""
+    var birthday: String = "" 
     
     func conventParameters() -> Parameters{
         let par: Parameters = [ "email": email,

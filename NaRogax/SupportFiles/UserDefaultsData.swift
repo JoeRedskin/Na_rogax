@@ -14,6 +14,8 @@ class UserDefaultsData {
     private let EMAIL_KEY = "email"
     private let NAME_KEY = "name"
     private let PHONE_KEY = "phone"
+    private let BIRTH_DATE_KEY = "birthDate"
+    
     
     private init() {}
     
@@ -36,8 +38,11 @@ class UserDefaultsData {
         UserDefaults.standard.set(phone, forKey: PHONE_KEY)
     }
     
+    func savePhone(birthDate: String){
+        UserDefaults.standard.set(birthDate, forKey: PHONE_KEY)
+    }
+    
     func getEmail() -> String{
-        print("getEmail", UserDefaults.standard.string(forKey: EMAIL_KEY) ?? "")
         return UserDefaults.standard.string(forKey: EMAIL_KEY) ?? ""
     }
     
@@ -47,5 +52,9 @@ class UserDefaultsData {
 
     func getPhone() -> String{
         return UserDefaults.standard.string(forKey: PHONE_KEY) ?? ""
+    }
+    
+    func getBirthDate() -> String{
+        return UserDefaults.standard.string(forKey: BIRTH_DATE_KEY) ?? ""
     }
 }

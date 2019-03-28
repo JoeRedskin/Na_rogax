@@ -25,16 +25,17 @@ class MainProfile: UIViewController {
     @IBOutlet weak var PhoneLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        Alert.shared().showSpinner(onView: self.view)
+        if (Name.isHidden){
+            Alert.shared().showSpinner(onView: self.view)
+        }
+        ScrollView.scrollsToTop = true
         DataLoader.shared().checkAuto(){ result in
             if result?.code != 200 {
+                if (self.Name.isHidden){
+                    Alert.shared().removeSpinner()
+                }
                 self.changeVisibility(flag: true)
-                
-//                self.SignInLabel.isHidden = false
-//                self.SignInBtn.isHidden = false
                 self.SignInBtn.layer.cornerRadius = 20
-                
-                Alert.shared().removeSpinner()
             } else {
                 let email = UserDefaultsData.shared().getEmail()
                 self.getProfileData(email: email)
@@ -49,23 +50,6 @@ class MainProfile: UIViewController {
             ScrollView.isScrollEnabled = false
         }
         EditProfileBtn.layer.cornerRadius = 20
-        
-//        Alert.shared().showSpinner(onView: self.view)
-//        DataLoader.shared().checkAuto(){ result in
-//            if result?.code != 200 {
-//                self.changeVisibility(flag: true)
-//
-//                self.SignInLabel.isHidden = false
-//                self.SignInBtn.isHidden = false
-//                self.SignInBtn.layer.cornerRadius = 20
-//
-//                Alert.shared().removeSpinner()
-//            } else {
-//                let email = UserDefaultsData.shared().getEmail()
-//                self.getProfileData(email: email)
-//            }
-//        }
-        
     }
     
     func changeVisibility(flag: Bool) {

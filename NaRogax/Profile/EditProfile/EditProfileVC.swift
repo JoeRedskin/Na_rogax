@@ -287,19 +287,22 @@ class EditProfileVC: UIViewController {
             if name != Name || phone != Phone || date != BirthDate || email != Email {
                 if validateName(name: name) && validatePhone(number: phone) && validateEmail(email: email) {
                     /* TODO: Запрос на сохранение данных */
-                    if email == Email {
-                        var data: RequestChangeUserCredentials
-                        if date == BirthDate {
+                    var data: RequestChangeUserCredentials
+                    if date == BirthDate {
+                        if (date != "Не указана"){
                             data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: "")
-                        } else {
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "dd.MM.yyyy"
-                            let oldDate = formatter.date(from: date)
-                            formatter.dateFormat = "yyyy-MM-dd"
-                            let newDate = formatter.string(from: oldDate!)
-                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: newDate)
+                        }else{
+                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: date)
                         }
-                        
+                    } else {
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "dd.MM.yyyy"
+                        let oldDate = formatter.date(from: date)
+                        formatter.dateFormat = "yyyy-MM-dd"
+                        let newDate = formatter.string(from: oldDate!)
+                        data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: newDate)
+                    }
+                    if email == Email {
                         if (!DataLoader.shared().testNetwork()){
                             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                         } else {
@@ -309,11 +312,38 @@ class EditProfileVC: UIViewController {
                                     self.navigationController?.popViewController(animated: true)
                                 } else {
                                     print(error)
-                                    print(error?.desc ?? "")
                                 }
                             }
                         }
-                        
+                    }else{
+                        if (!DataLoader.shared().testNetwork()){
+                            self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                        } else {
+                            Alert.shared().showSpinner(onView: self.view)
+                            DataLoader.shared().findUser(email: email){ result in
+                                switch result?.code {
+                                case 404:
+                                    DataLoader.shared().verifyEmail(data: RequestUserEmail(email: data.new_email)){ result in
+                                        print("verifyEmail", result)
+                                        if result?.code == 200 {
+                                            let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
+                                            let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumberScreen") as! CheckNumberVC
+                                            vc.requestChengeUser = data
+                                            vc.isChenge = true
+                                            Alert.shared().removeSpinner()
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                        } else {
+                                        }}
+                                    break
+                                case 200:
+                                    break
+                                case .none:
+                                    break
+                                case .some(_):
+                                    break
+                                }
+                            }
+                        }
                     }
                 }
                 if !validateName(name: name) {
