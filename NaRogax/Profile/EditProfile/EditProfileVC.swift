@@ -284,17 +284,47 @@ class EditProfileVC: UIViewController {
     
     @IBAction func SaveChangesBtnTap(_ sender: UIButton) {
         if let name = NameField.text, let email = EmailField.text, let phone = PhoneField.text, let date = DateField.text {
-            if validateName(name: name) && validatePhone(number: phone) && validateEmail(email: email) {
-                /* TODO: Запрос на сохранение данных */
-            }
-            if !validateName(name: name) {
-                incorrectData(field: NameField, label: NameErrorLabel, image: NameIcon)
-            }
-            if !validateEmail(email: email) {
-                incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailIcon)
-            }
-            if !validatePhone(number: phone) {
-                incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneIcon)
+            if name != Name || phone != Phone || date != BirthDate || email != Email {
+                if validateName(name: name) && validatePhone(number: phone) && validateEmail(email: email) {
+                    /* TODO: Запрос на сохранение данных */
+                    if email == Email {
+                        var data: RequestChangeUserCredentials
+                        if date == BirthDate {
+                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: "")
+                        } else {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "dd.MM.yyyy"
+                            let oldDate = formatter.date(from: date)
+                            formatter.dateFormat = "yyyy-MM-dd"
+                            let newDate = formatter.string(from: oldDate!)
+                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: newDate)
+                        }
+                        
+                        if (!DataLoader.shared().testNetwork()){
+                            self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+                        } else {
+                            DataLoader.shared().changeUserCredentials(data: data){ result, error in
+                                print(result.code)
+                                if result.code == 200 {
+                                    self.navigationController?.popViewController(animated: true)
+                                } else {
+                                    print(error?.code ?? "")
+                                    print(error?.desc ?? "")
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                if !validateName(name: name) {
+                    incorrectData(field: NameField, label: NameErrorLabel, image: NameIcon)
+                }
+                if !validateEmail(email: email) {
+                    incorrectData(field: EmailField, label: EmailErrorLabel, image: EmailIcon)
+                }
+                if !validatePhone(number: phone) {
+                    incorrectData(field: PhoneField, label: PhoneErrorLabel, image: PhoneIcon)
+                }
             }
         }
     }
