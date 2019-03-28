@@ -107,8 +107,10 @@ class SignInVC: UIViewController {
     }
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
-        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        if !field.isEditing {
+            field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+            field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        }
         
         if let lbl = label {
             lbl.isHidden = true
@@ -149,12 +151,24 @@ class SignInVC: UIViewController {
         }
     }
     
+    @IBAction func fieldStartEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @IBAction func fieldEndEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+    }
+    
     func showErrorLabel(text: String) {
         ErrorLabel.text = text
         ErrorLabel.isHidden = false
     }
     
     @IBAction func signInBtnTap(_ sender: UIButton) {
+        EmailField.resignFirstResponder()
+        PasswordField.resignFirstResponder()
         if let email = EmailField.text, let pass = PasswordField.text {
             if validateEmail(email: email) && validatePassword(pass: pass){                
                 /* TO DO: Auth request */

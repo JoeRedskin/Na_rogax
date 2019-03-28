@@ -139,8 +139,10 @@ class SignUpVC: UIViewController {
     }
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
-        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        if !field.isEditing {
+            field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+            field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        }
         
         if let lbl = label {
             lbl.isHidden = true
@@ -278,12 +280,27 @@ class SignUpVC: UIViewController {
         }
     }
     
+    @IBAction func fieldStartEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @IBAction func fieldEndEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+    }
+    
     func showErrorLabel(text: String) {
         RepeatedPasswordErrorLabel.text = text
         RepeatedPasswordErrorLabel.isHidden = false
     }
     
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
+        PhoneField.resignFirstResponder()
+        NameField.resignFirstResponder()
+        EmailField.resignFirstResponder()
+        PasswordField.resignFirstResponder()
+        RepeatPasswordField.resignFirstResponder()
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
                 /* TODO: Registration request */

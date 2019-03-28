@@ -121,8 +121,10 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     }
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
-        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        if !field.isEditing {
+            field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+            field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        }
         
         if let lbl = label {
             lbl.isHidden = true
@@ -204,8 +206,21 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         }
     }
     
+    @IBAction func fieldStartEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @IBAction func fieldEndEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+    }
+    
     
     @IBAction func ChangePasswordTap(_ sender: UIButton) {
+        PasswordField.resignFirstResponder()
+        RepeatedPasswordField.resignFirstResponder()
+        CodeField.resignFirstResponder()
         if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text, let icode = Int(code) {
             if validateCode(code: code) && validatePassword(pass: pass) && pass == rpass {
                 /* TODO: Send request for change password */

@@ -46,6 +46,8 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
                                 <connections>
                                     <action selector="emailChanged:" destination="zE3-vt-l9n" eventType="editingChanged" id="SCP-Wx-NKe"/>
+                                    <action selector="fieldEndEditing:" destination="zE3-vt-l9n" eventType="editingDidEnd" id="URG-DC-wFS"/>
+                                    <action selector="fieldStartEditing:" destination="zE3-vt-l9n" eventType="editingDidBegin" id="zqf-Tn-uZz"/>
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-os-j4d">
@@ -68,6 +70,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
+                                    <action selector="fieldEndEditing:" destination="zE3-vt-l9n" eventType="editingDidEnd" id="Ode-aq-xi1"/>
+                                    <action selector="fieldStartEditing:" destination="zE3-vt-l9n" eventType="editingDidBegin" id="NwW-QM-bKo"/>
                                     <action selector="passwordChanged:" destination="zE3-vt-l9n" eventType="editingChanged" id="Qza-zi-saT"/>
                                 </connections>
                             </textField>

@@ -35,6 +35,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                 <connections>
+                                    <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="isi-rx-wZ3"/>
+                                    <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="LHv-zn-5Lh"/>
                                     <action selector="nameChanged:" destination="Som-PD-zCR" eventType="editingChanged" id="4wr-sV-0wh"/>
                                 </connections>
                             </textField>
@@ -68,7 +70,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
                                 <connections>
-                                    <action selector="dateChanged:" destination="Som-PD-zCR" eventType="editingChanged" id="2sX-T7-MGm"/>
+                                    <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="9Zm-Yg-9Mj"/>
+                                    <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="yJk-OC-EyX"/>
                                 </connections>
                             </textField>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-bm-QqI">
@@ -102,6 +105,8 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
                                 <connections>
                                     <action selector="emailChanged:" destination="Som-PD-zCR" eventType="editingChanged" id="U1Y-dg-1Bf"/>
+                                    <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="IBF-w1-trt"/>
+                                    <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="jFm-no-WSU"/>
                                 </connections>
                             </textField>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="wrS-n4-pS9">
@@ -134,6 +139,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                                 <connections>
+                                    <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="RaK-DU-r84"/>
+                                    <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="Wg2-rA-fxz"/>
                                     <action selector="phoneChanged:" destination="Som-PD-zCR" eventType="editingChanged" id="yrS-lv-DWy"/>
                                 </connections>
                             </textField>
