@@ -122,8 +122,11 @@ class DataLoader{
                         do{
                             let decoder = JSONDecoder()
                             changeUserCredentials = try decoder.decode(ResponseChangeUserCredentials.self, from: data)
-                            self.access_token = changeUserCredentials.access_token
-                        } catch _ {
+                            if (changeUserCredentials.access_token != nil){
+                                self.access_token = changeUserCredentials.access_token!
+                            }
+                        } catch let error {
+                            print(error)
                             errResp.code = 500
                             errResp.desc = ""
                         }
@@ -239,7 +242,6 @@ class DataLoader{
             return try decoder.decode(ErrorResponse.self, from: data)
             //print("Alamofire", model)
         } catch let error {
-            print("checkUserData", error)
             return ErrorResponse(code: code,desc: "")
         }
     }
@@ -341,16 +343,13 @@ class DataLoader{
     func checkAuto(completion:@escaping ((_ result: ErrorResponse?) -> Void)){
         var respData = ErrorResponse(code: 401,desc: "")
         let headers = ["Authorization": access_token]
-        print("checkAuto", access_token)
         Alamofire.request(SERVER_URL + REQUEST_CHECK_AUTH, method: .get,
                           encoding: JSONEncoding.default,
                           headers: headers)
             .validate()
             .responseData { response in
-                print("checkUserData", response)
                 switch response.result {
                 case .success:
-                    print("checkUserData", "success")
                     if let data = response.data{
                         do{
                             let decoder = JSONDecoder()
@@ -361,7 +360,6 @@ class DataLoader{
                         }
                     }
                 case .failure(_):
-                    print("checkUserData", "failure")
                     if let data = response.data{
                         respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                     }

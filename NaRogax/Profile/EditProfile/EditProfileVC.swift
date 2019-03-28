@@ -308,7 +308,7 @@ class EditProfileVC: UIViewController {
                                 if result.code == 200 {
                                     self.navigationController?.popViewController(animated: true)
                                 } else {
-                                    print(error?.code ?? "")
+                                    print(error)
                                     print(error?.desc ?? "")
                                 }
                             }

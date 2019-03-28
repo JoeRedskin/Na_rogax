@@ -11,6 +11,6 @@ import Foundation
 struct ResponseChangeUserCredentials: Decodable {
     var code: Int
     var desc: String
-    var email: String
-    var access_token: String
+    var email: String?
+    var access_token: String?
 }
