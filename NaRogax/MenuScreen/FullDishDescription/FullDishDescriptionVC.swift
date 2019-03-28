@@ -92,7 +92,12 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             recStringToMassive()
         }
         
-        fetchImage(url_img: menu.photo)
+        if menu.photo == "" || menu.photo == nil{
+            Image.image = UIImage(named: "no_image")
+        } else {
+            fetchImage(url_img: menu.photo!)
+        }
+        
     }
     
     func fetchImage(url_img: String) {

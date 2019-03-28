@@ -46,10 +46,10 @@ class DishTableViewCell: UITableViewCell {
             dishPrice.text = String(dish.price!) + " ₽"
         }
         
-        if dish.photo == ""{
+        if dish.photo == "" || dish.photo == nil{
             dishImage.image = UIImage(named: "no_image")
         } else {
-            fetchImage(url_img: dish.photo)
+            fetchImage(url_img: dish.photo!)
         }
         
     }
