@@ -110,7 +110,7 @@
                                                 </connections>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войдите, для просмотра профиля" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-bH-gJd">
-                                                <rect key="frame" x="16" y="325" width="343" height="21.5"/>
+                                                <rect key="frame" x="16" y="323" width="343" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -130,7 +130,6 @@
                                             <constraint firstItem="g3M-9l-Ene" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="CE4-VS-tEl"/>
                                             <constraint firstItem="9oz-Wc-yI6" firstAttribute="top" secondItem="3hF-Ky-fmo" secondAttribute="bottom" id="DvH-nh-nzf"/>
                                             <constraint firstItem="Jnh-Z2-xS4" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="Dwl-db-QW8"/>
-                                            <constraint firstItem="g7v-bH-gJd" firstAttribute="top" secondItem="3hF-Ky-fmo" secondAttribute="bottom" constant="104" id="Kx7-IM-tjl"/>
                                             <constraint firstItem="t58-FC-sHm" firstAttribute="top" secondItem="Jnh-Z2-xS4" secondAttribute="bottom" constant="20" id="NhF-03-g7v"/>
                                             <constraint firstItem="ZLW-qC-2IK" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="PpU-dy-JFq"/>
                                             <constraint firstAttribute="trailing" secondItem="nKM-mt-cqK" secondAttribute="trailing" constant="16" id="Qlk-ky-ald"/>
@@ -139,6 +138,7 @@
                                             <constraint firstItem="NTN-u1-O5s" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="WFn-BD-8Ug"/>
                                             <constraint firstItem="ZLW-qC-2IK" firstAttribute="top" secondItem="g3M-9l-Ene" secondAttribute="bottom" constant="23" id="WHw-bL-Mwu"/>
                                             <constraint firstItem="8wB-HU-YnO" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="YBn-d9-gXg"/>
+                                            <constraint firstItem="g7v-bH-gJd" firstAttribute="centerY" secondItem="zpn-Xj-JYJ" secondAttribute="centerY" id="Yzm-eH-Snh"/>
                                             <constraint firstItem="3hF-Ky-fmo" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="97" id="ZiP-d1-zqY"/>
                                             <constraint firstItem="Skc-LK-wy5" firstAttribute="leading" secondItem="zpn-Xj-JYJ" secondAttribute="leading" constant="16" id="aNH-ob-5Eq"/>
                                             <constraint firstAttribute="trailing" secondItem="g3M-9l-Ene" secondAttribute="trailing" constant="16" id="eko-ap-Bjh"/>
