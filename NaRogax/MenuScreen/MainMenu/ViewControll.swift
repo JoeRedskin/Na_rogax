@@ -11,18 +11,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var DishTableView: UITableView!
     var pageIndex: Int = 0
-    //var dishes = ResponseDishesList(categories: [])
-    var dishes = Categories()
+    var dishes = ResponseDishesList(categories: [])
+   // var dishes = Categories()
     let cellSpacingHeight: CGFloat = 8
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if dishes.cat_dishes.count == 0{
+        if dishes.categories[pageIndex].cat_dishes.count == 0{
             //print(dishes.count)
             return 0
         }
         else{
             //print(dishes[0].cat_dishes.count)
-            return dishes.cat_dishes.count
+            return dishes.categories[pageIndex].cat_dishes.count
         }
     }
     
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
-        cell.displayDish(dish: dishes.cat_dishes[indexPath.section])
+        cell.displayDish(dish: dishes.categories[pageIndex].cat_dishes[indexPath.section])
         return cell
         
     }
@@ -55,15 +55,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if (dishes.cat_name != "ТОПИНГИ" && dishes.cat_name != "НАПИТКИ") || (dishes.cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.cat_dishes[indexPath.section].name.contains("Лимонад")){
+            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
-                vc.dishFull = dishes.cat_dishes[indexPath.section]
+                vc.dishFull = dishes
+                vc.indexOfDish = indexPath.section
+                vc.indexOfCategory = pageIndex
                 navigationController?.pushViewController(vc, animated: true)
-            } else if dishes.cat_name == "НАПИТКИ" {
+            } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
-                vc.dishFull = dishes.cat_dishes[indexPath.section]
+                vc.dishFull = dishes.categories[pageIndex].cat_dishes[indexPath.section]
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

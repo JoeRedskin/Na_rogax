@@ -76,7 +76,7 @@ class TabsVC: UIViewController {
         if((self.menuBarView.dataArray.count == 0) || (index >= self.menuBarView.dataArray.count)) {return nil}
         let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
         menuVC.pageIndex = index
-        menuVC.dishes = dish.categories[index]
+        menuVC.dishes = dish
         return menuVC
     }
 }

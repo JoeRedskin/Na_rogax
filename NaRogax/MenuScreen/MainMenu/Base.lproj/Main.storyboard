@@ -70,6 +70,7 @@
                                                     <color key="color" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="kzq-f8-3Bj" secondAttribute="bottom" constant="44" id="04J-0k-6CV"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ych-XK-Qr3" secondAttribute="trailing" constant="20" symbolic="YES" id="1hk-3j-PB5"/>
@@ -90,7 +91,7 @@
                                                 <constraint firstItem="kzq-f8-3Bj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Hv-iW-ffC" secondAttribute="trailing" constant="8" symbolic="YES" id="kLG-WF-efX"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1215686275" green="0.12549019610000001" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="4"/>
@@ -113,7 +114,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.086274509803921567" green="0.078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Uvw-4i-U8J" firstAttribute="bottom" secondItem="ekF-ZQ-lwh" secondAttribute="bottom" constant="10" id="EJh-at-bdN"/>
@@ -142,12 +143,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEh-WQ-JHf" customClass="MenuTabsView" customModule="NaRogax" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EJm-nq-sMm"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="a3B-ty-zCG"/>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FEh-WQ-JHf" firstAttribute="trailing" secondItem="6Rs-dB-4YU" secondAttribute="trailing" id="aEx-VW-YV8"/>
