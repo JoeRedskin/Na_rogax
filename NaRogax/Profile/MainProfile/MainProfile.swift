@@ -37,7 +37,8 @@ class MainProfile: UIViewController {
                 self.changeVisibility(flag: true)
                 self.SignInBtn.layer.cornerRadius = 20
             } else {
-                self.setProfileData()
+                let email = UserDefaultsData.shared().getEmail()
+                self.getProfileData(email: email)
             }
         }
     }
@@ -100,6 +101,7 @@ class MainProfile: UIViewController {
     
     @IBAction func signOutBtnTap(_ sender: UIButton) {
         DataLoader.shared().exitLogin()
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         self.viewWillAppear(false)
         self.viewDidLoad()
     }
