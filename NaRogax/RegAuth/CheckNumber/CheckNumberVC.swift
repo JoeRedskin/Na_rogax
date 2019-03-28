@@ -78,8 +78,9 @@ class CheckNumberVC: UIViewController{
     }
     
     private func sendCode(){
+        
         if isChenge{
-            
+            sendChange()
         }else{
             sendReg()
         }
@@ -89,6 +90,8 @@ class CheckNumberVC: UIViewController{
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
         } else {
+            requestChengeUser.code = code
+            print(requestChengeUser)
             DataLoader.shared().changeUserCredentials(data: requestChengeUser){ result, error in
                 UserDefaultsData.shared().saveEmail(email: result.email ?? self.requestChengeUser.email)
                 UserDefaultsData.shared().saveName(name: self.name)

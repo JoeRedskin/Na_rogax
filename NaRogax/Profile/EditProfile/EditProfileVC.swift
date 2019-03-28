@@ -281,26 +281,21 @@ class EditProfileVC: UIViewController {
         //DateField.text =
     }
     
-    
     @IBAction func SaveChangesBtnTap(_ sender: UIButton) {
         if let name = NameField.text, let email = EmailField.text, let phone = PhoneField.text, let date = DateField.text {
             if name != Name || phone != Phone || date != BirthDate || email != Email {
                 if validateName(name: name) && validatePhone(number: phone) && validateEmail(email: email) {
                     /* TODO: Запрос на сохранение данных */
                     var data: RequestChangeUserCredentials
-                    if date == BirthDate {
-                        if (date == "Не указана"){
-                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: "")
-                        }else{
-                            data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: date)
-                        }
+                    if (date == "Не указана"){
+                        data = RequestChangeUserCredentials(email: Email, new_email: "", code: 0, name: name, phone: phone, birthday: "")
                     } else {
                         let formatter = DateFormatter()
-                        formatter.dateFormat = "dd.MM.yyyy"
+                        formatter.dateFormat = "dd.MM.yyyy" //1995-02-08
                         let oldDate = formatter.date(from: date)
                         formatter.dateFormat = "yyyy-MM-dd"
                         let newDate = formatter.string(from: oldDate!)
-                        data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: newDate)
+                        data = RequestChangeUserCredentials(email: Email, new_email: "", code: 0, name: name, phone: phone, birthday: newDate)
                     }
                     if email == Email {
                         if (!DataLoader.shared().testNetwork()){
@@ -323,15 +318,19 @@ class EditProfileVC: UIViewController {
                             }
                         }
                     }else{
+                        data.new_email = email
+                        data.email = Email
                         if (!DataLoader.shared().testNetwork()){
                             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                         } else {
+                            print("verifyEmail", data.new_email)
                             Alert.shared().showSpinner(onView: self.view)
                             DataLoader.shared().findUser(email: email){ result in
                                 switch result?.code {
                                 case 404:
                                     DataLoader.shared().verifyEmail(data: RequestUserEmail(email: data.new_email)){ result in
                                         print("verifyEmail", result)
+                                        print(data)
                                         if result?.code == 200 {
                                             let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)
                                             let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumberScreen") as! CheckNumberVC

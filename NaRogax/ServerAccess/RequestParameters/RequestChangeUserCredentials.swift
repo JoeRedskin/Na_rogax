@@ -12,7 +12,7 @@ import Alamofire
 struct RequestChangeUserCredentials {
     var email: String = ""
     var new_email: String = ""
-    var code: String = ""
+    var code: Int = 0
     var name: String = ""
     var phone: String = ""
     var birthday: String = "" 
