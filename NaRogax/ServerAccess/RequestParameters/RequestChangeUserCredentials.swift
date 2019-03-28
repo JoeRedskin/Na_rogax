@@ -15,12 +15,14 @@ struct RequestChangeUserCredentials {
     var code: String
     var name: String
     var phone: String
+    var birthday: String
     
     func conventParameters() -> Parameters{
         let par: Parameters = [ "email": email,
                                 "new_email": new_email,
                                 "code": code,
                                 "name": name,
+                                "birthday": birthday,
                                 "phone": phone]
         return par
     }

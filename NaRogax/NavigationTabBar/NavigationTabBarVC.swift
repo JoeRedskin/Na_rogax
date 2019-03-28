@@ -27,15 +27,15 @@ class NavigationTabBarVC: UITabBarController {
     private func settingTabBar(){
         let firstViewController = UIStoryboard(name: "Main", bundle: nil)
         let vc = firstViewController.instantiateViewController(withIdentifier: "TabsViewController")
-        vc.tabBarItem =  UITabBarItem(title: "меню", image: UIImage(named: "ic_menu"), tag: 0)
+        vc.tabBarItem =  UITabBarItem(title: "Меню", image: UIImage(named: "ic_menu"), tag: 0)
 
         let thirdViewController = UIStoryboard(name: "BookingMain", bundle: nil)
         let thirdVC = thirdViewController.instantiateViewController(withIdentifier: "MainBooking")
-        thirdVC.tabBarItem = UITabBarItem(title: "бронь", image: UIImage(named: "ic_calendar"), tag: 1)
+        thirdVC.tabBarItem = UITabBarItem(title: "Бронь", image: UIImage(named: "ic_calendar"), tag: 1)
         
         let secondViewController = UIStoryboard(name: "MainProfile", bundle: nil)
         let secVC = secondViewController.instantiateViewController(withIdentifier: "MainProfile") as! MainProfile
-        secVC.tabBarItem = UITabBarItem(title: "контакты", image: UIImage(named: "ic_contacts"), tag: 2)
+        secVC.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "ic_profile"), tag: 2)
         
         let tabBarList = [vc, thirdVC, secVC]
         viewControllers = tabBarList
