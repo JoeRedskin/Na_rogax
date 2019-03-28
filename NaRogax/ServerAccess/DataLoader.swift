@@ -48,6 +48,10 @@ class DataLoader{
     
     func exitLogin(){
         access_token = ""
+        UserDefaultsData.shared().saveName(name: "")
+        UserDefaultsData.shared().savePhone(phone: "")
+        UserDefaultsData.shared().saveEmail(email: "")
+        UserDefaultsData.shared().saveBirthDate(birthDate: "")
     }
     
     private func loadAccessToken(){
@@ -55,10 +59,14 @@ class DataLoader{
         if !email.isEmpty{
             access_token = KeychainService.token(service: "TokenService", account: email)
         }
+        print("Token load", email)
+        print("Token load", access_token)
     }
     
     private func saveAccessToken(){
         let email = UserDefaultsData.shared().getEmail()
+        print("Token save ", email)
+        print("Token save", access_token)
         if !email.isEmpty{
             KeychainService.setToken(access_token, service: "TokenService", account: email)
         }
@@ -148,6 +156,7 @@ class DataLoader{
         let paramet = data.conventParameters()
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]
+        print("Token showUserBooking", access_token)
         Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING,
                           method: .post,
                           parameters: paramet,
@@ -311,6 +320,7 @@ class DataLoader{
                        completion:@escaping ((_ result: ResponseAuthorizeUser,_ error: ErrorResponse?) -> Void)){
         var credentals = ResponseAuthorizeUser()
         let paramet = data.conventParameters()
+        print("Token authorizeUser", paramet)
         Alamofire.request(SERVER_URL + REQUEST_AUTH,
                           method: .post,
                           parameters: paramet,
@@ -325,6 +335,7 @@ class DataLoader{
                             let decoder = JSONDecoder()
                             credentals = try decoder.decode(ResponseAuthorizeUser.self, from: data)
                             self.access_token = credentals.access_token
+                            print("Token authorizeUser", self.access_token)
                         } catch _ {
                             errResp.code = 500
                             errResp.desc = ""

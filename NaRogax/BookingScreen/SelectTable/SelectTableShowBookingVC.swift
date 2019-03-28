@@ -26,10 +26,16 @@ class SelectTableShowBookingVC: UIViewController {
         super.viewDidLoad()
         TableView.delegate = self
         TableView.dataSource = self
-        chekAuto.email = UserDefaults.standard.string(forKey: "email") ?? "zlobrynya@gmail.com"
+        //chekAuto.email = UserDefaults.standard.string(forKey: "email") ?? ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let newEmail = UserDefaults.standard.string(forKey: "email") ?? ""
+        if (chekAuto.email != newEmail){
+            chekAuto.email = newEmail
+            userBooking.bookings.removeAll()
+            self.TableView.reloadData()
+        }
         checkUserData()
     }
     
@@ -42,7 +48,6 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().checkAuto(){ error in
-                print("Booking", error)
                 switch error?.code{
                 case 200:
                     self.buttonAuto.isHidden = true
@@ -90,7 +95,6 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().showUserBooking(data: chekAuto){ result, error in
-                print("Booking", error)
                 switch error?.code{
                 case 200:
                     if (result.bookings.count == 0){

@@ -78,7 +78,6 @@ class CheckNumberVC: UIViewController{
     }
     
     private func sendCode(){
-        
         if isChenge{
             sendChange()
         }else{
@@ -98,8 +97,8 @@ class CheckNumberVC: UIViewController{
                 print(result.code)
                 if result.code == 200 {
                     self.navigationController?.popViewController(animated: true)
-                } else {
-                    print(error)
+                } else{
+                    self.reloadError(show: true)
                 }
             }
         }
@@ -135,7 +134,6 @@ class CheckNumberVC: UIViewController{
                             }
                         }
                     }
-                    
                 }else{
                     self.reloadError(show: true)
                 }
@@ -208,9 +206,8 @@ class CheckNumberVC: UIViewController{
             index += 1
             if (index < textViews.count){
                 textViews[index].becomeFirstResponder()
-            }else{
-                checkCode()
             }
+            checkCode()
         }
     }
 }
