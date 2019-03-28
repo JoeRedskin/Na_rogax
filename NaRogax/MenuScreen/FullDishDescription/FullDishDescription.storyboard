@@ -224,6 +224,7 @@
                         <outlet property="RecomendedCollectionView" destination="hQe-b8-AH4" id="O7z-YB-Cml"/>
                         <outlet property="RecommendLabel" destination="2Dp-7V-K5j" id="xNv-ld-Jfy"/>
                         <outlet property="WeightLabel" destination="I8f-Cb-eLM" id="KPk-V3-Ocw"/>
+                        <outlet property="scrollView" destination="LAi-iY-xwS" id="S5S-Zf-ScX"/>
                         <outlet property="spinner" destination="DxA-EK-8CV" id="dXT-tg-WWc"/>
                     </connections>
                 </viewController>

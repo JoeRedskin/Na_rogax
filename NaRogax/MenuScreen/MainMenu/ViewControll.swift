@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Сок")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
+            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
                 //                print("Rec: \(String(describing: dishes[0].categories[pageIndex].cat_dishes[indexPath.row].recommendedWith))")
                 //let storyboard = UIStoryboard(name: "FullDescription", bundle: nil)
                 //let vc = storyboard.instantiateViewController(withIdentifier: "FullDesc") as! FullDescriptionVC
@@ -64,16 +64,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 vc.dishFull = dishes
                 vc.indexOfDish = indexPath.section
                 vc.indexOfCategory = pageIndex
-                
                 navigationController?.pushViewController(vc, animated: true)
             } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
-                
-                vc.dishFull = dishes
-                vc.indexOfDish = indexPath.section
-                vc.indexOfCategory = pageIndex
-                
+                vc.dishFull = dishes.categories[pageIndex].cat_dishes[indexPath.section]
+                //vc.indexOfDish = indexPath.section
+                //vc.indexOfCategory = pageIndex
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

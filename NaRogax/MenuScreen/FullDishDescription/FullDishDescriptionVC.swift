@@ -19,6 +19,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var PriceLabel: UILabel!
     @IBOutlet weak var RecomendedCollectionView: UICollectionView!
     @IBOutlet weak var RecommendLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     var dishFull = ResponseDishesList(categories: [])
@@ -88,6 +89,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         if menu.recommendedWith == nil {
             RecomendedCollectionView.isHidden = true
             RecommendLabel.isHidden = true
+            scrollView.isScrollEnabled = false
         } else {
             recStringToMassive()
         }

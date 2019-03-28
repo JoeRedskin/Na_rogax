@@ -39,6 +39,8 @@ struct DishDescription: Decodable {
         case longDescription = "desc_long"
         case weight = "weight"
         case recommendedWith = "recommended"
+        case delivery = "delivery"
+        case sub_menu = "sub_menu"
     }
     
     var class_name: String = ""
@@ -49,15 +51,16 @@ struct DishDescription: Decodable {
     var shortDescription: String? = ""
     var longDescription: String? = ""
     var weight: String = ""
-    var recommendedWith: String?
-
+    var recommendedWith: String? = nil
+    var delivery: Bool? = false
+    var sub_menu: [SubMenu]? = []
 }
 
-struct SubMenu {
-    var parent_name: String = ""
-    var name: String = ""
-    var weight: String = ""
-    var price: Int = 0
+struct SubMenu: Decodable {
+    var parent_name: String? = ""
+    var name: String? = ""
+    var weight: String? = ""
+    var price: Int? = 0
     
     private enum CodingKeys: String, CodingKey{
         case parent_name

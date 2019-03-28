@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-5z-DIf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="799"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-5z-DIf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKT-4r-aCt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
@@ -122,7 +122,6 @@
                                     <constraint firstAttribute="trailing" secondItem="vKT-4r-aCt" secondAttribute="trailing" id="Evn-az-jej"/>
                                     <constraint firstItem="Rqr-k4-XB9" firstAttribute="centerX" secondItem="6Vy-QS-ALK" secondAttribute="centerX" id="XDl-xn-yis"/>
                                     <constraint firstItem="1eT-8n-jsX" firstAttribute="top" secondItem="vKT-4r-aCt" secondAttribute="bottom" constant="25" id="hkO-7B-ugq"/>
-                                    <constraint firstAttribute="bottom" secondItem="vKT-4r-aCt" secondAttribute="bottom" constant="511" id="k2l-gV-Ov7"/>
                                     <constraint firstItem="Rqr-k4-XB9" firstAttribute="centerY" secondItem="6Vy-QS-ALK" secondAttribute="centerY" id="kHK-HW-zG1"/>
                                     <constraint firstItem="vKT-4r-aCt" firstAttribute="leading" secondItem="hJw-5z-DIf" secondAttribute="leading" id="zP3-Zo-ZJ0"/>
                                 </constraints>
@@ -131,7 +130,7 @@
                         <color key="backgroundColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="0.96152463573619629" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hJw-5z-DIf" firstAttribute="leading" secondItem="MOS-SD-y7g" secondAttribute="leading" id="FG9-kF-g6X"/>
-                            <constraint firstItem="hJw-5z-DIf" firstAttribute="bottom" secondItem="MOS-SD-y7g" secondAttribute="bottom" constant="132" id="FoU-5n-bAD"/>
+                            <constraint firstItem="hJw-5z-DIf" firstAttribute="bottom" secondItem="MOS-SD-y7g" secondAttribute="bottom" id="FoU-5n-bAD"/>
                             <constraint firstItem="hJw-5z-DIf" firstAttribute="top" secondItem="MOS-SD-y7g" secondAttribute="top" constant="-20" id="bnb-lG-EcN"/>
                             <constraint firstItem="MOS-SD-y7g" firstAttribute="trailing" secondItem="hJw-5z-DIf" secondAttribute="trailing" id="qhc-Yi-PmS"/>
                         </constraints>
@@ -142,6 +141,7 @@
                         <outlet property="ImageBGView" destination="WeL-s4-4Bs" id="HMQ-RY-YMS"/>
                         <outlet property="imageField" destination="6Vy-QS-ALK" id="Hj6-AX-zAG"/>
                         <outlet property="nameField" destination="vg8-bH-vUK" id="bwC-1e-QIa"/>
+                        <outlet property="scroll" destination="hJw-5z-DIf" id="mcP-V5-70e"/>
                         <outlet property="spinner" destination="Rqr-k4-XB9" id="cx2-5H-Fth"/>
                     </connections>
                 </viewController>
