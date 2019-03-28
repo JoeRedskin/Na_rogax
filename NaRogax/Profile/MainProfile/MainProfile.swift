@@ -25,24 +25,16 @@ class MainProfile: UIViewController {
     @IBOutlet weak var PhoneLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        Alert.shared().showSpinner(onView: self.view)
         DataLoader.shared().checkAuto(){ result in
             if result?.code != 200 {
-                self.Email.isHidden = true
-                self.Name.isHidden = true
-                self.Phone.isHidden = true
-                self.Date.isHidden = true
-                self.EditProfileBtn.isHidden = true
-                self.SignOutBtn.isHidden = true
-                self.SeparatorLine.isHidden = true
-                self.NameLabel.isHidden = true
-                self.PhoneLabel.isHidden = true
-                self.EmailLabel.isHidden = true
-                self.DateLabel.isHidden = true
-                self.ScrollView.isScrollEnabled = false
+                self.changeVisibility(flag: true)
                 
                 self.SignInLabel.isHidden = false
                 self.SignInBtn.isHidden = false
                 self.SignInBtn.layer.cornerRadius = 20
+                
+                Alert.shared().removeSpinner()
             } else {
                 let email = UserDefaultsData.shared().getEmail()
                 self.getProfileData(email: email)
@@ -58,51 +50,37 @@ class MainProfile: UIViewController {
         }
         EditProfileBtn.layer.cornerRadius = 20
         
+//        Alert.shared().showSpinner(onView: self.view)
 //        DataLoader.shared().checkAuto(){ result in
 //            if result?.code != 200 {
-//                print("Not auth")
-//                self.Email.isHidden = true
-//                self.Name.isHidden = true
-//                self.Phone.isHidden = true
-//                self.Date.isHidden = true
-//                self.EditProfileBtn.isHidden = true
-//                self.SignOutBtn.isHidden = true
-//                self.SeparatorLine.isHidden = true
-//                self.NameLabel.isHidden = true
-//                self.PhoneLabel.isHidden = true
-//                self.EmailLabel.isHidden = true
-//                self.DateLabel.isHidden = true
-//                self.ScrollView.isScrollEnabled = false
+//                self.changeVisibility(flag: true)
 //
 //                self.SignInLabel.isHidden = false
 //                self.SignInBtn.isHidden = false
 //                self.SignInBtn.layer.cornerRadius = 20
+//
+//                Alert.shared().removeSpinner()
 //            } else {
 //                let email = UserDefaultsData.shared().getEmail()
 //                self.getProfileData(email: email)
 //            }
 //        }
         
-//        if email == "" {
-//            Email.isHidden = true
-//            Name.isHidden = true
-//            Phone.isHidden = true
-//            Date.isHidden = true
-//            EditProfileBtn.isHidden = true
-//            SignOutBtn.isHidden = true
-//            SeparatorLine.isHidden = true
-//            NameLabel.isHidden = true
-//            PhoneLabel.isHidden = true
-//            EmailLabel.isHidden = true
-//            DateLabel.isHidden = true
-//            ScrollView.isScrollEnabled = false
-//            
-//            SignInLabel.isHidden = false
-//            SignInBtn.isHidden = false
-//            SignInBtn.layer.cornerRadius = 20
-//        } else {
-//            getProfileData(email: email)
-//        }
+    }
+    
+    func changeVisibility(flag: Bool) {
+        self.Email.isHidden = flag
+        self.Name.isHidden = flag
+        self.Phone.isHidden = flag
+        self.Date.isHidden = flag
+        self.EditProfileBtn.isHidden = flag
+        self.SignOutBtn.isHidden = flag
+        self.SeparatorLine.isHidden = flag
+        self.NameLabel.isHidden = flag
+        self.PhoneLabel.isHidden = flag
+        self.EmailLabel.isHidden = flag
+        self.DateLabel.isHidden = flag
+        self.ScrollView.isScrollEnabled = !flag
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -145,16 +123,10 @@ class MainProfile: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
         } else {
             DataLoader.shared().viewUserCredentials(data: data){ result, error in
+                self.changeVisibility(flag: false)
                 self.Name.text = result.data.name
                 self.Phone.text = result.data.phone
                 self.Email.text = result.data.email
-                /*if result.data.birthday == "" {
-                    self.Date.text = "Не указана"
-                    print("No date")
-                } else {
-                    self.Date.text = result.data.birthday ?? <#default value#> + "kek"
-                }*/
-                //self.Date.text = result.data.birthday ?? "Не указана"
                 if let date = result.data.birthday {
                     let formatter = DateFormatter()
                     formatter.dateFormat = "yyyy-MM-dd"
@@ -166,6 +138,7 @@ class MainProfile: UIViewController {
                 } else {
                     self.Date.text = "Не указана"
                 }
+                Alert.shared().removeSpinner()
             }
         }
     }
