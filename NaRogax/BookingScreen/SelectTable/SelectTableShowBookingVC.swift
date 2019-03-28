@@ -40,9 +40,6 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     private func checkUserData(){
-        if (userBooking.bookings.count == 0){
-            Alert.shared().showSpinner(onView: self.view)
-        }
         //тут происходит обращение к внутреней памяти и достаем данные
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
@@ -53,6 +50,9 @@ class SelectTableShowBookingVC: UIViewController {
                     self.buttonAuto.isHidden = true
                     self.TableView.isHidden = false
                     self.labelText.isHidden = true
+                    if (self.userBooking.bookings.count == 0){
+                        Alert.shared().showSpinner(onView: self.view)
+                    }
                     self.getData()
                     break
                 case 401, 422, 404:
@@ -64,6 +64,7 @@ class SelectTableShowBookingVC: UIViewController {
                     Alert.shared().removeSpinner()
                     break
                 default:
+                    print(error)
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }
@@ -109,7 +110,15 @@ class SelectTableShowBookingVC: UIViewController {
                 case 401:
                     self.startStoryAuto()
                     break
+                case 404:
+                    DataLoader.shared().exitLogin()
+                    self.TableView.isHidden = true
+                    self.buttonAuto.isHidden = false
+                    self.labelText.isHidden = false
+                    self.labelText.text = self.TEXT_NO_AUTO
+                    break
                 default:
+                    print(error)
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }

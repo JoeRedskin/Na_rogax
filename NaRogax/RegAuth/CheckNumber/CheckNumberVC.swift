@@ -125,11 +125,12 @@ class CheckNumberVC: UIViewController{
                                 self.dismiss(animated: true)
                                 break
                             case is MainProfile:
-                                self.navigationController?.popToRootViewController(animated: true)
+                                self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
                                 self.dismiss(animated: true)
                                 break
                             //TO DO добавить для профиля
                             default:
+                                self.navigationController?.popToRootViewController(animated: true)
                                 break
                             }
                         }
@@ -198,6 +199,7 @@ class CheckNumberVC: UIViewController{
     
     private func setCutText(messege str: String){
         for item in 0..<str.count{
+            reloadError(show: false)
             if (index >= textViews.count){
                 break
             }

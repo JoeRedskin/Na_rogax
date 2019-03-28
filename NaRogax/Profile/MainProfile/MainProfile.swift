@@ -134,11 +134,12 @@ class MainProfile: UIViewController {
                 self.Email.text = result.data.email
                 if let date = result.data.birthday {
                     let formatter = DateFormatter()
+                    var newDate = "Не указана"
                     formatter.dateFormat = "yyyy-MM-dd"
-                    let oldDate = formatter.date(from: date)
-                    formatter.dateFormat = "dd.MM.yyyy"
-                    let newDate = formatter.string(from: oldDate!)
-                    
+                    if let oldDate = formatter.date(from: date){
+                        formatter.dateFormat = "dd.MM.yyyy"
+                        newDate = formatter.string(from: oldDate)
+                    }
                     self.Date.text = newDate
                 } else {
                     self.Date.text = "Не указана"
