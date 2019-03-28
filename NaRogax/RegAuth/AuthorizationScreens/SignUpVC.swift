@@ -347,7 +347,7 @@ class SignUpVC: UIViewController {
             }
             if pass != rpass {
                 incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
-                showErrorLabel(text: "Пароли должны совпадать")
+                showErrorLabel(text: "Пароли не совпадают")
                 RepeatPasswordBtn.isHidden = true
             }
         } else {
