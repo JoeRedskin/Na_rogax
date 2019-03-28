@@ -75,7 +75,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво"){
                 WeightLabel.text = menu.weight + " мл"
             } else {
-                WeightLabel.text = menu.weight
+                WeightLabel.text = menu.weight + " г"
             }
         }
          
