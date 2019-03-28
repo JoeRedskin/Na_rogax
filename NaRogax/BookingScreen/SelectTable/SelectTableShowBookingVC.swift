@@ -34,13 +34,19 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     private func checkUserData(){
+        if (userBooking.bookings.count == 0){
+            Alert.shared().showSpinner(onView: self.view)
+        }
         //тут происходит обращение к внутреней памяти и достаем данные
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().checkAuto(){ error in
+                print("Booking", error)
                 switch error?.code{
                 case 200:
+                    self.buttonAuto.isHidden = true
+                    self.labelText.isHidden = true
                     self.getData()
                     break
                 case 401, 422, 404:
@@ -49,6 +55,7 @@ class SelectTableShowBookingVC: UIViewController {
                     self.buttonAuto.isHidden = false
                     self.labelText.isHidden = false
                     self.labelText.text = self.TEXT_NO_AUTO
+                    Alert.shared().removeSpinner()
                     break
                 default:
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
@@ -82,6 +89,7 @@ class SelectTableShowBookingVC: UIViewController {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             DataLoader.shared().showUserBooking(data: chekAuto){ result, error in
+                print("Booking", error)
                 switch error?.code{
                 case 200:
                     if (result.bookings.count == 0){
@@ -100,6 +108,7 @@ class SelectTableShowBookingVC: UIViewController {
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }
+                Alert.shared().removeSpinner()
             }
         }
     }

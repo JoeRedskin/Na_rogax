@@ -46,6 +46,10 @@ class DataLoader{
         return uniqueInstance!
     }
     
+    func exitLogin(){
+        access_token = ""
+    }
+    
     private func loadAccessToken(){
         let email = UserDefaultsData.shared().getEmail()
         if !email.isEmpty{
@@ -155,7 +159,8 @@ class DataLoader{
                         do{
                             let decoder = JSONDecoder()
                             showBooking = try decoder.decode(ResponseShowUserBooking.self, from: data)
-                        } catch _ {
+                        } catch let error {
+                            print("Booking", error)
                             errResp.code = 500
                             errResp.desc = ""
                         }
@@ -336,6 +341,7 @@ class DataLoader{
     func checkAuto(completion:@escaping ((_ result: ErrorResponse?) -> Void)){
         var respData = ErrorResponse(code: 401,desc: "")
         let headers = ["Authorization": access_token]
+        print("checkAuto", access_token)
         Alamofire.request(SERVER_URL + REQUEST_CHECK_AUTH, method: .get,
                           encoding: JSONEncoding.default,
                           headers: headers)

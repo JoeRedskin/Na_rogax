@@ -38,7 +38,8 @@ class Alert{
     private let BUTTON_MESSEGE_OK = ["Ок"]
     private let BUTTON_MESSEGE_OK_CANCEL = ["Ок", "Отмена"]
     private let BUTTON_MESSEGE_ERROR_NETWORK = ["Повторить соединение", "Отмена"]
-    
+    private var vSpinner : UIView?
+
     
     
     static func shared() -> Alert {
@@ -113,5 +114,31 @@ class Alert{
             }))
         }
         return alert
-    }  
+    }
+    
+    
+    /*
+     * Для спинера загрузки
+     */
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.7)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            self.vSpinner?.removeFromSuperview()
+            self.vSpinner = nil
+        }
+    }
 }

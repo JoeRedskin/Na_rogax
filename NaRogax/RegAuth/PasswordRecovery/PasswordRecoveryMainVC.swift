@@ -127,6 +127,7 @@ class PasswordRecoveryMainVC: UIViewController {
                         self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                         self.SendBtn.isEnabled = true
                     }else{
+                        Alert.shared().showSpinner(onView: self.view)
                         DataLoader.shared().findUser(email: email){ result in
                             switch result?.code {
                             case 200:
@@ -136,6 +137,7 @@ class PasswordRecoveryMainVC: UIViewController {
                                         let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
                                         let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
                                         vc.email = email
+                                        Alert.shared().removeSpinner()
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                     self.SendBtn.isEnabled = true
@@ -144,6 +146,7 @@ class PasswordRecoveryMainVC: UIViewController {
                             case 404:
                                 self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
                                 self.showErrorLabel(text: "Пользователя с такой почтой не существует")
+                                Alert.shared().removeSpinner()
                                 break
                             case .none:
                                 break

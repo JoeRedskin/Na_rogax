@@ -36,7 +36,7 @@ class ReserveScreenVC: UIViewController {
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        TableInfoLabel.text = table_info
+        TableInfoLabel.text = table_info.replacingOccurrences(of: "Стол: ", with: "")
         DateLabel.text = table_date
         TimeLabel.text = table_time
         

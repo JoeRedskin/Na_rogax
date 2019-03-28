@@ -67,10 +67,10 @@ class MainBookingVC: UIViewController {
 extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
-        if (reloadSegmentedControler){
+        /*if (reloadSegmentedControler){
             segmentedControler.selectedSegmentIndex = 0
             reloadSegmentedControler = false
-        }
+        }*/
         //segmentedControler.selectedSegmentIndex = 0
         if viewController == secondPage{
             print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
@@ -83,10 +83,10 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         print("change viewControllerAfter", segmentedControler.selectedSegmentIndex)
-        if (reloadSegmentedControler){
+        /*if (reloadSegmentedControler){
             segmentedControler.selectedSegmentIndex = 1
             reloadSegmentedControler = false
-        }
+        }*/
         //segmentedControler.selectedSegmentIndex = 1
         if viewController ==  firstPage{
             return secondPage
@@ -101,11 +101,17 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
         if finished {
             if completed {
                 //self.finished = true
-                reloadSegmentedControler = true
-                if (segmentedControler.selectedSegmentIndex == 0){
-                    segmentedControler.selectedSegmentIndex = 1
-                }else{
+                switch pageController.viewControllers!.first{
+                case is BookingVC:
                     segmentedControler.selectedSegmentIndex = 0
+                    break
+                case is SelectTableShowBookingVC:
+                    segmentedControler.selectedSegmentIndex = 1
+                    break
+                case .none:
+                    break
+                case .some(_):
+                    break
                 }
             }
         }
