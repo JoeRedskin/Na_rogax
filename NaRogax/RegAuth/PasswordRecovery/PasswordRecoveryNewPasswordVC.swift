@@ -164,7 +164,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
-        PasswordErrorLabel.text = ""
+        PasswordErrorLabel.text = "Пароль"
         PasswordBtn.isHidden = false
         if let pass = PasswordField.text {
             if pass != "" {
