@@ -38,7 +38,7 @@ class UserDefaultsData {
         UserDefaults.standard.set(phone, forKey: PHONE_KEY)
     }
     
-    func savePhone(birthDate: String){
+    func saveBirthDate(birthDate: String){
         UserDefaults.standard.set(birthDate, forKey: PHONE_KEY)
     }
     

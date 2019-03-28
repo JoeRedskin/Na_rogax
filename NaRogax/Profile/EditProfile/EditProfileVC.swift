@@ -289,7 +289,7 @@ class EditProfileVC: UIViewController {
                     /* TODO: Запрос на сохранение данных */
                     var data: RequestChangeUserCredentials
                     if date == BirthDate {
-                        if (date != "Не указана"){
+                        if (date == "Не указана"){
                             data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: "")
                         }else{
                             data = RequestChangeUserCredentials(email: email, new_email: "", code: "", name: name, phone: phone, birthday: date)
@@ -310,6 +310,13 @@ class EditProfileVC: UIViewController {
                                 print(result.code)
                                 if result.code == 200 {
                                     self.navigationController?.popViewController(animated: true)
+                                    UserDefaultsData.shared().saveName(name: data.name)
+                                    if (date.isEmpty){
+                                        UserDefaultsData.shared().saveBirthDate(birthDate: "Не указана") 
+                                    }else{
+                                        UserDefaultsData.shared().saveBirthDate(birthDate: data.birthday)
+                                    }
+                                    UserDefaultsData.shared().savePhone(phone: data.phone)
                                 } else {
                                     print(error)
                                 }

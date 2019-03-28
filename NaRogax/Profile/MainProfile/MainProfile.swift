@@ -37,8 +37,7 @@ class MainProfile: UIViewController {
                 self.changeVisibility(flag: true)
                 self.SignInBtn.layer.cornerRadius = 20
             } else {
-                let email = UserDefaultsData.shared().getEmail()
-                self.getProfileData(email: email)
+                self.setProfileData()
             }
         }
     }
@@ -103,6 +102,21 @@ class MainProfile: UIViewController {
         DataLoader.shared().exitLogin()
         self.viewWillAppear(false)
         self.viewDidLoad()
+    }
+    
+    private func setProfileData(){
+        let email = UserDefaultsData.shared().getEmail()
+        let name = UserDefaultsData.shared().getName()
+        let phone = UserDefaultsData.shared().getPhone()
+        let birthDate = UserDefaultsData.shared().getBirthDate()
+        if (name.isEmpty || phone.isEmpty || birthDate.isEmpty){
+            getProfileData(email: email)
+        }else{
+            Name.text = name
+            Phone.text = phone
+            Email.text = email
+            Date.text = birthDate
+        } 
     }
     
     func getProfileData(email: String) {
