@@ -30,8 +30,8 @@ class MainProfile: UIViewController {
             if result?.code != 200 {
                 self.changeVisibility(flag: true)
                 
-                self.SignInLabel.isHidden = false
-                self.SignInBtn.isHidden = false
+//                self.SignInLabel.isHidden = false
+//                self.SignInBtn.isHidden = false
                 self.SignInBtn.layer.cornerRadius = 20
                 
                 Alert.shared().removeSpinner()
@@ -81,6 +81,9 @@ class MainProfile: UIViewController {
         self.EmailLabel.isHidden = flag
         self.DateLabel.isHidden = flag
         self.ScrollView.isScrollEnabled = !flag
+        
+        self.SignInLabel.isHidden = !flag
+        self.SignInBtn.isHidden = !flag
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -113,7 +116,9 @@ class MainProfile: UIViewController {
     }
     
     @IBAction func signOutBtnTap(_ sender: UIButton) {
-        
+        DataLoader.shared().exitLogin()
+        self.viewWillAppear(false)
+        self.viewDidLoad()
     }
     
     func getProfileData(email: String) {
