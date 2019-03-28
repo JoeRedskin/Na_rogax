@@ -16,9 +16,9 @@ struct ResponseDishesList: Decodable{
 }
 
 struct Categories: Decodable {
-    var cat_id: Int
-    var cat_name: String
-    var cat_dishes: [DishDescription]
+    var cat_id: Int = -1
+    var cat_name: String = ""
+    var cat_dishes: [DishDescription] = []
     
     enum CodingKeys: String, CodingKey{
         case cat_id = "category_id"

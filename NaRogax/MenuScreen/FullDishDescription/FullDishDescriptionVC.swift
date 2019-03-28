@@ -21,10 +21,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var RecommendLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    
-    var dishFull = ResponseDishesList(categories: [])
-    var indexOfDish = 0
-    var indexOfCategory = 0
+    var dishFull = DishDescription()
     var recDish: [String] = []
     
     override func viewDidLoad() {
@@ -34,7 +31,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         backButton.title = "Меню"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        GetValuesInView(menu: dishFull.categories[indexOfCategory].cat_dishes[indexOfDish])
+        GetValuesInView(menu: dishFull)
         ImageBGView.clipsToBounds = true
         ImageBGView.layer.cornerRadius = 16.0
         
@@ -118,7 +115,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func recStringToMassive(){
-        if let recDishString = dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
+        if let recDishString = dishFull.recommendedWith{
             var str = ""
             for index in recDishString.indices{
                 if (recDishString[index] >= "0" && recDishString[index] <= "9") {
@@ -138,12 +135,8 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     
     func findRecDish(topping: Int) -> DishDescription{
         var rightDish = DishDescription()
-        for category in dishFull.categories{
-                for dish in category.cat_dishes{
-                    if dish.itemId == topping{
-                        rightDish = dish
-                    }
-                }
+        if dishFull.itemId == topping{
+            rightDish = dishFull
         }
         return rightDish
     }
@@ -153,7 +146,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith == nil {
+        if dishFull.recommendedWith == nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
             return cell
         }

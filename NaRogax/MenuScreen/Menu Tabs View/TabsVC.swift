@@ -15,18 +15,20 @@ class TabsVC: UIViewController {
     var tabs: [String] = []
     var pageController: UIPageViewController!
     private var finished = false
+    private var dish = ResponseDishesList(categories: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Alert.shared().showSpinner(onView: self.view)
         if (!DataLoader.shared().testNetwork()) {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            DataLoader.shared().getCategories(){result, error in
+            DataLoader.shared().getDishes(){result, error in
                 if error?.code == 200 {
-                    //items =  sorted(items, {$0 < $1})
-                    let items = result.categories.sorted(by: { $0.order < $1.order})
-                    for tab in items{
-                        self.tabs += [tab.name]
+                    //let items = result.categories.sorted(by: { $0.order < $1.order})
+                    self.dish = result
+                    for tab in result.categories{
+                        self.tabs += [tab.cat_name]
                     }
                     self.menuBarView.dataArray = self.tabs
                     self.menuBarView.isSizeToFitCellsNeeded = true
@@ -40,8 +42,9 @@ class TabsVC: UIViewController {
                     //For Intial Display
                     self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
                     self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
+                    Alert.shared().removeSpinner()
                 } else{
-                    //self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                 }
                 
             }
@@ -73,8 +76,7 @@ class TabsVC: UIViewController {
         if((self.menuBarView.dataArray.count == 0) || (index >= self.menuBarView.dataArray.count)) {return nil}
         let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
         menuVC.pageIndex = index
-        ///currentIndex = index
-        print("viewController: ", index)
+        menuVC.dishes = dish.categories[index]
         return menuVC
     }
 }
@@ -121,10 +123,7 @@ extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         var index = (viewController as! ViewController).pageIndex
         print("pageViewController", index)
         if (index == tabs.count) || (index == NSNotFound) {return nil}
-        //if (finished){
-            index += 1
-            //finished = false
-        //}
+        index += 1
         return self.viewController(At: index)
     }
     

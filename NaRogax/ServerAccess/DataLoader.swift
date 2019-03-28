@@ -207,7 +207,9 @@ class DataLoader{
     //@escaping ([DishesList]) -> ()
     func getDishes(completion:@escaping ((_ result: ResponseDishesList,_ error: ErrorResponse?) -> Void)){
         var dishes = ResponseDishesList(categories: [])
-        Alamofire.request(SERVER_URL + REQUEST_DISHES, method: .get).validate().responseData { response in
+        Alamofire.request(SERVER_URL + REQUEST_DISHES, method: .get)
+            .validate()
+            .responseData { response in
             var errResp = ErrorResponse(code: 200,desc: "")
             switch response.result {
             case .success:
