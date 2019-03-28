@@ -191,6 +191,7 @@ class DataLoader{
                     errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                 }
             }
+            print(errResp)
             OperationQueue.main.addOperation {
                 completion(category, errResp)
             }
@@ -209,7 +210,8 @@ class DataLoader{
                     do{
                         let decoder = JSONDecoder()
                         dishes = try decoder.decode(ResponseDishesList.self, from: data)
-                    } catch _ {
+                    } catch let error {
+                        print(error)
                         errResp.code = 500
                         errResp.desc = ""
                     }
@@ -219,6 +221,7 @@ class DataLoader{
                     errResp = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
                 }
             }
+            print(errResp)
             OperationQueue.main.addOperation {
                 completion(dishes, errResp)
             }
