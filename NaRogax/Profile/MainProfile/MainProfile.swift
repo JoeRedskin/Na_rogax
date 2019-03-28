@@ -25,6 +25,8 @@ class MainProfile: UIViewController {
     @IBOutlet weak var PhoneLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        SignInBtn.isHidden = true
+        SignInLabel.isHidden = true
         Alert.shared().showSpinner(onView: self.view)
         DataLoader.shared().checkAuto(){ result in
             if result?.code != 200 {
@@ -117,6 +119,7 @@ class MainProfile: UIViewController {
     
     @IBAction func signOutBtnTap(_ sender: UIButton) {
         DataLoader.shared().exitLogin()
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         self.viewWillAppear(false)
         self.viewDidLoad()
     }
