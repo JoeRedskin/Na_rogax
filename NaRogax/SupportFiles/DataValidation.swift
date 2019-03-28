@@ -37,7 +37,7 @@ func validatePassword(pass: String) -> Bool {
 
 func validateEmail(email: String) -> Bool {
     let range = NSRange(location: 0, length: email.count)
-    let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,62}[@]{1}[A-Za-z0-9]{2,10}[.]{1}[A-Za-z]{2,255}"
+    let reg = "^[a-zA-Z]{1,2}[A-Za-z0-9._-]{0,62}[@]{1}[A-Za-z]{2}[A-Za-z0-9.-]{0,8}[.]{1}[A-Za-z]{2,255}"
     let regex = try! NSRegularExpression(pattern: reg)
     if regex.firstMatch(in: email, options: [], range: range) != nil{
         return true
