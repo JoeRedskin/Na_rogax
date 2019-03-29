@@ -167,7 +167,7 @@ class MainProfile: UIViewController {
                 self.Phone.text = result.data.phone
                 self.Email.text = result.data.email
                 if let date = result.data.birthday {
-                    let formattedDate = self.formatBitrhDate(date: date)
+                    let formattedDate = self.formatBirthDate(birthDate: date, format_from: "yyyy-MM-dd", format_to: "dd.MM.yyyy")
                     self.Date.text = formattedDate
                 } else {
                     self.Date.text = "Не указана"
@@ -178,19 +178,21 @@ class MainProfile: UIViewController {
     }
     
     /**
-     Format birth date received from server (From "yyyy-MM-dd" to "dd.MM.yyyy")
+     Format birth date received from server
      - Author: Egor
-     - parameters:
-        - date: Birth date recieved from server
+     - Parameters:
+        - birthDate: Birth date recieved from server
+        - format_from: Format of recieved date
+        - format_to: Format of needed date
      - returns: Formatted string date
      */
     
-    func formatBitrhDate(date: String) -> String {
+    func formatBirthDate(birthDate: String, format_from: String, format_to: String) -> String {
         let formatter = DateFormatter()
         var formattedDate = "Не указана"
-        formatter.dateFormat = "yyyy-MM-dd"
-        if let oldDate = formatter.date(from: date){
-            formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = format_from
+        if let oldDate = formatter.date(from: birthDate){
+            formatter.dateFormat = format_to
             formattedDate = formatter.string(from: oldDate)
         }
         
