@@ -28,7 +28,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeL-s4-4Bs" customClass="GradientView" customModule="NaRogax" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="167" width="375" height="139"/>
+                                                <rect key="frame" x="0.0" y="157" width="375" height="139"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="139" id="iXy-xG-hGI"/>
@@ -38,7 +38,7 @@
                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.98999999999999999" colorSpace="calibratedRGB"/>
+                                                        <color key="value" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="0.98999999999999999" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -55,7 +55,7 @@
                                             <constraint firstAttribute="trailing" secondItem="vg8-bH-vUK" secondAttribute="trailing" constant="30" id="7tc-FB-h8Z"/>
                                             <constraint firstAttribute="bottom" secondItem="6Vy-QS-ALK" secondAttribute="bottom" id="9an-Na-cN1"/>
                                             <constraint firstItem="6Vy-QS-ALK" firstAttribute="top" secondItem="vKT-4r-aCt" secondAttribute="top" id="Ori-d2-BHu"/>
-                                            <constraint firstItem="WeL-s4-4Bs" firstAttribute="top" secondItem="vKT-4r-aCt" secondAttribute="top" constant="167" id="SPv-U5-RsW"/>
+                                            <constraint firstItem="WeL-s4-4Bs" firstAttribute="top" secondItem="vKT-4r-aCt" secondAttribute="top" constant="157" id="SPv-U5-RsW"/>
                                             <constraint firstAttribute="height" constant="288" id="VR0-6c-QKu"/>
                                             <constraint firstItem="vg8-bH-vUK" firstAttribute="top" secondItem="6Vy-QS-ALK" secondAttribute="bottom" constant="-29" id="dvw-lX-fbQ"/>
                                             <constraint firstAttribute="trailing" secondItem="WeL-s4-4Bs" secondAttribute="trailing" id="fj9-EJ-zax"/>

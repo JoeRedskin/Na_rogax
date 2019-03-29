@@ -29,7 +29,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSl-Iy-Ssm" customClass="GradientView" customModule="NaRogax" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="167" width="375" height="139"/>
+                                                <rect key="frame" x="0.0" y="157" width="375" height="139"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="139" id="bqi-rd-zIq"/>
@@ -57,7 +57,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="m8F-aw-AMe" secondAttribute="trailing" constant="30" id="6Np-Or-3ix"/>
                                             <constraint firstAttribute="bottom" secondItem="m8F-aw-AMe" secondAttribute="bottom" id="84f-FX-RET"/>
-                                            <constraint firstItem="LSl-Iy-Ssm" firstAttribute="top" secondItem="ln3-sR-BWK" secondAttribute="top" constant="167" id="GpQ-Fv-M0h"/>
+                                            <constraint firstItem="LSl-Iy-Ssm" firstAttribute="top" secondItem="ln3-sR-BWK" secondAttribute="top" constant="157" id="GpQ-Fv-M0h"/>
                                             <constraint firstItem="EUa-iR-TF4" firstAttribute="top" secondItem="ln3-sR-BWK" secondAttribute="top" id="Hpw-CD-CCQ"/>
                                             <constraint firstAttribute="trailing" secondItem="EUa-iR-TF4" secondAttribute="trailing" id="HwN-Im-uyT"/>
                                             <constraint firstItem="EUa-iR-TF4" firstAttribute="leading" secondItem="ln3-sR-BWK" secondAttribute="leading" id="RJv-PB-Ygl"/>
