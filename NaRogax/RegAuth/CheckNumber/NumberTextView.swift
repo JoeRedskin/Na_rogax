@@ -10,6 +10,7 @@ import UIKit
 
 class NumberTextView: UITextField {
     var cutPasteProt: CutPasteProtocol? = nil
+    private var clearTextField = true
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector(UIResponderStandardEditActions.copy(_:)) ||
@@ -21,6 +22,20 @@ class NumberTextView: UITextField {
         }
         return super.canPerformAction(action, withSender: sender)
     }
+    
+    func setClear(){
+        text = "0"
+        textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.2)
+        clearTextField = true
+    }
+    
+    override public func deleteBackward() {
+        print("back", text)
+        cutPasteProt?.deleteBackward()
+        super.deleteBackward()
+    }
+    
+    
     
     override func cut(_ sender: Any?) {
         cutPasteProt?.setText()

@@ -10,6 +10,7 @@ import UIKit
 
 protocol CutPasteProtocol {
     func setText()
+    func deleteBackward()
 }
 
 class CheckNumberVC: UIViewController{
@@ -42,7 +43,6 @@ class CheckNumberVC: UIViewController{
             textViews[item].setBottomLine()
         }
         reloadButton(active: false)
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         UITextField.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -116,19 +116,13 @@ class CheckNumberVC: UIViewController{
                     for vcIndex in 0..<self.navigationController!.viewControllers.count{
                         if let view = self.navigationController?.viewControllers[vcIndex]{
                             switch view{
-                            case is SelectTableVC:
-                                self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
+                            case is SelectTableVC: self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
                                 self.dismiss(animated: true)
                                 break
                             case is SelectTableShowBookingVC:
                                 self.navigationController?.popToRootViewController(animated: true)
                                 self.dismiss(animated: true)
                                 break
-                            case is MainProfile:
-                                self.navigationController?.popToViewController(self.navigationController!.viewControllers[vcIndex] as! SelectTableVC, animated: true)
-                                self.dismiss(animated: true)
-                                break
-                            //TO DO добавить для профиля
                             default:
                                 self.navigationController?.popToRootViewController(animated: true)
                                 break
@@ -138,7 +132,6 @@ class CheckNumberVC: UIViewController{
                 }else{
                     self.reloadError(show: true)
                 }
-                // print("sendCode", result)
             }
         }
     }
@@ -150,13 +143,11 @@ class CheckNumberVC: UIViewController{
     
     @IBAction func touchTextView(_ sender: UITextField) {
         index = textViews.firstIndex(of: sender as! NumberTextView)!
-        print("textViewChange touch", index)
         textViews[index].becomeFirstResponder()
         textViews[index].selectAll(nil)
     }
     
     @IBAction func textViewChange(_ sender: UITextField) {
-        print("textViewChange", index)
         reloadError(show: false)
         if sender.text == "."{
             sender.text = ""
@@ -165,11 +156,19 @@ class CheckNumberVC: UIViewController{
         if (index + 1 < textViews.count){
             index += 1
             textViews[index].becomeFirstResponder()
-            print("textViewChange if", index)
         }else{
             view.endEditing(true)
         }
         checkCode()
+    }
+    
+    private func back(){
+        index -= 1
+        if (index >= 0){
+            textViews[index].becomeFirstResponder()
+        }else{
+            view.endEditing(true)
+        }
     }
     
     private func reloadError(show: Bool){
@@ -237,4 +236,9 @@ extension CheckNumberVC:CutPasteProtocol{
             }
         }
     }
+    
+    func deleteBackward() {
+        back()
+    }
 }
+
