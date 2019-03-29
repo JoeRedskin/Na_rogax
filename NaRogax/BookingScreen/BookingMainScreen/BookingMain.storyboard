@@ -185,7 +185,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-dl-isj">
-                                <rect key="frame" x="16" y="508" width="288" height="36"/>
+                                <rect key="frame" x="16" y="516" width="288" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="ВЫБРАТЬ СТОЛ">
@@ -221,7 +221,7 @@
                             <constraint firstItem="2zR-9e-rw4" firstAttribute="top" secondItem="Nmn-bN-6MI" secondAttribute="top" constant="10" id="iG0-oj-h3h"/>
                             <constraint firstItem="1kk-HZ-dyy" firstAttribute="top" secondItem="NBc-wG-qLA" secondAttribute="bottom" constant="16" id="tau-dJ-R7f"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="vPH-hf-0cU" secondAttribute="trailing" constant="16" id="uo1-QF-Mqy"/>
-                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="bottom" secondItem="WzX-dl-isj" secondAttribute="bottom" constant="24" id="z5E-7p-Zky"/>
+                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="bottom" secondItem="WzX-dl-isj" secondAttribute="bottom" constant="16" id="z5E-7p-Zky"/>
                             <constraint firstItem="WzX-dl-isj" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="zNI-rv-FSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nmn-bN-6MI"/>

@@ -113,6 +113,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="5nd-l9-UqH"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="ВОЙТИ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

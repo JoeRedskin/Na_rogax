@@ -79,28 +79,28 @@
                                         <rect key="frame" x="169" y="125.5" width="37" height="37"/>
                                         <color key="color" red="1" green="0.14901960784313725" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uyT-Vt-eGt">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uyT-Vt-eGt">
                                         <rect key="frame" x="30" y="410.5" width="315" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8f-Cb-eLM">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8f-Cb-eLM">
+                                                <rect key="frame" x="0.0" y="12" width="211" height="15.5"/>
+                                                <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="13"/>
                                                 <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="-2"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-al-jqx">
-                                                <rect key="frame" x="219" y="0.0" width="96" height="30"/>
+                                                <rect key="frame" x="219" y="4.5" width="96" height="25.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="96" id="QTF-pu-wMo"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="I8f-Cb-eLM" firstAttribute="leading" secondItem="uyT-Vt-eGt" secondAttribute="leading" id="8td-9s-4y3"/>
-                                            <constraint firstItem="Hh1-al-jqx" firstAttribute="leading" secondItem="I8f-Cb-eLM" secondAttribute="trailing" constant="10" id="DAf-aI-AsC"/>
                                             <constraint firstAttribute="trailing" secondItem="Hh1-al-jqx" secondAttribute="trailing" id="JDG-vj-ZnP"/>
                                             <constraint firstAttribute="height" constant="30" id="qYB-2L-fbM"/>
                                         </constraints>

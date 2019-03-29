@@ -66,15 +66,7 @@ class MainBookingVC: UIViewController {
 
 extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
-        /*if (reloadSegmentedControler){
-            segmentedControler.selectedSegmentIndex = 0
-            reloadSegmentedControler = false
-        }*/
-        //segmentedControler.selectedSegmentIndex = 0
         if viewController == secondPage{
-            print("change viewControllerBefore", segmentedControler.selectedSegmentIndex)
-            segmentedControler.selectedSegmentIndex = 0
             return firstPage
         } else {
             return nil
@@ -82,12 +74,6 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
-        print("change viewControllerAfter", segmentedControler.selectedSegmentIndex)
-        /*if (reloadSegmentedControler){
-            segmentedControler.selectedSegmentIndex = 1
-            reloadSegmentedControler = false
-        }*/
-        //segmentedControler.selectedSegmentIndex = 1
         if viewController ==  firstPage{
             return secondPage
         } else {
