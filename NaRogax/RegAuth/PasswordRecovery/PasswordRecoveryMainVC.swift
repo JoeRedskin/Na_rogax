@@ -18,7 +18,7 @@ class PasswordRecoveryMainVC: UIViewController {
     
     /**
      Variable value is true when EmailField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then send code button disabled.
      Show hint if EmailField is not empty
      */
     

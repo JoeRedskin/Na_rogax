@@ -21,7 +21,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     
     /**
      Variable value is true when EmailField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then sign in button disabled.
      Show hint if EmailField is not empty
      */
     
@@ -44,7 +44,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     
     /**
      Variable value is true when PasswordField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then sign in button disabled.
      Show hint if PasswordField is not empty
      */
     

@@ -42,7 +42,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
     
     /**
      Variable value is true when PasswordField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then change password button disabled.
      Show hint if PasswordField is not empty
      */
     
@@ -65,7 +65,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
     
     /**
      Variable value is true when RepeatedPasswordField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then change password button disabled.
      Show hint if RepeatedPasswordField is not empty
      */
     
@@ -88,7 +88,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
     
     /**
      Variable value is true when CodeField is empty.
-     If one of TextFields empty then save changes button disabled.
+     If one of TextFields empty then change password button disabled.
      Show hint if CodeField is not empty
      */
     
