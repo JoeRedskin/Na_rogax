@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
+class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, AlertProtocol{
     func clickButtonPositiv(status: Int) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
@@ -32,6 +32,8 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
     @IBOutlet weak var CodeIcon: UIImageView!
     @IBOutlet weak var CodeErrorLabel: UILabel!
     @IBOutlet weak var ChangePasswordBtn: UIButton!
+    @IBOutlet weak var ScrollView: UIScrollView!
+    
     
     var email = ""
     
@@ -86,6 +88,11 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         }
     }
     
+    var activeField: UITextField?
+    var keyboardHeight: CGFloat!
+    
+    private var insetDefault: UIEdgeInsets = UIEdgeInsets()
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -104,8 +111,66 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         setStyleForTextField(field: RepeatedPasswordField, placeholder: "Введите пароль еще раз")
         setStyleForTextField(field: CodeField, placeholder: "Код из E-mail")
         
+        PasswordField.delegate = self
+        RepeatedPasswordField.delegate = self
+        CodeField.delegate = self
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        insetDefault = ScrollView.contentInset
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if keyboardHeight != nil {
+            return
+        }
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
+            
+            // move if keyboard hide input field
+            let distanceToBottom = self.ScrollView.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+            let collapseSpace = keyboardHeight - distanceToBottom
+            
+            if collapseSpace < 0 {
+                // no collapse
+                return
+            }
+            
+            var contentInset:UIEdgeInsets = self.ScrollView.contentInset
+            contentInset.bottom = keyboardSize.size.height + 40
+            ScrollView.contentInset = contentInset
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.ScrollView.contentInset = self.insetDefault
+        keyboardHeight = nil
+    }
+    
+    @objc func dismissKeyboard() {
+        //view.endEditing(true)
+        guard activeField != nil else {
+            return
+        }
+        
+        activeField?.resignFirstResponder()
+        activeField = nil
     }
     
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
@@ -132,10 +197,6 @@ class PasswordRecoveryNewPasswordVC: UIViewController, AlertProtocol{
         if let img = image {
             img.isHidden = true
         }
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     func setStyleForTextField(field: UITextField!, placeholder: String){

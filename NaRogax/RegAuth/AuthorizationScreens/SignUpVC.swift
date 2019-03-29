@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var NameLabel: UILabel!
@@ -126,6 +126,11 @@ class SignUpVC: UIViewController {
         }
     }
     
+    var activeField: UITextField?
+    var keyboardHeight: CGFloat!
+    
+    private var insetDefault: UIEdgeInsets = UIEdgeInsets()
+    
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
         field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -177,6 +182,13 @@ class SignUpVC: UIViewController {
         NameField.maxLength = 30
         PhoneField.maxLength = 11
         SignUpBtn.layer.cornerRadius = 20
+        
+        EmailField.delegate = self
+        NameField.delegate = self
+        PhoneField.delegate = self
+        PasswordField.delegate = self
+        RepeatPasswordField.delegate = self
+        
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         setStyleForTextField(field: PasswordField, placeholder: "Пароль")
         setStyleForTextField(field: NameField, placeholder: "Имя")
@@ -184,10 +196,60 @@ class SignUpVC: UIViewController {
         setStyleForTextField(field: RepeatPasswordField, placeholder: "Введите пароль еще раз")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        insetDefault = ScrollView.contentInset
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if keyboardHeight != nil {
+            return
+        }
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
+            
+            // move if keyboard hide input field
+            let distanceToBottom = self.ScrollView.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+            let collapseSpace = keyboardHeight - distanceToBottom
+            
+            if collapseSpace < 0 {
+                // no collapse
+                return
+            }
+            
+            var contentInset:UIEdgeInsets = self.ScrollView.contentInset
+            contentInset.bottom = keyboardSize.size.height + 40
+            ScrollView.contentInset = contentInset
+
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.ScrollView.contentInset = self.insetDefault        
+        keyboardHeight = nil
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)
+        //view.endEditing(true)
+        guard activeField != nil else {
+            return
+        }
+        
+        activeField?.resignFirstResponder()
+        activeField = nil
     }
     
     func setStyleForTextField(field: UITextField!, placeholder: String){

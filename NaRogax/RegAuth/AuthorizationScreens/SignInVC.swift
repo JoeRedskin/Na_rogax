@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var EmailField: UITextField!
     @IBOutlet weak var PasswordLabel: UILabel!
@@ -58,6 +58,10 @@ class SignInVC: UIViewController {
         }
     }
     
+    var activeField: UITextField?
+    var keyboardHeight: CGFloat!
+    private var isScrolled = false
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -73,12 +77,67 @@ class SignInVC: UIViewController {
         SignInBtn.layer.cornerRadius = 20
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         setStyleForTextField(field: PasswordField, placeholder: "Пароль")
+        
+        EmailField.delegate = self
+        PasswordField.delegate = self
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if keyboardHeight != nil {
+            return
+        }
+        
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        keyboardHeight = keyboardFrame.height
+        
+        // move if keyboard hide input field
+        let distanceToBottom = self.view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        let collapseSpace = keyboardHeight - distanceToBottom
+        isScrolled = true
+        if collapseSpace < 0 {
+            print(3)
+            isScrolled = false
+            // no collapse
+            return
+        }
+        self.view.frame.origin.y -= keyboardHeight
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if isScrolled {
+            self.view.frame.origin.y += keyboardHeight
+        }
+        isScrolled = false
+        keyboardHeight = nil
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)
+        guard activeField != nil else {
+            return
+        }
+        
+        activeField?.resignFirstResponder()
+        activeField = nil
     }
     
     func setStyleForTextField(field: UITextField!, placeholder: String){
