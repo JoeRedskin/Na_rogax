@@ -46,6 +46,8 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
                                 <connections>
                                     <action selector="emailChanged:" destination="zE3-vt-l9n" eventType="editingChanged" id="SCP-Wx-NKe"/>
+                                    <action selector="fieldEndEditing:" destination="zE3-vt-l9n" eventType="editingDidEnd" id="URG-DC-wFS"/>
+                                    <action selector="fieldStartEditing:" destination="zE3-vt-l9n" eventType="editingDidBegin" id="zqf-Tn-uZz"/>
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-os-j4d">
@@ -68,6 +70,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
+                                    <action selector="fieldEndEditing:" destination="zE3-vt-l9n" eventType="editingDidEnd" id="Ode-aq-xi1"/>
+                                    <action selector="fieldStartEditing:" destination="zE3-vt-l9n" eventType="editingDidBegin" id="NwW-QM-bKo"/>
                                     <action selector="passwordChanged:" destination="zE3-vt-l9n" eventType="editingChanged" id="Qza-zi-saT"/>
                                 </connections>
                             </textField>
@@ -185,7 +189,7 @@
                         <outlet property="PasswordField" destination="fvd-gc-8XF" id="L0u-7E-sF4"/>
                         <outlet property="PasswordIcon" destination="gBm-jL-9Ze" id="1nX-7S-6fY"/>
                         <outlet property="PasswordLabel" destination="661-os-j4d" id="Vbh-DY-Rwk"/>
-                        <outlet property="ShowPasswordBtn" destination="3qc-CU-mmT" id="Ckc-Jl-EpQ"/>
+                        <outlet property="ShowPasswordBtn" destination="3qc-CU-mmT" id="FhD-T6-UYS"/>
                         <outlet property="SignInBtn" destination="QpD-Tk-pzE" id="gdc-qu-Aip"/>
                     </connections>
                 </viewController>

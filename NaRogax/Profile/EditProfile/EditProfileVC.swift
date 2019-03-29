@@ -118,8 +118,10 @@ class EditProfileVC: UIViewController {
     }
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
-        field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        if !field.isEditing {
+            field.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+            field.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        }
         
         if let lbl = label {
             lbl.isHidden = true
@@ -238,11 +240,22 @@ class EditProfileVC: UIViewController {
         }
     }
     
-    @IBAction func dateChanged(_ sender: Any) {
-        //DateField.text =
+    @IBAction func fieldStartEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
+    @IBAction func fieldEndEditing(_ sender: UITextField) {
+        sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+    }
+    
+    
     @IBAction func SaveChangesBtnTap(_ sender: UIButton) {
+        NameField.resignFirstResponder()
+        PhoneField.resignFirstResponder()
+        DateField.resignFirstResponder()
+        EmailField.resignFirstResponder()
         if let name = NameField.text, let email = EmailField.text, let phone = PhoneField.text, let date = DateField.text {
             if name != Name || phone != Phone || date != BirthDate || email != Email {
                 if validateName(name: name) && validatePhone(number: phone) && validateEmail(email: email) {

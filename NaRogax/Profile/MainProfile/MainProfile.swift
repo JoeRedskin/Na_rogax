@@ -40,6 +40,7 @@ class MainProfile: UIViewController {
                 let email = UserDefaultsData.shared().getEmail()
                 self.getProfileData(email: email)
             }
+            Alert.shared().removeSpinner()
         }
     }
     

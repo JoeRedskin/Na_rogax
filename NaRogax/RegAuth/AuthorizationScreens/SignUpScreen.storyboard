@@ -47,6 +47,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                                 <connections>
+                                                    <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="w5m-y3-3XX"/>
+                                                    <action selector="fieldStartEditing:" destination="2Jr-56-8fE" eventType="editingDidBegin" id="3AA-df-rhD"/>
                                                     <action selector="nameChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="sme-f3-edf"/>
                                                 </connections>
                                             </textField>
@@ -80,6 +82,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                                                 <connections>
+                                                    <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="3s6-RA-HJk"/>
+                                                    <action selector="fieldStartEditing:" destination="2Jr-56-8fE" eventType="editingDidBegin" id="Kwd-Yr-gb9"/>
                                                     <action selector="phoneChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="wWT-Gq-5za"/>
                                                 </connections>
                                             </textField>
@@ -114,6 +118,8 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
                                                 <connections>
                                                     <action selector="emailChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="VkB-Mc-oxN"/>
+                                                    <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="cbW-sH-iFy"/>
+                                                    <action selector="fieldStartEditing:" destination="2Jr-56-8fE" eventType="editingDidBegin" id="QHp-00-c56"/>
                                                 </connections>
                                             </textField>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cx5-2G-9R2">
@@ -146,6 +152,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
+                                                    <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="S2u-k3-a07"/>
+                                                    <action selector="fieldStartEditing:" destination="2Jr-56-8fE" eventType="editingDidBegin" id="vjV-eJ-QJF"/>
                                                     <action selector="passwordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="uHq-vk-ce7"/>
                                                     <action selector="passwordDidBegin:" destination="2Jr-56-8fE" eventType="valueChanged" id="ODy-Gb-GpI"/>
                                                 </connections>
@@ -179,6 +187,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
+                                                    <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="Qqk-Fe-iZs"/>
+                                                    <action selector="fieldStartEditing:" destination="2Jr-56-8fE" eventType="editingDidBegin" id="LDa-9D-VI0"/>
                                                     <action selector="passwordDidBegin:" destination="2Jr-56-8fE" eventType="valueChanged" id="Dop-Cq-4v2"/>
                                                     <action selector="repeatedPasswordChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="tmy-cd-eeh"/>
                                                 </connections>
