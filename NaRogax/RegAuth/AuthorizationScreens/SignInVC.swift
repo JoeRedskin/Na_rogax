@@ -111,7 +111,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         keyboardHeight = keyboardFrame.height
         
         // move if keyboard hide input field
-        let distanceToBottom = self.view.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+        let y = (activeField?.frame.origin.y) ?? 0
+        let h = (activeField?.frame.size.height) ?? 0
+        let distanceToBottom = self.view.frame.size.height - y - h
         let collapseSpace = keyboardHeight - distanceToBottom
         isScrolled = true
         if collapseSpace < 0 {
@@ -129,6 +131,11 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         }
         isScrolled = false
         keyboardHeight = nil
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func dismissKeyboard() {
