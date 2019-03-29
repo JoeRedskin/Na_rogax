@@ -244,6 +244,18 @@ class EditProfileVC: UIViewController {
     }
     
     /**
+     Change color of TextField placeholder
+     - Parameters:
+        - field: TextField in which will change placeholder color
+        - color: New color of placeholder
+     */
+    
+    func changePlaceholderColor(field: UITextField, color: UIColor){
+        field.attributedPlaceholder = NSAttributedString(string: field.placeholder!,
+                                                         attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+    
+    /**
      EmailField text changing handler
      */
     
@@ -306,6 +318,8 @@ class EditProfileVC: UIViewController {
     @IBAction func fieldStartEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
     }
     
     /**
@@ -315,6 +329,8 @@ class EditProfileVC: UIViewController {
     @IBAction func fieldEndEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1))
     }
     
     /**
@@ -352,11 +368,6 @@ class EditProfileVC: UIViewController {
                     if (date == "Не указана"){
                         data = RequestChangeUserCredentials(email: Email, new_email: "", code: 0, name: name, phone: phone, birthday: "")
                     } else {
-                        //let formatter = DateFormatter()
-                        //formatter.dateFormat = "dd.MM.yyyy" //1995-02-08
-                        //let oldDate = formatter.date(from: date)
-                        //formatter.dateFormat = "yyyy-MM-dd"
-                        //let newDate = formatter.string(from: oldDate!)
                         let formattedDate = formatBirthDate(birthDate: date, format_from: "dd.MM.yyyy", format_to: "yyyy-MM-dd")
                         data = RequestChangeUserCredentials(email: Email, new_email: "", code: 0, name: name, phone: phone, birthday: formattedDate)
                     }

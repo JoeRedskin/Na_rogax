@@ -204,6 +204,18 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         field.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: field.frame.height))
         field.rightViewMode = .always
     }
+
+    /**
+     Change color of TextField placeholder
+     - Parameters:
+        - field: TextField in which will change placeholder color
+        - color: New color of placeholder
+     */
+    
+    func changePlaceholderColor(field: UITextField, color: UIColor){
+        field.attributedPlaceholder = NSAttributedString(string: field.placeholder!,
+                                                         attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
     
     /**
      Highlight not valid data
@@ -299,6 +311,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     @IBAction func fieldStartEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
     }
     
     /**
@@ -308,6 +321,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     @IBAction func fieldEndEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1))
     }
     
     /**
