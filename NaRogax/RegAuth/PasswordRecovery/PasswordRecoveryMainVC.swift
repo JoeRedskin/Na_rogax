@@ -58,9 +58,9 @@ class PasswordRecoveryMainVC: UIViewController {
      Highlight not valid data
      - Author: Egor
      - parameters:
-     - field: TextField which should be highlighted
-     - label: Error hint which should be shown
-     - image: Icon of TextField which will be highlighted
+        - field: TextField which should be highlighted
+        - label: Error hint which should be shown
+        - image: Icon of TextField which will be highlighted
      */
     
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
@@ -78,9 +78,9 @@ class PasswordRecoveryMainVC: UIViewController {
      Remove highlight from Field
      - Author: Egor
      - parameters:
-     - field: The field from which you want to remove the highlight
-     - label: Error hint which should be hiden. Can be nil
-     - image: Icon of TextField which will be hiden. Can be nil
+        - field: The field from which you want to remove the highlight
+        - label: Error hint which should be hiden. Can be nil
+        - image: Icon of TextField which will be hiden. Can be nil
      */
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
@@ -105,8 +105,8 @@ class PasswordRecoveryMainVC: UIViewController {
      Set style for text field
      - Author: Egor
      - parameters:
-     - field: TextField which should be styled
-     - placeholder: Placeholder text for TextField
+        - field: TextField which should be styled
+        - placeholder: Placeholder text for TextField
      */
     
     func setStyleForTextField(field: UITextField!, placeholder: String){

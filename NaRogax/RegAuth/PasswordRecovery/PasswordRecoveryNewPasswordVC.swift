@@ -34,8 +34,17 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
     @IBOutlet weak var ChangePasswordBtn: UIButton!
     @IBOutlet weak var ScrollView: UIScrollView!
     
-    
+    /**
+     User email
+     - Important: Get from PasswordRecoveryMain screen
+     */
     var email = ""
+    
+    /**
+     Variable value is true when PasswordField is empty.
+     If one of TextFields empty then save changes button disabled.
+     Show hint if PasswordField is not empty
+     */
     
     private var isEmptyPassword = true {
         didSet {
@@ -54,6 +63,12 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     Variable value is true when RepeatedPasswordField is empty.
+     If one of TextFields empty then save changes button disabled.
+     Show hint if RepeatedPasswordField is not empty
+     */
+    
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
@@ -71,6 +86,12 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     Variable value is true when CodeField is empty.
+     If one of TextFields empty then save changes button disabled.
+     Show hint if CodeField is not empty
+     */
+    
     private var isEmptyCode = true {
         didSet {
             if !isEmptyPassword && !isEmptyRepeatedPassword && !isEmptyCode {
@@ -87,10 +108,18 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
             }
         }
     }
-    
+    /**
+     Textfield which is editing now.
+     - Important: Can be nil
+     */
     var activeField: UITextField?
+    /**
+     Height of keyboard
+     */
     var keyboardHeight: CGFloat!
-    
+    /**
+     Inset of scroll view.
+     */
     private var insetDefault: UIEdgeInsets = UIEdgeInsets()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,6 +163,10 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         return true
     }
     
+    /**
+     Keyboard showing handler
+     */
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if keyboardHeight != nil {
             return
@@ -159,13 +192,20 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     Keyboard hide handler
+     */
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         self.ScrollView.contentInset = self.insetDefault
         keyboardHeight = nil
     }
     
+    /**
+     Remove keyboard on view tap
+     */
+    
     @objc func dismissKeyboard() {
-        //view.endEditing(true)
         guard activeField != nil else {
             return
         }
@@ -173,6 +213,15 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         activeField?.resignFirstResponder()
         activeField = nil
     }
+    
+    /**
+     Highlight not valid data
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be highlighted
+        - label: Error hint which should be shown
+        - image: Icon of TextField which will be highlighted
+     */
     
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
         field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -185,6 +234,15 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
             img.isHidden = false
         }
     }
+    
+    /**
+     Remove highlight from Field
+     - Author: Egor
+     - parameters:
+        - field: The field from which you want to remove the highlight
+        - label: Error hint which should be hiden. Can be nil
+        - image: Icon of TextField which will be hiden. Can be nil
+     */
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
         if !field.isEditing {
@@ -200,6 +258,14 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     Set style for text field
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be styled
+        - placeholder: Placeholder text for TextField
+     */
+    
     func setStyleForTextField(field: UITextField!, placeholder: String){
         field.attributedPlaceholder = NSAttributedString(string: placeholder,
                                                          attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1)])
@@ -213,18 +279,36 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         field.rightViewMode = .always
     }
     
+    /**
+     Show error label
+     - Parameters:
+        - text: Error text which will be showed
+     */
+    
     func showErrorLabel(text: String) {
         PasswordErrorLabel.text = text
         PasswordErrorLabel.isHidden = false
     }
     
+    /**
+     Show password on PasswordField on tap
+     */
+    
     @IBAction func showPassword(_ sender: UIButton) {
         PasswordField.isSecureTextEntry = !PasswordField.isSecureTextEntry
     }
     
+    /**
+     Show password on RepeatedPasswordField on tap
+     */
+    
     @IBAction func showRepeatedPassword(_ sender: UIButton) {
         RepeatedPasswordField.isSecureTextEntry = !RepeatedPasswordField.isSecureTextEntry
     }
+    
+    /**
+     PasswordField text changing handler
+     */
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
@@ -241,6 +325,10 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     RepeatedPasswordField text changing handler
+     */
+    
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
         correctData(field: RepeatedPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
         RepeatedPasswordBtn.isHidden = false
@@ -255,6 +343,10 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     CodeField text changing handler
+     */
+    
     @IBAction func codeChanged(_ sender: Any) {
         correctData(field: CodeField, label: CodeErrorLabel, image: CodeIcon)
         if let code = CodeField.text {
@@ -268,16 +360,27 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         }
     }
     
+    /**
+     Field start editing handler
+     */
+    
     @IBAction func fieldStartEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
+    
+    /**
+     Field end editing handler
+     */
     
     @IBAction func fieldEndEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
     }
     
+    /**
+     Change password button tap
+     */
     
     @IBAction func ChangePasswordTap(_ sender: UIButton) {
         PasswordField.resignFirstResponder()
@@ -285,7 +388,6 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         CodeField.resignFirstResponder()
         if let pass = PasswordField.text, let rpass = RepeatedPasswordField.text, let code = CodeField.text, let icode = Int(code) {
             if validateCode(code: code) && validatePassword(pass: pass) && pass == rpass {
-                /* TODO: Send request for change password */
                 self.ChangePasswordBtn.isEnabled = false
                 var data = RequestPostPasswordRecovery()
                 data.code = icode
@@ -308,10 +410,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
             }
             if !validatePassword(pass: pass) {
                 incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
-                //incorrectData(field: RepeatedPasswordField, label: nil, image: RepeatedPasswordIcon)
                 PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
-                //PasswordErrorLabel.isHidden = false
-                //RepeatedPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
             }
             if pass != rpass {
