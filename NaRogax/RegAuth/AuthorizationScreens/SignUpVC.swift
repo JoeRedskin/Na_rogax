@@ -222,18 +222,20 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             keyboardHeight = keyboardSize.height
             
             // move if keyboard hide input field
-            let distanceToBottom = self.ScrollView.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
-            let collapseSpace = keyboardHeight - distanceToBottom
-            
-            if collapseSpace < 0 {
-                // no collapse
-                return
+            if let y = activeField?.frame.origin.y{
+                if let  h = activeField?.frame.size.height{
+                    let distanceToBottom = self.ScrollView.frame.size.height - y - h
+                    let collapseSpace = keyboardHeight - distanceToBottom
+                    if collapseSpace < 0 {
+                        // no collapse
+                        return
+                    }
+                    
+                    var contentInset:UIEdgeInsets = self.ScrollView.contentInset
+                    contentInset.bottom = keyboardSize.size.height + 40
+                    ScrollView.contentInset = contentInset
+                }
             }
-            
-            var contentInset:UIEdgeInsets = self.ScrollView.contentInset
-            contentInset.bottom = keyboardSize.size.height + 40
-            ScrollView.contentInset = contentInset
-
         }
     }
     
