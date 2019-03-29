@@ -32,7 +32,6 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //print(indexPath.row)
         switch indexPath.row {
             case 0..<drinksArr.count:
                 let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
@@ -43,29 +42,8 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
                 cell.displayDish(dish: nameDish, price: String(drinksArr[indexPath.row].price!))
                 return cell
             default:
-            /*let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
-            
-            cell.displayDish(dish: drinksArr[indexPath.row] + ", " + dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].weight + " мл")
-            return cell*/
                 break
         }
-        
-        
-        /*if indexPath.row < drinksArr.count {
-            let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
-            
-            cell.displayDish(dish: drinksArr[indexPath.row] + ", " + dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].weight + " мл")
-        } else if indexPath.row == drinksArr.count {
-            let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DPriceCell", for: indexPath) as! DrinkPriceCell
-            if let Price = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].price {
-                cell.displayPrice(price: String(Price) + " р")
-            } else {
-                cell.displayPrice(price: "")
-            }
-            
-        } else {
-            let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DButtonCell", for: indexPath) as! DrinkButtonCell
-        }*/
         
         return UITableViewCell()
     }
@@ -73,12 +51,10 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         GetValuesInView(menu: dishFull)
-        //drinksArr = dishFull[0].categories[indexOfCategory].cat_dishes[indexOfDish].longDescription!.components(separatedBy: ", ")
         DrinksTableView.delegate = self
         DrinksTableView.dataSource = self
         ImageBGView.clipsToBounds = true
         ImageBGView.layer.cornerRadius = CGFloat(16)
-        //ImageBGView.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.9793184433)
         
         print("nap", dishFull)
         if let sub = dishFull.sub_menu{
@@ -92,8 +68,6 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     }
     
     func GetValuesInView(menu: DishDescription){
-        
-        //print(menu)
         
         if menu.name == ""{
             nameField.text = "Без наимменования"
