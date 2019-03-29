@@ -19,8 +19,11 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SignInBtn: UIButton!
     @IBOutlet weak var ShowPasswordBtn: UIButton!
     
-    private var isCorrectEmail = false
-    private var isCorrectPassword = false
+    /**
+     Variable value is true when EmailField is empty.
+     If one of TextFields empty then save changes button disabled.
+     Show hint if EmailField is not empty
+     */
     
     private var isEmptyEmail = true {
         didSet {
@@ -38,6 +41,12 @@ class SignInVC: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    /**
+     Variable value is true when PasswordField is empty.
+     If one of TextFields empty then save changes button disabled.
+     Show hint if PasswordField is not empty
+     */
     
     private var isEmptyPassword = true {
         didSet {
@@ -58,8 +67,23 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Textfield which is editing now.
+     - Important: Can be nil
+     */
+    
     var activeField: UITextField?
+    
+    /**
+     Height of keyboard
+     */
+    
     var keyboardHeight: CGFloat!
+    
+    /**
+     True if view was scrolled because of keyboard showed
+     */
+    
     private var isScrolled = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +124,10 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /**
+     Keyboard showing handler
+     */
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if keyboardHeight != nil {
             return
@@ -125,6 +153,10 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         self.view.frame.origin.y -= keyboardHeight
     }
     
+    /**
+     Keyboard hide handler
+     */
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if isScrolled {
             self.view.frame.origin.y += keyboardHeight
@@ -132,11 +164,16 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         isScrolled = false
         keyboardHeight = nil
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    /**
+     Remove keyboard on view tap
+     */
     
     @objc func dismissKeyboard() {
         guard activeField != nil else {
@@ -146,6 +183,14 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         activeField?.resignFirstResponder()
         activeField = nil
     }
+    
+    /**
+     Set style for text field
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be styled
+        - placeholder: Placeholder text for TextField
+     */
     
     func setStyleForTextField(field: UITextField!, placeholder: String){
         field.attributedPlaceholder = NSAttributedString(string: placeholder,
@@ -160,6 +205,15 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         field.rightViewMode = .always
     }
     
+    /**
+     Highlight not valid data
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be highlighted
+        - label: Error hint which should be shown
+        - image: Icon of TextField which will be highlighted
+     */
+    
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
         field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -171,6 +225,15 @@ class SignInVC: UIViewController, UITextFieldDelegate {
             img.isHidden = false
         }
     }
+    
+    /**
+     Remove highlight from Field
+     - Author: Egor
+     - parameters:
+        - field: The field from which you want to remove the highlight
+        - label: Error hint which should be hiden. Can be nil
+        - image: Icon of TextField which will be hiden. Can be nil
+     */
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
         if !field.isEditing {
@@ -186,9 +249,17 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Show password on PasswordField on tap
+     */
+    
     @IBAction func showPassword(_ sender: UIButton) {
         PasswordField.isSecureTextEntry = !PasswordField.isSecureTextEntry
     }
+    
+    /**
+     EmailField text changing handler
+     */
     
     @IBAction func emailChanged(_ sender: Any) {
         correctData(field: EmailField, label: ErrorLabel, image: EmailIcon)
@@ -202,6 +273,10 @@ class SignInVC: UIViewController, UITextFieldDelegate {
             isEmptyEmail = true
         }
     }
+    
+    /**
+     PasswordField text changing handler
+     */
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: ErrorLabel, image: PasswordIcon)
@@ -217,27 +292,44 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Field start editing handler
+     */
+    
     @IBAction func fieldStartEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
+    
+    /**
+     Field end editing handler
+     */
     
     @IBAction func fieldEndEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
     }
     
+    /**
+     Show error label
+     - Parameters:
+        - text: Error text which will be showed
+     */
+    
     func showErrorLabel(text: String) {
         ErrorLabel.text = text
         ErrorLabel.isHidden = false
     }
     
+    /**
+     Sign in button tap
+     */
+    
     @IBAction func signInBtnTap(_ sender: UIButton) {
         EmailField.resignFirstResponder()
         PasswordField.resignFirstResponder()
         if let email = EmailField.text, let pass = PasswordField.text {
-            if validateEmail(email: email) && validatePassword(pass: pass){                
-                /* TO DO: Auth request */
+            if validateEmail(email: email) && validatePassword(pass: pass){
                 self.SignInBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
@@ -278,6 +370,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Go to sign up button tap
+     */
     
     @IBAction func goToSignUp(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SignUpScreen", bundle: nil)
@@ -285,6 +380,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    /**
+     Forgot password button tap
+     */
     
     @IBAction func ForgotPasswordTap(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "PasswordRecoveryMain", bundle: nil)

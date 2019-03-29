@@ -108,18 +108,24 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
             }
         }
     }
+    
     /**
      Textfield which is editing now.
      - Important: Can be nil
      */
+    
     var activeField: UITextField?
+    
     /**
      Height of keyboard
      */
+    
     var keyboardHeight: CGFloat!
+    
     /**
      Inset of scroll view.
      */
+    
     private var insetDefault: UIEdgeInsets = UIEdgeInsets()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +157,12 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         insetDefault = ScrollView.contentInset
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
