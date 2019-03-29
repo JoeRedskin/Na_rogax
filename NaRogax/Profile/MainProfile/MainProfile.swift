@@ -24,6 +24,9 @@ class MainProfile: UIViewController {
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var PhoneLabel: UILabel!
     
+    /**
+     Check if user authorized
+     */
     override func viewWillAppear(_ animated: Bool) {
         if (Name.isHidden){
             Alert.shared().showSpinner(onView: self.view)
@@ -44,6 +47,10 @@ class MainProfile: UIViewController {
         }
     }
     
+    /**
+     Disable scroll on all screens besides like 5s
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
@@ -52,6 +59,13 @@ class MainProfile: UIViewController {
         }
         EditProfileBtn.layer.cornerRadius = 20
     }
+    
+    /**
+     Change profile view. Show data if user authorized else show label and sign in button
+     - Author: Egor
+     - parameters:
+        - flag: false if user authorized else true
+     */
     
     func changeVisibility(flag: Bool) {
         self.Email.isHidden = flag
@@ -74,6 +88,10 @@ class MainProfile: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    /**
+     User tap edit button. Transfer data and move to EditProfile screen
+     */
     
     @IBAction func editProfileBtnTap(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "EditProfile", bundle: nil)
@@ -100,12 +118,20 @@ class MainProfile: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    /**
+     User tap sign out button
+     */
+    
     @IBAction func signOutBtnTap(_ sender: UIButton) {
         DataLoader.shared().exitLogin()
         ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         self.viewWillAppear(false)
         self.viewDidLoad()
     }
+    
+    /**
+     Set profile data from app memory or server
+     */
     
     private func setProfileData(){
         let email = UserDefaultsData.shared().getEmail()
@@ -122,6 +148,13 @@ class MainProfile: UIViewController {
         } 
     }
     
+    /**
+     Get profile data from server
+     - Author: Egor
+     - parameters:
+        - email: User email
+     */
+    
     func getProfileData(email: String) {
         /* TODO: Получение данных пользователя по его почте */
         let data = RequestUserEmail(email: email)
@@ -134,14 +167,8 @@ class MainProfile: UIViewController {
                 self.Phone.text = result.data.phone
                 self.Email.text = result.data.email
                 if let date = result.data.birthday {
-                    let formatter = DateFormatter()
-                    var newDate = "Не указана"
-                    formatter.dateFormat = "yyyy-MM-dd"
-                    if let oldDate = formatter.date(from: date){
-                        formatter.dateFormat = "dd.MM.yyyy"
-                        newDate = formatter.string(from: oldDate)
-                    }
-                    self.Date.text = newDate
+                    let formattedDate = self.formatBitrhDate(date: date)
+                    self.Date.text = formattedDate
                 } else {
                     self.Date.text = "Не указана"
                 }
@@ -149,6 +176,30 @@ class MainProfile: UIViewController {
             }
         }
     }
+    
+    /**
+     Format birth date received from server (From "yyyy-MM-dd" to "dd.MM.yyyy")
+     - Author: Egor
+     - parameters:
+        - date: Birth date recieved from server
+     - returns: Formatted string date
+     */
+    
+    func formatBitrhDate(date: String) -> String {
+        let formatter = DateFormatter()
+        var formattedDate = "Не указана"
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let oldDate = formatter.date(from: date){
+            formatter.dateFormat = "dd.MM.yyyy"
+            formattedDate = formatter.string(from: oldDate)
+        }
+        
+        return formattedDate
+    }
+    
+    /**
+     User tap sign in button. Move to sign in screen
+     */
     
     @IBAction func SignInBtnTap(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SignInScreen", bundle: nil)
