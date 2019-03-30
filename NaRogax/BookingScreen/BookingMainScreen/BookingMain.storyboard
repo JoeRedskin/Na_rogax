@@ -124,7 +124,7 @@
                                 <rect key="frame" x="16" y="200" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" red="0.067427752889999998" green="0.046330120410000002" blue="0.071643933650000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Нажмите">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
