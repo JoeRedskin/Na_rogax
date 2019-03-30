@@ -92,10 +92,14 @@ class CheckNumberVC: UIViewController{
             requestChengeUser.code = code
             print(requestChengeUser)
             DataLoader.shared().changeUserCredentials(data: requestChengeUser){ result, error in
-                UserDefaultsData.shared().saveEmail(email: result.email ?? self.requestChengeUser.email)
-                UserDefaultsData.shared().saveName(name: self.name)
+                //UserDefaultsData.shared().saveEmail(email: result.email ?? self.requestChengeUser.email)
+                //UserDefaultsData.shared().saveName(name: self.name)
                 print(result.code)
                 if result.code == 200 {
+                    UserDefaultsData.shared().saveEmail(email: result.email ?? self.requestChengeUser.email)
+                    UserDefaultsData.shared().saveName(name: self.name)
+                    UserDefaultsData.shared().savePhone(phone: self.requestChengeUser.phone)
+                    UserDefaultsData.shared().saveBirthDate(birthDate: self.requestChengeUser.birthday)
                     self.navigationController?.popViewController(animated: true)
                 } else{
                     self.reloadError(show: true)
