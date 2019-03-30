@@ -41,7 +41,30 @@ class DishTableViewCell: UITableViewCell {
         }
         
         if dish.price == nil{
-            dishPrice.text = "⏤ ₽"
+            if dish.name.contains("Лимонад") {
+                
+                var price = "⏤"
+                
+                if let price1 = dish.sub_menu![0].price {
+                    price = String(price1)
+                }
+                
+                if let price2 = dish.sub_menu![1].price {
+                    if price != "⏤" {
+                        price += " / "
+                    } else {
+                        price = ""
+                    }
+                    price += String(price2)
+                }
+                
+                price += " ₽"
+                
+                dishPrice.text = price
+                
+            } else {
+                dishPrice.text = "⏤ ₽"
+            }
         } else {
             dishPrice.text = String(dish.price!) + " ₽"
         }

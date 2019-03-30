@@ -50,6 +50,11 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Меню"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         GetValuesInView(menu: dishFull)
         DrinksTableView.delegate = self
         DrinksTableView.dataSource = self
