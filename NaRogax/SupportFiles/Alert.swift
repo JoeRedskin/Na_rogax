@@ -68,7 +68,7 @@ class Alert{
     
     func tableAraBusy(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController {
         return createAlert(status: code, title: TITLE_TABLE_BUSY,messege: MESSEGE_TABLE_BUSY,
-                           buttonMessege: BUTTON_MESSEGE_OK_CANCEL, protocol: prot)
+                           buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
     }
     
     func canselBooking(status code: Int = 0, protocol prot: AlertProtocol?, time: String) -> UIAlertController {
