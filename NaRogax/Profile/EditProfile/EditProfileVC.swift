@@ -189,7 +189,7 @@ class EditProfileVC: UIViewController {
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         EmailField.maxLength = 100
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")
-        PhoneField.maxLength = 11
+        PhoneField.maxLength = 12
         setStyleForTextField(field: DateField, placeholder: "Дата рождения")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -290,24 +290,48 @@ class EditProfileVC: UIViewController {
     }
     
     /**
+     Phone begin editing handler
+     */
+    
+    @IBAction func phoneBeginEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "" {
+                PhoneField.text = "+7"
+                PhoneLabel.isHidden = false
+            }
+        }
+    }
+    
+    /**
+     Phone end editing handler
+     */
+    
+    @IBAction func phoneEndEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "+7" {
+                PhoneField.text = ""
+                isEmptyPhone = true
+                PhoneLabel.isHidden = true
+            }
+        }
+    }
+    
+    /**
      PhoneField text changing handler
      */
     
     @IBAction func phoneChanged(_ sender: Any) {
         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneIcon)
         if let phone = PhoneField.text {
-            if phone != "" {
-                if phone.prefix(1) == "+" {
-                    PhoneField.maxLength = 12
-                } else {
-                    PhoneField.maxLength = 11
-                }
-                isEmptyPhone = false
-            } else {
-                isEmptyPhone = true
+            if phone.count <= 1 {
+                PhoneField.text = "+7"
             }
-        } else {
-            isEmptyPhone = true
+            if phone == "+7" {
+                isEmptyPhone = true
+                PhoneLabel.isHidden = false
+            } else {
+                isEmptyPhone = false
+            }
         }
     }
     

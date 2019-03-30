@@ -249,7 +249,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         PasswordField.maxLength = 32
         RepeatPasswordField.maxLength = 32
         NameField.maxLength = 30
-        PhoneField.maxLength = 11
+        PhoneField.maxLength = 12
         SignUpBtn.layer.cornerRadius = 20
         
         EmailField.delegate = self
@@ -448,24 +448,47 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     }
     
     /**
+     Phone begin editing handler
+     */
+    
+    @IBAction func phoneBeginEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "" {
+                PhoneField.text = "+7"
+                PhoneLabel.isHidden = false
+            }
+        }
+    }
+    
+    /**
+     Phone end editing handler
+     */
+    
+    @IBAction func phoneEndEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "+7" {
+                PhoneField.text = ""
+                isEmptyPhone = true
+                PhoneLabel.isHidden = true
+            }
+        }
+    }
+    /**
      PhoneField text changing handler
      */
     
     @IBAction func phoneChanged(_ sender: Any) {
         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
         if let phone = PhoneField.text {
-            if phone != "" {
-                if phone.prefix(1) == "+" {
-                    PhoneField.maxLength = 12
-                } else {
-                    PhoneField.maxLength = 11
-                }
-                isEmptyPhone = false
-            } else {
-                isEmptyPhone = true
+            if phone.count <= 1 {
+                PhoneField.text = "+7"
             }
-        } else {
-            isEmptyPhone = true
+            if phone == "+7" {
+                isEmptyPhone = true
+                PhoneLabel.isHidden = false
+            } else {
+                isEmptyPhone = false
+            }
         }
     }
     

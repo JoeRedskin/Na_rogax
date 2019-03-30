@@ -141,7 +141,9 @@
                                 <connections>
                                     <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="RaK-DU-r84"/>
                                     <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="Wg2-rA-fxz"/>
+                                    <action selector="phoneBeginEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="ALZ-0t-bP9"/>
                                     <action selector="phoneChanged:" destination="Som-PD-zCR" eventType="editingChanged" id="yrS-lv-DWy"/>
+                                    <action selector="phoneEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="11X-of-1ov"/>
                                 </connections>
                             </textField>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_data_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XpS-cv-vzl">
