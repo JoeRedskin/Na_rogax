@@ -130,25 +130,6 @@ class MainProfile: UIViewController {
     }
     
     /**
-     Set profile data from app memory or server
-     */
-    
-    private func setProfileData(){
-        let email = UserDefaultsData.shared().getEmail()
-        let name = UserDefaultsData.shared().getName()
-        let phone = UserDefaultsData.shared().getPhone()
-        let birthDate = UserDefaultsData.shared().getBirthDate()
-        if (name.isEmpty || phone.isEmpty || birthDate.isEmpty){
-            getProfileData(email: email)
-        }else{
-            Name.text = name
-            Phone.text = phone
-            Email.text = email
-            Date.text = birthDate
-        } 
-    }
-    
-    /**
      Get profile data from server
      - Author: Egor
      - parameters:
