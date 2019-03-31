@@ -469,7 +469,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             if phone == "+7" {
                 PhoneField.text = ""
                 isEmptyPhone = true
-                PhoneLabel.isHidden = true
+                //PhoneLabel.isHidden = true
             }
         }
     }
@@ -482,8 +482,9 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         if let phone = PhoneField.text {
             if phone.count <= 1 {
                 PhoneField.text = "+7"
-            }
-            if phone == "+7" {
+                isEmptyPhone = true
+                PhoneLabel.isHidden = false
+            } else if phone == "+7" {
                 isEmptyPhone = true
                 PhoneLabel.isHidden = false
             } else {
