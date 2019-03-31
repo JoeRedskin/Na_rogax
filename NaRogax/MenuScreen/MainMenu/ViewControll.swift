@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Лимонад")){
+            if (dishes.categories[pageIndex].cat_name != "ТОПИНГИ" && dishes.categories[pageIndex].cat_name != "НАПИТКИ") || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) || (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Чай")) {
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFull = dishes

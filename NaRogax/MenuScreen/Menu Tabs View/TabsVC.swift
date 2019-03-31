@@ -22,6 +22,7 @@ class TabsVC: UIViewController {
         Alert.shared().showSpinner(onView: self.view)
         if (!DataLoader.shared().testNetwork()) {
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
+            Alert.shared().removeSpinner()
         } else {
             DataLoader.shared().getDishes(){result, error in
                 if error?.code == 200 {

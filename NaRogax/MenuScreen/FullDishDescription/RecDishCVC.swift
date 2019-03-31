@@ -15,6 +15,12 @@ class RecDishCVC: UICollectionViewCell {
     @IBOutlet weak var WeightLabel: UILabel!
     @IBOutlet weak var PriceLabel: UILabel!
     
+    /**
+     Display recommend dish on full dish description screen
+     - Parameters:
+        - dish: Dish struct
+     */
+    
     func displayDish(dish: DishDescription){
         
         if dish.name == ""{
@@ -49,19 +55,16 @@ class RecDishCVC: UICollectionViewCell {
             Image.image = UIImage(named: "no_image")
         } else {
             fetchImage(url_img: dish.photo!)
-            //Image.image = UIImage(named: "no_image")
         }
     }
     
     func fetchImage(url_img: String) {
         if let url = URL(string: url_img){
-            //spinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
                     if let imageData = urlContents {
                         self?.Image.image = UIImage(data: imageData)
-                        //self?.spinner.stopAnimating()
                     }
                 }
             }

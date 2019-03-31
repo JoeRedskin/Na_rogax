@@ -53,7 +53,7 @@ class Alert{
     }
     
     func noInternet(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController{
-        return createAlert(status: code, messege: MESSEGE_NO_NETWORK, buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
+        return createAlert(status: code, title: TITLE_ERROR_NETWORK_BOOKING, messege: MESSEGE_NO_NETWORK, buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
     }
     
     func changePassword(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController {

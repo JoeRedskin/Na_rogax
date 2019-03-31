@@ -36,6 +36,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
     @IBOutlet weak var Spinner: UIActivityIndicatorView!
     
+    /**
+     Variable value is true when NameField is empty.
+     If one of TextFields empty then sign up button disabled.
+     Show hint if NameField is not empty
+     */
     
     private var isEmptyName = true {
         didSet {
@@ -54,6 +59,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Variable value is true when PhoneField is empty.
+     If one of TextFields empty then sign up button disabled.
+     Show hint if PhoneField is not empty
+     */
+    
     private var isEmptyPhone = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
@@ -71,6 +82,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Variable value is true when EmailField is empty.
+     If one of TextFields empty then sign up button disabled.
+     Show hint if EmailField is not empty
+     */
+    
     private var isEmptyEmail = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
@@ -87,6 +104,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    /**
+     Variable value is true when PasswordField is empty.
+     If one of TextFields empty then sign up button disabled.
+     Show hint if PasswordField is not empty
+     */
     
     private var isEmptyPassword = true {
         didSet {
@@ -107,6 +130,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Variable value is true when EmptyPasswordField is empty.
+     If one of TextFields empty then sign up button disabled.
+     Show hint if EmptyPasswordField is not empty
+     */
+    
     private var isEmptyRepeatedPassword = true {
         didSet {
             if !isEmptyPhone && !isEmptyName && !isEmptyEmail && !isEmptyPassword && !isEmptyRepeatedPassword{
@@ -126,10 +155,33 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Textfield which is editing now.
+     - Important: Can be nil
+     */
+    
     var activeField: UITextField?
+    
+    /**
+     Height of keyboard
+     */
+    
     var keyboardHeight: CGFloat!
     
+    /**
+     Inset of scroll view.
+     */
+    
     private var insetDefault: UIEdgeInsets = UIEdgeInsets()
+    
+    /**
+     Highlight not valid data
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be highlighted
+        - label: Error hint which should be shown
+        - image: Icon of TextField which will be highlighted
+     */
     
     func incorrectData(field: UITextField, label: UILabel?, image: UIImageView?) {
         field.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -142,6 +194,15 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             img.isHidden = false
         }
     }
+    
+    /**
+     Remove highlight from Field
+     - Author: Egor
+     - parameters:
+        - field: The field from which you want to remove the highlight
+        - label: Error hint which should be hiden. Can be nil
+        - image: Icon of TextField which will be hiden. Can be nil
+     */
     
     func correctData(field: UITextField, label: UILabel?, image: UIImageView?) {
         if !field.isEditing {
@@ -157,9 +218,17 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Show password on PasswordField on tap
+     */
+    
     @IBAction func showPassword(_ sender: UIButton) {
         PasswordField.isSecureTextEntry = !PasswordField.isSecureTextEntry
     }
+    
+    /**
+     Show password on RepeatedPasswordField on tap
+     */
     
     @IBAction func showRepeatedPassword(_ sender: UIButton) {
         RepeatPasswordField.isSecureTextEntry = !RepeatPasswordField.isSecureTextEntry
@@ -180,7 +249,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         PasswordField.maxLength = 32
         RepeatPasswordField.maxLength = 32
         NameField.maxLength = 30
-        PhoneField.maxLength = 11
+        PhoneField.maxLength = 12
         SignUpBtn.layer.cornerRadius = 20
         
         EmailField.delegate = self
@@ -213,6 +282,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /**
+     Keyboard showing handler
+     */
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if keyboardHeight != nil {
             return
@@ -239,10 +312,18 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Keyboard hide handler
+     */
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         self.ScrollView.contentInset = self.insetDefault        
         keyboardHeight = nil
     }
+    
+    /**
+     Remove keyboard on view tap
+     */
     
     @objc func dismissKeyboard() {
         //view.endEditing(true)
@@ -253,6 +334,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         activeField?.resignFirstResponder()
         activeField = nil
     }
+    
+    /**
+     Set style for text field
+     - Author: Egor
+     - parameters:
+        - field: TextField which should be styled
+        - placeholder: Placeholder text for TextField
+     */
     
     func setStyleForTextField(field: UITextField!, placeholder: String){
         field.attributedPlaceholder = NSAttributedString(string: placeholder,
@@ -266,6 +355,22 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         field.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: field.frame.height))
         field.rightViewMode = .always
     }
+    
+    /**
+     Change color of TextField placeholder
+     - Parameters:
+        - field: TextField in which will change placeholder color
+        - color: New color of placeholder
+     */
+    
+    func changePlaceholderColor(field: UITextField, color: UIColor){
+        field.attributedPlaceholder = NSAttributedString(string: field.placeholder!,
+                                                         attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+    
+    /**
+     PasswordField text changing handler
+     */
     
     @IBAction func passwordChanged(_ sender: Any) {
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
@@ -282,9 +387,17 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Remove text on PasswordField text edit begin
+     */
+    
     @IBAction func passwordDidBegin(_ sender: UITextField) {
         sender.text = ""
     }
+    
+    /**
+     RepeatedPasswordField text changing handler
+     */
     
     @IBAction func repeatedPasswordChanged(_ sender: Any) {
         correctData(field: RepeatPasswordField, label: RepeatedPasswordErrorLabel, image: RepeatedPasswordIcon)
@@ -300,6 +413,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     EmailField text changing handler
+     */
+    
     @IBAction func emailChanged(_ sender: Any) {
         correctData(field: EmailField, label: EmailErrorLabel, image: EmailImage)
         if let email = EmailField.text {
@@ -312,6 +429,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             isEmptyEmail = true
         }
     }
+    
+    /**
+     NameField text changing handler
+     */
     
     @IBAction func nameChanged(_ sender: Any) {
         correctData(field: NameField, label: NameErrorLabel, image: NameImage)
@@ -326,38 +447,87 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Phone begin editing handler
+     */
+    
+    @IBAction func phoneBeginEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "" {
+                PhoneField.text = "+7"
+                PhoneLabel.isHidden = false
+            }
+        }
+    }
+    
+    /**
+     Phone end editing handler
+     */
+    
+    @IBAction func phoneEndEditing(_ sender: Any) {
+        if let phone = PhoneField.text {
+            if phone == "+7" {
+                PhoneField.text = ""
+                isEmptyPhone = true
+                PhoneLabel.isHidden = true
+            }
+        }
+    }
+    /**
+     PhoneField text changing handler
+     */
+    
     @IBAction func phoneChanged(_ sender: Any) {
         correctData(field: PhoneField, label: PhoneErrorLabel, image: PhoneImage)
         if let phone = PhoneField.text {
-            if phone != "" {
-                if phone.prefix(1) == "+" {
-                    PhoneField.maxLength = 12
-                } else {
-                    PhoneField.maxLength = 11
-                }
-                isEmptyPhone = false
-            } else {
-                isEmptyPhone = true
+            if phone.count <= 1 {
+                PhoneField.text = "+7"
             }
-        } else {
-            isEmptyPhone = true
+            if phone == "+7" {
+                isEmptyPhone = true
+                PhoneLabel.isHidden = false
+            } else {
+                isEmptyPhone = false
+            }
         }
     }
+    
+    /**
+     Field start editing handler
+     */
     
     @IBAction func fieldStartEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
     }
+    
+    /**
+     Field end editing handler
+     */
     
     @IBAction func fieldEndEditing(_ sender: UITextField) {
         sender.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         sender.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4)
+        
+        changePlaceholderColor(field: sender, color: #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1))
     }
+    
+    /**
+     Show error label
+     - Parameters:
+        - text: Error text which will be showed
+     */
     
     func showErrorLabel(text: String) {
         RepeatedPasswordErrorLabel.text = text
         RepeatedPasswordErrorLabel.isHidden = false
     }
+    
+    /**
+     Sign up button tap
+     */
     
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
         PhoneField.resignFirstResponder()
@@ -367,7 +537,6 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         RepeatPasswordField.resignFirstResponder()
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
-                /* TODO: Registration request */
                 self.SignUpBtn.isEnabled = false
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
@@ -420,10 +589,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             }
             if !validatePassword(pass: pass) {
                 incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
-                //incorrectData(field: RepeatPasswordField, label: nil, image: RepeatedPasswordIcon)
                 PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
-                //showErrorLabel(text: "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9).")
-                //RepeatPasswordBtn.isHidden = true
                 PasswordBtn.isHidden = true
             }
             if pass != rpass {
