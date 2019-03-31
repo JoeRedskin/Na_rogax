@@ -64,7 +64,6 @@ class SelectTableShowBookingVC: UIViewController {
                     Alert.shared().removeSpinner()
                     break
                 default:
-                    print(error)
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }
@@ -95,7 +94,7 @@ class SelectTableShowBookingVC: UIViewController {
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
-            DataLoader.shared().showUserBooking(data: chekAuto){ result, error in
+            DataLoader.shared().showUserBooking(){ result, error in
                 switch error?.code{
                 case 200:
                     if (result.bookings.count == 0){
@@ -118,7 +117,6 @@ class SelectTableShowBookingVC: UIViewController {
                     self.labelText.text = self.TEXT_NO_AUTO
                     break
                 default:
-                    print(error)
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }

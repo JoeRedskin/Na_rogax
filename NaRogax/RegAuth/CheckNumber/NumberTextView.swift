@@ -30,7 +30,6 @@ class NumberTextView: UITextField {
     }
     
     override public func deleteBackward() {
-        print("back", text)
         cutPasteProt?.deleteBackward()
         super.deleteBackward()
     }

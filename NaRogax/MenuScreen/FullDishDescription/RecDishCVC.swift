@@ -29,15 +29,20 @@ class RecDishCVC: UICollectionViewCell {
             NameLabel.text = dish.name
         }
         
-        if dish.weight == ""{
-            WeightLabel.isHidden = true
-        } else {
-            if dish.name.contains("Сок") || dish.name.contains("Чай") || dish.name.contains("Кофе") || dish.name.contains("Лимонад") || dish.name.contains("Пиво") {
-                WeightLabel.text = dish.weight + " мл"
+        if let weight = dish.weight{
+            if weight == ""{
+                WeightLabel.isHidden = true
             } else {
-                WeightLabel.text = dish.weight + " г"
+                if dish.name.contains("Сок") || dish.name.contains("Чай") || dish.name.contains("Кофе") || dish.name.contains("Лимонад") || dish.name.contains("Пиво") {
+                    WeightLabel.text = weight + " мл"
+                } else {
+                    WeightLabel.text = weight + " г"
+                }
             }
+        }else{
+            WeightLabel.isHidden = true
         }
+
         
         if dish.price == nil{
             PriceLabel.text = "⏤ ₽"

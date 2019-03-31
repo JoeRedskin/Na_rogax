@@ -24,11 +24,17 @@ class FullDescCViCell: UICollectionViewCell {
             recName.text = dish.name
         }
 
-        if dish.weight == ""{
+        if let weight = dish.weight{
+            if weight == ""{
+                recWeight.isHidden = true
+            } else {
+                recWeight.text = weight + " г"
+            }
+        }else{
             recWeight.isHidden = true
-        } else {
-            recWeight.text = dish.weight + " г"
         }
+        
+
 
         if dish.price == nil{
             recPrice.text = "⏤ р"

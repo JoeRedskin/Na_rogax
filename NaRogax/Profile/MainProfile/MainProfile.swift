@@ -157,11 +157,10 @@ class MainProfile: UIViewController {
     
     func getProfileData(email: String) {
         /* TODO: Получение данных пользователя по его почте */
-        let data = RequestUserEmail(email: email)
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
         } else {
-            DataLoader.shared().viewUserCredentials(data: data){ result, error in
+            DataLoader.shared().viewUserCredentials(){ result, error in
                 self.changeVisibility(flag: false)
                 self.Name.text = result.data.name
                 self.Phone.text = result.data.phone
