@@ -530,11 +530,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
      */
     
     @IBAction func SignUpBtnTap(_ sender: UIButton) {
-        PhoneField.resignFirstResponder()
-        NameField.resignFirstResponder()
-        EmailField.resignFirstResponder()
-        PasswordField.resignFirstResponder()
-        RepeatPasswordField.resignFirstResponder()
+        EmailErrorLabel.text = "Пожалуйста, введите корректный адрес"
+        dismissKeyboard()
         if let name = NameField.text, let phone = PhoneField.text, let email = EmailField.text, let pass = PasswordField.text, let rpass = RepeatPasswordField.text {
             if validateName(name: name) && validateEmail(email: email) && validatePassword(pass: pass) && validatePhone(number: phone) && pass == rpass {
                 self.SignUpBtn.isEnabled = false
@@ -564,8 +561,9 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                                 }
                                 break
                             case 200:
-                                self.incorrectData(field: self.EmailField, label: nil, image: self.EmailImage)
-                                self.showErrorLabel(text: "Пользователь с такой почтой уже существует")
+                                self.EmailErrorLabel.text = "Пользователь с такой почтой уже существует"
+                                self.incorrectData(field: self.EmailField, label: self.EmailErrorLabel, image: self.EmailImage)
+                                
                                 Alert.shared().removeSpinner()
                                 break
                             case .none:
