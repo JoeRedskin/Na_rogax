@@ -50,7 +50,7 @@ struct DishDescription: Decodable {
     var photo: String? = ""
     var shortDescription: String? = ""
     var longDescription: String? = ""
-    var weight: String = ""
+    var weight: String? = ""
     var recommendedWith: String? = nil
     var delivery: Bool? = false
     var sub_menu: [SubMenu]? = []

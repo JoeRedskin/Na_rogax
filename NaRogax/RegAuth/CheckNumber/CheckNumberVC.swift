@@ -87,7 +87,7 @@ class CheckNumberVC: UIViewController{
     
     private func sendChange(){
         if (!DataLoader.shared().testNetwork()){
-            self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
             requestChengeUser.code = code
             print(requestChengeUser)

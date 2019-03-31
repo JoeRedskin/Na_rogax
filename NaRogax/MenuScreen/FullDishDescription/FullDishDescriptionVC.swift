@@ -69,15 +69,20 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             }
         }
         
-        if menu.weight == ""{
-            WeightLabel.isHidden = true
-        } else {
-            if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво"){
-                WeightLabel.text = menu.weight + " мл"
+        if let weight = menu.weight{
+            if weight == ""{
+                WeightLabel.isHidden = true
             } else {
-                WeightLabel.text = menu.weight + " г"
+                if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво"){
+                    WeightLabel.text = weight + " мл"
+                } else {
+                    WeightLabel.text = weight + " г"
+                }
             }
+        }else{
+            WeightLabel.isHidden = true
         }
+
          
          if menu.price == nil{
             PriceLabel.text = "⏤ ₽"

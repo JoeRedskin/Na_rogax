@@ -65,7 +65,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     private func startReserveScreen(){
         if (!DataLoader.shared().testNetwork()){
-            self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
             //TO DO: прилизать немного код, что б выглядело получше
             // Сделать что бы передавалась имя для брони

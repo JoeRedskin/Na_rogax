@@ -119,7 +119,7 @@ class BookingVC: UIViewController{
             return
         }
         if (!Reachability.isConnectedToNetwork()){
-            self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
             var date = RequestPostEmptyPlaces()
             date.date = time.dateFrom
@@ -132,7 +132,7 @@ class BookingVC: UIViewController{
     
     private func downloadTable(date: RequestPostEmptyPlaces){
         if (!Reachability.isConnectedToNetwork()){
-            self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
             DataLoader.shared().getEmptyTables(data: date){ result, error in
                 if error?.code == 200 {
@@ -149,7 +149,7 @@ class BookingVC: UIViewController{
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }else{
-                    self.present(Alert.shared().messegeErrorNetworkBooking(protocol: self), animated: true, completion: nil)
+                    self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
                 }
             }
         }

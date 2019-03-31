@@ -286,8 +286,6 @@ class EditProfileVC: UIViewController {
                                         UserDefaultsData.shared().saveBirthDate(birthDate: data.birthday)
                                     }
                                     UserDefaultsData.shared().savePhone(phone: data.phone)
-                                } else {
-                                    print(error)
                                 }
                             }
                         }
@@ -303,7 +301,6 @@ class EditProfileVC: UIViewController {
                                 switch result?.code {
                                 case 404:
                                     DataLoader.shared().verifyEmail(data: RequestUserEmail(email: data.new_email)){ result in
-                                        print("verifyEmail", result)
                                         print(data)
                                         if result?.code == 200 {
                                             let storyboard = UIStoryboard(name: "CheckNumber", bundle: nil)

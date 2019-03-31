@@ -58,11 +58,17 @@ class FullDescriptionVC: UIViewController, UICollectionViewDataSource, UICollect
             desc_longField.text = menu.longDescription
         }
         
-        if menu.weight == ""{
-             weightField.isHidden = true
-        } else {
-            weightField.text = menu.weight + " г"
+        if let weight = menu.weight{
+            if weight == ""{
+                weightField.isHidden = true
+            } else {
+                weightField.text = weight + " г"
+            }
+        }else{
+            weightField.isHidden = true
         }
+        
+        
         
         if menu.price == nil{
             priceField.text = "⏤ р"

@@ -22,7 +22,7 @@ class DataLoader{
     private let REQUEST_CATEGORY = "categories"
     private let REQUEST_CHECK_AUTH = "check_auth"
     private let REQUEST_SHOW_USER_BOOKING = "show_user_booking"
-    private let REQUEST_DELETE_USER_BOOKING = "delete_user_booking"
+    private let REQUEST_DELETE_USER_BOOKING = "delete_user_booking/"
     private let REQUEST_FIND_USER = "find_user/"
     private let REQUEST_CHANGE_USER_CREDENTIALS = "change_user_credentials"
     private let REQUEST_VIEW_USER_CREDENTIALS = "view_user_credentials"
@@ -73,15 +73,12 @@ class DataLoader{
     }
     
     
-    func viewUserCredentials(data: RequestUserEmail,
-                             completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)) {
+    func viewUserCredentials(completion:@escaping ((_ result: ResponseUserCredentials,_ error: ErrorResponse?) -> Void)) {
         var userCredentials = ResponseUserCredentials(data: DataResponse(email: "", birthday: "", name: "", phone: "", reg_date: ""))
-        let paramet = data.conventParameters()
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]
         Alamofire.request(SERVER_URL + REQUEST_VIEW_USER_CREDENTIALS,
-                          method: .post,
-                          parameters: paramet,
+                          method: .get,
                           encoding: JSONEncoding.default,
                           headers: headers)
             .validate()
@@ -117,7 +114,7 @@ class DataLoader{
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]
         Alamofire.request(SERVER_URL + REQUEST_CHANGE_USER_CREDENTIALS,
-                          method: .post,
+                          method: .patch,
                           parameters: paramet,
                           encoding: JSONEncoding.default,
                           headers: headers)
@@ -150,16 +147,13 @@ class DataLoader{
         }
     }
     
-    func showUserBooking(data: RequestUserEmail,
-                         completion:@escaping ((_ result: ResponseShowUserBooking,_ error: ErrorResponse?) -> Void)){
+    func showUserBooking(completion:@escaping ((_ result: ResponseShowUserBooking,_ error: ErrorResponse?) -> Void)){
         var showBooking = ResponseShowUserBooking()
-        let paramet = data.conventParameters()
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]
         print("Token showUserBooking", access_token)
         Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING,
-                          method: .post,
-                          parameters: paramet,
+                          method: .get,
                           encoding: JSONEncoding.default,
                           headers: headers)
             .validate()
@@ -253,6 +247,7 @@ class DataLoader{
             return try decoder.decode(ErrorResponse.self, from: data)
             //print("Alamofire", model)
         } catch let error {
+            print(error)
             return ErrorResponse(code: code,desc: "")
         }
     }
@@ -381,7 +376,40 @@ class DataLoader{
                     completion(respData)
                 }
         }
-        
+    }
+    
+    
+    func userDeleteUserBooking(data: RequestPostDeleteUserBooking,
+                               completion:@escaping ((_ result: ErrorResponse?) -> Void)){
+        var respData = ErrorResponse(code: 200,desc: "")
+        let headers = ["Authorization": access_token,
+                       "Content-Type": "application/json"]
+        Alamofire.request(SERVER_URL + REQUEST_DELETE_USER_BOOKING + String(data.booking_id),
+                          method: .delete,
+                          encoding: JSONEncoding.default,
+                          headers: headers)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        do{
+                            let decoder = JSONDecoder()
+                            respData = try decoder.decode(ErrorResponse.self, from: data)
+                        } catch _ {
+                            respData.code = 500
+                            respData.desc = ""
+                        }
+                    }
+                case .failure(_):
+                    if let data = response.data{
+                        respData = self.decodeErrResponse(data: data, code: (response.response?.statusCode)!)
+                    }
+                }
+                OperationQueue.main.addOperation {
+                    completion(respData)
+                }
+        }
     }
     
     //общий метод для отправки на сервер когда ответ с сервера является ErrorResponse
@@ -481,16 +509,6 @@ class DataLoader{
                       completion:@escaping ((_ result: ErrorResponse?) -> Void)) {
         let parameters = data.conventParameters()
         postToServer(parameters: parameters, auto: true, request: REQUEST_RESERVE_PLACE){ result in
-            OperationQueue.main.addOperation {
-                completion(result)
-            }
-        }
-    }
-    
-    func userDeleteUserBooking(data: RequestPostDeleteUserBooking,
-                               completion:@escaping ((_ result: ErrorResponse?) -> Void)){
-        let parameters = data.conventParameters()
-        postToServer(parameters: parameters, auto: true, request: REQUEST_DELETE_USER_BOOKING){ result in
             OperationQueue.main.addOperation {
                 completion(result)
             }

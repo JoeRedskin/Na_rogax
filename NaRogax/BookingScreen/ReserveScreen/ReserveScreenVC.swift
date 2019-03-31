@@ -50,8 +50,7 @@ class ReserveScreenVC: UIViewController {
                 self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                 ReserveBtn.isEnabled = true
             } else {
-                let data = RequestUserEmail(email: UserDefaultsData.shared().getEmail())
-                DataLoader.shared().viewUserCredentials(data: data){ result, error in
+                DataLoader.shared().viewUserCredentials(){ result, error in
                     if (error?.code == 200){
                         UserDefaultsData.shared().saveName(name: result.data.name)
                         UserDefaultsData.shared().savePhone(phone: result.data.phone)

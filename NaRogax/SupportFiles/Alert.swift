@@ -37,7 +37,6 @@ class Alert{
     //Название кнопок
     private let BUTTON_MESSEGE_OK = ["Ок"]
     private let BUTTON_MESSEGE_OK_CANCEL = ["Ок", "Отмена"]
-    private let BUTTON_MESSEGE_ERROR_NETWORK = ["Повторить соединение", "Отмена"]
     private var vSpinner : UIView?
 
     
@@ -47,11 +46,6 @@ class Alert{
             uniqueInstance = Alert()
         }
         return uniqueInstance!
-    }
-    
-    func messegeErrorNetworkBooking(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController {
-        return createAlert(status: code, title: TITLE_ERROR_NETWORK_BOOKING,messege: MESSEGE_ERROR_NETWORK_BOOKING
-            , buttonMessege: BUTTON_MESSEGE_ERROR_NETWORK, protocol: prot)
     }
     
     func couldServerDown(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController{
@@ -68,7 +62,7 @@ class Alert{
     
     func tableAraBusy(status code: Int = 0, protocol prot: AlertProtocol?) -> UIAlertController {
         return createAlert(status: code, title: TITLE_TABLE_BUSY,messege: MESSEGE_TABLE_BUSY,
-                           buttonMessege: BUTTON_MESSEGE_OK_CANCEL, protocol: prot)
+                           buttonMessege: BUTTON_MESSEGE_OK, protocol: prot)
     }
     
     func canselBooking(status code: Int = 0, protocol prot: AlertProtocol?, time: String) -> UIAlertController {
