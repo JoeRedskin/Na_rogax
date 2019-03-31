@@ -140,6 +140,7 @@ class MainProfile: UIViewController {
         /* TODO: Получение данных пользователя по его почте */
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+            Alert.shared().removeSpinner()
         } else {
             DataLoader.shared().viewUserCredentials(){ result, error in
                 self.changeVisibility(flag: false)
