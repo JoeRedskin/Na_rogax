@@ -33,10 +33,15 @@ class SelectTableShowBookingVC: UIViewController {
         let newEmail = UserDefaults.standard.string(forKey: "email") ?? ""
         if (chekAuto.email != newEmail){
             chekAuto.email = newEmail
+            self.TableView.isHidden = true
             userBooking.bookings.removeAll()
             self.TableView.reloadData()
         }
         checkUserData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.TableView.isHidden = true
     }
     
     private func checkUserData(){
@@ -135,6 +140,11 @@ class SelectTableShowBookingVC: UIViewController {
                 case 200, 404:
                     self.userBooking.bookings.remove(at: self.index)
                     self.TableView.reloadData()
+                    if self.userBooking.bookings.count == 0{
+                        self.labelText.isHidden = false
+                        self.labelText.text = self.TEXT_NO_BOOKING
+                        self.TableView.isHidden = true
+                    }
                     break
                 case 401:
                     self.startStoryAuto()
