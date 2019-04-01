@@ -11,8 +11,10 @@ import UIKit
 class DateCVC {
     var check = false
     var text: String = ""
-    private var date: String = ""
-    private var today: Bool = false
+    private var isToday: Bool = false
+    
+    var date: String = ""
+
     
     init(numberDay item: Int) {
         setData(item: item)
@@ -23,11 +25,11 @@ class DateCVC {
     }
     
     func reloadToday() {
-        today = !today
+        isToday = !isToday
     }
     
     func checkToday() -> Bool {
-        return today
+        return isToday
     }
     
     func reload(){
@@ -54,10 +56,5 @@ class DateCVC {
     
     func getDay() -> String{
         return String(text.split(separator: "\n")[1])
-    }
-    
-    //возращает дату в ячейке
-    func getDate() -> String{
-        return date
     }
 }

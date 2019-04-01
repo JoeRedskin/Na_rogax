@@ -151,7 +151,6 @@ class DataLoader{
         var showBooking = ResponseShowUserBooking()
         let headers = ["Authorization": access_token,
                        "Content-Type": "application/json"]
-        print("Token showUserBooking", access_token)
         Alamofire.request(SERVER_URL + REQUEST_SHOW_USER_BOOKING,
                           method: .get,
                           encoding: JSONEncoding.default,

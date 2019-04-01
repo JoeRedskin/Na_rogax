@@ -83,7 +83,6 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
     
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        print("finished completed", finished, completed)
         if finished {
             if completed {
                 //self.finished = true
