@@ -63,6 +63,7 @@ class MainProfile: UIViewController {
             ScrollView.isScrollEnabled = false
         }
         EditProfileBtn.layer.cornerRadius = 20
+        //EditProfileBtn.isEnabled = true
     }
     
     /**
@@ -99,6 +100,7 @@ class MainProfile: UIViewController {
      */
     
     @IBAction func editProfileBtnTap(_ sender: UIButton) {
+        EditProfileBtn.isEnabled = false
         let storyboard = UIStoryboard(name: "EditProfile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "EditProfile") as! EditProfileVC
         
@@ -121,6 +123,7 @@ class MainProfile: UIViewController {
         }
         
         navigationController?.pushViewController(vc, animated: true)
+        EditProfileBtn.isEnabled = true
     }
     
     /**

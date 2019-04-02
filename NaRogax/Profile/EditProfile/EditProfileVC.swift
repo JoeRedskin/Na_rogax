@@ -385,6 +385,7 @@ class EditProfileVC: UIViewController {
      */
     
     @IBAction func SaveChangesBtnTap(_ sender: UIButton) {
+        EmailErrorLabel.text = "Пожалуйста, введите корректный адрес"
         dismissKeyboard()
         if let name = NameField.text, let email = EmailField.text, let phone = PhoneField.text, let date = DateField.text {
             if name != Name || phone != Phone || date != BirthDate || email != Email {
@@ -438,6 +439,9 @@ class EditProfileVC: UIViewController {
                                         }}
                                     break
                                 case 200:
+                                    self.EmailErrorLabel.text = "Пользователь с такой почтой уже существует"
+                                    self.incorrectData(field: self.EmailField, label: self.EmailErrorLabel, image: self.EmailIcon)
+                                    Alert.shared().removeSpinner()
                                     break
                                 case .none:
                                     break
