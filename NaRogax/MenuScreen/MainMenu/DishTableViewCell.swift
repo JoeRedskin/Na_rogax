@@ -40,34 +40,16 @@ class DishTableViewCell: UITableViewCell {
             dishShortInfo.isHidden = false
         }
         
-        if dish.price == nil{
-            if dish.name.contains("Лимонад") {
+        if let price = dish.price {
+            dishPrice.text = "\(price) ₽"
+        } else if dish.name.contains("Лимонад") {
+                guard let price1 = dish.sub_menu![0].price else {return}
+                guard let price2 = dish.sub_menu![1].price else {return}
                 
-                var price = "⏤"
-                
-                if let price1 = dish.sub_menu![0].price {
-                    price = String(price1)
-                }
-                
-                if let price2 = dish.sub_menu![1].price {
-                    if price != "⏤" {
-                        price += " / "
-                    } else {
-                        price = ""
-                    }
-                    price += String(price2)
-                }
-                
-                price += " ₽"
-                
-                dishPrice.text = price
-                
+                dishPrice.text = "\(price1) / \(price2) ₽"
             } else {
                 dishPrice.text = "⏤ ₽"
             }
-        } else {
-            dishPrice.text = String(dish.price!) + " ₽"
-        }
         
         if dish.photo == "" || dish.photo == nil{
             dishImage.image = UIImage(named: "no_image")
@@ -82,7 +64,6 @@ class DishTableViewCell: UITableViewCell {
             dishSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 DispatchQueue.main.async {
-//                    dishImage.kf.placeholder = Placeholder.add(to: UIImage(named: "no_image"))
                     self?.dishImage.kf.setImage(with: url)
                     self?.dishSpinner.stopAnimating()
                 }

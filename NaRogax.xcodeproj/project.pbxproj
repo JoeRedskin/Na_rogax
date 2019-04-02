@@ -23,7 +23,6 @@
 		CE5A4713223BD5B600724490 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4712223BD5B600724490 /* Cell.swift */; };
 		CE5A4727223BF72100724490 /* HoursWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4726223BF72100724490 /* HoursWork.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
-		CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
 		CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE90194C221D904200BA1B47 /* Assets.xcassets */; };
 		CE901950221D904200BA1B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE90194E221D904200BA1B47 /* LaunchScreen.storyboard */; };
@@ -109,7 +108,6 @@
 		CE5A4712223BD5B600724490 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CE5A4726223BF72100724490 /* HoursWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWork.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
-		CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE901945221D904100BA1B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE90194C221D904200BA1B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 			children = (
 				CEF692E422274AC9000F3307 /* Main.storyboard */,
 				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
-				CE8958B2222942BA003CE9D1 /* ToppingTableViewCell.swift */,
 				CEF3668722394FC2003F17D8 /* ViewControll.swift */,
 			);
 			path = MainMenu;
@@ -692,7 +689,6 @@
 				CEF3FFF82246505400F07765 /* SelectTableShowBookingVC.swift in Sources */,
 				CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
-				CE8958B3222942BB003CE9D1 /* ToppingTableViewCell.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
 				CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */,
