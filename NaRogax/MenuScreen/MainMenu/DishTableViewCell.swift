@@ -16,17 +16,14 @@ class DishTableViewCell: UITableViewCell {
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishShortInfo: UILabel!
     @IBOutlet weak var dishPrice: UILabel!
-    
     @IBOutlet weak var dishGradient: UIView!
-    @IBOutlet weak var dishButton: BorderedLabel!
-    
-    @IBOutlet weak var BorderView: UIView!
+    @IBOutlet weak var borderView: UIView!
     
     func displayDish(dish: DishDescription){
         
-        BorderView.layer.cornerRadius = 4
-        BorderView.layer.borderWidth = 0.25
-        BorderView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1986915261)
+        borderView.layer.cornerRadius = 4
+        borderView.layer.borderWidth = 0.25
+        borderView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1986915261)
         
         if dish.name == ""{
             dishName.text = "Без наименования"
