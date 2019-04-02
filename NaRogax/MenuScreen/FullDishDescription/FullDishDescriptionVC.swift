@@ -73,7 +73,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             if weight == ""{
                 WeightLabel.isHidden = true
             } else {
-                if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво"){
+                if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво") || menu.name.contains("Чай"){
                     WeightLabel.text = weight + " мл"
                 } else {
                     WeightLabel.text = weight + " г"

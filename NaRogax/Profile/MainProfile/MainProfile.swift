@@ -32,18 +32,23 @@ class MainProfile: UIViewController {
             Alert.shared().showSpinner(onView: self.view)
         }
         ScrollView.scrollsToTop = true
-        DataLoader.shared().checkAuto(){ result in
-            if result?.code != 200 {
-                if (self.Name.isHidden){
-                    Alert.shared().removeSpinner()
-                }
-                self.changeVisibility(flag: true)
-                self.SignInBtn.layer.cornerRadius = 20
-            } else {
-                let email = UserDefaultsData.shared().getEmail()
-                self.getProfileData(email: email)
-            }
+        if (!DataLoader.shared().testNetwork()){
+            self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
             Alert.shared().removeSpinner()
+        } else {
+            DataLoader.shared().checkAuto(){ result in
+                if result?.code != 200 {
+                    if (self.Name.isHidden){
+                        Alert.shared().removeSpinner()
+                    }
+                    self.changeVisibility(flag: true)
+                    self.SignInBtn.layer.cornerRadius = 20
+                } else {
+                    let email = UserDefaultsData.shared().getEmail()
+                    self.getProfileData(email: email)
+                }
+                Alert.shared().removeSpinner()
+            }
         }
     }
     
@@ -140,6 +145,7 @@ class MainProfile: UIViewController {
         /* TODO: Получение данных пользователя по его почте */
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
+            Alert.shared().removeSpinner()
         } else {
             DataLoader.shared().viewUserCredentials(){ result, error in
                 self.changeVisibility(flag: false)

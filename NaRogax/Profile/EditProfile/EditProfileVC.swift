@@ -325,8 +325,9 @@ class EditProfileVC: UIViewController {
         if let phone = PhoneField.text {
             if phone.count <= 1 {
                 PhoneField.text = "+7"
-            }
-            if phone == "+7" {
+                isEmptyPhone = true
+                PhoneLabel.isHidden = false
+            } else if phone == "+7" {
                 isEmptyPhone = true
                 PhoneLabel.isHidden = false
             } else {

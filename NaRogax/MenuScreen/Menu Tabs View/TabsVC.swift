@@ -46,6 +46,7 @@ class TabsVC: UIViewController {
                     Alert.shared().removeSpinner()
                 } else{
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    Alert.shared().removeSpinner()
                 }
                 
             }
