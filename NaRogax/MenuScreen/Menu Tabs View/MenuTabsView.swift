@@ -6,13 +6,6 @@
 //  Copyright © 2019 Zappa. All rights reserved.
 //
 
-//
-//  MenuTabsView.swift
-//  MyPagerCollView
-//
-//  Created by Leela Prasad on 09/03/18.
-//  Copyright © 2018 Leela Prasad. All rights reserved.
-//
 import UIKit
 
 protocol MenuBarDelegate {
