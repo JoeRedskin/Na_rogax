@@ -57,4 +57,8 @@ class DateCVC {
     func getDay() -> String{
         return String(text.split(separator: "\n")[1])
     }
+    
+    func getDate() -> String{
+        return date
+    }
 }
