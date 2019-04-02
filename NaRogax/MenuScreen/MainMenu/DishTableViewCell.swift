@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class DishTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var dishImage: UIImageView!
     @IBOutlet weak var dishSpinner: UIActivityIndicatorView!
     @IBOutlet weak var dishName: UILabel!
@@ -40,13 +40,13 @@ class DishTableViewCell: UITableViewCell {
         if let price = dish.price {
             dishPrice.text = "\(price) ₽"
         } else if dish.name.contains("Лимонад") {
-                guard let price1 = dish.sub_menu![0].price else {return}
-                guard let price2 = dish.sub_menu![1].price else {return}
-                
-                dishPrice.text = "\(price1) / \(price2) ₽"
-            } else {
-                dishPrice.text = "⏤ ₽"
-            }
+            guard let price1 = dish.sub_menu![0].price else {return}
+            guard let price2 = dish.sub_menu![1].price else {return}
+            
+            dishPrice.text = "\(price1) / \(price2) ₽"
+        } else {
+            dishPrice.text = "⏤ ₽"
+        }
         
         if dish.photo == "" || dish.photo == nil{
             dishImage.image = UIImage(named: "no_image")

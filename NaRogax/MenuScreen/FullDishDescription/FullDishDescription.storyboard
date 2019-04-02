@@ -124,7 +124,7 @@
                                             <inset key="sectionInset" minX="24" minY="0.0" maxX="23" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecDish" id="Kon-iR-TvJ" customClass="RecDishCVC" customModule="NaRogax" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecDish" id="Kon-iR-TvJ" customClass="RecommendedDishCVC" customModule="NaRogax" customModuleProvider="target">
                                                 <rect key="frame" x="24" y="0.0" width="152" height="196"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -171,10 +171,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="hz0-6e-giv" secondAttribute="trailing" constant="8" id="uld-FM-tLu"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="Image" destination="yCK-cz-Eur" id="Jb9-Cc-kXW"/>
-                                                    <outlet property="NameLabel" destination="hz0-6e-giv" id="aXU-kr-HVD"/>
-                                                    <outlet property="PriceLabel" destination="y6i-kw-hfd" id="vd9-jm-88X"/>
-                                                    <outlet property="WeightLabel" destination="qq8-o0-mfH" id="xIU-9m-jYQ"/>
+                                                    <outlet property="recommendedDishImage" destination="yCK-cz-Eur" id="X4W-hl-gEd"/>
+                                                    <outlet property="recommendedDishNameLabel" destination="hz0-6e-giv" id="aXU-kr-HVD"/>
+                                                    <outlet property="recommendedDishPriceLabel" destination="y6i-kw-hfd" id="vd9-jm-88X"/>
+                                                    <outlet property="recommendedDishWeightLabel" destination="qq8-o0-mfH" id="xIU-9m-jYQ"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -214,16 +214,16 @@
                     </view>
                     <size key="freeformSize" width="375" height="734"/>
                     <connections>
-                        <outlet property="DescLabel" destination="qhI-u1-q1z" id="44X-NC-NQn"/>
-                        <outlet property="Image" destination="EUa-iR-TF4" id="y7n-hS-8fX"/>
-                        <outlet property="ImageBGView" destination="LSl-Iy-Ssm" id="MXH-0R-oPf"/>
-                        <outlet property="NameLabel" destination="m8F-aw-AMe" id="aqt-Bq-Vjq"/>
-                        <outlet property="PriceLabel" destination="Hh1-al-jqx" id="r31-to-xo1"/>
-                        <outlet property="RecomendedCollectionView" destination="hQe-b8-AH4" id="O7z-YB-Cml"/>
-                        <outlet property="RecommendLabel" destination="2Dp-7V-K5j" id="xNv-ld-Jfy"/>
-                        <outlet property="WeightLabel" destination="I8f-Cb-eLM" id="KPk-V3-Ocw"/>
-                        <outlet property="scrollView" destination="LAi-iY-xwS" id="S5S-Zf-ScX"/>
-                        <outlet property="spinner" destination="DxA-EK-8CV" id="dXT-tg-WWc"/>
+                        <outlet property="descriptionGradient" destination="LSl-Iy-Ssm" id="MXH-0R-oPf"/>
+                        <outlet property="descriptionImage" destination="EUa-iR-TF4" id="i8n-bK-chs"/>
+                        <outlet property="descriptionLongDescriptionLabel" destination="qhI-u1-q1z" id="44X-NC-NQn"/>
+                        <outlet property="descriptionNameLabel" destination="m8F-aw-AMe" id="aqt-Bq-Vjq"/>
+                        <outlet property="descriptionPriceLabel" destination="Hh1-al-jqx" id="r31-to-xo1"/>
+                        <outlet property="descriptionRecommendLabel" destination="2Dp-7V-K5j" id="xNv-ld-Jfy"/>
+                        <outlet property="descriptionRecommendedCollectionView" destination="hQe-b8-AH4" id="O7z-YB-Cml"/>
+                        <outlet property="descriptionScrollView" destination="LAi-iY-xwS" id="S5S-Zf-ScX"/>
+                        <outlet property="descriptionSpinner" destination="DxA-EK-8CV" id="dXT-tg-WWc"/>
+                        <outlet property="descriptionWeightLabel" destination="I8f-Cb-eLM" id="KPk-V3-Ocw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kES-CB-zz4" userLabel="First Responder" sceneMemberID="firstResponder"/>

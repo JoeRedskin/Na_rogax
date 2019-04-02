@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var pageIndex: Int = 0
     var dishes = ResponseDishesList(categories: [])
-
+    
     let cellSpacingHeight: CGFloat = 8
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,28 +52,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
-                let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
-                vc.dishFull = dishes.categories[pageIndex].cat_dishes[indexPath.section]
-                navigationController?.pushViewController(vc, animated: true)
-            
-            } else if dishes.categories[pageIndex].cat_name != "НАПИТКИ" ||
+            if dishes.categories[pageIndex].cat_name != "НАПИТКИ" ||
                 (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) ||
                 (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Чай")) {
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
-                vc.dishFull = dishes
+                vc.dishFullDescription = dishes
                 vc.indexOfDish = indexPath.section
                 vc.indexOfCategory = pageIndex
                 navigationController?.pushViewController(vc, animated: true)
+                
+            } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
+                let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
+                vc.dishFull = dishes.categories[pageIndex].cat_dishes[indexPath.section]
+                navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         DishTableView.bounces = false
         self.DishTableView.reloadData()
     }
@@ -84,7 +85,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
-
 extension ViewController: AlertProtocol{
     func clickButtonPositiv(status: Int) {
         self.reloadViewFromNib()
@@ -92,4 +92,3 @@ extension ViewController: AlertProtocol{
     
     func clickButtonCanсel(status: Int) {}
 }
-			

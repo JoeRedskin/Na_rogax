@@ -9,22 +9,23 @@
 import UIKit
 
 class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-
-    @IBOutlet weak var ImageBGView: GradientView!
-    @IBOutlet weak var Image: UIImageView!
-    @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var DescLabel: UILabel!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var WeightLabel: UILabel!
-    @IBOutlet weak var PriceLabel: UILabel!
-    @IBOutlet weak var RecomendedCollectionView: UICollectionView!
-    @IBOutlet weak var RecommendLabel: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
     
-    var dishFull = ResponseDishesList(categories: [])
+    @IBOutlet weak var descriptionGradient: GradientView!
+    @IBOutlet weak var descriptionNameLabel: UILabel!
+    @IBOutlet weak var descriptionLongDescriptionLabel: UILabel!
+    @IBOutlet weak var descriptionSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var descriptionWeightLabel: UILabel!
+    @IBOutlet weak var descriptionPriceLabel: UILabel!
+    
+    @IBOutlet weak var descriptionRecommendedCollectionView: UICollectionView!
+    @IBOutlet weak var descriptionRecommendLabel: UILabel!
+    @IBOutlet weak var descriptionScrollView: UIScrollView!
+    @IBOutlet weak var descriptionImage: UIImageView!
+    
+    var dishFullDescription = ResponseDishesList(categories: [])
     var indexOfDish = 0
     var indexOfCategory = 0
-    var recDish: [String] = []
+    var recommendedDishes: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,140 +34,134 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         backButton.title = "Меню"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        GetValuesInView(menu: dishFull.categories[indexOfCategory].cat_dishes[indexOfDish])
-        ImageBGView.clipsToBounds = true
-        ImageBGView.layer.cornerRadius = 16.0
+        GetValuesInView(menu: dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish])
         
-        RecomendedCollectionView.delegate = self
-        RecomendedCollectionView.dataSource = self
-        RecomendedCollectionView.reloadData()
+        descriptionRecommendedCollectionView.delegate = self
+        descriptionRecommendedCollectionView.dataSource = self
+        descriptionRecommendedCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func GetValuesInView(menu: DishDescription){
+    func GetValuesInView(menu: DishDescription) {
         
-        if menu.name == ""{
-            NameLabel.text = "Без наимменования"
+        if menu.name == "" {
+            descriptionNameLabel.text = "Без наимменования"
         } else {
-            NameLabel.text = menu.name
+            descriptionNameLabel.text = menu.name
         }
         
         if let desc = menu.longDescription {
             if desc == "" {
-                DescLabel.isHidden = true
+                descriptionLongDescriptionLabel.isHidden = true
             } else {
-                //print(menu.longDescription!)
-                DescLabel.text = desc
+                descriptionLongDescriptionLabel.text = desc
             }
         } else {
             if menu.name.contains("Лимонад") {
-                DescLabel.text = "Стекло"
+                descriptionLongDescriptionLabel.text = "Стекло"
             } else {
-                DescLabel.text = ""
+                descriptionLongDescriptionLabel.text = ""
             }
         }
         
-        if let weight = menu.weight{
-            if weight == ""{
-                WeightLabel.isHidden = true
+        if let weight = menu.weight {
+            if weight == "" {
+                descriptionWeightLabel.isHidden = true
             } else {
-                if menu.name.contains("Сок") || menu.name.contains("Лимонад") || menu.name.contains("Пиво") || menu.name.contains("Чай"){
-                    WeightLabel.text = weight + " мл"
+                if menu.class_name == "НАПИТКИ"{
+                    descriptionWeightLabel.text = "\(weight) мл"
                 } else {
-                    WeightLabel.text = weight + " г"
+                    descriptionWeightLabel.text = "\(weight) г"
                 }
             }
-        }else{
-            WeightLabel.isHidden = true
+        } else {
+            descriptionWeightLabel.isHidden = true
         }
-
-         
-         if menu.price == nil{
-            PriceLabel.text = "⏤ ₽"
-         } else {
-            PriceLabel.text = String(menu.price!)+" ₽"
-         }
+        
+        
+        if let price = menu.price {
+            descriptionPriceLabel.text = "\(price) ₽"
+        } else {
+            descriptionPriceLabel.text = "⏤ ₽"
+        }
         
         if menu.recommendedWith == nil {
-            RecomendedCollectionView.isHidden = true
-            RecommendLabel.isHidden = true
-            scrollView.isScrollEnabled = false
+            descriptionRecommendedCollectionView.isHidden = true
+            descriptionRecommendLabel.isHidden = true
+            descriptionScrollView.isScrollEnabled = false
         } else {
-            recStringToMassive()
+            recommendedStringToMassive()
         }
         
-        if menu.photo == "" || menu.photo == nil{
-            Image.image = UIImage(named: "no_image")
+        if menu.photo == "" || menu.photo == nil {
+            descriptionImage.image = UIImage(named: "no_image")
         } else {
             fetchImage(url_img: menu.photo!)
         }
-        
     }
     
     func fetchImage(url_img: String) {
         if let url = URL(string: url_img){
-            spinner.startAnimating()
+            descriptionSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
                     if let imageData = urlContents {
-                        self?.Image.image = UIImage(data: imageData)
-                        self?.spinner.stopAnimating()
+                        self?.descriptionImage.image = UIImage(data: imageData)
+                        self?.descriptionSpinner.stopAnimating()
                     }
                 }
             }
         }
     }
     
-    func recStringToMassive(){
-        if let recDishString = dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith{
+    func recommendedStringToMassive() {
+        if let recommendedDishesString = dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith {
             var str = ""
-            for index in recDishString.indices{
-                if (recDishString[index] >= "0" && recDishString[index] <= "9") {
-                    str += String(recDishString[index])
-                    if index.encodedOffset == recDishString.count-1{
-                        recDish.append(str)
+            for index in recommendedDishesString.indices {
+                if (recommendedDishesString[index] >= "0" && recommendedDishesString[index] <= "9") {
+                    str += String(recommendedDishesString[index])
+                    if index.encodedOffset == recommendedDishesString.count - 1{
+                        recommendedDishes.append(str)
                         str = ""
                         break;
                     }
                 } else {
-                    recDish.append(str)
+                    recommendedDishes.append(str)
                     str = ""
                 }
             }
         }
     }
     
-    func findRecDish(topping: Int) -> DishDescription{
-        var rightDish = DishDescription()
-        for category in dishFull.categories{
-            for dish in category.cat_dishes{
-                if dish.itemId == topping{
-                    rightDish = dish
+    func findRecommendedDishes(topping: Int) -> DishDescription {
+        var rightRecommendedDish = DishDescription()
+        for category in dishFullDescription.categories {
+            for dish in category.cat_dishes {
+                if dish.itemId == topping {
+                    rightRecommendedDish = dish
                 }
             }
         }
-        return rightDish
+        return rightRecommendedDish
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return recommendedDishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if dishFull.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith == nil {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
+        if dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith == nil {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecommendedDishCVC
             return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecDishCVC
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecommendedDishCVC
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
-        cell.displayDish(dish: findRecDish(topping: Int(recDish[indexPath.row])!))
+        cell.displayDish(dish: findRecommendedDishes(topping: Int(recommendedDishes[indexPath.row])!))
         return cell
     }
 }
-
-
