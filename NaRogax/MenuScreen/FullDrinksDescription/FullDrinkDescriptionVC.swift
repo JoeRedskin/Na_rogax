@@ -10,41 +10,39 @@ import UIKit
 
 class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var drinksDescriptionScrollView: UIScrollView!
+    @IBOutlet weak var drinksDescriptionBackgroundView: UIView!
+    @IBOutlet weak var drinksDescriptionTableView: UITableView!
+    @IBOutlet weak var drinksDescriptionImageView: UIImageView!
+    @IBOutlet weak var drinksDescriptionNameLabel: UILabel!
+    @IBOutlet weak var drinksDescriptionSpinner: UIActivityIndicatorView!
     
-    @IBOutlet weak var ImageBGView: UIView!
-    @IBOutlet weak var DrinksTableView: UITableView!
-    @IBOutlet weak var imageField: UIImageView!
-    @IBOutlet weak var nameField: UILabel!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    var dishFull = DishDescription()
-    var drinksArr: [SubMenu] = []
+    var drinksDescription = DishDescription()
+    var drinksArray: [SubMenu] = []
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (drinksArr.count)
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return drinksArray.count
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-            case 0..<drinksArr.count:
-                let cell = DrinksTableView.dequeueReusableCell(withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescCell
-                var nameDish = drinksArr[indexPath.row].name ?? ""
-                nameDish += ", "
-                nameDish += drinksArr[indexPath.row].weight ?? "" + " мл"
-                nameDish += " мл"
-                cell.displayDish(dish: nameDish, price: String(drinksArr[indexPath.row].price!))
+            case 0..<drinksArray.count:
+                let cell = drinksDescriptionTableView.dequeueReusableCell(
+                    withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescriptionCell
+                let drinksName = "\(drinksArray[indexPath.row].name ?? ""), " +
+                                 "\(drinksArray[indexPath.row].weight ?? "") мл"
+                cell.displayDish(name: drinksName, price: String(drinksArray[indexPath.row].price!))
                 return cell
             default:
                 break
         }
-        
         return UITableViewCell()
     }
     
@@ -55,16 +53,12 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         backButton.title = "Меню"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        GetValuesInView(menu: dishFull)
-        DrinksTableView.delegate = self
-        DrinksTableView.dataSource = self
-        ImageBGView.clipsToBounds = true
-        ImageBGView.layer.cornerRadius = CGFloat(16)
+        GetValuesInView(menu: drinksDescription)
+        drinksDescriptionTableView.delegate = self
+        drinksDescriptionTableView.dataSource = self
         
-        print("nap", dishFull)
-        if let sub = dishFull.sub_menu{
-            drinksArr = sub
-            print("nap", drinksArr)
+        if let subDrinks = drinksDescription.subMenu{
+            drinksArray = subDrinks
         }
     }
     
@@ -75,15 +69,13 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     func GetValuesInView(menu: DishDescription){
         
         if menu.name == ""{
-            nameField.text = "Без наимменования"
-        } else if menu.name == "Соки" {
-            nameField.text = "Сок"
+            drinksDescriptionNameLabel.text = "Без наимменования"
         } else {
-            nameField.text = menu.name
+            drinksDescriptionNameLabel.text = menu.name
         }
         
         if menu.photo == "" || menu.photo == nil{
-            imageField.image = UIImage(named: "no_image")
+            drinksDescriptionImageView.image = UIImage(named: "no_image")
         } else {
             fetchImage(url_img: menu.photo!)
         }
@@ -91,13 +83,13 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
     
     func fetchImage(url_img: String) {
         if let url = URL(string: url_img){
-            spinner.startAnimating()
+            drinksDescriptionSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
                     if let imageData = urlContents {
-                        self?.imageField.image = UIImage(data: imageData)
-                        self?.spinner.stopAnimating()
+                        self?.drinksDescriptionImageView.image = UIImage(data: imageData)
+                        self?.drinksDescriptionSpinner.stopAnimating()
                     }
                 }
             }
