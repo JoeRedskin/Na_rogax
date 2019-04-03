@@ -10,23 +10,20 @@ import UIKit
 import Kingfisher
 
 class DishTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var dishImage: UIImageView!
     @IBOutlet weak var dishSpinner: UIActivityIndicatorView!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishShortInfo: UILabel!
     @IBOutlet weak var dishPrice: UILabel!
-    
     @IBOutlet weak var dishGradient: UIView!
-    @IBOutlet weak var dishButton: BorderedLabel!
-    
-    @IBOutlet weak var BorderView: UIView!
+    @IBOutlet weak var borderView: UIView!
     
     func displayDish(dish: DishDescription){
         
-        BorderView.layer.cornerRadius = 4
-        BorderView.layer.borderWidth = 0.25
-        BorderView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1986915261)
+        borderView.layer.cornerRadius = 4
+        borderView.layer.borderWidth = 0.25
+        borderView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.1986915261)
         
         if dish.name == ""{
             dishName.text = "Без наименования"
@@ -40,33 +37,15 @@ class DishTableViewCell: UITableViewCell {
             dishShortInfo.isHidden = false
         }
         
-        if dish.price == nil{
-            if dish.name.contains("Лимонад") {
-                
-                var price = "⏤"
-                
-                if let price1 = dish.sub_menu![0].price {
-                    price = String(price1)
-                }
-                
-                if let price2 = dish.sub_menu![1].price {
-                    if price != "⏤" {
-                        price += " / "
-                    } else {
-                        price = ""
-                    }
-                    price += String(price2)
-                }
-                
-                price += " ₽"
-                
-                dishPrice.text = price
-                
-            } else {
-                dishPrice.text = "⏤ ₽"
-            }
+        if let price = dish.price {
+            dishPrice.text = "\(price) ₽"
+        } else if dish.name.contains("Лимонад") {
+            guard let price1 = dish.subMenu![0].price else {return}
+            guard let price2 = dish.subMenu![1].price else {return}
+            
+            dishPrice.text = "\(price1) / \(price2) ₽"
         } else {
-            dishPrice.text = String(dish.price!) + " ₽"
+            dishPrice.text = "⏤ ₽"
         }
         
         if dish.photo == "" || dish.photo == nil{
@@ -82,7 +61,6 @@ class DishTableViewCell: UITableViewCell {
             dishSpinner.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 DispatchQueue.main.async {
-//                    dishImage.kf.placeholder = Placeholder.add(to: UIImage(named: "no_image"))
                     self?.dishImage.kf.setImage(with: url)
                     self?.dishSpinner.stopAnimating()
                 }

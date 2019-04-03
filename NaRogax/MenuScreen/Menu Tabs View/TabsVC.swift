@@ -29,7 +29,7 @@ class TabsVC: UIViewController {
                     //let items = result.categories.sorted(by: { $0.order < $1.order})
                     self.dish = result
                     for tab in result.categories{
-                        self.tabs += [tab.cat_name]
+                        self.tabs += [tab.categoryName]
                     }
                     self.menuBarView.dataArray = self.tabs
                     self.menuBarView.isSizeToFitCellsNeeded = true
@@ -76,7 +76,7 @@ class TabsVC: UIViewController {
     //Present ViewController At The Given Index
     func viewController(At index: Int) -> UIViewController? {
         if((self.menuBarView.dataArray.count == 0) || (index >= self.menuBarView.dataArray.count)) {return nil}
-        let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! ViewController
+        let menuVC = storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MainMenuViewController
         menuVC.pageIndex = index
         menuVC.dishes = dish
         return menuVC
@@ -115,14 +115,14 @@ extension TabsVC: MenuBarDelegate {
 extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as! ViewController).pageIndex
+        var index = (viewController as! MainMenuViewController).pageIndex
         if (index == 0) || (index == NSNotFound) {return nil}
         index -= 1
         return self.viewController(At: index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as! ViewController).pageIndex
+        var index = (viewController as! MainMenuViewController).pageIndex
         print("pageViewController", index)
         if (index == tabs.count) || (index == NSNotFound) {return nil}
         index += 1
@@ -133,7 +133,7 @@ extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         if finished {
             if completed {
                 //self.finished = true
-                let cvc = pageViewController.viewControllers!.first as! ViewController
+                let cvc = pageViewController.viewControllers!.first as! MainMenuViewController
                 let newIndex = cvc.pageIndex
                 currentIndex = newIndex
                 menuBarView.collView.selectItem(at: IndexPath.init(item: newIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
