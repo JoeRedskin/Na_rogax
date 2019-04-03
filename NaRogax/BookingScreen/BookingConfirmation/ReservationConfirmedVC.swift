@@ -11,6 +11,7 @@ import UIKit
 class ReservationConfirmedVC: UIViewController{
 
     private let textConfirm = ", заявка на бронирование принята. \n В ближайшее время Вам позвонит наш администратори уточнит детали"
+    private let textCancel = ", к сожалению, выбранный Вами стол уже забронирован. \n Измените время, дату визита или столик и попробуйте снова."
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var confirmLabel: UILabel!
@@ -38,6 +39,8 @@ class ReservationConfirmedVC: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         if (confirmation){
             confirmLabel.text = name + textConfirm
+        }else{
+            confirmLabel.text = name + textCancel
         }
     }
     
