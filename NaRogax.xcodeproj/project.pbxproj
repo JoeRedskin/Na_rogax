@@ -38,7 +38,7 @@
 		CED522852228365A0069DBDA /* document.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED522842228365A0069DBDA /* document.txt */; };
 		CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */; };
 		CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */; };
-		CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */; };
+		CED7C07C2231CC07009FF75A /* DrinkDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */; };
 		CEE215F8222D1147000899EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE215F7222D1147000899EF /* Reachability.swift */; };
 		CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE135E224532B9000B7D32 /* NumberTextView.swift */; };
 		CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF02057223778650083D0A1 /* BookingMain.storyboard */; };
@@ -53,7 +53,7 @@
 		CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */; };
 		CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */; };
 		CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */; };
-		CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3668722394FC2003F17D8 /* ViewControll.swift */; };
+		CEF3668822394FC2003F17D8 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3668722394FC2003F17D8 /* MainMenuViewController.swift */; };
 		CEF3DCCA224BE8E700CD7AE7 /* MainProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3DCC8224BE8E700CD7AE7 /* MainProfile.swift */; };
 		CEF3DCCB224BE8E700CD7AE7 /* MainProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF3DCC9224BE8E700CD7AE7 /* MainProfile.storyboard */; };
 		CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */; };
@@ -122,7 +122,7 @@
 		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document.txt; path = NaRogax/SupportFiles/document.txt; sourceTree = SOURCE_ROOT; };
 		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
 		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
-		CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescCell.swift; sourceTree = "<group>"; };
+		CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescriptionCell.swift; sourceTree = "<group>"; };
 		CEE215F7222D1147000899EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CEEE135E224532B9000B7D32 /* NumberTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextView.swift; sourceTree = "<group>"; };
 		CEF02057223778650083D0A1 /* BookingMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookingMain.storyboard; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		CEF3058D22427F30001D6D96 /* RequestPostAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostAuth.swift; sourceTree = "<group>"; };
 		CEF3058F22427F91001D6D96 /* RequestPostPasswordRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostPasswordRecovery.swift; sourceTree = "<group>"; };
 		CEF3059522428472001D6D96 /* ResponseAuthorizeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAuthorizeUser.swift; sourceTree = "<group>"; };
-		CEF3668722394FC2003F17D8 /* ViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControll.swift; sourceTree = "<group>"; };
+		CEF3668722394FC2003F17D8 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		CEF3DCC8224BE8E700CD7AE7 /* MainProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProfile.swift; sourceTree = "<group>"; };
 		CEF3DCC9224BE8E700CD7AE7 /* MainProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainProfile.storyboard; sourceTree = "<group>"; };
 		CEF3FFED22461D9100F07765 /* ResponseUserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseUserCredentials.swift; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 			children = (
 				CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */,
 				CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */,
-				CED7C07B2231CC07009FF75A /* DrinkDescCell.swift */,
+				CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */,
 			);
 			path = FullDrinksDescription;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 			children = (
 				CEF692E422274AC9000F3307 /* Main.storyboard */,
 				CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */,
-				CEF3668722394FC2003F17D8 /* ViewControll.swift */,
+				CEF3668722394FC2003F17D8 /* MainMenuViewController.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -663,7 +663,7 @@
 				CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */,
 				CE4F01992243788E009E526F /* Alert.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
-				CED7C07C2231CC07009FF75A /* DrinkDescCell.swift in Sources */,
+				CED7C07C2231CC07009FF75A /* DrinkDescriptionCell.swift in Sources */,
 				CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */,
 				CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */,
 				CEF3FFF82246505400F07765 /* SelectTableShowBookingVC.swift in Sources */,
@@ -684,7 +684,7 @@
 				CE9D671F22339A39004E5E1D /* RecommendDishCVC.swift in Sources */,
 				CE51F32B224BA3B700FC788F /* ResponseRegUser.swift in Sources */,
 				74A520D82247FF2B0049C016 /* DataValidation.swift in Sources */,
-				CEF3668822394FC2003F17D8 /* ViewControll.swift in Sources */,
+				CEF3668822394FC2003F17D8 /* MainMenuViewController.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
 				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
 			);

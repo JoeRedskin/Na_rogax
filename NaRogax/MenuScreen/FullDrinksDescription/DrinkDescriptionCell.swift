@@ -8,23 +8,23 @@
 
 import UIKit
 
-class DrinkDescCell: UITableViewCell {
+class DrinkDescriptionCell: UITableViewCell {
     
     @IBOutlet weak var drinkName: UILabel!    
     @IBOutlet weak var drinkPrice: UILabel!
     
-    func displayDish(dish: String, price: String){
+    func displayDish(name: String, price: String){
        
-        if dish == "" {
+        if name == "" {
             drinkName.text = "Без наимменования"
         } else {
-            drinkName.text = dish
+            drinkName.text = name
         }
         
         if price == "" {
             drinkPrice.text = "⏤ ₽"
         } else {
-            drinkPrice.text = price + " ₽"
+            drinkPrice.text = "\(price) ₽"
         }
     }
 }

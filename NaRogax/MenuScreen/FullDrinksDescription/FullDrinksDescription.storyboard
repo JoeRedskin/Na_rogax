@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="270" id="4As-rT-4pD"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkCell" id="HjJ-rT-YOi" customClass="DrinkDescCell" customModule="NaRogax" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkCell" id="HjJ-rT-YOi" customClass="DrinkDescriptionCell" customModule="NaRogax" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="315" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HjJ-rT-YOi" id="8UZ-iY-WuC">
@@ -136,12 +136,12 @@
                         <viewLayoutGuide key="safeArea" id="MOS-SD-y7g"/>
                     </view>
                     <connections>
-                        <outlet property="DrinksTableView" destination="1eT-8n-jsX" id="I4E-vk-fZJ"/>
-                        <outlet property="ImageBGView" destination="WeL-s4-4Bs" id="HMQ-RY-YMS"/>
-                        <outlet property="imageField" destination="6Vy-QS-ALK" id="Hj6-AX-zAG"/>
-                        <outlet property="nameField" destination="vg8-bH-vUK" id="bwC-1e-QIa"/>
-                        <outlet property="scroll" destination="hJw-5z-DIf" id="mcP-V5-70e"/>
-                        <outlet property="spinner" destination="Rqr-k4-XB9" id="cx2-5H-Fth"/>
+                        <outlet property="drinksDescriptionBackgroundView" destination="WeL-s4-4Bs" id="HMQ-RY-YMS"/>
+                        <outlet property="drinksDescriptionImageView" destination="6Vy-QS-ALK" id="Hj6-AX-zAG"/>
+                        <outlet property="drinksDescriptionNameLabel" destination="vg8-bH-vUK" id="bwC-1e-QIa"/>
+                        <outlet property="drinksDescriptionScrollView" destination="hJw-5z-DIf" id="mcP-V5-70e"/>
+                        <outlet property="drinksDescriptionSpinner" destination="Rqr-k4-XB9" id="cx2-5H-Fth"/>
+                        <outlet property="drinksDescriptionTableView" destination="1eT-8n-jsX" id="I4E-vk-fZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlC-IY-Ipd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MainMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var DishTableView: UITableView!
     
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
-                vc.dishFull = dishes.categories[pageIndex].cat_dishes[indexPath.section]
+                vc.drinksDescription = dishes.categories[pageIndex].cat_dishes[indexPath.section]
                 navigationController?.pushViewController(vc, animated: true)
                 
             }
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
-extension ViewController: AlertProtocol{
+extension MainMenuViewController: AlertProtocol{
     func clickButtonPositiv(status: Int) {
         self.reloadViewFromNib()
     }
