@@ -259,8 +259,8 @@ class HoursWork{
             hours += 1
         }
         let workhours = getOpenClose(day: day)
-        if (PRINT_DEBUG){
-            print("isBookingCloseToday", hours, (workhours.close - 2))
+        if true{
+            print("isBookingCloseToday", hours, workhours, calendar.component(.day, from: Date()))
         }
         return Int((workhours.close - 2)) <= hours
     }

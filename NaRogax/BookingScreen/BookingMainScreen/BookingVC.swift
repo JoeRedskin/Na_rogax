@@ -58,7 +58,7 @@ class BookingVC: UIViewController{
         while item < countDay {
             let day = DateCVC(numberDay: item)
             if (item == 0){
-                if !hoursWork.isBookingCloseToday(day: day.text){
+                if !hoursWork.isBookingCloseToday(day: day.getDay()){
                     day.reloadToday()
                     arrayDay.append(day)
                 }else{
