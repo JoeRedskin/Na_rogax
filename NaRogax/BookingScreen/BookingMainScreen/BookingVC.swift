@@ -67,7 +67,7 @@ class BookingVC: UIViewController{
             }else{
                 arrayDay.append(day)
             }
-            print("setFirstData", day.getDate())
+            print("setFirstData", day.date)
             item += 1
         }
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
@@ -114,7 +114,7 @@ class BookingVC: UIViewController{
     
     
     @IBAction func changeTable(_ sender: UIButton) {
-        let time = hoursWork.getDataToServer(day: arrayDay[previewIndex[0].item].getDate())
+        let time = hoursWork.getDataToServer(day: arrayDay[previewIndex[0].item].date)
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
             return
         }
