@@ -29,7 +29,7 @@ class TabsVC: UIViewController {
                     //let items = result.categories.sorted(by: { $0.order < $1.order})
                     self.dish = result
                     for tab in result.categories{
-                        self.tabs += [tab.cat_name]
+                        self.tabs += [tab.categoryName]
                     }
                     self.menuBarView.dataArray = self.tabs
                     self.menuBarView.isSizeToFitCellsNeeded = true

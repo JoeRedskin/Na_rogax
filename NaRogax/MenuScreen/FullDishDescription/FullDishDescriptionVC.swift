@@ -34,7 +34,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
         backButton.title = "Меню"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
-        GetValuesInView(menu: dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish])
+        GetValuesInView(menu: dishFullDescription.categories[indexOfCategory].categoryDishes[indexOfDish])
         
         descriptionRecommendedCollectionView.delegate = self
         descriptionRecommendedCollectionView.dataSource = self
@@ -71,7 +71,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             if weight == "" {
                 descriptionWeightLabel.isHidden = true
             } else {
-                if menu.class_name == "НАПИТКИ"{
+                if menu.className == "НАПИТКИ"{
                     descriptionWeightLabel.text = "\(weight) мл"
                 } else {
                     descriptionWeightLabel.text = "\(weight) г"
@@ -88,7 +88,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             descriptionPriceLabel.text = "⏤ ₽"
         }
         
-        if menu.recommendedWith == nil {
+        if menu.recommendedDish == nil {
             descriptionRecommendedCollectionView.isHidden = true
             descriptionRecommendLabel.isHidden = true
             descriptionScrollView.isScrollEnabled = false
@@ -119,7 +119,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func recommendedStringToMassive() {
-        if let recommendedDishesString = dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith {
+        if let recommendedDishesString = dishFullDescription.categories[indexOfCategory].categoryDishes[indexOfDish].recommendedDish {
             var str = ""
             for index in recommendedDishesString.indices {
                 if (recommendedDishesString[index] >= "0" && recommendedDishesString[index] <= "9") {
@@ -140,8 +140,8 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     func findRecommendedDishes(topping: Int) -> DishDescription {
         var rightRecommendedDish = DishDescription()
         for category in dishFullDescription.categories {
-            for dish in category.cat_dishes {
-                if dish.itemId == topping {
+            for dish in category.categoryDishes {
+                if dish.itemID == topping {
                     rightRecommendedDish = dish
                 }
             }
@@ -154,7 +154,7 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if dishFullDescription.categories[indexOfCategory].cat_dishes[indexOfDish].recommendedWith == nil {
+        if dishFullDescription.categories[indexOfCategory].categoryDishes[indexOfDish].recommendedDish == nil {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecDish", for: indexPath) as! RecommendedDishCVC
             return cell
         }

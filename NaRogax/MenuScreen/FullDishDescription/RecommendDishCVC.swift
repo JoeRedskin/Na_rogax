@@ -33,7 +33,7 @@ class RecommendedDishCVC: UICollectionViewCell {
             if weight == "" {
                 recommendedDishWeightLabel.isHidden = true
             } else {
-                if dish.class_name == "НАПИТКИ" {
+                if dish.className == "НАПИТКИ" {
                     recommendedDishWeightLabel.text = "\(weight) мл"
                 } else {
                     recommendedDishWeightLabel.text = "\(weight) г"

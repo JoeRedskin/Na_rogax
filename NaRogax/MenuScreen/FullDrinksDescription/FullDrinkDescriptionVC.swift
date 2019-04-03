@@ -57,7 +57,7 @@ class FullDrinkDescriptionVC: UIViewController, UITableViewDelegate, UITableView
         drinksDescriptionTableView.delegate = self
         drinksDescriptionTableView.dataSource = self
         
-        if let subDrinks = drinksDescription.sub_menu{
+        if let subDrinks = drinksDescription.subMenu{
             drinksArray = subDrinks
         }
     }

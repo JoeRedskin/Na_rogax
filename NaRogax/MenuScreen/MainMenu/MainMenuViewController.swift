@@ -17,10 +17,10 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     let cellSpacingHeight: CGFloat = 8
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if dishes.categories[pageIndex].cat_dishes.count == 0 {
+        if dishes.categories[pageIndex].categoryDishes.count == 0 {
             return 0
         } else {
-            return dishes.categories[pageIndex].cat_dishes.count
+            return dishes.categories[pageIndex].categoryDishes.count
         }
     }
     
@@ -40,7 +40,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DishCell", for: indexPath) as! DishTableViewCell
-        cell.displayDish(dish: dishes.categories[pageIndex].cat_dishes[indexPath.section])
+        cell.displayDish(dish: dishes.categories[pageIndex].categoryDishes[indexPath.section])
         return cell
         
     }
@@ -52,9 +52,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
-            if dishes.categories[pageIndex].cat_name != "НАПИТКИ" ||
-                (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Пиво")) ||
-                (dishes.categories[pageIndex].cat_dishes[indexPath.section].name.contains("Чай")) {
+            if dishes.categories[pageIndex].categoryName != "НАПИТКИ" ||
+                (dishes.categories[pageIndex].categoryDishes[indexPath.section].name.contains("Пиво")) ||
+                (dishes.categories[pageIndex].categoryDishes[indexPath.section].name.contains("Чай")) {
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFullDescription = dishes
@@ -62,10 +62,10 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 vc.indexOfCategory = pageIndex
                 navigationController?.pushViewController(vc, animated: true)
                 
-            } else if dishes.categories[pageIndex].cat_name == "НАПИТКИ" {
+            } else if dishes.categories[pageIndex].categoryName == "НАПИТКИ" {
                 let storyboard = UIStoryboard(name: "FullDrinksDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDrinkDesc") as! FullDrinkDescriptionVC
-                vc.drinksDescription = dishes.categories[pageIndex].cat_dishes[indexPath.section]
+                vc.drinksDescription = dishes.categories[pageIndex].categoryDishes[indexPath.section]
                 navigationController?.pushViewController(vc, animated: true)
                 
             }
