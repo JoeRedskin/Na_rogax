@@ -117,7 +117,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                                 <connections>
                                                     <action selector="emailChanged:" destination="2Jr-56-8fE" eventType="editingChanged" id="VkB-Mc-oxN"/>
                                                     <action selector="fieldEndEditing:" destination="2Jr-56-8fE" eventType="editingDidEnd" id="cbW-sH-iFy"/>

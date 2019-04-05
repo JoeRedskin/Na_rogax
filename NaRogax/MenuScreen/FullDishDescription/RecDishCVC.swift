@@ -42,14 +42,44 @@ class RecDishCVC: UICollectionViewCell {
         }else{
             WeightLabel.isHidden = true
         }
-
+        
         
         if dish.price == nil{
+            if dish.name.contains("Лимонад") {
+                
+                var price = "⏤"
+                
+                if let price1 = dish.sub_menu![0].price {
+                    price = String(price1)
+                }
+                
+                if let price2 = dish.sub_menu![1].price {
+                    if price != "⏤" {
+                        price += " / "
+                    } else {
+                        price = ""
+                    }
+                    price += String(price2)
+                }
+                
+                price += " ₽"
+                
+                PriceLabel.text = price
+                
+            } else {
+                PriceLabel.text = "⏤ ₽"
+            }
+        } else {
+            PriceLabel.text = String(dish.price!) + " ₽"
+        }
+
+        
+        /*if dish.price == nil{
             PriceLabel.text = "⏤ ₽"
             print(dish.price!)
         } else {
             PriceLabel.text = String(dish.price!) + " ₽"
-        }
+        }*/
         
         if dish.photo == "" || dish.photo == nil{
             Image.image = UIImage(named: "no_image")

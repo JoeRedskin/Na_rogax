@@ -43,7 +43,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                 <connections>
                                     <action selector="emailChanged:" destination="zE3-vt-l9n" eventType="editingChanged" id="SCP-Wx-NKe"/>
                                     <action selector="fieldEndEditing:" destination="zE3-vt-l9n" eventType="editingDidEnd" id="URG-DC-wFS"/>
