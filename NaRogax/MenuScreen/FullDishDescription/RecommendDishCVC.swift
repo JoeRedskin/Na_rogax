@@ -43,9 +43,13 @@ class RecommendedDishCVC: UICollectionViewCell {
             recommendedDishWeightLabel.isHidden = true
         }
 
-        
         if let price = dish.price {
             recommendedDishPriceLabel.text = "\(price) ₽"
+        } else if dish.name.contains("Лимонад") {
+            guard let price1 = dish.subMenu![0].price else {return}
+            guard let price2 = dish.subMenu![1].price else {return}
+            
+            recommendedDishPriceLabel.text = "\(price1) / \(price2) ₽"
         } else {
             recommendedDishPriceLabel.text = "⏤ ₽"
         }
