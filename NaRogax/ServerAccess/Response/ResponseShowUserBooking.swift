@@ -41,7 +41,7 @@ struct Bookings: Decodable {
             countStr = String(chair_count) + " мест"
         }
         
-        return "№ \(table_id) на \(countStr), \(position ?? "") \(chair_type)"
+        return "№ \(table_id), \(countStr), \(position ?? ""), \(chair_type)"
     }
     
     private func getDate(str: String) -> Date{

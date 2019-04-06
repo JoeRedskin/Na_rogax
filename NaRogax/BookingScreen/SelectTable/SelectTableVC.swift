@@ -80,7 +80,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     tableCountString = String(selectedTable.chair_count) + " мест"
                 }
  
-                table_info = "Стол: № \(table_id) на \(tableCountString), \(selectedTable.position ?? "") \(selectedTable.chair_type)"
+                table_info = "Стол: № \(table_id) на \(tableCountString), \(selectedTable.position ?? ""), \(selectedTable.chair_type)"
                 
                 let storyboard = UIStoryboard(name: "ReserveScreen", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "ReserveScreen") as! ReserveScreenVC
