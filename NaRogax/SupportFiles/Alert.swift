@@ -74,7 +74,7 @@ class Alert{
     func pickerAlert(status code: Int = 0, protocol prot: AlertProtocol?, delegate: UIPickerViewDelegate,
                      dataSource: UIPickerViewDataSource, height: CGFloat, select: Int) -> UIAlertController{
         let editRadiusAlert = UIAlertController(title: TITLE_SELECT_TIME, message: "", preferredStyle: UIAlertController.Style.alert)
-        let pickeViewFrame: CGRect = CGRect(x: 5, y: 10, width: 250, height: editRadiusAlert.view.frame.height/3)
+        let pickeViewFrame: CGRect = CGRect(x: 5, y: 25, width: 250, height: editRadiusAlert.view.frame.height / 3.5)
         let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
         pickerViewRadius.delegate = delegate
         pickerViewRadius.dataSource = dataSource

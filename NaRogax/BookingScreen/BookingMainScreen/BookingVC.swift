@@ -86,7 +86,14 @@ class BookingVC: UIViewController{
         arrayHour.removeAll()
         self.TimeDurationCollectionView.reloadData()
         for item in 0..<hoursWork.getCountDurationTime(){
-            let hour = DateCVC(text: hoursWork.getItemDurationTime(index: item) + "\nчаса")
+            let timeDuration = hoursWork.getItemDurationTime(index: item).split(separator: ".")
+            var text = ""
+            if timeDuration[1] == "5"{
+                text = timeDuration[0] + "ч\n30мин"
+            }else{
+                text = timeDuration[0] + "ч"
+            }
+            let hour = DateCVC(text: text)
             arrayHour.append(hour)
         }
         

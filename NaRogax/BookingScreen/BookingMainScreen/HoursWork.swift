@@ -52,10 +52,11 @@ class HoursWork{
         if (today){
             //считаем со скольки времени можно бронировать в текущей день
             setTimeToday()
-        }else{
+        }/*else{
             //убираем полчаса, что бы можно было бронить прямо с открытия 
             startTimeD -= 0.5
-        }
+        }*/
+        startTimeD -= 0.5
         var lastTime = ""
         if (arrayTime.count != 0){
             lastTime = arrayTime[indexSelectTime]
@@ -121,8 +122,8 @@ class HoursWork{
             if (time.timeH < 0 || time.timeM < 0){
                 break
             }
-            if (PRINT_DEBUG){
-                print(culcTime, time)
+            if (true){
+                print("calcDurationTime", culcTime, time)
             }
             if (Double(time.timeH) < endTimeD + 2){
                 arrayDurationTime.append(String(culcTime))
@@ -136,7 +137,7 @@ class HoursWork{
             
         }
         if (PRINT_DEBUG){
-            print(arrayDurationTime)
+            print("calcDurationTime", arrayDurationTime)
         }
     }
     
@@ -240,13 +241,13 @@ class HoursWork{
         }
         //Ограничение на сегоднешнний день + 3 часа от текущего времени
         if !(Double(hour) < (startTimeD - 3)){
-            var hourAdd = 3
-            if (calendar.component(.minute, from: date) >= 30){
+            var hourAdd = 4
+            /*if (calendar.component(.minute, from: date) >= 30){
                 hourAdd += 1
                 startTimeD = Double(hour + hourAdd) - 0.5
-            }else{
+            }else{*/
                 startTimeD = Double(hour + hourAdd)
-            }
+            //}
         }
     }
     
@@ -262,6 +263,6 @@ class HoursWork{
         if true{
             print("isBookingCloseToday", hours, workhours, calendar.component(.day, from: Date()))
         }
-        return Int((workhours.close - 2)) <= hours
+        return Int((workhours.close - 4)) <= hours
     }
 }

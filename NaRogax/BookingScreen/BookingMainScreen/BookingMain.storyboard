@@ -22,8 +22,8 @@
                                 <rect key="frame" x="20" y="36" width="280" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="r9j-xf-FS5"/>
                                 <segments>
-                                    <segment title="НОВЫЙ СТОЛ"/>
-                                    <segment title="БРОНИРОВАНИЯ"/>
+                                    <segment title="НОВАЯ БРОНЬ"/>
+                                    <segment title="МОИ БРОНИ"/>
                                 </segments>
                                 <color key="tintColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -162,7 +162,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-HC-BeQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.69702597779999997" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
