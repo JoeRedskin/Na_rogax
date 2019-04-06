@@ -15,7 +15,7 @@ class HoursWork{
     private var startTimeD: Double = 0
     private var endTimeD: Double = 0
     private var arrayTime: [String] = []
-    private var indexSelectTime: Int = 0
+    var indexSelectTime: Int = 0
     var responseTimetable = ResponseTimetable(data: [])
     //переменные для выбора сколько сидим
     private var arrayDurationTime: [String] = []

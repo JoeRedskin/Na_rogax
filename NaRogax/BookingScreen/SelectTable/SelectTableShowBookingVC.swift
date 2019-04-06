@@ -26,7 +26,6 @@ class SelectTableShowBookingVC: UIViewController {
         super.viewDidLoad()
         TableView.delegate = self
         TableView.dataSource = self
-        //chekAuto.email = UserDefaults.standard.string(forKey: "email") ?? ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -178,6 +177,9 @@ extension SelectTableShowBookingVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
         cell.displayCancelBooking(booking: userBooking.bookings[indexPath.row], index: indexPath.row)
+        if (indexPath.row == userBooking.bookings.count - 1){
+            cell.separatorHide()
+        }
         return cell
     }
     

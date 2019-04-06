@@ -89,6 +89,7 @@
                                             <outlet property="DescLabel" destination="zyN-bt-F1Z" id="Awa-LP-VqC"/>
                                             <outlet property="SelectBtn" destination="12w-IR-PWV" id="oh0-go-Dwk"/>
                                             <outlet property="TitleLabel" destination="7OB-ht-0ME" id="6YB-ie-exs"/>
+                                            <outlet property="separator" destination="D5m-s8-ZxC" id="Ujw-4f-9bn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,13 +199,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFP-bL-v73">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFP-bL-v73">
                                                     <rect key="frame" x="0.0" y="16" width="250" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-aZ-KgA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-aZ-KgA">
                                                     <rect key="frame" x="0.0" y="42" width="28.5" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,6 +256,7 @@
                                             <outlet property="DescLabel" destination="qls-aZ-KgA" id="eJX-m0-lw8"/>
                                             <outlet property="SelectBtn" destination="rk8-fs-q8V" id="37d-q3-kdu"/>
                                             <outlet property="TitleLabel" destination="BFP-bL-v73" id="Y6X-b2-EGz"/>
+                                            <outlet property="separator" destination="9Nj-oR-3Zy" id="yMO-ZJ-cJ1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -265,8 +267,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJV-tq-UYY">
-                                <rect key="frame" x="8" y="388" width="359" height="44"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJV-tq-UYY">
+                                <rect key="frame" x="16" y="770" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.10980392156862745" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="ВОЙТИ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

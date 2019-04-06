@@ -37,6 +37,7 @@ class BookingVC: UIViewController{
     }
     
     private func firstStart(){
+        Alert.shared().showSpinner(onView: view)
         if !(DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(status: 100, protocol: self), animated: true, completion: nil)
         }else{
@@ -47,6 +48,7 @@ class BookingVC: UIViewController{
                 }else{
                     self.present(Alert.shared().couldServerDown(status: 100, protocol: self), animated: true, completion: nil)
                 }
+                Alert.shared().removeSpinner()
             }
         }
     }
@@ -108,8 +110,7 @@ class BookingVC: UIViewController{
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
-        hoursWork.selectIndex(index: 0)
-        self.present(Alert.shared().pickerAlert(protocol: self, delegate: self, dataSource: self, height: self.view.frame.height), animated: true, completion: nil)
+        self.present(Alert.shared().pickerAlert(protocol: self, delegate: self, dataSource: self, height: self.view.frame.height, select: hoursWork.indexSelectTime), animated: true, completion: nil)
     }
     
     
@@ -118,6 +119,7 @@ class BookingVC: UIViewController{
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
             return
         }
+        Alert.shared().showSpinner(onView: view)
         if (!Reachability.isConnectedToNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         }else{
@@ -146,9 +148,11 @@ class BookingVC: UIViewController{
                         vc.time_to = date.time_to
                         vc.time_from = date.time_from
                         vc.tables = result
+                        Alert.shared().removeSpinner()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }else{
+                    Alert.shared().removeSpinner()
                     self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
                 }
             }

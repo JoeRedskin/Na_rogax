@@ -116,6 +116,8 @@ extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! MainMenuViewController).pageIndex
+        menuBarView.collView.selectItem(at: IndexPath.init(item: index, section: 0), animated: true, scrollPosition: .centeredVertically)
+        menuBarView.collView.scrollToItem(at: IndexPath.init(item: index, section: 0), at: .centeredHorizontally, animated: true)
         if (index == 0) || (index == NSNotFound) {return nil}
         index -= 1
         return self.viewController(At: index)
@@ -123,7 +125,8 @@ extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! MainMenuViewController).pageIndex
-        print("pageViewController", index)
+        menuBarView.collView.selectItem(at: IndexPath.init(item: index, section: 0), animated: true, scrollPosition: .centeredVertically)
+        menuBarView.collView.scrollToItem(at: IndexPath.init(item: index, section: 0), at: .centeredHorizontally, animated: true)
         if (index == tabs.count) || (index == NSNotFound) {return nil}
         index += 1
         return self.viewController(At: index)
@@ -136,8 +139,8 @@ extension TabsVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
                 let cvc = pageViewController.viewControllers!.first as! MainMenuViewController
                 let newIndex = cvc.pageIndex
                 currentIndex = newIndex
-                menuBarView.collView.selectItem(at: IndexPath.init(item: newIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
-                menuBarView.collView.scrollToItem(at: IndexPath.init(item: newIndex, section: 0), at: .centeredHorizontally, animated: true)
+                //menuBarView.collView.selectItem(at: IndexPath.init(item: newIndex, section: 0), animated: true, scrollPosition: .centeredVertically)
+                // menuBarView.collView.scrollToItem(at: IndexPath.init(item: newIndex, section: 0), at: .centeredHorizontally, animated: true)
             }
         }
     }

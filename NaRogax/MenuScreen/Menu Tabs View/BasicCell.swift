@@ -19,7 +19,7 @@ class BasicCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet{
-            UIView.animate(withDuration: 0.30) {
+            UIView.animate(withDuration: 0.01) {
                 self.indicatorView.backgroundColor = self.isSelected ? #colorLiteral(red: 1, green: 0.1098039216, blue: 0.1647058824, alpha: 1) : UIColor.clear
                 self.layoutIfNeeded()
             }

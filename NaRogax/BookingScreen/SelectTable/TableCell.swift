@@ -12,6 +12,7 @@ class TableCell: UITableViewCell {
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var DescLabel: UILabel!
     @IBOutlet weak var SelectBtn: UIButton!
+    @IBOutlet weak var separator: UIView!
     
     var table_id = 0
     
@@ -68,5 +69,9 @@ class TableCell: UITableViewCell {
             SelectBtn.layer.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 0)
             SelectBtn.layer.borderWidth = 0
         }
+    }
+    
+    func separatorHide() {
+        separator.isHidden = true
     }
 }

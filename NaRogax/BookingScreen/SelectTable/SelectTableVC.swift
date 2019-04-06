@@ -34,6 +34,9 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
         cell.displayTable(table: tables.data[indexPath.row], index: indexPath.row)
+        if (indexPath.row == tables.data.count - 1){
+            cell.separatorHide()
+        }
         return cell
     }
 
