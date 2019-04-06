@@ -68,7 +68,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
                                     <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="9Zm-Yg-9Mj"/>
                                     <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="yJk-OC-EyX"/>
