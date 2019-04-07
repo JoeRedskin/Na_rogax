@@ -189,7 +189,7 @@ class EditProfileVC: UIViewController {
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         EmailField.maxLength = 100
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")
-        PhoneField.maxLength = 12
+        PhoneField.maxLength = 17
         setStyleForTextField(field: DateField, placeholder: "Дата рождения")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -332,6 +332,7 @@ class EditProfileVC: UIViewController {
                 PhoneLabel.isHidden = false
             } else {
                 isEmptyPhone = false
+                PhoneField.text = phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacmentCharacter: "#")
             }
         }
     }
