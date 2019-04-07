@@ -25,7 +25,7 @@ class BookingVC: UIViewController{
         super.viewDidLoad()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        changeTimeSting.layer.borderWidth = 3.0
+        changeTimeSting.layer.borderWidth = 1.0
         changeTimeSting.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.15)
         changeTimeSting.layer.cornerRadius = 4
         firstStart()

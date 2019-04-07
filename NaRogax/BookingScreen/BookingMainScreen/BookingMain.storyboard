@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mp-Jk-o6T">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainBooking" id="5mp-Jk-o6T" customClass="MainBookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KBX-fX-ppx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oyG-c6-c4J">
-                                <rect key="frame" x="20" y="36" width="280" height="29"/>
+                                <rect key="frame" x="20" y="36" width="335" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="r9j-xf-FS5"/>
                                 <segments>
                                     <segment title="НОВАЯ БРОНЬ"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-ci-fjZ">
-                                <rect key="frame" x="5" y="74" width="310" height="489"/>
+                                <rect key="frame" x="5" y="74" width="365" height="588"/>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -61,11 +61,11 @@
             <objects>
                 <viewController storyboardIdentifier="BookingVC" id="DGe-oM-haH" customClass="BookingVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="03U-jY-a7z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vPH-hf-0cU">
-                                <rect key="frame" x="16" y="74" width="288" height="56"/>
+                                <rect key="frame" x="16" y="70.5" width="343" height="56"/>
                                 <color key="backgroundColor" red="0.1628461480140686" green="0.16775813698768616" blue="0.17718857526779175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="XLT-sr-XrQ"/>
@@ -109,19 +109,22 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите дату:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-9e-rw4">
-                                <rect key="frame" x="16" y="30" width="180" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="16" y="30" width="336" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите время:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBc-wG-qLA">
-                                <rect key="frame" x="16" y="155" width="198" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="16" y="151.5" width="336" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-HZ-dyy">
-                                <rect key="frame" x="16" y="200" width="288" height="36"/>
+                                <rect key="frame" x="16" y="193" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="e3Y-ZC-0S3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" red="0.067427752889999998" green="0.046330120410000002" blue="0.071643933650000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -132,16 +135,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите продолжительность:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="103-rR-66w">
-                                <rect key="frame" x="16" y="261" width="266" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="FAB-nj-vY8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="16" y="268" width="336" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTD-Wt-zTS">
-                                <rect key="frame" x="16" y="335" width="288" height="56"/>
+                                <rect key="frame" x="16" y="309.5" width="343" height="56"/>
                                 <color key="backgroundColor" red="0.1628461480140686" green="0.16775813698768616" blue="0.17718857526779175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="ubT-vf-bbu"/>
@@ -185,7 +185,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-dl-isj">
-                                <rect key="frame" x="16" y="516" width="288" height="36"/>
+                                <rect key="frame" x="16" y="615" width="343" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="ВЫБРАТЬ СТОЛ">
@@ -211,7 +211,7 @@
                             <constraint firstItem="YTD-Wt-zTS" firstAttribute="top" secondItem="103-rR-66w" secondAttribute="bottom" constant="16" id="DlQ-kx-Yde"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="YTD-Wt-zTS" secondAttribute="trailing" constant="16" id="FX6-eB-t3f"/>
                             <constraint firstItem="1kk-HZ-dyy" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="Gjb-qi-sZE"/>
-                            <constraint firstAttribute="trailing" secondItem="103-rR-66w" secondAttribute="trailing" constant="38" id="PjO-Ru-VDc"/>
+                            <constraint firstAttribute="trailing" secondItem="103-rR-66w" secondAttribute="trailing" constant="23" id="PjO-Ru-VDc"/>
                             <constraint firstItem="2zR-9e-rw4" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="Qv2-rj-sU0"/>
                             <constraint firstItem="vPH-hf-0cU" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="UK5-Qp-35g"/>
                             <constraint firstItem="YTD-Wt-zTS" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="WUS-Kf-YnM"/>
@@ -219,6 +219,8 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YTD-Wt-zTS" secondAttribute="bottom" id="dAq-Kv-uKl"/>
                             <constraint firstItem="NBc-wG-qLA" firstAttribute="leading" secondItem="Nmn-bN-6MI" secondAttribute="leading" constant="16" id="fTc-TQ-N1H"/>
                             <constraint firstItem="2zR-9e-rw4" firstAttribute="top" secondItem="Nmn-bN-6MI" secondAttribute="top" constant="10" id="iG0-oj-h3h"/>
+                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="NBc-wG-qLA" secondAttribute="trailing" constant="23" id="iLf-oh-Hg0"/>
+                            <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="2zR-9e-rw4" secondAttribute="trailing" constant="23" id="m3l-H5-UkE"/>
                             <constraint firstItem="1kk-HZ-dyy" firstAttribute="top" secondItem="NBc-wG-qLA" secondAttribute="bottom" constant="16" id="tau-dJ-R7f"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="trailing" secondItem="vPH-hf-0cU" secondAttribute="trailing" constant="16" id="uo1-QF-Mqy"/>
                             <constraint firstItem="Nmn-bN-6MI" firstAttribute="bottom" secondItem="WzX-dl-isj" secondAttribute="bottom" constant="16" id="z5E-7p-Zky"/>
