@@ -9,7 +9,6 @@
 import UIKit
 
 class MainProfile: UIViewController {
-    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var EditProfileBtn: UIButton!
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var Date: UILabel!
@@ -31,7 +30,6 @@ class MainProfile: UIViewController {
         if (Name.isHidden){
             Alert.shared().showSpinner(onView: self.view)
         }
-        ScrollView.scrollsToTop = true
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
             Alert.shared().removeSpinner()
@@ -59,9 +57,6 @@ class MainProfile: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
-        if view.frame.height >= 667 {
-            ScrollView.isScrollEnabled = false
-        }
         EditProfileBtn.layer.cornerRadius = 20
         //EditProfileBtn.isEnabled = true
     }
@@ -85,7 +80,6 @@ class MainProfile: UIViewController {
         self.PhoneLabel.isHidden = flag
         self.EmailLabel.isHidden = flag
         self.DateLabel.isHidden = flag
-        self.ScrollView.isScrollEnabled = !flag
         
         self.SignInLabel.isHidden = !flag
         self.SignInBtn.isHidden = !flag
@@ -132,7 +126,6 @@ class MainProfile: UIViewController {
     
     @IBAction func signOutBtnTap(_ sender: UIButton) {
         DataLoader.shared().exitLogin()
-        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         self.viewWillAppear(false)
         self.viewDidLoad()
     }
