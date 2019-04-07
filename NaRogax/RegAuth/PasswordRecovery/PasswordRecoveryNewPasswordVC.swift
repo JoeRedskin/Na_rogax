@@ -150,6 +150,8 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         RepeatedPasswordField.delegate = self
         CodeField.delegate = self
         
+        ScrollView.isScrollEnabled = false
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -335,6 +337,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
      */
     
     @IBAction func passwordChanged(_ sender: Any) {
+        ScrollView.isScrollEnabled = false
         correctData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
         PasswordErrorLabel.text = "Пароль"
         PasswordBtn.isHidden = false
@@ -421,16 +424,21 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
                 data.code = icode
                 data.email = self.email
                 data.password = pass
+                Alert.shared().showSpinner(onView: self.view)
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                     self.ChangePasswordBtn.isEnabled = true
+                    Alert.shared().removeSpinner()
                 }else{
                     DataLoader.shared().passwordRecovery(data: data){ result in
                         if result?.code == 200 {
                             self.present(Alert.shared().changePassword(protocol: self as AlertProtocol), animated: true, completion: nil)
+                        } else if result?.code == 422 {
+                            self.incorrectData(field: self.CodeField, label: self.CodeErrorLabel, image: self.CodeIcon)
                         }
                         self.ChangePasswordBtn.isEnabled = true
                     }
+                    Alert.shared().removeSpinner()
                 }
             }
             if !validateCode(code: code) {
@@ -439,6 +447,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
             if !validatePassword(pass: pass) {
                 incorrectData(field: PasswordField, label: PasswordErrorLabel, image: PasswordIcon)
                 PasswordErrorLabel.text = "Длина пароля должна быть не менее 8 и не более 32 символов. Пароль должен содержать хотя бы одну из букв латинского алфавита (A-z), и одну из арабских цифр (0-9)."
+                ScrollView.isScrollEnabled = true
                 PasswordBtn.isHidden = true
             }
             if pass != rpass {
