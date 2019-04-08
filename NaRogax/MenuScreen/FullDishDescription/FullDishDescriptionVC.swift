@@ -67,6 +67,15 @@ class FullDishDescriptionVC: UIViewController, UICollectionViewDataSource, UICol
             }
         }
         
+        if menu.name.contains("Чай") {
+            if let shortDesc = menu.shortDescription {
+                if shortDesc != "" {
+                    descriptionLongDescriptionLabel.isHidden = false
+                    descriptionLongDescriptionLabel.text = shortDesc
+                }
+            }
+        }
+        
         if let weight = menu.weight {
             if weight == "" {
                 descriptionWeightLabel.isHidden = true

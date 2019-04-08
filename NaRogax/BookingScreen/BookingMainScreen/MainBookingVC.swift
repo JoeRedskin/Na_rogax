@@ -27,6 +27,9 @@ class MainBookingVC: UIViewController {
         //segmentedControl = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         segmentedControler.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
+        let font = UIFont.systemFont(ofSize: 11)
+        segmentedControler.setTitleTextAttributes([NSAttributedString.Key.font: font],
+                                                for: .normal)
         start()
         self.setNeedsStatusBarAppearanceUpdate()
     }

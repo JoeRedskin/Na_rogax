@@ -23,7 +23,7 @@
                                 <viewLayoutGuide key="safeArea" id="r9j-xf-FS5"/>
                                 <segments>
                                     <segment title="НОВАЯ БРОНЬ"/>
-                                    <segment title="МОИ БРОНИ"/>
+                                    <segment title="МОИ БРОНИРОВАНИЯ"/>
                                 </segments>
                                 <color key="tintColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
