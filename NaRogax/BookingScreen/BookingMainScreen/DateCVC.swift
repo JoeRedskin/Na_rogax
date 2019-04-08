@@ -39,7 +39,7 @@ class DateCVC {
     //установка даты
     private func setData(item: Int){
         let format = DateFormatter()
-        format.dateFormat = "dd\nEE"
+        format.dateFormat = "d\nEE"
         format.locale = Locale(identifier: "ru_RU")
         let date = Calendar.current.date(byAdding: .day, value: item, to: Date())!
         text = format.string(from: date)
