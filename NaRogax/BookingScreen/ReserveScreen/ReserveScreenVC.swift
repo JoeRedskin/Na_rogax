@@ -45,7 +45,8 @@ class ReserveScreenVC: UIViewController {
         PersonNameLabel.text = name
         PersonPhoneLabel.text = phone
         
-        if name.isEmpty || phone.isEmpty{
+        Alert.shared().showSpinner(onView: view)
+        //if name.isEmpty || phone.isEmpty{
             if (!DataLoader.shared().testNetwork()){
                 self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                 ReserveBtn.isEnabled = true
@@ -56,12 +57,14 @@ class ReserveScreenVC: UIViewController {
                         UserDefaultsData.shared().savePhone(phone: result.data.phone)
                         self.PersonNameLabel.text = result.data.name
                         self.PersonPhoneLabel.text = result.data.phone
+                        Alert.shared().removeSpinner()
                     }else{
+                        Alert.shared().removeSpinner()
                         self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                     }
                 }
             }
-        }
+        //}
     }
     
     @IBAction func onReserveBtnTap(_ sender: UIButton) {
