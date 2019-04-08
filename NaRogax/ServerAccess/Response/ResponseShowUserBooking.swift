@@ -25,7 +25,7 @@ struct Bookings: Decodable {
     func configData() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.dateFormat = "dd MMMM"
+        dateFormatter.dateFormat = "d MMMM"
         let stringDate = dateFormatter.string(from: getDate(str: date_time_to))
         dateFormatter.dateFormat = "HH:mm"
         let strTimeFrom = dateFormatter.string(from: getDate(str: date_time_from))
