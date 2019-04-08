@@ -53,8 +53,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
             if dishes.categories[pageIndex].categoryName != "НАПИТКИ" ||
-                (dishes.categories[pageIndex].categoryDishes[indexPath.section].name.contains("Пиво")) ||
-                (dishes.categories[pageIndex].categoryDishes[indexPath.section].name.contains("Чай")) {
+                (dishes.categories[pageIndex].categoryDishes[indexPath.section].name.contains("Пиво")) {
                 let storyboard = UIStoryboard(name: "FullDishDescription", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "FullDishDesc") as! FullDishDescriptionVC
                 vc.dishFullDescription = dishes

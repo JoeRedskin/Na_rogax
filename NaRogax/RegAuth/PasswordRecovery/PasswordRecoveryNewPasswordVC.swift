@@ -242,6 +242,13 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         field.layer.shadowColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         
         if let lbl = label {
+            if label == CodeErrorLabel{
+                if CodeField.text?.count ?? 0 < 5 {
+                    lbl.text = "Код состоит из 5 символов"
+                }else{
+                    lbl.text = "Введенный код не верен"
+                }
+            }
             lbl.isHidden = false
         }
         if let img = image {

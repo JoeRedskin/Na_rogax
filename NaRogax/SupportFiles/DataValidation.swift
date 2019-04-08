@@ -47,7 +47,7 @@ func validateEmail(email: String) -> Bool {
 
 func validatePhone(number: String) -> Bool {
     let range = NSRange(location: 0, length: number.count)
-    let reg = "^(\\+7|8)\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{4}"
+    let reg = "^(\\+7|8)\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}"
     let regex = try! NSRegularExpression(pattern: reg)
     if regex.firstMatch(in: number, options: [], range: range) != nil{
         return true

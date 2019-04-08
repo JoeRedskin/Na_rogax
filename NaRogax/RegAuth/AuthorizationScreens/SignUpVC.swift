@@ -249,7 +249,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         PasswordField.maxLength = 32
         RepeatPasswordField.maxLength = 32
         NameField.maxLength = 30
-        PhoneField.maxLength = 17
+        PhoneField.maxLength = 18
         SignUpBtn.layer.cornerRadius = 20
         
         EmailField.delegate = self
@@ -489,7 +489,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 PhoneLabel.isHidden = false
             } else {
                 isEmptyPhone = false
-                PhoneField.text = phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacmentCharacter: "#")
+                PhoneField.text = phone.applyPatternOnNumbers(pattern: "+# (###) ###-##-##", replacmentCharacter: "#")
             }
         }
     }

@@ -35,6 +35,33 @@ class DishTableViewCell: UITableViewCell {
         } else {
             dishShortInfo.text = dish.shortDescription
             dishShortInfo.isHidden = false
+            if dish.className == "НАПИТКИ"{
+                if dish.subMenu?.count ?? -1 > 0{
+                    var identical = false
+                    var previusMl: [String.SubSequence]?
+                    var ml: [String.SubSequence]?
+                    for item in dish.subMenu!{
+                        ml = item.weight?.split(separator: ",")
+                        if previusMl != nil{
+                            if ml != nil{
+                                identical = ml![0] == previusMl![0]
+                            }
+                        }else{
+                            previusMl = ml
+                            identical = true
+                        }
+                    }
+                    if identical{
+                        if ml != nil{
+                            if let text = dish.shortDescription{
+                                dishShortInfo.text = "\(text)\n" + String(ml![0]) + " мл"
+                            }else{
+                                dishShortInfo.text = String(ml![0]) + " мл"
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         if let price = dish.price {

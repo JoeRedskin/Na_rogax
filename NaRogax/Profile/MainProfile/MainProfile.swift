@@ -146,7 +146,7 @@ class MainProfile: UIViewController {
             DataLoader.shared().viewUserCredentials(){ result, error in
                 self.changeVisibility(flag: false)
                 self.Name.text = result.data.name
-                self.Phone.text = result.data.phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacmentCharacter: "#")
+                self.Phone.text = result.data.phone.applyPatternOnNumbers(pattern: "+# (###) ###-##-##", replacmentCharacter: "#")
                 self.Email.text = result.data.email
                 if let date = result.data.birthday {
                     let formattedDate = self.formatBirthDate(birthDate: date, format_from: "yyyy-MM-dd", format_to: "dd.MM.yyyy")

@@ -138,6 +138,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="fieldEndEditing:" destination="Som-PD-zCR" eventType="editingDidEnd" id="RaK-DU-r84"/>
                                     <action selector="fieldStartEditing:" destination="Som-PD-zCR" eventType="editingDidBegin" id="Wg2-rA-fxz"/>
