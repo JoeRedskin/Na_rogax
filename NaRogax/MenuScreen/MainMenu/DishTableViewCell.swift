@@ -36,9 +36,6 @@ class DishTableViewCell: UITableViewCell {
             
             dishShortInfo.text = getDescWeight(dish: dish)
             dishShortInfo.isHidden = false
-            if dish.className == "НАПИТКИ"{
-                dishShortInfo.text = getDrinks(dish: dish)
-            }
         }
         
         if let price = dish.price {
@@ -67,13 +64,25 @@ class DishTableViewCell: UITableViewCell {
     private func getDescWeight(dish: DishDescription) -> String{
         let shortDesc = dish.shortDescription ?? ""
         let weight = dish.weight ?? ""
+        var unit = ""
+        
+        if dish.className == "НАПИТКИ" {
+            unit = " мл"
+        } else {
+            unit = " г"
+        }
+        
         if shortDesc.isEmpty{
-            return weight + " г"
+            if weight.isEmpty {
+                return ""
+            } else {
+                return weight + unit
+            }
         }else{
             if weight.isEmpty{
                 return shortDesc
             }else{
-                return shortDesc + "\n" + weight + " г"
+                return shortDesc + "\n" + weight + unit
             }
         }
     }
