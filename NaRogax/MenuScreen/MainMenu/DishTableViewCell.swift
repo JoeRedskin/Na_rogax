@@ -68,12 +68,12 @@ class DishTableViewCell: UITableViewCell {
         let shortDesc = dish.shortDescription ?? ""
         let weight = dish.weight ?? ""
         if shortDesc.isEmpty{
-            return weight + " гр"
+            return weight + " г"
         }else{
             if weight.isEmpty{
                 return shortDesc
             }else{
-                return shortDesc + "\n" + weight + " гр"
+                return shortDesc + "\n" + weight + " г"
             }
         }
     }

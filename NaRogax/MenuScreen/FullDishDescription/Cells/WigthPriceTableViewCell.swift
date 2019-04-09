@@ -18,7 +18,7 @@ class WigthPriceTableViewCell: UITableViewCell {
     }
     
     func setData(dish: DishDescription) {
-        let dimension = dish.className == "НАПИТКИ" ? "мл" : "гр"
+        let dimension = dish.className == "НАПИТКИ" ? "мл" : "г"
         if let weight = dish.weight{
             if !weight.isEmpty{
                 labelWigth.text = "\(weight) \(dimension)"
