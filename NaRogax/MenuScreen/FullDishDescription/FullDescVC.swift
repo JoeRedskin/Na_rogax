@@ -24,9 +24,14 @@ class FullDescVC: UIViewController {
         super.viewDidLoad()
         mainTable.delegate = self
         mainTable.dataSource = self
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Меню"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         //ImageCell
         //DescriptionCell
         //WigthPriceCell
