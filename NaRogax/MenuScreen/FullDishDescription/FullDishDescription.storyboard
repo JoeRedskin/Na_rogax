@@ -239,13 +239,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="К этому блюду рекомендуют:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-Zd-X91">
-                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="7.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q3T-ci-i1D">
-                                                    <rect key="frame" x="0.0" y="53.5" width="375" height="196"/>
+                                                    <rect key="frame" x="0.0" y="33.5" width="375" height="196"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="196" id="69A-cM-9bR"/>
@@ -321,7 +321,7 @@
                                                 <constraint firstItem="bFz-Zd-X91" firstAttribute="leading" secondItem="Bej-c4-5ZW" secondAttribute="leading" constant="16" id="EBm-Hf-Wbv"/>
                                                 <constraint firstAttribute="trailing" secondItem="bFz-Zd-X91" secondAttribute="trailing" constant="16" id="H1h-KB-wVJ"/>
                                                 <constraint firstItem="bFz-Zd-X91" firstAttribute="top" secondItem="Bej-c4-5ZW" secondAttribute="top" constant="8" id="kBy-7y-ABx"/>
-                                                <constraint firstAttribute="bottom" secondItem="Q3T-ci-i1D" secondAttribute="bottom" id="p8a-gh-z1H"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q3T-ci-i1D" secondAttribute="bottom" constant="20" id="p8a-gh-z1H"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
