@@ -21,6 +21,13 @@
 		CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */; };
 		CE5A4713223BD5B600724490 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4712223BD5B600724490 /* Cell.swift */; };
 		CE5A4727223BF72100724490 /* HoursWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4726223BF72100724490 /* HoursWork.swift */; };
+		CE5ABA1D225CCDF600430496 /* RecommendDishCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA1C225CCDF600430496 /* RecommendDishCVC.swift */; };
+		CE5ABA21225CD07100430496 /* FullDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA20225CD07100430496 /* FullDescVC.swift */; };
+		CE5ABA23225CD1C100430496 /* ImageDiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA22225CD1C100430496 /* ImageDiscTableViewCell.swift */; };
+		CE5ABA26225CD2EB00430496 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA25225CD2EB00430496 /* DescriptionTableViewCell.swift */; };
+		CE5ABA28225CD34A00430496 /* EnumerationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA27225CD34A00430496 /* EnumerationTableViewCell.swift */; };
+		CE5ABA2A225CD37D00430496 /* RecomendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA29225CD37D00430496 /* RecomendTableViewCell.swift */; };
+		CE5ABA2C225CEEB700430496 /* WigthPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5ABA2B225CEEB700430496 /* WigthPriceTableViewCell.swift */; };
 		CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */; };
 		CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE901945221D904100BA1B47 /* AppDelegate.swift */; };
 		CE90194D221D904200BA1B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE90194C221D904200BA1B47 /* Assets.xcassets */; };
@@ -30,14 +37,10 @@
 		CE96F259221F353F002EAD2D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96F258221F353F002EAD2D /* Extensions.swift */; };
 		CE96F25B221F3541002EAD2D /* MenuTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96F25A221F3541002EAD2D /* MenuTabsView.swift */; };
 		CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96F25E221F3544002EAD2D /* TabsVC.swift */; };
-		CE9D671F22339A39004E5E1D /* RecommendDishCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D671E22339A39004E5E1D /* RecommendDishCVC.swift */; };
 		CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE92522200BF7000AF395 /* ResponseDisherList.swift */; };
 		CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEE927222042EE000AF395 /* DataLoader.swift */; };
 		CEB401132233117500361332 /* FullDishDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB401122233117500361332 /* FullDishDescription.storyboard */; };
-		CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB401142233128800361332 /* FullDishDescriptionVC.swift */; };
 		CED522852228365A0069DBDA /* document.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED522842228365A0069DBDA /* document.txt */; };
-		CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */; };
-		CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */; };
 		CED7C07C2231CC07009FF75A /* DrinkDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */; };
 		CEE215F8222D1147000899EF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE215F7222D1147000899EF /* Reachability.swift */; };
 		CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE135E224532B9000B7D32 /* NumberTextView.swift */; };
@@ -103,6 +106,13 @@
 		CE564BE22237C6880035BAC9 /* NavigationTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarVC.swift; sourceTree = "<group>"; };
 		CE5A4712223BD5B600724490 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CE5A4726223BF72100724490 /* HoursWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWork.swift; sourceTree = "<group>"; };
+		CE5ABA1C225CCDF600430496 /* RecommendDishCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendDishCVC.swift; sourceTree = "<group>"; };
+		CE5ABA20225CD07100430496 /* FullDescVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDescVC.swift; sourceTree = "<group>"; };
+		CE5ABA22225CD1C100430496 /* ImageDiscTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiscTableViewCell.swift; sourceTree = "<group>"; };
+		CE5ABA25225CD2EB00430496 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CE5ABA27225CD34A00430496 /* EnumerationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerationTableViewCell.swift; sourceTree = "<group>"; };
+		CE5ABA29225CD37D00430496 /* RecomendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendTableViewCell.swift; sourceTree = "<group>"; };
+		CE5ABA2B225CEEB700430496 /* WigthPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WigthPriceTableViewCell.swift; sourceTree = "<group>"; };
 		CE8958B02229428D003CE9D1 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		CE901942221D904100BA1B47 /* NaRogax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaRogax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE901945221D904100BA1B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,14 +124,10 @@
 		CE96F258221F353F002EAD2D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE96F25A221F3541002EAD2D /* MenuTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabsView.swift; sourceTree = "<group>"; };
 		CE96F25E221F3544002EAD2D /* TabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsVC.swift; sourceTree = "<group>"; };
-		CE9D671E22339A39004E5E1D /* RecommendDishCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendDishCVC.swift; sourceTree = "<group>"; };
 		CEAEE92522200BF7000AF395 /* ResponseDisherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDisherList.swift; sourceTree = "<group>"; };
 		CEAEE927222042EE000AF395 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		CEB401122233117500361332 /* FullDishDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDishDescription.storyboard; sourceTree = "<group>"; };
-		CEB401142233128800361332 /* FullDishDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishDescriptionVC.swift; sourceTree = "<group>"; };
 		CED522842228365A0069DBDA /* document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = document.txt; path = NaRogax/SupportFiles/document.txt; sourceTree = SOURCE_ROOT; };
-		CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDrinksDescription.storyboard; sourceTree = "<group>"; };
-		CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDrinkDescriptionVC.swift; sourceTree = "<group>"; };
 		CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDescriptionCell.swift; sourceTree = "<group>"; };
 		CEE215F7222D1147000899EF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CEEE135E224532B9000B7D32 /* NumberTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextView.swift; sourceTree = "<group>"; };
@@ -252,6 +258,20 @@
 			path = NavigationTabBar;
 			sourceTree = "<group>";
 		};
+		CE5ABA24225CD2A600430496 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */,
+				CE5ABA1C225CCDF600430496 /* RecommendDishCVC.swift */,
+				CE5ABA22225CD1C100430496 /* ImageDiscTableViewCell.swift */,
+				CE5ABA25225CD2EB00430496 /* DescriptionTableViewCell.swift */,
+				CE5ABA27225CD34A00430496 /* EnumerationTableViewCell.swift */,
+				CE5ABA29225CD37D00430496 /* RecomendTableViewCell.swift */,
+				CE5ABA2B225CEEB700430496 /* WigthPriceTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CE901939221D904100BA1B47 = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +298,6 @@
 				CEF6A15F2244C4C000B28B05 /* RegAuth */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
-				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
@@ -303,21 +322,11 @@
 		CEB4011122330ECF00361332 /* FullDishDescription */ = {
 			isa = PBXGroup;
 			children = (
+				CE5ABA24225CD2A600430496 /* Cells */,
 				CEB401122233117500361332 /* FullDishDescription.storyboard */,
-				CEB401142233128800361332 /* FullDishDescriptionVC.swift */,
-				CE9D671E22339A39004E5E1D /* RecommendDishCVC.swift */,
+				CE5ABA20225CD07100430496 /* FullDescVC.swift */,
 			);
 			path = FullDishDescription;
-			sourceTree = "<group>";
-		};
-		CED7C0762231A322009FF75A /* FullDrinksDescription */ = {
-			isa = PBXGroup;
-			children = (
-				CED7C0772231A3CA009FF75A /* FullDrinksDescription.storyboard */,
-				CED7C0792231AC95009FF75A /* FullDrinkDescriptionVC.swift */,
-				CED7C07B2231CC07009FF75A /* DrinkDescriptionCell.swift */,
-			);
-			path = FullDrinksDescription;
 			sourceTree = "<group>";
 		};
 		CEF02056223778340083D0A1 /* BookingMainScreen */ = {
@@ -395,8 +404,8 @@
 			children = (
 				CEF7C3922238E70800FBAA8B /* MainMenu */,
 				CE96F260221F3552002EAD2D /* Menu Tabs View */,
+				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CEB4011122330ECF00361332 /* FullDishDescription */,
-				CED7C0762231A322009FF75A /* FullDrinksDescription */,
 			);
 			path = MenuScreen;
 			sourceTree = "<group>";
@@ -562,7 +571,6 @@
 				CEF02058223778650083D0A1 /* BookingMain.storyboard in Resources */,
 				CED522852228365A0069DBDA /* document.txt in Resources */,
 				CEF6A15C2244C46C00B28B05 /* CheckNumber.storyboard in Resources */,
-				CED7C0782231A3CA009FF75A /* FullDrinksDescription.storyboard in Resources */,
 				CEF7C38E2238E01500FBAA8B /* ReservationConfirmed.storyboard in Resources */,
 				CEF3DCCB224BE8E700CD7AE7 /* MainProfile.storyboard in Resources */,
 				CEF7C39822391E6500FBAA8B /* ReserveScreen.storyboard in Resources */,
@@ -643,12 +651,13 @@
 				CE96F257221F353D002EAD2D /* ContentVC.swift in Sources */,
 				CE5A4713223BD5B600724490 /* Cell.swift in Sources */,
 				CEF3FFF42246284500F07765 /* MainBookingVC.swift in Sources */,
-				CEB401152233128800361332 /* FullDishDescriptionVC.swift in Sources */,
 				CEF3058C22427E78001D6D96 /* RequestPostRegUser.swift in Sources */,
 				CE564BE32237C6880035BAC9 /* NavigationTabBarVC.swift in Sources */,
 				CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */,
+				CE5ABA21225CD07100430496 /* FullDescVC.swift in Sources */,
 				CEEE135F224532B9000B7D32 /* NumberTextView.swift in Sources */,
 				CEF87B1B2232492400E2AB28 /* GradientView.swift in Sources */,
+				CE5ABA28225CD34A00430496 /* EnumerationTableViewCell.swift in Sources */,
 				CEF7C38F2238E01500FBAA8B /* ReservationConfirmedVC.swift in Sources */,
 				CEF7D7962247DB8600725FA0 /* PasswordRecoveryNewPasswordVC.swift in Sources */,
 				CEF7C3902238E01500FBAA8B /* ReservePlace.swift in Sources */,
@@ -658,19 +667,23 @@
 				CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */,
 				CEF7D78D2247DB7C00725FA0 /* SignUpVC.swift in Sources */,
 				CEF7C3A222391E6D00FBAA8B /* SelectTableVC.swift in Sources */,
+				CE5ABA1D225CCDF600430496 /* RecommendDishCVC.swift in Sources */,
 				CE51F329224B607900FC788F /* UserDefaultsData.swift in Sources */,
 				CEF3059622428472001D6D96 /* ResponseAuthorizeUser.swift in Sources */,
 				CEF3FFEE22461D9100F07765 /* ResponseUserCredentials.swift in Sources */,
 				CE4F01992243788E009E526F /* Alert.swift in Sources */,
 				CEF7C3A422391E6D00FBAA8B /* TableCell.swift in Sources */,
+				CE5ABA2A225CD37D00430496 /* RecomendTableViewCell.swift in Sources */,
 				CED7C07C2231CC07009FF75A /* DrinkDescriptionCell.swift in Sources */,
 				CEF3FFF022461F7900F07765 /* RequestChangeUserCredentials.swift in Sources */,
 				CEF3058E22427F30001D6D96 /* RequestPostAuth.swift in Sources */,
 				CEF3FFF82246505400F07765 /* SelectTableShowBookingVC.swift in Sources */,
+				CE5ABA23225CD1C100430496 /* ImageDiscTableViewCell.swift in Sources */,
 				CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */,
 				CEE215F8222D1147000899EF /* Reachability.swift in Sources */,
 				CEAEE928222042EE000AF395 /* DataLoader.swift in Sources */,
 				CE901946221D904100BA1B47 /* AppDelegate.swift in Sources */,
+				CE5ABA26225CD2EB00430496 /* DescriptionTableViewCell.swift in Sources */,
 				CEF7D78C2247DB7C00725FA0 /* SignInVC.swift in Sources */,
 				CE8958B12229428D003CE9D1 /* DishTableViewCell.swift in Sources */,
 				CEF7C3A522391E6D00FBAA8B /* RequestPostEmptyPlaces.swift in Sources */,
@@ -680,13 +693,12 @@
 				74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */,
 				CEAEE92622200BF7000AF395 /* ResponseDisherList.swift in Sources */,
 				CEF0205A22377D700083D0A1 /* BookingVC.swift in Sources */,
+				CE5ABA2C225CEEB700430496 /* WigthPriceTableViewCell.swift in Sources */,
 				CEF1C08C2244024E0081CA91 /* RequestUserEmail.swift in Sources */,
-				CE9D671F22339A39004E5E1D /* RecommendDishCVC.swift in Sources */,
 				CE51F32B224BA3B700FC788F /* ResponseRegUser.swift in Sources */,
 				74A520D82247FF2B0049C016 /* DataValidation.swift in Sources */,
 				CEF3668822394FC2003F17D8 /* MainMenuViewController.swift in Sources */,
 				CE96F25F221F3544002EAD2D /* TabsVC.swift in Sources */,
-				CED7C07A2231AC95009FF75A /* FullDrinkDescriptionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

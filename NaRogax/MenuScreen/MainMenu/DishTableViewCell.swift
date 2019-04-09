@@ -33,46 +33,27 @@ class DishTableViewCell: UITableViewCell {
         if dish.shortDescription == ""{
             dishShortInfo.isHidden = true
         } else {
-            dishShortInfo.text = dish.shortDescription
+            
+            dishShortInfo.text = getDescWeight(dish: dish)
             dishShortInfo.isHidden = false
             if dish.className == "НАПИТКИ"{
-                if dish.subMenu?.count ?? -1 > 0{
-                    var identical = false
-                    var previusMl: [String.SubSequence]?
-                    var ml: [String.SubSequence]?
-                    for item in dish.subMenu!{
-                        ml = item.weight?.split(separator: ",")
-                        if previusMl != nil{
-                            if ml != nil{
-                                identical = ml![0] == previusMl![0]
-                            }
-                        }else{
-                            previusMl = ml
-                            identical = true
-                        }
-                    }
-                    if identical{
-                        if ml != nil{
-                            if let text = dish.shortDescription{
-                                dishShortInfo.text = "\(text)\n" + String(ml![0]) + " мл"
-                            }else{
-                                dishShortInfo.text = String(ml![0]) + " мл"
-                            }
-                        }
-                    }
-                }
+                dishShortInfo.text = getDrinks(dish: dish)
             }
         }
         
         if let price = dish.price {
             dishPrice.text = "\(price) ₽"
-        } else if dish.name.contains("Лимонад") {
-            guard let price1 = dish.subMenu![0].price else {return}
-            guard let price2 = dish.subMenu![1].price else {return}
-            
-            dishPrice.text = "\(price1) / \(price2) ₽"
         } else {
-            dishPrice.text = "⏤ ₽"
+            if dish.subMenu?.count ?? -1 > 0{
+                var price = dish.subMenu!.sorted(by: { ($0.price ?? -1) < $1.price ?? -1 })
+                if price[0].price! > 0{
+                    dishPrice.text = "от \(price[0].price!) ₽"
+                }else{
+                    dishPrice.text = "⏤ ₽"
+                }
+            }else {
+                dishPrice.text = "⏤ ₽"
+            }
         }
         
         if dish.photo == "" || dish.photo == nil{
@@ -81,6 +62,49 @@ class DishTableViewCell: UITableViewCell {
             fetchImage(url_img: dish.photo!)
         }
         
+    }
+    
+    private func getDescWeight(dish: DishDescription) -> String{
+        let shortDesc = dish.shortDescription ?? ""
+        let weight = dish.weight ?? ""
+        if shortDesc.isEmpty{
+            return weight + " гр"
+        }else{
+            if weight.isEmpty{
+                return shortDesc
+            }else{
+                return shortDesc + "\n" + weight + " гр"
+            }
+        }
+    }
+    
+    private func getDrinks(dish: DishDescription) -> String{
+        if dish.subMenu?.count ?? -1 > 0{
+            var identical = false
+            var previusMl: [String.SubSequence]?
+            var ml: [String.SubSequence]?
+            for item in dish.subMenu!{
+                ml = item.weight?.split(separator: ",")
+                if previusMl != nil{
+                    if ml != nil{
+                        identical = ml![0] == previusMl![0]
+                    }
+                }else{
+                    previusMl = ml
+                    identical = true
+                }
+            }
+            if identical{
+                if ml != nil{
+                    if let text = dish.shortDescription{
+                        return "\(text)\n" + String(ml![0]) + " мл"
+                    }else{
+                        return String(ml![0]) + " мл"
+                    }
+                }
+            }
+        }
+        return ""
     }
     
     func fetchImage(url_img: String) {
