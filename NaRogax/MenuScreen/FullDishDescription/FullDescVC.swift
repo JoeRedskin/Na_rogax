@@ -37,30 +37,31 @@ class FullDescVC: UIViewController {
         //WigthPriceCell
         //EnumerationCell
         //RecomendCell
-        nameCellActive.append("ImageCell")
-        if menu.categories.count > 0{
-            dish = menu.categories[indexOfCategory].categoryDishes[indexOfDish]
-            if !(dish.longDescription?.isEmpty ?? true){
-                nameCellActive.append("DescriptionCell")
-            }
-            if dish.subMenu?.count ?? -1 > 0{
-                nameCellActive.append("EnumerationCell")
-                subMenu = dish.subMenu!
-            }else{
-                nameCellActive.append("WigthPriceCell")
-            }
-            
-            if dish.recommendedDish?.count ?? -1 > 0{
-                nameCellActive.append("RecomendCell")
-                if let arrayRec = dish.recommendedDish?.split(separator: ";"){
-                    for item in arrayRec{
-                        recomendDish.append(findRecommendedDishes(topping: Int(item)!))
+        if nameCellActive.count == 0 {
+            nameCellActive.append("ImageCell")
+            if menu.categories.count > 0{
+                dish = menu.categories[indexOfCategory].categoryDishes[indexOfDish]
+                if !(dish.longDescription?.isEmpty ?? true){
+                    nameCellActive.append("DescriptionCell")
+                }
+                if dish.subMenu?.count ?? -1 > 0{
+                    nameCellActive.append("EnumerationCell")
+                    subMenu = dish.subMenu!
+                }else{
+                    nameCellActive.append("WigthPriceCell")
+                }
+                
+                if dish.recommendedDish?.count ?? -1 > 0{
+                    nameCellActive.append("RecomendCell")
+                    if let arrayRec = dish.recommendedDish?.split(separator: ";"){
+                        for item in arrayRec{
+                            recomendDish.append(findRecommendedDishes(topping: Int(item)!))
+                        }
                     }
                 }
             }
+            mainTable.reloadData()
         }
-        mainTable.reloadData()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func findRecommendedDishes(topping: Int) -> DishDescription {
