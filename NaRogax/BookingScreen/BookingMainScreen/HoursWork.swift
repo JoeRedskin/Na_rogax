@@ -241,7 +241,7 @@ class HoursWork{
         }
         //Ограничение на сегоднешнний день + 3 часа от текущего времени
         if !(Double(hour) < (startTimeD - 3)){
-            var hourAdd = 4
+            let hourAdd = 4
             /*if (calendar.component(.minute, from: date) >= 30){
                 hourAdd += 1
                 startTimeD = Double(hour + hourAdd) - 0.5

@@ -45,13 +45,17 @@ class RecommendedDishCVC: UICollectionViewCell {
 
         if let price = dish.price {
             recommendedDishPriceLabel.text = "\(price) ₽"
-        } else if dish.name.contains("Лимонад") {
-            guard let price1 = dish.subMenu![0].price else {return}
-            guard let price2 = dish.subMenu![1].price else {return}
-            
-            recommendedDishPriceLabel.text = "\(price1) / \(price2) ₽"
         } else {
-            recommendedDishPriceLabel.text = "⏤ ₽"
+            if dish.subMenu?.count ?? -1 > 0{
+                var price = dish.subMenu!.sorted(by: { ($0.price ?? -1) < $1.price ?? -1 })
+                if price[0].price! > 0{
+                    recommendedDishPriceLabel.text = "от \(price[0].price!) ₽"
+                }else{
+                    recommendedDishPriceLabel.text = "⏤ ₽"
+                }
+            }else {
+                recommendedDishPriceLabel.text = "⏤ ₽"
+            }
         }
         
         if dish.photo == "" || dish.photo == nil {

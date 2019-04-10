@@ -43,7 +43,7 @@ extension EnumerationTableViewCell: UITableViewDataSource, UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "DrinkCell", for: indexPath) as! DrinkDescriptionCell
             var dishName = ""
-            var dimension = cat == "НАПИТКИ" ? "мл" : "гр"
+            let dimension = cat == "НАПИТКИ" ? "мл" : "г"
             if let name = enumarionArray[indexPath.row].name{
                 if name.isEmpty{
                     dishName = "\(enumarionArray[indexPath.row].weight ?? "") \(dimension)"

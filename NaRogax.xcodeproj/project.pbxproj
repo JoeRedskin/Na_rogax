@@ -298,6 +298,7 @@
 				CEF6A15F2244C4C000B28B05 /* RegAuth */,
 				CE40185B22411FD2004825EB /* ServerAccess */,
 				CEF7C3912238E65700FBAA8B /* MenuScreen */,
+				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CE564BDF2237C4D50035BAC9 /* NavigationTabBar */,
 				CEF7C3932238E98D00FBAA8B /* SupportFiles */,
 				CE901945221D904100BA1B47 /* AppDelegate.swift */,
@@ -404,7 +405,6 @@
 			children = (
 				CEF7C3922238E70800FBAA8B /* MainMenu */,
 				CE96F260221F3552002EAD2D /* Menu Tabs View */,
-				CEF7C3A82239291E00FBAA8B /* BookingScreen */,
 				CEB4011122330ECF00361332 /* FullDishDescription */,
 			);
 			path = MenuScreen;
