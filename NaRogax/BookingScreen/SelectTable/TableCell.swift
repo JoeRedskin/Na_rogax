@@ -34,10 +34,10 @@ class TableCell: UITableViewCell {
         if table.chair_type == "" {
             DescLabel.isHidden = true
         } else {
-            if let pos = table.position{
-                DescLabel.text = "\(table.chair_type.uppercased()), \(pos.uppercased())"
-            } else {
+            if table.position?.isEmpty ?? true{
                 DescLabel.text = table.chair_type.uppercased()
+            }else{
+                DescLabel.text = "\(table.chair_type.uppercased()), \(table.position!.uppercased())"
             }
         }
         SelectBtn.layer.cornerRadius = 17

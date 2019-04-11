@@ -53,6 +53,7 @@ class MainProfile: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        EditProfileBtn.isUserInteractionEnabled = true
         alertSpinner.removeSpinner()
     }
     
@@ -96,7 +97,7 @@ class MainProfile: UIViewController {
      */
     
     @IBAction func editProfileBtnTap(_ sender: UIButton) {
-        EditProfileBtn.isEnabled = false
+        EditProfileBtn.isUserInteractionEnabled = false
         let storyboard = UIStoryboard(name: "EditProfile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "EditProfile") as! EditProfileVC
         
