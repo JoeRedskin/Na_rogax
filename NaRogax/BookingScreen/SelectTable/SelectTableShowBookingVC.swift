@@ -106,6 +106,8 @@ class SelectTableShowBookingVC: UIViewController {
                         self.labelText.isHidden = false
                         self.TableView.isHidden = true
                         self.labelText.text = self.TEXT_NO_BOOKING
+                        self.userBooking.bookings.removeAll()
+                        self.TableView.reloadData()
                     }else{
                         self.userBooking = result
                         self.TableView.isHidden = false
