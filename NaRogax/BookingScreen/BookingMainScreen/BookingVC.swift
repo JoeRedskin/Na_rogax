@@ -72,7 +72,6 @@ class BookingVC: UIViewController{
             }else{
                 arrayDay.append(day)
             }
-            print("setFirstData", day.date)
             item += 1
         }
         //указываем первоночальные настройки, что выбран сегоднешней день и самое ближайшее время
@@ -150,6 +149,7 @@ class BookingVC: UIViewController{
             DataLoader.shared().getEmptyTables(data: date){ result, error in
                 if error?.code == 200 {
                     if result.data.count == 0 {
+                        self.alertSpinner.removeSpinner()
                         self.present(Alert.shared().tableAraBusy(protocol: self), animated: true, completion: nil)
                     }else{
                         let storyboard = UIStoryboard(name: "SelectTableScreen", bundle: nil)
