@@ -86,6 +86,9 @@ class BookingVC: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         alertSpinner.removeSpinner()
+        for item in self.tabBarController?.tabBar.items ?? [] {
+            item.isEnabled = true
+        }
     }
     
     private func setDataHours(){
@@ -142,6 +145,9 @@ class BookingVC: UIViewController{
     }
     
     private func downloadTable(date: RequestPostEmptyPlaces){
+        for item in self.tabBarController?.tabBar.items ?? [] {
+            item.isEnabled = false
+        }
         alertSpinner.showSpinner(onView: view)
         if (!Reachability.isConnectedToNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
