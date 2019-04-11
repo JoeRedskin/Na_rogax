@@ -14,6 +14,9 @@ class BookingVC: UIViewController{
     private var arrayHour: [DateCVC] = []
     private var arrayHourOfDay: [String] = []
     private var hoursWork = HoursWork()
+    private let alertSpinner = AlertSpinner()
+    
+    var protSegmentInteraction: SegmentControlerInteraction?
     
     @IBOutlet weak var DateCollectionView: UICollectionView!
     @IBOutlet weak var TimeDurationCollectionView: UICollectionView!
@@ -37,7 +40,7 @@ class BookingVC: UIViewController{
     }
     
     private func firstStart(){
-        Alert.shared().showSpinner(onView: view)
+        alertSpinner.showSpinner(onView: view)
         if !(DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(status: 100, protocol: self), animated: true, completion: nil)
         }else{
@@ -48,7 +51,7 @@ class BookingVC: UIViewController{
                 }else{
                     self.present(Alert.shared().couldServerDown(status: 100, protocol: self), animated: true, completion: nil)
                 }
-                Alert.shared().removeSpinner()
+                self.alertSpinner.removeSpinner()
             }
         }
     }
@@ -80,6 +83,10 @@ class BookingVC: UIViewController{
         hoursWork.selectIndex(index: 0)
         calcAndSetTime()
         DateCollectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
     }
     
     private func setDataHours(){
@@ -117,6 +124,7 @@ class BookingVC: UIViewController{
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
+        protSegmentInteraction?.userInteraction()
         self.present(Alert.shared().pickerAlert(protocol: self, delegate: self, dataSource: self, height: self.view.frame.height, select: hoursWork.indexSelectTime), animated: true, completion: nil)
     }
     
@@ -126,20 +134,16 @@ class BookingVC: UIViewController{
         if (time.timeFrom.isEmpty || time.timeTo.isEmpty){
             return
         }
-        Alert.shared().showSpinner(onView: view)
-        if (!Reachability.isConnectedToNetwork()){
-            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
-        }else{
-            var date = RequestPostEmptyPlaces()
-            date.date = time.dateFrom
-            date.date_to = time.dateTo
-            date.time_to = time.timeTo
-            date.time_from = time.timeFrom
-            downloadTable(date: date)
-        }
+        var date = RequestPostEmptyPlaces()
+        date.date = time.dateFrom
+        date.date_to = time.dateTo
+        date.time_to = time.timeTo
+        date.time_from = time.timeFrom
+        downloadTable(date: date)
     }
     
     private func downloadTable(date: RequestPostEmptyPlaces){
+        alertSpinner.showSpinner(onView: view)
         if (!Reachability.isConnectedToNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
@@ -155,11 +159,11 @@ class BookingVC: UIViewController{
                         vc.time_to = date.time_to
                         vc.time_from = date.time_from
                         vc.tables = result
-                        Alert.shared().removeSpinner()
+                        self.alertSpinner.removeSpinner()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }else{
-                    Alert.shared().removeSpinner()
+                    self.alertSpinner.removeSpinner()
                     self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
                 }
             }
@@ -172,11 +176,16 @@ extension BookingVC: AlertProtocol{
         if (status == 100){
             firstStart()
         }else{
+            protSegmentInteraction?.userInteraction()
             calcAndSetTime()
         }
     }
     
-    func clickButtonCanсel(status: Int) {}
+    func clickButtonCanсel(status: Int) {
+        if status != 100{
+            protSegmentInteraction?.userInteraction()
+        }
+    }
 }
 
 //расширение для методов CollectionView

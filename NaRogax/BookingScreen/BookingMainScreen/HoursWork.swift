@@ -155,7 +155,7 @@ class HoursWork{
             //считаем минуты
             var timeToM:Int = Int(selectTime[1])! + Int(timeInterval[1])!
             var addHours = 0
-            if (timeToM == 10){
+            if (timeToM == 35){
                 timeToM = 0
                 addHours = 1
             }

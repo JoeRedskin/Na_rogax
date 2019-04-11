@@ -22,6 +22,7 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     private var item = -1
     private var table_id = 0
     private var table_info = ""
+    private let alertSpinner = AlertSpinner()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -66,7 +67,12 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         startReserveScreen()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
+    }
+    
     private func startReserveScreen(){
+        alertSpinner.showSpinner(onView: view)
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
         } else {
@@ -121,17 +127,19 @@ class SelectTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 DataLoader.shared().checkAuto(){ result in
                     switch (result?.code){
                     case 200:
+                        self.alertSpinner.removeSpinner()
                         self.navigationController?.pushViewController(vc, animated: true)
                         break
                     case 401:
+                        self.alertSpinner.removeSpinner()
                         let storyboardSingIn = UIStoryboard(name: "SignInScreen", bundle: nil)
                         let vcSignIn = storyboardSingIn.instantiateViewController(withIdentifier: "SignInScreen") as! SignInVC
                         self.navigationController?.pushViewController(vcSignIn, animated: true)
                         break
                     default:
+                        self.alertSpinner.removeSpinner()
                         break
                     }
-                    
                 }
                 
                 //TO DO: сделать проверку на авторизованного пользователя

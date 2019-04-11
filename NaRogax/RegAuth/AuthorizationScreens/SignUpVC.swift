@@ -36,6 +36,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var RepeatedPasswordErrorLabel: UILabel!
     @IBOutlet weak var Spinner: UIActivityIndicatorView!
     
+    private let alertSpinner = AlertSpinner()
+    
     /**
      Variable value is true when NameField is empty.
      If one of TextFields empty then sign up button disabled.
@@ -542,7 +544,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                     self.SignUpBtn.isEnabled = true
                 }else{
                     self.Spinner.startAnimating()
-                    Alert.shared().showSpinner(onView: self.view)
+                    self.alertSpinner.showSpinner(onView: self.view)
                     DataLoader.shared().findUser(email: email){ result in
                         switch result?.code {
                             case 404:
@@ -555,10 +557,12 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                                 let data = RequestUserEmail(email: email)
                                 DataLoader.shared().verifyEmail(data: data){ result in
                                     if result?.code == 200 {
+                                        self.alertSpinner.removeSpinner()
                                         self.Spinner.stopAnimating()
                                         self.SignUpBtn.isEnabled = true
                                         self.navigationController?.pushViewController(vc, animated: true)
-                                        Alert.shared().removeSpinner()
+                                    }else{
+                                        self.alertSpinner.removeSpinner()
                                     }
                                 }
                                 break
@@ -566,7 +570,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                                 self.EmailErrorLabel.text = "Пользователь с такой почтой уже существует"
                                 self.incorrectData(field: self.EmailField, label: self.EmailErrorLabel, image: self.EmailImage)
                                 
-                                Alert.shared().removeSpinner()
+                                self.alertSpinner.removeSpinner()
                                 break
                             case .none:
                                 break

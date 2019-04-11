@@ -32,6 +32,8 @@ class EditProfileVC: UIViewController {
     
     @IBOutlet weak var SaveChangesBtn: UIButton!
     
+    private let alertSpinner = AlertSpinner()
+    
     /**
      User name
      - Important: Get from MainProfile screen
@@ -381,6 +383,11 @@ class EditProfileVC: UIViewController {
         return formattedDate
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
+    }
+    
+    
     /**
      Save changes button tap
      */
@@ -423,7 +430,7 @@ class EditProfileVC: UIViewController {
                             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                         } else {
                             print("verifyEmail", data.new_email)
-                            Alert.shared().showSpinner(onView: self.view)
+                            self.alertSpinner.showSpinner(onView: self.view)
                             DataLoader.shared().findUser(email: email){ result in
                                 switch result?.code {
                                 case 404:
@@ -434,7 +441,7 @@ class EditProfileVC: UIViewController {
                                             let vc = storyboard.instantiateViewController(withIdentifier: "CheckNumberScreen") as! CheckNumberVC
                                             vc.requestChengeUser = data
                                             vc.isChenge = true
-                                            Alert.shared().removeSpinner()
+                                            self.alertSpinner.removeSpinner()
                                             self.navigationController?.pushViewController(vc, animated: true)
                                         } else {
                                         }}
@@ -442,7 +449,7 @@ class EditProfileVC: UIViewController {
                                 case 200:
                                     self.EmailErrorLabel.text = "Пользователь с такой почтой уже существует"
                                     self.incorrectData(field: self.EmailField, label: self.EmailErrorLabel, image: self.EmailIcon)
-                                    Alert.shared().removeSpinner()
+                                    self.alertSpinner.removeSpinner()
                                     break
                                 case .none:
                                     break

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SegmentControlerInteraction {
+    func userInteraction()
+}
+
 class MainBookingVC: UIViewController {
     private var pageController: UIPageViewController!
     var arrayBookingVC = [UIViewController]()
@@ -39,6 +43,7 @@ class MainBookingVC: UIViewController {
     //временная
     private func start(){
         firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
+        firstPage.protSegmentInteraction = self
         let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
         pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
@@ -101,5 +106,11 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
                 }
             }
         }
+    }
+}
+
+extension MainBookingVC: SegmentControlerInteraction{
+    func userInteraction() {
+        segmentedControler.isUserInteractionEnabled = !segmentedControler.isUserInteractionEnabled
     }
 }

@@ -14,48 +14,54 @@ class TabsVC: UIViewController {
     var currentIndex: Int = 0
     var tabs: [String] = []
     var pageController: UIPageViewController!
+    
     private var finished = false
     private var dish = ResponseDishesList(categories: [])
+    private let alertSpinner = AlertSpinner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alert.shared().showSpinner(onView: self.view)
-        if (!DataLoader.shared().testNetwork()) {
-            self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
-            Alert.shared().removeSpinner()
-        } else {
-            DataLoader.shared().getDishes(){result, error in
-                if error?.code == 200 {
-                    //let items = result.categories.sorted(by: { $0.order < $1.order})
-                    self.dish = result
-                    for tab in result.categories{
-                        self.tabs += [tab.categoryName]
-                    }
-                    self.menuBarView.dataArray = self.tabs
-                    self.menuBarView.isSizeToFitCellsNeeded = true
-                    
-                    self.presentPageVCOnView()
-                    
-                    self.menuBarView.menuDelegate = self
-                    self.pageController.delegate =  self
-                    self.pageController.dataSource =  self
-                    
-                    //For Intial Display
-                    self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
-                    self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
-                    Alert.shared().removeSpinner()
-                } else{
-                    self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
-                    Alert.shared().removeSpinner()
-                }
-                
-            }
-        }
+        
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if tabs.count == 0{
+            alertSpinner.showSpinner(onView: self.view)
+            if (!DataLoader.shared().testNetwork()) {
+                self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
+                self.alertSpinner.removeSpinner()
+            } else {
+                DataLoader.shared().getDishes(){result, error in
+                    if error?.code == 200 {
+                        //let items = result.categories.sorted(by: { $0.order < $1.order})
+                        self.dish = result
+                        for tab in result.categories{
+                            self.tabs += [tab.categoryName]
+                        }
+                        self.menuBarView.dataArray = self.tabs
+                        self.menuBarView.isSizeToFitCellsNeeded = true
+                        
+                        self.presentPageVCOnView()
+                        
+                        self.menuBarView.menuDelegate = self
+                        self.pageController.delegate =  self
+                        self.pageController.dataSource =  self
+                        
+                        //For Intial Display
+                        self.menuBarView.collView.selectItem(at: IndexPath.init(item: 0, section: 0), animated: true, scrollPosition: .centeredVertically)
+                        self.pageController.setViewControllers([self.viewController(At: 0)!], direction: .forward, animated: true, completion: nil)
+                    } else{
+                        self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
+                    }
+                    self.alertSpinner.removeSpinner()
+                }
+            }
+        }
     }
     
     /*

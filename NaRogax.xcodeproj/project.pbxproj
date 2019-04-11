@@ -10,6 +10,7 @@
 		1CD0CF4A475233102D6C11E7 /* Pods_NaRogax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FDE4BDA60B612A5AA0C33 /* Pods_NaRogax.framework */; };
 		74A520D62247DC710049C016 /* ExtensionsBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D52247DC710049C016 /* ExtensionsBooking.swift */; };
 		74A520D82247FF2B0049C016 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A520D72247FF2B0049C016 /* DataValidation.swift */; };
+		CE09D5A6225F2FFF00FCAB85 /* AlertSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D5A5225F2FFF00FCAB85 /* AlertSpinner.swift */; };
 		CE481FF6223D06740032AB78 /* ResponseTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE481FF5223D06740032AB78 /* ResponseTimetable.swift */; };
 		CE4EFE5322423FFE00C0E981 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */; };
 		CE4EFE572242513C00C0E981 /* RequestPostReservePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */; };
@@ -95,6 +96,7 @@
 		4B6D14CE70134C70BB02215F /* Pods-NaRogax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaRogax.release.xcconfig"; path = "Target Support Files/Pods-NaRogax/Pods-NaRogax.release.xcconfig"; sourceTree = "<group>"; };
 		74A520D52247DC710049C016 /* ExtensionsBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsBooking.swift; sourceTree = "<group>"; };
 		74A520D72247FF2B0049C016 /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
+		CE09D5A5225F2FFF00FCAB85 /* AlertSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSpinner.swift; sourceTree = "<group>"; };
 		CE481FF5223D06740032AB78 /* ResponseTimetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTimetable.swift; sourceTree = "<group>"; };
 		CE4EFE5222423FFE00C0E981 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		CE4EFE562242513C00C0E981 /* RequestPostReservePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostReservePlace.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				74A520D72247FF2B0049C016 /* DataValidation.swift */,
 				CEF83770224A23F800124293 /* KeychainService.swift */,
 				CE51F328224B607900FC788F /* UserDefaultsData.swift */,
+				CE09D5A5225F2FFF00FCAB85 /* AlertSpinner.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				CE96F255221F3538002EAD2D /* BasicCell.swift in Sources */,
 				CEF7C3A622391E6D00FBAA8B /* ResponseTablesList.swift in Sources */,
 				CE96F259221F353F002EAD2D /* Extensions.swift in Sources */,
+				CE09D5A6225F2FFF00FCAB85 /* AlertSpinner.swift in Sources */,
 				CEF3059022427F91001D6D96 /* RequestPostPasswordRecovery.swift in Sources */,
 				CE4F019B22439625009E526F /* ResponseCategory.swift in Sources */,
 				CE5A4727223BF72100724490 /* HoursWork.swift in Sources */,

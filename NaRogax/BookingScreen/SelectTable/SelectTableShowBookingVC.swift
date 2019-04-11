@@ -19,8 +19,9 @@ class SelectTableShowBookingVC: UIViewController {
     private var userBooking = ResponseShowUserBooking()
     private var CODE_ALERT_DELETE = 100
     private var index = -1
-    var chekAuto = RequestUserEmail()
+    private let alertSpinner = AlertSpinner()
     
+    var chekAuto = RequestUserEmail()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,7 @@ class SelectTableShowBookingVC: UIViewController {
                     self.TableView.isHidden = false
                     self.labelText.isHidden = true
                     if (self.userBooking.bookings.count == 0){
-                        Alert.shared().showSpinner(onView: self.view)
+                        self.alertSpinner.showSpinner(onView: self.view)
                     }
                     self.getData()
                     break
@@ -65,7 +66,7 @@ class SelectTableShowBookingVC: UIViewController {
                     self.buttonAuto.isHidden = false
                     self.labelText.isHidden = false
                     self.labelText.text = self.TEXT_NO_AUTO
-                    Alert.shared().removeSpinner()
+                    self.alertSpinner.removeSpinner()
                     break
                 default:
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
@@ -103,6 +104,7 @@ class SelectTableShowBookingVC: UIViewController {
                 case 200:
                     if (result.bookings.count == 0){
                         self.labelText.isHidden = false
+                        self.TableView.isHidden = true
                         self.labelText.text = self.TEXT_NO_BOOKING
                     }else{
                         self.userBooking = result
@@ -124,12 +126,13 @@ class SelectTableShowBookingVC: UIViewController {
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }
-                Alert.shared().removeSpinner()
+                self.alertSpinner.removeSpinner()
             }
         }
     }
     
     private func deleteBooking(){
+        self.alertSpinner.showSpinner(onView: view)
         let deleteUserBooking = RequestPostDeleteUserBooking(email: chekAuto.email, booking_id:userBooking.bookings[index].booking_id)
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
@@ -144,11 +147,14 @@ class SelectTableShowBookingVC: UIViewController {
                         self.labelText.text = self.TEXT_NO_BOOKING
                         self.TableView.isHidden = true
                     }
+                    self.alertSpinner.removeSpinner()
                     break
                 case 401:
+                    self.alertSpinner.removeSpinner()
                     self.startStoryAuto()
                     break
                 default:
+                    self.alertSpinner.removeSpinner()
                     self.present(Alert.shared().couldServerDown(protocol: self), animated: true, completion: nil)
                     break
                 }

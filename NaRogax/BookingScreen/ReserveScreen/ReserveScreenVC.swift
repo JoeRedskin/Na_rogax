@@ -18,6 +18,8 @@ class ReserveScreenVC: UIViewController {
     @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var ReserveBtn: UIButton!
     
+    private let alertSpinner = AlertSpinner()
+    
     var table_id = 0
     var time_from = ""
     var date_to = ""
@@ -45,21 +47,21 @@ class ReserveScreenVC: UIViewController {
         PersonNameLabel.text = name
         PersonPhoneLabel.text = phone
         
-        Alert.shared().showSpinner(onView: view)
+        alertSpinner.showSpinner(onView: view)
         //if name.isEmpty || phone.isEmpty{
             if (!DataLoader.shared().testNetwork()){
+                self.alertSpinner.removeSpinner()
                 self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                 ReserveBtn.isEnabled = true
             } else {
                 DataLoader.shared().viewUserCredentials(){ result, error in
+                    self.alertSpinner.removeSpinner()
                     if (error?.code == 200){
                         UserDefaultsData.shared().saveName(name: result.data.name)
                         UserDefaultsData.shared().savePhone(phone: result.data.phone)
                         self.PersonNameLabel.text = result.data.name
                         self.PersonPhoneLabel.text = result.data.phone
-                        Alert.shared().removeSpinner()
                     }else{
-                        Alert.shared().removeSpinner()
                         self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                     }
                 }

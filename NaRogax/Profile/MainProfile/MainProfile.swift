@@ -23,21 +23,24 @@ class MainProfile: UIViewController {
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var PhoneLabel: UILabel!
     
+    private let alertSpinner = AlertSpinner()
+    
+    
     /**
      Check if user authorized
      */
     override func viewWillAppear(_ animated: Bool) {
         if (Name.isHidden){
-            Alert.shared().showSpinner(onView: self.view)
+            alertSpinner.showSpinner(onView: self.view)
         }
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
-            Alert.shared().removeSpinner()
+            alertSpinner.removeSpinner()
         } else {
             DataLoader.shared().checkAuto(){ result in
                 if result?.code != 200 {
                     if (self.Name.isHidden){
-                        Alert.shared().removeSpinner()
+                        self.alertSpinner.removeSpinner()
                     }
                     self.changeVisibility(flag: true)
                     self.SignInBtn.layer.cornerRadius = 20
@@ -45,14 +48,13 @@ class MainProfile: UIViewController {
                     let email = UserDefaultsData.shared().getEmail()
                     self.getProfileData(email: email)
                 }
-                Alert.shared().removeSpinner()
             }
         }
     }
     
-    /**
-     Disable scroll on all screens besides like 5s
-     */
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,9 +143,10 @@ class MainProfile: UIViewController {
         /* TODO: Получение данных пользователя по его почте */
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
-            Alert.shared().removeSpinner()
+            self.alertSpinner.removeSpinner()
         } else {
             DataLoader.shared().viewUserCredentials(){ result, error in
+                self.alertSpinner.removeSpinner()
                 self.changeVisibility(flag: false)
                 self.Name.text = result.data.name
                 self.Phone.text = result.data.phone.applyPatternOnNumbers(pattern: "+# (###) ###-##-##", replacmentCharacter: "#")
@@ -154,7 +157,6 @@ class MainProfile: UIViewController {
                 } else {
                     self.Date.text = "Не указана"
                 }
-                Alert.shared().removeSpinner()
             }
         }
     }

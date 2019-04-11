@@ -34,6 +34,8 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
     @IBOutlet weak var ChangePasswordBtn: UIButton!
     @IBOutlet weak var ScrollView: UIScrollView!
     
+    private let alertSpinner = AlertSpinner()
+    
     /**
      User email
      - Important: Get from PasswordRecoveryMain screen
@@ -416,6 +418,10 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
         changePlaceholderColor(field: sender, color: #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1))
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
+    }
+    
     /**
      Change password button tap
      */
@@ -431,11 +437,11 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
                 data.code = icode
                 data.email = self.email
                 data.password = pass
-                Alert.shared().showSpinner(onView: self.view)
+                alertSpinner.showSpinner(onView: self.view)
                 if (!DataLoader.shared().testNetwork()){
                     self.present(Alert.shared().noInternet(protocol: nil), animated: true, completion: nil)
                     self.ChangePasswordBtn.isEnabled = true
-                    Alert.shared().removeSpinner()
+                    self.alertSpinner.removeSpinner()
                 }else{
                     DataLoader.shared().passwordRecovery(data: data){ result in
                         if result?.code == 200 {
@@ -445,7 +451,7 @@ class PasswordRecoveryNewPasswordVC: UIViewController, UITextFieldDelegate, Aler
                         }
                         self.ChangePasswordBtn.isEnabled = true
                     }
-                    Alert.shared().removeSpinner()
+                    self.alertSpinner.removeSpinner()
                 }
             }
             if !validateCode(code: code) {

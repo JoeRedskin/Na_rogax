@@ -16,6 +16,8 @@ class PasswordRecoveryMainVC: UIViewController {
     @IBOutlet weak var EmailIcon: UIImageView!
     @IBOutlet weak var SendBtn: UIButton!
     
+    private let alertSpinner = AlertSpinner()
+    
     /**
      Variable value is true when EmailField is empty.
      If one of TextFields empty then send code button disabled.
@@ -184,6 +186,10 @@ class PasswordRecoveryMainVC: UIViewController {
         EmailErrorLabel.isHidden = false
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        alertSpinner.removeSpinner()
+    }
+    
     /**
      Send code to email
      */
@@ -198,7 +204,7 @@ class PasswordRecoveryMainVC: UIViewController {
                         self.present(Alert.shared().noInternet(protocol: self as? AlertProtocol), animated: true, completion: nil)
                         self.SendBtn.isEnabled = true
                     }else{
-                        Alert.shared().showSpinner(onView: self.view)
+                        self.alertSpinner.showSpinner(onView: self.view)
                         DataLoader.shared().findUser(email: email){ result in
                             switch result?.code {
                             case 200:
@@ -208,7 +214,7 @@ class PasswordRecoveryMainVC: UIViewController {
                                         let storyboard = UIStoryboard(name: "PasswordRecoveryNewPassword", bundle: nil)
                                         let vc = storyboard.instantiateViewController(withIdentifier: "NewPasswordScreen") as! PasswordRecoveryNewPasswordVC
                                         vc.email = email
-                                        Alert.shared().removeSpinner()
+                                        self.alertSpinner.removeSpinner()
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                     self.SendBtn.isEnabled = true
@@ -217,7 +223,7 @@ class PasswordRecoveryMainVC: UIViewController {
                             case 404:
                                 self.incorrectData(field: self.EmailField, label: nil, image: self.EmailIcon)
                                 self.showErrorLabel(text: "Пользователя с такой почтой не существует")
-                                Alert.shared().removeSpinner()
+                                self.alertSpinner.removeSpinner()
                                 break
                             case .none:
                                 break
