@@ -15,9 +15,7 @@ class BookingVC: UIViewController{
     private var arrayHourOfDay: [String] = []
     private var hoursWork = HoursWork()
     private let alertSpinner = AlertSpinner()
-    
-    var protSegmentInteraction: SegmentControlerInteraction?
-    
+        
     @IBOutlet weak var DateCollectionView: UICollectionView!
     @IBOutlet weak var TimeDurationCollectionView: UICollectionView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -130,7 +128,6 @@ class BookingVC: UIViewController{
     }
     
     @IBAction func changeTime(_ sender: UIButton) {
-        protSegmentInteraction?.userInteraction()
         self.present(Alert.shared().pickerAlert(protocol: self, delegate: self, dataSource: self, height: self.view.frame.height, select: hoursWork.indexSelectTime), animated: true, completion: nil)
     }
     
@@ -187,15 +184,11 @@ extension BookingVC: AlertProtocol{
         if (status == 100){
             firstStart()
         }else{
-            protSegmentInteraction?.userInteraction()
             calcAndSetTime()
         }
     }
     
     func clickButtonCanсel(status: Int) {
-        if status != 100{
-            protSegmentInteraction?.userInteraction()
-        }
     }
 }
 

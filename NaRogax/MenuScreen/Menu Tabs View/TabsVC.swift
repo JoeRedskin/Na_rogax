@@ -21,7 +21,7 @@ class TabsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        downloadMenu()
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
@@ -29,7 +29,7 @@ class TabsVC: UIViewController {
         return .lightContent
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    private func downloadMenu(){
         if tabs.count == 0{
             alertSpinner.showSpinner(onView: self.view)
             if (!DataLoader.shared().testNetwork()) {

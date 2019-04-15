@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SegmentControlerInteraction {
-    func userInteraction()
-}
-
 class MainBookingVC: UIViewController {
     private var pageController: UIPageViewController!
     var arrayBookingVC = [UIViewController]()
@@ -43,21 +39,22 @@ class MainBookingVC: UIViewController {
     //временная
     private func start(){
         firstPage = storyboard?.instantiateViewController(withIdentifier: "BookingVC") as! BookingVC
-        firstPage.protSegmentInteraction = self
         let storyboard2 = UIStoryboard(name: "SelectTableScreen", bundle: nil)
         secondPage = storyboard2.instantiateViewController(withIdentifier: "SelectTableShowBooking") as! SelectTableShowBookingVC
         pageController.setViewControllers([ firstPage], direction: .forward, animated: true, completion: nil)
     }
     
     @IBAction func changedValue(_ sender: UISegmentedControl) {
-        print("change", sender.selectedSegmentIndex)
         if (sender.selectedSegmentIndex == 0){
-            pageController.setViewControllers([firstPage], direction: .reverse, animated: true, completion: nil)
+            firstPage.view.isUserInteractionEnabled = false
+            pageController.setViewControllers([firstPage], direction: .reverse, animated: true, completion: { finish in
+                self.firstPage.view.isUserInteractionEnabled = true})
         }else{
-            pageController.setViewControllers([secondPage], direction: .forward, animated: true, completion: nil)
+            secondPage.view.isUserInteractionEnabled = false
+            pageController.setViewControllers([secondPage], direction: .forward, animated: true, completion: { finish in
+                self.secondPage.view.isUserInteractionEnabled = true})
         }
     }
-    
     
     func presentPageVCOnView() {
         self.pageController = storyboard?.instantiateViewController(withIdentifier: "BookintPageControl") as! PageControllerVC
@@ -106,11 +103,5 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
                 }
             }
         }
-    }
-}
-
-extension MainBookingVC: SegmentControlerInteraction{
-    func userInteraction() {
-        segmentedControler.isUserInteractionEnabled = !segmentedControler.isUserInteractionEnabled
     }
 }
