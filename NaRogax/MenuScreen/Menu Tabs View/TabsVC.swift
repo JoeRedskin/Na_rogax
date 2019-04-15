@@ -91,7 +91,6 @@ class TabsVC: UIViewController {
 
 extension TabsVC: AlertProtocol{
     func clickButtonPositiv(status: Int) {
-        print("TabsVC")
         self.reloadViewFromNib()
     }
     

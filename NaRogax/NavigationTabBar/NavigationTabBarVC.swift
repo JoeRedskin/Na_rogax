@@ -17,7 +17,6 @@ class NavigationTabBarVC: UITabBarController {
         settingTabBar()
         UIView.appearance().isExclusiveTouch = true
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

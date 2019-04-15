@@ -84,6 +84,7 @@ class SelectTableShowBookingVC: UIViewController {
     
     
     @IBAction func clickButton(_ sender: UIButton) {
+        alertSpinner.showSpinner(onView: view)
         index = sender.tag
         self.present(Alert.shared().canselBooking(status: CODE_ALERT_DELETE, protocol: self,time: userBooking.bookings[index].configData()), animated: true, completion: nil)
     }
@@ -134,7 +135,7 @@ class SelectTableShowBookingVC: UIViewController {
     }
     
     private func deleteBooking(){
-        self.alertSpinner.showSpinner(onView: view)
+        //self.alertSpinner.showSpinner(onView: view)
         let deleteUserBooking = RequestPostDeleteUserBooking(email: chekAuto.email, booking_id:userBooking.bookings[index].booking_id)
         if (!DataLoader.shared().testNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)

@@ -137,7 +137,7 @@
 		CEF0205922377D700083D0A1 /* BookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC.swift; sourceTree = "<group>"; };
 		CEF0205B22377D840083D0A1 /* DateCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCVC.swift; sourceTree = "<group>"; };
 		CEF1C08B2244024E0081CA91 /* RequestUserEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUserEmail.swift; sourceTree = "<group>"; };
-		CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseShowUserBooking.swift; sourceTree = "<group>"; };
+		CEF1C08D224403510081CA91 /* ResponseShowUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseShowUserBooking.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		CEF1C08F2244077D0081CA91 /* RequestPostDeleteUserBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPostDeleteUserBooking.swift; sourceTree = "<group>"; };
 		CEF24FA52249124F00D5B1C2 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		CEF24FA722491E0800D5B1C2 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
