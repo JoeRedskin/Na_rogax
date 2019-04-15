@@ -71,7 +71,7 @@ class TableCell: UITableViewCell {
         }
     }
     
-    func separatorHide() {
-        separator.isHidden = true
+    func separatorHide(isHidden: Bool) {
+        separator.isHidden = isHidden
     }
 }

@@ -86,6 +86,7 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
     
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        self.segmentedControler.isUserInteractionEnabled = true
         if finished {
             if completed {
                 //self.finished = true
@@ -103,5 +104,10 @@ extension MainBookingVC: UIPageViewControllerDataSource, UIPageViewControllerDel
                 }
             }
         }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            willTransitionTo pendingViewControllers: [UIViewController]){
+        self.segmentedControler.isUserInteractionEnabled = false
     }
 }
