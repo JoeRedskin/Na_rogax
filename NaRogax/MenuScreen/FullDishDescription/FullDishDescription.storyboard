@@ -270,6 +270,10 @@
                                                                             <constraint firstAttribute="height" constant="100" id="KPQ-kA-wLj"/>
                                                                         </constraints>
                                                                     </imageView>
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O72-uT-g6W">
+                                                                        <rect key="frame" x="57.5" y="31.5" width="37" height="37"/>
+                                                                        <color key="color" red="1" green="0.14901960780000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </activityIndicatorView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvH-UX-usD">
                                                                         <rect key="frame" x="8" y="106" width="136" height="13.5"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
@@ -295,6 +299,7 @@
                                                                 <constraint firstItem="Sc0-hB-gNP" firstAttribute="leading" secondItem="csd-oI-SNS" secondAttribute="leading" id="8AE-Ou-UyJ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Sc0-hB-gNP" secondAttribute="trailing" id="CHP-8p-zyH"/>
                                                                 <constraint firstItem="Sc0-hB-gNP" firstAttribute="top" secondItem="csd-oI-SNS" secondAttribute="top" id="CjV-dA-cDb"/>
+                                                                <constraint firstItem="O72-uT-g6W" firstAttribute="centerY" secondItem="Sc0-hB-gNP" secondAttribute="centerY" id="LeI-C0-2ei"/>
                                                                 <constraint firstAttribute="trailing" secondItem="zvH-UX-usD" secondAttribute="trailing" constant="8" id="P78-Ef-wna"/>
                                                                 <constraint firstItem="zvH-UX-usD" firstAttribute="leading" secondItem="csd-oI-SNS" secondAttribute="leading" constant="8" id="RAc-g8-a4o"/>
                                                                 <constraint firstItem="Igh-6i-nbd" firstAttribute="leading" secondItem="csd-oI-SNS" secondAttribute="leading" constant="8" id="VaI-er-CN0"/>
@@ -302,8 +307,10 @@
                                                                 <constraint firstAttribute="bottom" secondItem="Igh-6i-nbd" secondAttribute="bottom" constant="41" id="bfP-Qb-ukT"/>
                                                                 <constraint firstItem="zvH-UX-usD" firstAttribute="top" secondItem="Sc0-hB-gNP" secondAttribute="bottom" constant="6" id="eaO-b0-CRw"/>
                                                                 <constraint firstAttribute="bottom" secondItem="UCn-yW-cWl" secondAttribute="bottom" constant="10" id="iag-0y-pHU"/>
+                                                                <constraint firstItem="O72-uT-g6W" firstAttribute="centerX" secondItem="Sc0-hB-gNP" secondAttribute="centerX" id="yVX-Se-d0p"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="ImageSpinner" destination="O72-uT-g6W" id="ZLt-7d-klj"/>
                                                                 <outlet property="recommendedDishImage" destination="Sc0-hB-gNP" id="1xo-1y-Hgz"/>
                                                                 <outlet property="recommendedDishNameLabel" destination="zvH-UX-usD" id="KMI-LI-kUR"/>
                                                                 <outlet property="recommendedDishPriceLabel" destination="UCn-yW-cWl" id="1SL-Xq-xtj"/>

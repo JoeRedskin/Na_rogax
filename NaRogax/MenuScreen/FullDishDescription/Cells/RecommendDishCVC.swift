@@ -14,6 +14,7 @@ class RecommendedDishCVC: UICollectionViewCell {
     @IBOutlet weak var recommendedDishWeightLabel: UILabel!
     @IBOutlet weak var recommendedDishPriceLabel: UILabel!
     @IBOutlet weak var recommendedDishImage: UIImageView!
+    @IBOutlet weak var ImageSpinner: UIActivityIndicatorView!
     
     /**
      Display recommend dish on full dish description screen
@@ -72,6 +73,8 @@ class RecommendedDishCVC: UICollectionViewCell {
                 DispatchQueue.main.async {
                     if let imageData = urlContents {
                         self?.recommendedDishImage.image = UIImage(data: imageData)
+                        self?.ImageSpinner.stopAnimating()
+                        self?.ImageSpinner.isHidden = true
                     }
                 }
             }

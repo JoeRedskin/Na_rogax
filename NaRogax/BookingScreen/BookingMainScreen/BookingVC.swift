@@ -84,8 +84,15 @@ class BookingVC: UIViewController{
         DateCollectionView.reloadData()
     }
     
+    func changeTabBarState(isEnabled: Bool) {
+        for item in self.tabBarController?.tabBar.items ?? [] {
+            item.isEnabled = isEnabled
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         alertSpinner.removeSpinner()
+        changeTabBarState(isEnabled: true)
     }
     
     private func setDataHours(){
@@ -142,9 +149,11 @@ class BookingVC: UIViewController{
     }
     
     private func downloadTable(date: RequestPostEmptyPlaces){
+        changeTabBarState(isEnabled: false)
         alertSpinner.showSpinner(onView: view)
         if (!Reachability.isConnectedToNetwork()){
             self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
+            changeTabBarState(isEnabled: false)
         } else {
             DataLoader.shared().getEmptyTables(data: date){ result, error in
                 if error?.code == 200 {
@@ -162,9 +171,11 @@ class BookingVC: UIViewController{
                         self.alertSpinner.removeSpinner()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
+                    self.changeTabBarState(isEnabled: true)
                 }else{
                     self.alertSpinner.removeSpinner()
                     self.present(Alert.shared().noInternet(protocol: self), animated: true, completion: nil)
+                    self.changeTabBarState(isEnabled: true)
                 }
             }
         }
