@@ -250,7 +250,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         EmailField.maxLength = 100
         PasswordField.maxLength = 32
         RepeatPasswordField.maxLength = 32
-        NameField.maxLength = 30
+        NameField.maxLength = 16
         PhoneField.maxLength = 18
         SignUpBtn.layer.cornerRadius = 20
         

@@ -187,7 +187,7 @@ class EditProfileVC: UIViewController {
         DateField.text = BirthDate
         
         setStyleForTextField(field: NameField, placeholder: "Имя")
-        NameField.maxLength = 30
+        NameField.maxLength = 16
         setStyleForTextField(field: EmailField, placeholder: "E-mail")
         EmailField.maxLength = 100
         setStyleForTextField(field: PhoneField, placeholder: "Телефон")
