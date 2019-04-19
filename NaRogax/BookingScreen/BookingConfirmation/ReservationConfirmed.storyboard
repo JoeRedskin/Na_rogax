@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reservation ConfirmedVC-->
+        <scene sceneID="PaY-PK-E8B">
+            <objects>
+                <viewController storyboardIdentifier="ReservationConfirmed" hidesBottomBarWhenPushed="YES" id="F1c-nT-bfY" customClass="ReservationConfirmedVC" customModule="NaRogax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0HL-nK-0Ah">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-Zj-kI4">
+                                <rect key="frame" x="16" y="598" width="343" height="41"/>
+                                <color key="backgroundColor" red="1" green="0.10980392160000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="cXJ-l2-bls"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Продолжить">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueToMenu:" destination="F1c-nT-bfY" eventType="touchUpInside" id="nBT-2J-6UC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83H-Qf-KTW">
+                                <rect key="frame" x="16" y="296" width="343" height="95.5"/>
+                                <string key="text">Екатерина, заявка на бронирование
+принята.   В ближайшее время Вам позвонит наш администратори уточнит детали
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.12549019607843137" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="centerY" secondItem="7iR-ip-hlB" secondAttribute="centerY" id="CmJ-oo-7zB"/>
+                            <constraint firstItem="9ch-Zj-kI4" firstAttribute="leading" secondItem="7iR-ip-hlB" secondAttribute="leading" constant="16" id="E6u-gp-UIw"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="centerX" secondItem="7iR-ip-hlB" secondAttribute="centerX" id="bai-uW-x7H"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="trailing" secondItem="9ch-Zj-kI4" secondAttribute="trailing" constant="16" id="hbT-Dn-9gl"/>
+                            <constraint firstAttribute="trailing" secondItem="83H-Qf-KTW" secondAttribute="trailing" constant="16" id="nxs-Ze-EQe"/>
+                            <constraint firstItem="7iR-ip-hlB" firstAttribute="bottom" secondItem="9ch-Zj-kI4" secondAttribute="bottom" constant="28" id="sLY-bD-SHI"/>
+                            <constraint firstItem="83H-Qf-KTW" firstAttribute="leading" secondItem="0HL-nK-0Ah" secondAttribute="leading" constant="16" id="xLS-ZV-4g3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7iR-ip-hlB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EJ1-XL-YiT"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="button" destination="9ch-Zj-kI4" id="lho-kr-bsz"/>
+                        <outlet property="confirmLabel" destination="83H-Qf-KTW" id="BY0-8m-Ilv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THa-jC-OM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-64.799999999999997" y="-37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
