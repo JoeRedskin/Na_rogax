@@ -6,6 +6,5 @@ target 'NaRogax' do
   use_frameworks!
 
   # Pods for NaRogax
-  pod 'Kingfisher'
   pod 'Alamofire'
 end
